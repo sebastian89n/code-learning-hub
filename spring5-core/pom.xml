@@ -11,8 +11,8 @@
 
     <artifactId>code-learning-hub-spring5-core</artifactId>
 
-    <name>spring5-core</name>
-    <description>spring5-core</description>
+    <name>code-learning-hub-spring5-core</name>
+    <description>code-learning-hub-spring5-core</description>
 
     <properties>
         <spring.version>5.3.29</spring.version>
