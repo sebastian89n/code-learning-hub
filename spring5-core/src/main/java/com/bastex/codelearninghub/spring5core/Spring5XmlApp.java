@@ -1,6 +1,6 @@
 package com.bastex.codelearninghub.spring5core;
 
-import com.bastex.codelearninghub.spring5core.services.BeanService;
+import com.bastex.codelearninghub.spring5core.xml.services.XmlBeanService;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class Spring5XmlApp {
@@ -9,8 +9,8 @@ public class Spring5XmlApp {
         // Allows to use Spring core with dependency injection and IoC(Inversion of Control -> beans are initialized by runtime env/framework) by loading Spring context from xml file
         final ClassPathXmlApplicationContext applicationContext = new ClassPathXmlApplicationContext("classpath:/application-context.xml");
 
-        final BeanService beanService = applicationContext.getBean(BeanService.class);
-        beanService.printComponentName();
-        beanService.printComponentName();
+        final XmlBeanService configurationInitializedBeanService = applicationContext.getBean(XmlBeanService.class);
+        configurationInitializedBeanService.printComponentName();
+        configurationInitializedBeanService.printComponentName();
     }
 }

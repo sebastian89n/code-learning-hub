@@ -6,7 +6,7 @@ import jakarta.annotation.PostConstruct;
  * Sample for bean initialized in the @Configuration class using @Bean annotation.
  * Just another way to create Spring beans.
  */
-public class BeanInitializedInConfigurationSample {
+public class InitializedInConfigurationBean {
     @PostConstruct
     public void init() {
         System.out.println("### BeanInitializedInConfigurationSample @PostConstruct");

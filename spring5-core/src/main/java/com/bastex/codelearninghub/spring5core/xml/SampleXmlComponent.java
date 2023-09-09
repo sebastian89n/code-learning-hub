@@ -1,9 +1,12 @@
-package com.bastex.codelearninghub.spring5core.components;
+package com.bastex.codelearninghub.spring5core.xml;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
+/**
+ * Bean initialized in xml context(application-context.xml)
+ */
 @Slf4j
 @RequiredArgsConstructor
 public class SampleXmlComponent {

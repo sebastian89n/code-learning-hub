@@ -1,13 +1,13 @@
-package com.bastex.codelearninghub.spring5core.services;
+package com.bastex.codelearninghub.spring5core.xml.services;
 
-import com.bastex.codelearninghub.spring5core.components.SampleXmlComponent;
+import com.bastex.codelearninghub.spring5core.xml.SampleXmlComponent;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @RequiredArgsConstructor
-public class XmlInitializedBeanServiceImpl implements BeanService {
+public class XmlBeanServiceImpl implements XmlBeanService {
     private final SampleXmlComponent sampleXmlComponent;
 
     // only used to demonstrate initialization of properties in Spring xml context
@@ -19,7 +19,6 @@ public class XmlInitializedBeanServiceImpl implements BeanService {
 
     @Override
     public void printComponentName() {
-        log.info("Component name: XmlInitializedBeanServiceImpl. Version: {}, Printing executed {} times. {}", version, ++executionCount, sampleXmlComponent.getMessage())
-        ;
+        log.info("Component name: {}. Version: {}, Printing executed {} times. {}", this.getClass().getSimpleName(), version, ++executionCount, sampleXmlComponent.getMessage());
     }
 }
