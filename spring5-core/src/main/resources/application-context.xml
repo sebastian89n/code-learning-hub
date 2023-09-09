@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="
+    http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- Some basic sample for Spring xml context bean definitions -->
+
+    <bean id="sampleComponent"
+          class="com.bastex.codelearninghub.spring5core.components.SampleXmlComponent">
+        <constructor-arg index="0" value="END MESSAGE"/>
+    </bean>
+
+    <bean id="xmlInitializedBeanService"
+          class="com.bastex.codelearninghub.spring5core.services.XmlInitializedBeanServiceImpl">
+        <constructor-arg name="version" value="0.1-ALPHA"/>
+        <constructor-arg name="sampleXmlComponent" ref="sampleComponent"/>
+        <property name="executionCount" value="0"/>
+    </bean>
+</beans>
