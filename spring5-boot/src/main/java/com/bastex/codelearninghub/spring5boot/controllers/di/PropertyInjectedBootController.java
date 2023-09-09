@@ -1,6 +1,6 @@
 package com.bastex.codelearninghub.spring5boot.controllers.di;
 
-import com.bastex.spring5learning.springboot.services.GreetingBootService;
+import com.bastex.codelearninghub.spring5boot.services.GreetingBootService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;

@@ -1,6 +1,6 @@
 package com.bastex.codelearninghub.spring5boot.controllers.di;
 
-import com.bastex.spring5learning.springboot.services.GreetingBootService;
+import com.bastex.codelearninghub.spring5boot.services.GreetingBootService;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 

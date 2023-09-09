@@ -1,6 +1,6 @@
 package com.bastex.codelearninghub.spring5boot.controllers.profiles;
 
-import com.bastex.spring5learning.springboot.services.PetService;
+import com.bastex.codelearninghub.spring5boot.services.PetService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 

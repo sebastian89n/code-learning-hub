@@ -1,6 +1,6 @@
 package com.bastex.codelearninghub.spring5boot.beans;
 
-import com.bastex.spring5learning.springboot.domain.UserEntity;
+import com.bastex.codelearninghub.spring5boot.domain.UserEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

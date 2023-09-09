@@ -1,12 +1,12 @@
 package com.bastex.codelearninghub.spring5boot;
 
-import com.bastex.spring5learning.springboot.controllers.di.ConstructorInjectedBootController;
-import com.bastex.spring5learning.springboot.controllers.di.PropertyInjectedBootController;
-import com.bastex.spring5learning.springboot.controllers.di.SetterInjectedBootController;
-import com.bastex.spring5learning.springboot.controllers.primary.PrimaryBeanInjectedController;
-import com.bastex.spring5learning.springboot.controllers.profiles.I18nController;
-import com.bastex.spring5learning.springboot.controllers.profiles.PetController;
-import com.bastex.spring5learning.springboot.services.GreetingBootService;
+import com.bastex.codelearninghub.spring5boot.controllers.di.ConstructorInjectedBootController;
+import com.bastex.codelearninghub.spring5boot.controllers.di.PropertyInjectedBootController;
+import com.bastex.codelearninghub.spring5boot.controllers.di.SetterInjectedBootController;
+import com.bastex.codelearninghub.spring5boot.controllers.primary.PrimaryBeanInjectedController;
+import com.bastex.codelearninghub.spring5boot.controllers.profiles.I18nController;
+import com.bastex.codelearninghub.spring5boot.controllers.profiles.PetController;
+import com.bastex.codelearninghub.spring5boot.services.GreetingBootService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

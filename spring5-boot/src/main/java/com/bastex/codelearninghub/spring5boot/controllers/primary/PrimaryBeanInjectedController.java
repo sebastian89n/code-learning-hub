@@ -1,6 +1,6 @@
 package com.bastex.codelearninghub.spring5boot.controllers.primary;
 
-import com.bastex.spring5learning.springboot.services.GreetingBootService;
+import com.bastex.codelearninghub.spring5boot.services.GreetingBootService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 

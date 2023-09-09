@@ -7,7 +7,6 @@ import jakarta.annotation.PostConstruct;
  * Just another way to create Spring beans.
  */
 public class BeanInitializedInConfigurationSample {
-
     @PostConstruct
     public void init() {
         System.out.println("### BeanInitializedInConfigurationSample @PostConstruct");
