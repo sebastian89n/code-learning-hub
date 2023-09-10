@@ -1,4 +1,4 @@
-package com.bastex.codelearninghub.designpatterns.java17learning.spring5learning.springboot;
+package com.bastexcodelearninghub.spring5boot;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
