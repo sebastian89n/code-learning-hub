@@ -6,7 +6,7 @@ import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Component;
 
 /**
- * Defines Spring bean that will be picked up by @ComponentScan
+ * Component - defines Spring bean that will be picked up by @ComponentScan
  */
 @Component
 @Data
