@@ -14,7 +14,8 @@ import org.springframework.context.ConfigurableApplicationContext;
 
 // by default executes @ComponentScan on all beans within the same package recursively + acts as @Configuration class - @Bean can be specified here
 // open @SpringBootApplication definition for details
-@SpringBootApplication
+// scanBasePackages can override default packages to scan. By the default it scans only classes within same package as class with @SpringBootApplication anno(recursively)
+@SpringBootApplication(scanBasePackages = {"com.bastex.codelearninghub.spring5", "com.bastex.codelearninghub.spring5.context.annotations"})
 @Slf4j
 public class SpringBoot5Application {
 
