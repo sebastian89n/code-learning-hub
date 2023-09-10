@@ -10,5 +10,5 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>code-learning-hub-java17</artifactId>
+    <artifactId>code-learning-hub-java-new-features</artifactId>
 </project>
