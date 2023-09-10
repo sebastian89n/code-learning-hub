@@ -11,6 +11,6 @@ public class Spring5AnnotationApp {
         final AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(Spring5CoreAnnotationConfiguration.class);
 
         final AnnotationInitializedBeanService beanService = applicationContext.getBean(AnnotationInitializedBeanService.class);
-        beanService.printComponentName();
+        beanService.printComponentType();
     }
 }

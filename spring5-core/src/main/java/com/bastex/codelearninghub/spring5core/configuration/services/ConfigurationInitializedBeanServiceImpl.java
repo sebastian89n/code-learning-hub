@@ -5,7 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class ConfigurationInitializedBeanServiceImpl implements ConfigurationInitializedBeanService {
     @Override
-    public void printComponentName() {
-        log.info("Component name: {}", this.getClass().getSimpleName());
+    public void printComponentType() {
+        log.info("Component type: {}", this.getClass().getSimpleName());
     }
 }

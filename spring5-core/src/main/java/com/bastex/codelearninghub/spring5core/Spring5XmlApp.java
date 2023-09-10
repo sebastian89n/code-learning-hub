@@ -10,7 +10,7 @@ public class Spring5XmlApp {
         final ClassPathXmlApplicationContext applicationContext = new ClassPathXmlApplicationContext("classpath:/application-context.xml");
 
         final XmlBeanService configurationInitializedBeanService = applicationContext.getBean(XmlBeanService.class);
-        configurationInitializedBeanService.printComponentName();
-        configurationInitializedBeanService.printComponentName();
+        configurationInitializedBeanService.printComponentType();
+        configurationInitializedBeanService.printComponentType();
     }
 }

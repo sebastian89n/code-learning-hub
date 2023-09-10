@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 @Service
 class AnnotationInitializedBeanServiceImpl implements AnnotationInitializedBeanService {
     @Override
-    public void printComponentName() {
-        log.info("Component name: {}", this.getClass().getSimpleName());
+    public void printComponentType() {
+        log.info("Component type: {}", this.getClass().getSimpleName());
     }
 }

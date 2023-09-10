@@ -18,7 +18,7 @@ public class XmlBeanServiceImpl implements XmlBeanService {
     private int executionCount;
 
     @Override
-    public void printComponentName() {
-        log.info("Component name: {}. Version: {}, Printing executed {} times. {}", this.getClass().getSimpleName(), version, ++executionCount, sampleXmlComponent.getMessage());
+    public void printComponentType() {
+        log.info("Component type: {}. Version: {}, Printing executed {} times. {}", this.getClass().getSimpleName(), version, ++executionCount, sampleXmlComponent.getMessage());
     }
 }
