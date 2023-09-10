@@ -7,15 +7,15 @@
 
     <!-- Some basic sample for Spring xml context bean definitions -->
 
-    <bean id="sampleComponent"
-          class="com.bastex.codelearninghub.spring5.context.xml.SampleXmlComponent">
+    <bean id="sampleXmlBean"
+          class="com.bastex.codelearninghub.spring5.context.xml.beans.SampleXmlBean">
         <constructor-arg index="0" value="END MESSAGE"/>
     </bean>
 
     <bean id="xmlBeanService"
           class="com.bastex.codelearninghub.spring5.context.xml.services.XmlBeanServiceImpl">
         <constructor-arg name="version" value="0.1-ALPHA"/>
-        <constructor-arg name="sampleXmlComponent" ref="sampleComponent"/>
+        <constructor-arg name="sampleXmlBean" ref="sampleXmlBean"/>
         <property name="executionCount" value="0"/>
     </bean>
 </beans>

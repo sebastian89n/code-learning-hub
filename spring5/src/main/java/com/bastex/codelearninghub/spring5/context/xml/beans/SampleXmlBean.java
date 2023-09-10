@@ -1,4 +1,4 @@
-package com.bastex.codelearninghub.spring5.context.xml;
+package com.bastex.codelearninghub.spring5.context.xml.beans;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
@@ -9,7 +9,7 @@ import lombok.extern.slf4j.Slf4j;
  */
 @Slf4j
 @RequiredArgsConstructor
-public class SampleXmlComponent {
+public class SampleXmlBean {
     @Getter
     private final String message;
 }

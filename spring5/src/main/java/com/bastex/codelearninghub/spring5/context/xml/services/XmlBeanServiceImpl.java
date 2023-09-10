@@ -1,6 +1,6 @@
 package com.bastex.codelearninghub.spring5.context.xml.services;
 
-import com.bastex.codelearninghub.spring5.context.xml.SampleXmlComponent;
+import com.bastex.codelearninghub.spring5.context.xml.beans.SampleXmlBean;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
@@ -8,7 +8,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @RequiredArgsConstructor
 public class XmlBeanServiceImpl implements XmlBeanService {
-    private final SampleXmlComponent sampleXmlComponent;
+    private final SampleXmlBean sampleXmlBean;
 
     // only used to demonstrate initialization of properties in Spring xml context
     private final String version;
@@ -19,6 +19,6 @@ public class XmlBeanServiceImpl implements XmlBeanService {
 
     @Override
     public void printComponentType() {
-        log.info("Component type: {}. Version: {}, Printing executed {} times. {}", this.getClass().getSimpleName(), version, ++executionCount, sampleXmlComponent.getMessage());
+        log.info("Component type: {}. Version: {}, Printing executed {} times. {}", this.getClass().getSimpleName(), version, ++executionCount, sampleXmlBean.getMessage());
     }
 }

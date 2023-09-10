@@ -1,4 +1,4 @@
-package com.bastexcodelearninghub.spring5boot;
+package com.bastexcodelearninghub.spring5;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
