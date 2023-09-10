@@ -1,10 +1,11 @@
-package com.bastexcodelearninghub.spring5;
+package com.bastex.petclinic;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class SpringBoot5ApplicationTests {
+class PetClinicApplicationTests {
+
     @Test
     void contextLoads() {
     }

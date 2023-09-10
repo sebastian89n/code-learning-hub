@@ -20,11 +20,12 @@
     </properties>
 
     <modules>
-        <module>java17</module>
-        <module>spring5</module>
         <module>design-patterns</module>
-        <module>junit5</module>
         <module>html5</module>
+        <module>java17</module>
+        <module>junit5</module>
+        <module>spring5</module>
+        <module>spring-boot-sample-app</module>
     </modules>
 
     <dependencies>
