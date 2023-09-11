@@ -1,7 +1,6 @@
 package com.bastex.codelearninghub.designpatterns.creational.builder;
 
 public class MongoDbQuery implements Query {
-
     private String from;
 
     private String where;
@@ -18,6 +17,4 @@ public class MongoDbQuery implements Query {
     public void setWhere(final String where) {
         this.where = where;
     }
-
-
 }

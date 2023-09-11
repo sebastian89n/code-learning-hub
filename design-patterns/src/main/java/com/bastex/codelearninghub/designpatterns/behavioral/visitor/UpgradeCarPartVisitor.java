@@ -6,6 +6,4 @@ public class UpgradeCarPartVisitor implements CarPartVisitor {
     public void visit(final CarPart carPart) {
         System.out.println("Upgrade: " + carPart);
     }
-
-
 }

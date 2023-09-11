@@ -5,14 +5,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Car {
-    List<CarPart> carParts = new ArrayList<>();
+    private final List<CarPart> carParts = new ArrayList<>();
 
-    public List<CarPart> getCarParts() {
-        return carParts;
-    }
-
-    public void setCarParts(final List<CarPart> carParts) {
-        this.carParts = carParts;
+    public void addCarPart(final CarPart carPart) {
+        carParts.add(carPart);
     }
 
     public void render() {

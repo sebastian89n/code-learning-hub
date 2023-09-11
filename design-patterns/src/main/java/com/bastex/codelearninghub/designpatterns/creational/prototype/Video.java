@@ -4,7 +4,6 @@ import lombok.Getter;
 import lombok.Setter;
 
 public class Video extends Graphic {
-
     @Getter
     @Setter
     private String url;
@@ -15,5 +14,4 @@ public class Video extends Graphic {
         clone.setUrl(this.url);
         return clone;
     }
-
 }

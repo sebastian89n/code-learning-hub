@@ -23,7 +23,7 @@ public class ConnectionSolver {
 
 
     public void setMemento(final ConnectionSolverMemento memento) {
-        firstPoint = memento.getFirstPoint();
-        secondPoint = memento.getSecondPoint();
+        firstPoint = memento.firstPoint();
+        secondPoint = memento.secondPoint();
     }
 }

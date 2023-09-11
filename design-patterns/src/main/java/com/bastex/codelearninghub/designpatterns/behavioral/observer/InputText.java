@@ -2,7 +2,6 @@ package com.bastex.codelearninghub.designpatterns.behavioral.observer;
 
 
 public class InputText implements Observer {
-
     public void setText(final String text) {
         System.out.println("Inputtext set text: " + text);
     }

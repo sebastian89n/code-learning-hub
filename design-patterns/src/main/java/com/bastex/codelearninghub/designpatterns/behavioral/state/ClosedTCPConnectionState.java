@@ -2,9 +2,7 @@ package com.bastex.codelearninghub.designpatterns.behavioral.state;
 
 
 public class ClosedTCPConnectionState implements TCPConnectionState {
-
     private final TCPConnection connection;
-
 
     public ClosedTCPConnectionState(final TCPConnection connection) {
         this.connection = connection;
@@ -23,6 +21,6 @@ public class ClosedTCPConnectionState implements TCPConnectionState {
 
     @Override
     public void acknowledge() throws Exception {
-        throw new Exception("Invalid usasage of connection");
+        throw new Exception("Invalid usage of connection");
     }
 }

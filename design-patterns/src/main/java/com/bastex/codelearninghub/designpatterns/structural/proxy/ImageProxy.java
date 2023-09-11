@@ -2,7 +2,6 @@ package com.bastex.codelearninghub.designpatterns.structural.proxy;
 
 
 public class ImageProxy extends Image {
-
     private Image image;
 
     public ImageProxy(final String url) {

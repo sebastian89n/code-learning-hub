@@ -6,5 +6,4 @@ public class RenderCarPartVisitor implements CarPartVisitor {
     public void visit(final CarPart carPart) {
         System.out.println("Render " + carPart);
     }
-
 }

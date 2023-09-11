@@ -1,7 +1,6 @@
 package com.bastex.codelearninghub.designpatterns.behavioral.strategy;
 
 public class Chess {
-
     private ChessAlgorithm algorithm = new EasyChessAlgorithm();
 
     public int calculateNextStep() {

@@ -6,16 +6,15 @@ public class VisitorApp {
 
         final Car car = new Car();
 
-        car.getCarParts().add(new Wheel());
-        car.getCarParts().add(new Wheel());
-        car.getCarParts().add(new Wheel());
-        car.getCarParts().add(new Wheel());
+        car.addCarPart(new Wheel());
+        car.addCarPart(new Wheel());
+        car.addCarPart(new Wheel());
+        car.addCarPart(new Wheel());
 
-        car.getCarParts().add(new Light());
-        car.getCarParts().add(new Light());
+        car.addCarPart(new Light());
+        car.addCarPart(new Light());
 
-        car.getCarParts().add(new Engine());
-
+        car.addCarPart(new Engine());
 
         car.upgrade();
 

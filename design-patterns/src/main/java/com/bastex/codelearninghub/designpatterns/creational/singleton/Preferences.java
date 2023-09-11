@@ -3,7 +3,6 @@ package com.bastex.codelearninghub.designpatterns.creational.singleton;
 // one of the example implementations
 // other one is enum, synchronized block (double check) etc.
 public class Preferences {
-
     private static Preferences instance = null;
 
     private Preferences() {

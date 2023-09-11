@@ -1,10 +1,10 @@
 package com.bastex.codelearninghub.designpatterns.creational.builder;
 
 public interface QueryBuilder {
-    void from(String from);
+    QueryBuilder from(String from);
 
-    void where(String where);
+    QueryBuilder where(String where);
 
-    Query getQuery();
+    Query buildQuery();
 
 }

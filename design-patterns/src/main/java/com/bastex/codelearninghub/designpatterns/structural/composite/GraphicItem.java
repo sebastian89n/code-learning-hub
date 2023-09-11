@@ -1,8 +1,6 @@
 package com.bastex.codelearninghub.designpatterns.structural.composite;
 
 
-public interface Graphic {
-
+public interface GraphicItem {
     void draw();
-
 }

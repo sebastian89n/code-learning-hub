@@ -1,14 +1,13 @@
 package com.bastex.codelearninghub.designpatterns.structural.facade;
 
 
-import lombok.Setter;
+import lombok.RequiredArgsConstructor;
 
-@Setter
+@RequiredArgsConstructor
 public class FinancialSystemFacade {
+    private final BillingSystem billingSystem;
 
-    private BillingSystem billingSystem;
-
-    private InvoiceCustomerSystem invoiceCustomerSystem;
+    private final InvoiceCustomerSystem invoiceCustomerSystem;
 
     public void createInvoice(final Integer amount) {
         final Bill bill = billingSystem.createBill(amount);

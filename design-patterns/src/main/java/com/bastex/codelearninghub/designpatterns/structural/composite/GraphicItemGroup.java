@@ -6,15 +6,14 @@ import lombok.Getter;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GraphicItemGroup implements Graphic {
-
+public class GraphicItemGroup implements GraphicItem {
     @Getter
-    private final List<Graphic> graphics = new ArrayList<>();
+    private final List<GraphicItem> graphicItems = new ArrayList<>();
 
     @Override
     public void draw() {
-        for (final Graphic graphic : graphics) {
-            graphic.draw();
+        for (final GraphicItem graphicItem : graphicItems) {
+            graphicItem.draw();
         }
     }
 }

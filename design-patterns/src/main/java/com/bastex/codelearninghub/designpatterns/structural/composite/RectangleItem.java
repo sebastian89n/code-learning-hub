@@ -1,9 +1,8 @@
 package com.bastex.codelearninghub.designpatterns.structural.composite;
 
-
-public class Line implements Graphic {
+public class RectangleItem implements GraphicItem {
     @Override
     public void draw() {
-        System.out.println("Draw line");
+        System.out.println("Drawing a rectangle");
     }
 }

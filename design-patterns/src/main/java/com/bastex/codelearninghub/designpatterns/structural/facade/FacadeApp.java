@@ -7,10 +7,7 @@ public class FacadeApp {
         final BillingSystem billingSystem = new BillingSystem();
         final InvoiceCustomerSystem invoiceCustomerSystem = new InvoiceCustomerSystem();
 
-        final FinancialSystemFacade financialSystemFacade = new FinancialSystemFacade();
-        financialSystemFacade.setBillingSystem(billingSystem);
-        financialSystemFacade.setInvoiceCustomerSystem(invoiceCustomerSystem);
-
+        final FinancialSystemFacade financialSystemFacade = new FinancialSystemFacade(billingSystem, invoiceCustomerSystem);
         financialSystemFacade.createInvoice(1000);
     }
 }

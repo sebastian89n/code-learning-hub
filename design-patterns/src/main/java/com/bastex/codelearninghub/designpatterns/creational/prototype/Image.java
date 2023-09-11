@@ -1,7 +1,6 @@
 package com.bastex.codelearninghub.designpatterns.creational.prototype;
 
 public class Image extends Graphic {
-
     private String url;
 
     @Override
@@ -20,5 +19,4 @@ public class Image extends Graphic {
     public void setUrl(final String url) {
         this.url = url;
     }
-
 }

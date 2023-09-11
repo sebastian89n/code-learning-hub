@@ -5,10 +5,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Button implements Subject {
-    private final List<Observer> observers = new ArrayList<Observer>();
+    private final List<Observer> observers = new ArrayList<>();
 
     public void clicked() {
-        change();
+        notifyObservers();
     }
 
     @Override
@@ -22,7 +22,7 @@ public class Button implements Subject {
     }
 
     @Override
-    public void change() {
+    public void notifyObservers() {
         for (final Observer observer : observers) {
             observer.update();
         }

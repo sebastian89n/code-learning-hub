@@ -6,5 +6,4 @@ public class PrintCarPartVisitor implements CarPartVisitor {
     public void visit(final CarPart carPart) {
         System.out.println("Print " + carPart);
     }
-
 }

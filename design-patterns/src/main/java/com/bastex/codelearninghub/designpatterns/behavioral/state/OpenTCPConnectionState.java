@@ -2,7 +2,6 @@ package com.bastex.codelearninghub.designpatterns.behavioral.state;
 
 
 public class OpenTCPConnectionState implements TCPConnectionState {
-
     private final TCPConnection connection;
 
 

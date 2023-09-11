@@ -2,7 +2,6 @@ package com.bastex.codelearninghub.designpatterns.behavioral.state;
 
 
 public class StateApp {
-
     public static void main(final String[] args) throws Exception {
         final TCPConnection connection = new TCPConnection();
 
@@ -10,8 +9,6 @@ public class StateApp {
 
         connection.acknowledge();
         connection.close();
-
         //connection.acknowledge();
     }
-
 }

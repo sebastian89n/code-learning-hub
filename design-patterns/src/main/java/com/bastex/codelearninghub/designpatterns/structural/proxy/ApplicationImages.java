@@ -7,7 +7,6 @@ import java.util.List;
 
 @RequiredArgsConstructor
 public class ApplicationImages {
-
     private final List<Image> images;
 
     public void draw() {
@@ -15,5 +14,4 @@ public class ApplicationImages {
             image.draw();
         }
     }
-
 }

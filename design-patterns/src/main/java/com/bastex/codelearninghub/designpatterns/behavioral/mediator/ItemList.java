@@ -12,7 +12,7 @@ public class ItemList {
     private final List<String> items = new ArrayList<>();
 
     @Setter
-    private Screendirector screendirector;
+    private ScreenDirector screendirector;
 
 
     public void selectItem(final int itemNumber) {

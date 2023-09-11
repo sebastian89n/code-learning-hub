@@ -13,7 +13,7 @@ public abstract class CheckoutHandler {
 
     abstract void handleCheckout();
 
-    public void setNextHandler(final CheckoutHandler nextHandler) {
+    public void addNextHandler(final CheckoutHandler nextHandler) {
         this.nextHandler = nextHandler;
     }
 }
