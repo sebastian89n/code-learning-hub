@@ -25,7 +25,5 @@ public final class Java10Tester {
         final Map<String, Integer> unmodifiableMap = Map.of("key1", 10, "key2", 20).entrySet()
                 .stream()
                 .collect(Collectors.toUnmodifiableMap(Map.Entry::getKey, Map.Entry::getValue));
-
-
     }
 }
