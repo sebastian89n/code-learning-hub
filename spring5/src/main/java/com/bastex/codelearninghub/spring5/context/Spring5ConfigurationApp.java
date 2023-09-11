@@ -13,9 +13,6 @@ public class Spring5ConfigurationApp {
         // Annotation config example by loading context with AnnotationConfigApplicationContext by specifying @Configuration class
         // Allows to use Spring core with dependency injection and IoC(Inversion of Control -> beans are initialized by runtime env/framework) by loading @Configuration class
 
-        // Simpler init, but won't work with setting active profiles in the code because it already calls refresh() inside
-        // final AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(Spring5CoreConfiguration.class);
-
         final AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext();
         applicationContext.register(Spring5CoreConfiguration.class);
 
@@ -33,6 +30,6 @@ public class Spring5ConfigurationApp {
         log.info(i18nEsService.getGreeting());
 
         final PetService petService = applicationContext.getBean(PetService.class); // uses profile to pick up right implementation
-        log.info("Fav pet: {}", petService.getFavouritePet());
+        log.info(petService.getFavouritePet());
     }
 }
