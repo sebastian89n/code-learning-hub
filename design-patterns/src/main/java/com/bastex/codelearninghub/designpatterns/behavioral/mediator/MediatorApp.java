@@ -13,6 +13,6 @@ public class MediatorApp {
         itemList.getItems().add("Data item three");
 
         itemList.selectItem(2);
-        System.out.println("Selected value is: " + inputText.getValue());
+        System.out.println("Selected value is: " + screenDirector.getSelectedItem());
     }
 }
