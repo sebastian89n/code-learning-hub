@@ -37,7 +37,7 @@ public final class Java11Tester {
         final String repeatHelloStr = helloStr.repeat(3);
         System.out.println(repeatHelloStr);
 
-        // new strip() methods
+        // new strip() methods - differences between trim is that strip is unicode aware and removes all unicode whitespaces
         final String textWithEmptySpaces = "  Text   ";
         System.out.println(textWithEmptySpaces.strip());
         System.out.println(textWithEmptySpaces.stripLeading());
