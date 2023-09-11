@@ -1,4 +1,4 @@
-package com.bastex.codelearninghub.javanewfeatures.java9;
+package com.bastex.codelearninghub.javafeatures.java9;
 
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;

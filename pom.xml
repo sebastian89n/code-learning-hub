@@ -22,7 +22,7 @@
     <modules>
         <module>design-patterns</module>
         <module>html5</module>
-        <module>java-new-features</module>
+        <module>java-features</module>
         <module>junit5</module>
         <module>spring5</module>
         <module>spring-boot-sample-app</module>

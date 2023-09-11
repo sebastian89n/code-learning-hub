@@ -1,4 +1,4 @@
-package com.bastex.codelearninghub.javanewfeatures.java10;
+package com.bastex.codelearninghub.javafeatures.java10;
 
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
@@ -26,6 +26,6 @@ public final class Java10Tester {
                 .stream()
                 .collect(Collectors.toUnmodifiableMap(Map.Entry::getKey, Map.Entry::getValue));
 
-        
+
     }
 }
