@@ -1,0 +1,41 @@
+thead th, tfoot th {
+    text-align: left;
+    background: grey;
+    color: white;
+}
+
+tbody th {
+    text-align: right;
+    background: lightgrey;
+    color: grey;
+}
+
+[colspan], [rowspan] {
+    font-weight: bold;
+    border: medium solid black;
+}
+
+thead [colspan], tfoot [colspan] {
+    text-align: center;
+}
+
+caption {
+    font-weight: bold;
+    font-size: large;
+    margin-bottom: 5px;
+}
+
+#rowNumbers td {
+    border: thin solid black;
+    padding: 5px;
+    font-size: x-large;
+}
+
+#colgroup1 {
+    background-color: red;
+}
+
+#col3 {
+    background-color: green;
+    font-size: small;
+}

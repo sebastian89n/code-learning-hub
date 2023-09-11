@@ -1,0 +1,140 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>HTML5 Tester</title>
+    <meta content="Sebastian Nowak" name="author"/>
+    <meta content="Website demonstrating HTML5 elements" name="description"/>
+    <meta charset="UTF-8"/>
+    <link href="css/main.css" rel="stylesheet" type="text/css"/>
+    <link href="images/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
+    <noscript>
+        <meta content="5; url=http://www.google.pl" http-equiv="refresh"/>
+    </noscript>
+</head>
+<body>
+<section id="mainBody">
+    <header id="mainHeader">
+        <hgroup>
+            <h1>HTML5</h1>
+            <h2>Examples of html5 elements</h2>
+        </hgroup>
+        <nav id="mainNav">
+            <ul>
+                <li><a href="index.html">Start page</a></li>
+                <li><a href="textelements.html">Text elements</a></li>
+                <li><a href="grouping.html">Grouping elements</a></li>
+                <li><a href="sections.html">Sections</a></li>
+                <li><a href="tables.html">Tables</a></li>
+                <li><a href="form.html">Forms</a></li>
+                <li><a href="input.html" id="current">Input element</a></li>
+                <li><a href="form2.html">Other form elements</a></li>
+                <li><a href="resources.html">Embedding resources</a></li>
+            </ul>
+            <p class="clear"></p>
+        </nav>
+    </header>
+
+    <section id="content">
+
+        <form action="#" autocomplete="off" method="post" name="fruitsForm" style="float: left; margin-right: 20px">
+            <fieldset style="width: 500px; border-radius: 10px; border-color: orange;">
+                <legend>Fruits form</legend>
+                <label for="firstname">First name: </label>
+                <input id="firstname" maxlength="10" name="firstname" placeholder="What's your name?"
+                       size="20" type="text"/>
+                <br/>
+                <label for="lastname">Last name: </label>
+                <input disabled id="lastname" maxlength="15" name="lastname"
+                       placeholder="What's your last name?" size="20" type="text"/>
+                <br/>
+                <label for="password">Password: </label>
+                <input id="password" name="password" placeholder="Minimum six digits"
+                       type="password"/>
+                <br/>
+                <input name="recordID" type="hidden" value="1234"/>
+
+                <label for="email">Email: </label>
+                <input id="email" name="email" placeholder="user@domain.com"
+                       type="email"/>
+                <br/>
+                <label for="tel">Phone: </label>
+                <input id="tel" name="tel" placeholder="XXX-XXX-XXX"
+                       type="tel"/>
+                <br/>
+                <label for="url">Home page: </label>
+                <input id="url" name="url" type="url"/>
+                <br/>
+                <label for="city">City: </label>
+                <input id="city" name="city" size="20" value="London"/>
+                <br/>
+                <label for="favfruit">Favorite fruit: </label>
+                <input id="favfruit" list="fruitlist" name="favfruit"/>
+                <br/>
+                <label for="price">Price per unit: </label>
+                <input id="price" max="100" min="0" name="price" step="1"
+                       type="number" value="1"/>
+                <br/>
+                <label for="priceInShop">Price per unit in your shop: 1
+                    <input id="priceInShop" max="100" min="0" name="priceInShop"
+                           step="1" type="range" value="1"/>100
+                </label>
+                <br/>
+                <label for="search">Search: </label>
+                <input id="search" name="search" type="search"/>
+                <br/>
+                <label for="lastbuy">When did you last buy that fruit?</label>
+                <input id="lastbuy" name="lastbuy" type="date"/>
+                <br/>
+                <label for="color">Color: </label>
+                <input id="color" name="color" type="color"/>
+                <br/>
+                <label for="veggie">Are you vegetarian: </label>
+                <input id="veggie" name="veggie" required type="checkbox"/>
+                <br/>
+                <fieldset style="width: 300px">
+                    <legend>Vote for your favorite fruit</legend>
+                    <label for="apples">
+                        <input checked id="apples" name="fave"
+                               type="radio" value="Apples"/>
+                        Apples
+                    </label>
+                    <label for="oranges">
+                        <input id="oranges" name="fave"
+                               type="radio" value="Oranges"/>
+                        Oranges
+                    </label>
+                    <label for="cherries">
+                        <input id="cherries" name="fave"
+                               type="radio" value="Cherries"/>
+                        Cherries
+                    </label>
+                </fieldset>
+                <br/>
+
+                <br/>
+                <input type="submit" value="Vote"/>
+                <input type="reset" value="Clear form"/>
+                <input type="button" value="My button"/>
+                <br/>
+            </fieldset>
+        </form>
+        <form action="#" method="post" name="files" style="float: left">
+            <fieldset style="width: 500px; border-radius: 10px; border-color: orange;">
+                <legend>Prześlij plik</legend>
+                <label for="filedata">Wybierz plik: </label>
+                <input id="filedata" name="fileddata" type="file"/>
+                <br/>
+                <input alt="Zagłosuj" name="ZaglosujImg"
+                       src="images/Accept.png" style="width: 32px; height: 32px;" type="image"/>
+            </fieldset>
+        </form>
+        <p class="clear"></p>
+        <datalist id="fruitlist">
+            <option label="Wspaniałe jabłka" value="Jablka">
+            <option value="Pomarancze">Orzeźwiające pomarańczę</option>
+            <option value="Wisnie">
+        </datalist>
+    </section>
+</section>
+</body>
+</html>

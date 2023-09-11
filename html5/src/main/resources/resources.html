@@ -1,0 +1,79 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>HTML5 Tester</title>
+    <meta content="Sebastian Nowak" name="author"/>
+    <meta content="Website demonstrating HTML5 elements" name="description"/>
+    <meta charset="UTF-8"/>
+    <link href="css/main.css" rel="stylesheet" type="text/css"/>
+    <link href="css/tables.css" rel="stylesheet" type="text/css"/>
+    <link href="images/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
+    <noscript>
+        <meta content="5; url=http://www.google.pl" http-equiv="refresh"/>
+    </noscript>
+</head>
+<body>
+<section id="mainBody">
+    <header id="mainHeader">
+        <hgroup>
+            <h1>HTML5</h1>
+            <h2>Examples of html5 elements</h2>
+        </hgroup>
+        <nav id="mainNav">
+            <ul>
+                <li><a href="index.html">Start page</a></li>
+                <li><a href="textelements.html">Text elements</a></li>
+                <li><a href="grouping.html">Grouping elements</a></li>
+                <li><a href="sections.html">Sections</a></li>
+                <li><a href="tables.html">Tables</a></li>
+                <li><a href="form.html">Forms</a></li>
+                <li><a href="input.html">Input element</a></li>
+                <li><a href="form2.html">Other form elements</a></li>
+                <li><a href="resources.html" id="current">Embedding resources</a></li>
+            </ul>
+            <p class="clear"></p>
+        </nav>
+    </header>
+
+    <section id="content">
+        <progress id="myprogress" max="100" value="10"></progress>
+        <p>
+            <button type="button" value="30">30%</button>
+            <button type="button" value="60">60%</button>
+            <button type="button" value="90">90%</button>
+        </p>
+
+        <script type="text/javascript">
+            var buttons = document.getElementsByTagName('BUTTON');
+            var progress = document.getElementById("myprogress");
+            for (var i = 0; i < buttons.length; i++) {
+                buttons[i].onclick = function (e) {
+                    progress.value = e.target.value;
+                };
+            }
+        </script>
+
+        <br/>
+        <p>Embedded element: </p>
+        <embed allowfullscreen
+               frameborder="0" height="510"
+               src="https://www.youtube.com/embed/ah3S2-kK_VU?autoplay=0&fs=0&iv_load_policy=3&showinfo=0&rel=0&cc_load_policy=0&start=0&end=0"
+               width="854"/>
+        <br/>
+        <p>Object element: </p>
+        <object data="https://www.youtube.com/embed/ah3S2-kK_VU?autoplay=0&fs=0&iv_load_policy=3&showinfo=0&rel=0&cc_load_policy=0&start=0&end=0"
+                height="510"
+                width="854">
+        </object>
+        <br/>
+        <p>Iframe examples</p>
+        <a href="index.html" target="myframe">Start page</a>
+        <br/>
+        <iframe name="myframe" sandbox="allow-scripts" style="width: 100%; height: 300px;">
+        </iframe>
+        <br/><br/>
+        <img alt="magi" src="images/09.jpg"/>
+    </section>
+</section>
+</body>
+</html>

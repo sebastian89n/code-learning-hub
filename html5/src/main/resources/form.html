@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>HTML5 Tester</title>
+    <meta content="Sebastian Nowak" name="author"/>
+    <meta content="Website demonstrating HTML5 elements" name="description"/>
+    <meta charset="UTF-8"/>
+    <link href="css/main.css" rel="stylesheet" type="text/css"/>
+    <link href="images/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
+    <noscript>
+        <meta content="5; url=http://www.google.pl" http-equiv="refresh"/>
+    </noscript>
+</head>
+<body>
+<section id="mainBody">
+    <header id="mainHeader">
+        <hgroup>
+            <h1>HTML5</h1>
+            <h2>Examples of html5 elements</h2>
+        </hgroup>
+        <nav id="mainNav">
+            <ul>
+                <li><a href="index.html">Start page</a></li>
+                <li><a href="textelements.html">Text elements</a></li>
+                <li><a href="grouping.html">Grouping elements</a></li>
+                <li><a href="sections.html">Sections</a></li>
+                <li><a href="tables.html">Tables</a></li>
+                <li><a href="form.html" id="current">Forms</a></li>
+                <li><a href="input.html">Input element</a></li>
+                <li><a href="form2.html">Other form elements</a></li>
+                <li><a href="resources.html">Embedding resources</a></li>
+            </ul>
+            <p class="clear"></p>
+        </nav>
+    </header>
+
+    <section id="content">
+        <form action="#" autocomplete="off" id="personaldata" method="POST"
+              name="personaldata" target="_blank">
+            <fieldset style="width: 300px">
+                <legend style="font-weight: bold">Enter your personal details</legend>
+                <br/>
+                <label for="firstname">First name: </label>
+                <input autofocus id="firstname" name="firstname" type="text"/>
+                <br/>
+                <label for="lastname">Last name: </label>
+                <input id="lastname" name="lastname" type="text"/>
+                <br/>
+                <label for="password">Password: </label>
+                <input id="password" name="password" type="password"/>
+                <br/>
+                <label for="city">City: </label>
+                <input disabled id="city" name="city" type="text"/>
+                <br/>
+                <button type="submit">Send</button>
+                <button type="reset">Clear</button>
+            </fieldset>
+        </form>
+    </section>
+</section>
+</body>
+</html>
