@@ -11,9 +11,9 @@ import org.springframework.context.annotation.*;
 public class Spring5CoreConfiguration {
     @Bean
     @Scope("prototype")
-        // prototype scope, new bean is created in every place where it is injected
-    ConfigurationInitializedBeanService configurationInitializedBeanService() {
-        return new ConfigurationInitializedBeanServiceImpl();
+        // prototype scope, new bean is created in every place where it is injected. By the default singleton if scope is not specified.
+    ConfigurationInitializedPrototypeBean configurationInitializedBean() {
+        return new ConfigurationInitializedPrototypeBeanImpl();
     }
 
     @Bean(name = "i18nEnService") // bean name is specified manually
@@ -32,7 +32,7 @@ public class Spring5CoreConfiguration {
     @Bean(name = "petService")
     @Profile({"default", "dog"})
     PetService dogService() {
-        return new DogServiceImpl(i18nEsService()); // directly injecting bean impl. Spanish i18nService hardcoded here.
+        return new DogServiceImpl(i18nEsService()); // Spring calls proxy method that provides bean instance. Spanish i18nService hardcoded here
     }
 
     @Bean(name = "petService")

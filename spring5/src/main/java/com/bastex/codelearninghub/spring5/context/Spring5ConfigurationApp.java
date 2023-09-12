@@ -1,7 +1,7 @@
 package com.bastex.codelearninghub.spring5.context;
 
 import com.bastex.codelearninghub.spring5.context.configuration.Spring5CoreConfiguration;
-import com.bastex.codelearninghub.spring5.context.configuration.services.ConfigurationInitializedBeanService;
+import com.bastex.codelearninghub.spring5.context.configuration.services.ConfigurationInitializedPrototypeBean;
 import com.bastex.codelearninghub.spring5.context.configuration.services.PetService;
 import com.bastex.codelearninghub.spring5.context.services.I18nService;
 import lombok.extern.slf4j.Slf4j;
@@ -20,7 +20,7 @@ public class Spring5ConfigurationApp {
         applicationContext.getEnvironment().setActiveProfiles("cat");
         applicationContext.refresh();
 
-        final ConfigurationInitializedBeanService beanService = applicationContext.getBean(ConfigurationInitializedBeanService.class);
+        final ConfigurationInitializedPrototypeBean beanService = applicationContext.getBean(ConfigurationInitializedPrototypeBean.class);
         beanService.printComponentType();
 
         final I18nService i18nService = applicationContext.getBean(I18nService.class);// gets primary bean because no name is specified
