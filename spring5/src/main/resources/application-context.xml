@@ -7,8 +7,9 @@
 
     <!-- Some basic sample for Spring xml context bean definitions -->
 
+    <!-- prototype scope example, new bean will be created for each place where it is injected -->
     <bean id="sampleXmlBean"
-          class="com.bastex.codelearninghub.spring5.context.xml.beans.SampleXmlBean">
+          class="com.bastex.codelearninghub.spring5.context.xml.beans.SampleXmlBean" scope="prototype">
         <constructor-arg index="0" value="END MESSAGE"/>
     </bean>
 
