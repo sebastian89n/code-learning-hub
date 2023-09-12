@@ -19,7 +19,6 @@ public final class Java11Tester {
     public static void testJava11Features() {
         // The most notable changes involved the addition of HTTPClient, Flight Recorder, an experimental low-pause garbage collector(ZGC),
         // and an experimental no-op garbage collector(Epsilon). Additionally, Java EE and CORBA modules got removed, and Nashorn deprecated.
-
         final String text = "  ";
 
         // new isBlank() method in String
