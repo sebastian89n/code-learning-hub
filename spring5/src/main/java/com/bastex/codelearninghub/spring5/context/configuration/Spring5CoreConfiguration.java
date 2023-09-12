@@ -5,15 +5,13 @@ import com.bastex.codelearninghub.spring5.context.services.I18nEnServiceImpl;
 import com.bastex.codelearninghub.spring5.context.services.I18nEsServiceImpl;
 import com.bastex.codelearninghub.spring5.context.services.I18nService;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Primary;
-import org.springframework.context.annotation.Profile;
+import org.springframework.context.annotation.*;
 
 @Configuration
 public class Spring5CoreConfiguration {
-    // here method name becomes the name of the Bean inside the context
     @Bean
+    @Scope("prototype")
+        // prototype scope, new bean is created in every place where it is injected
     ConfigurationInitializedBeanService configurationInitializedBeanService() {
         return new ConfigurationInitializedBeanServiceImpl();
     }
