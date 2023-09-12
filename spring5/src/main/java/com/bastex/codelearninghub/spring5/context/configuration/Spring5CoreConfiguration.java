@@ -5,12 +5,13 @@ import com.bastex.codelearninghub.spring5.context.services.I18nEnServiceImpl;
 import com.bastex.codelearninghub.spring5.context.services.I18nEsServiceImpl;
 import com.bastex.codelearninghub.spring5.context.services.I18nService;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.*;
 
 @Configuration
 public class Spring5CoreConfiguration {
     @Bean
-    @Scope("prototype")
+    @Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
         // prototype scope, new bean is created in every place where it is injected. By the default singleton if scope is not specified.
     ConfigurationInitializedPrototypeBean configurationInitializedBean() {
         return new ConfigurationInitializedPrototypeBeanImpl();
