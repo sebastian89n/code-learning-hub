@@ -1,4 +1,4 @@
-package com.bastex.codelearninghub.spring5.context.configuration.services;
+package com.bastex.codelearninghub.spring5.context.services;
 
 public class I18nEsServiceImpl implements I18nService {
     @Override

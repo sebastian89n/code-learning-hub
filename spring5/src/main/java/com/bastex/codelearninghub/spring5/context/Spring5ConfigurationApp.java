@@ -2,8 +2,8 @@ package com.bastex.codelearninghub.spring5.context;
 
 import com.bastex.codelearninghub.spring5.context.configuration.Spring5CoreConfiguration;
 import com.bastex.codelearninghub.spring5.context.configuration.services.ConfigurationInitializedBeanService;
-import com.bastex.codelearninghub.spring5.context.configuration.services.I18nService;
 import com.bastex.codelearninghub.spring5.context.configuration.services.PetService;
+import com.bastex.codelearninghub.spring5.context.services.I18nService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 

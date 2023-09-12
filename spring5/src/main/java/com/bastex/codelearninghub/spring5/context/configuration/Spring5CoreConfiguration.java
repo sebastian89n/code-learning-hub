@@ -1,6 +1,9 @@
 package com.bastex.codelearninghub.spring5.context.configuration;
 
 import com.bastex.codelearninghub.spring5.context.configuration.services.*;
+import com.bastex.codelearninghub.spring5.context.services.I18nEnServiceImpl;
+import com.bastex.codelearninghub.spring5.context.services.I18nEsServiceImpl;
+import com.bastex.codelearninghub.spring5.context.services.I18nService;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -22,7 +25,8 @@ public class Spring5CoreConfiguration {
         return new I18nEnServiceImpl();
     }
 
-    @Bean(name = "i18nEsService")
+    // bean name taken from method name
+    @Bean
     I18nService i18nEsService() {
         return new I18nEsServiceImpl();
     }

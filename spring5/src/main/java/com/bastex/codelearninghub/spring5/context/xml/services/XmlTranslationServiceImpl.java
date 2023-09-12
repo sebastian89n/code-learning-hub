@@ -1,21 +1,31 @@
 package com.bastex.codelearninghub.spring5.context.xml.services;
 
+import com.bastex.codelearninghub.spring5.context.services.I18nService;
 import com.bastex.codelearninghub.spring5.context.xml.beans.SampleXmlBean;
+import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 
+import java.util.List;
+
 @Slf4j
 @RequiredArgsConstructor
-public class XmlBeanServiceImpl implements XmlBeanService {
+@Setter
+@Getter
+public class XmlTranslationServiceImpl implements XmlTranslationService {
     private final SampleXmlBean sampleXmlBean;
 
     // only used to demonstrate initialization of properties in Spring xml context
     private final String version;
 
     // only used to demonstrate initialization of properties in Spring xml context
-    @Setter
+    private final List<String> textToTranslate;
+
+    // only used to demonstrate initialization of properties in Spring xml context
     private int executionCount;
+
+    private List<I18nService> translationServices;
 
     @Override
     public void printComponentType() {

@@ -1,5 +1,6 @@
 package com.bastex.codelearninghub.spring5.context.configuration.services;
 
+import com.bastex.codelearninghub.spring5.context.services.I18nService;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor

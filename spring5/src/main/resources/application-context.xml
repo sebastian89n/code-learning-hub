@@ -12,10 +12,26 @@
         <constructor-arg index="0" value="END MESSAGE"/>
     </bean>
 
+    <!-- name is same as id, but it can contain multiple aliases comma,semicolon or whitespace separated -->
+    <bean name="i18nService,i18nEnService"
+          class="com.bastex.codelearninghub.spring5.context.services.I18nEnServiceImpl"/>
+
     <bean id="xmlBeanService"
-          class="com.bastex.codelearninghub.spring5.context.xml.services.XmlBeanServiceImpl">
+          class="com.bastex.codelearninghub.spring5.context.xml.services.XmlTranslationServiceImpl">
         <constructor-arg name="version" value="0.1-ALPHA"/>
         <constructor-arg name="sampleXmlBean" ref="sampleXmlBean"/>
+        <constructor-arg name="textToTranslate">
+            <list>
+                <value>foo</value>
+                <value>bar</value>
+            </list>
+        </constructor-arg>
         <property name="executionCount" value="0"/>
+        <property name="translationServices">
+            <list>
+                <ref bean="i18nService"/> <!-- referencing existing bean -->
+                <bean class="com.bastex.codelearninghub.spring5.context.services.I18nEsServiceImpl"/> <!-- creating bean -->
+            </list>
+        </property>
     </bean>
 </beans>
