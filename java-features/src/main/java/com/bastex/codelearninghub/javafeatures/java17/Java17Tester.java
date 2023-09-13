@@ -34,8 +34,8 @@ public final class Java17Tester {
         // - Pattern Matching for instanceof
         // - And the second incubator release of Foreign Memory Access API!
 
+        // new switch expressions
         final Level level = Level.One;
-
         final String message = switch (level) {
             case One -> "Level one selected";
             case Two -> "Lavel two selected";
@@ -46,6 +46,7 @@ public final class Java17Tester {
             }
         };
 
+        // records
         final UserRecord userRecord = new UserRecord("firstName", "lastName");
         System.out.println(userRecord.firstName());
         System.out.println(userRecord.lastName());
