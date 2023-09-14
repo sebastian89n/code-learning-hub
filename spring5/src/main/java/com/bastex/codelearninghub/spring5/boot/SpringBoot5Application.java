@@ -6,6 +6,7 @@ import com.bastex.codelearninghub.spring5.boot.controllers.di.SetterInjectedBoot
 import com.bastex.codelearninghub.spring5.boot.controllers.primary.PrimaryBeanInjectedController;
 import com.bastex.codelearninghub.spring5.boot.controllers.profiles.I18nController;
 import com.bastex.codelearninghub.spring5.boot.controllers.profiles.PetController;
+import com.bastex.codelearninghub.spring5.boot.datasource.FakeDataSource;
 import com.bastex.codelearninghub.spring5.boot.services.GreetingBootService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
@@ -24,6 +25,7 @@ public class SpringBoot5Application {
 
         dependencyInjectionExamples(applicationContext);
         profilesExamples(applicationContext);
+        loadingPropertiesExample(applicationContext);
     }
 
     private static void dependencyInjectionExamples(final ConfigurableApplicationContext applicationContext) {
@@ -58,6 +60,11 @@ public class SpringBoot5Application {
 
         final PetController petController = applicationContext.getBean(PetController.class);
         System.out.println(petController.sayFavouritePetType());
+    }
+
+    private static void loadingPropertiesExample(final ConfigurableApplicationContext applicationContext) {
+        final FakeDataSource fakeDataSource = applicationContext.getBean(FakeDataSource.class);
+        log.info("{}", fakeDataSource);
     }
 
     /**
