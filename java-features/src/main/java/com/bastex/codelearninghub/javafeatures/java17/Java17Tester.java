@@ -1,5 +1,7 @@
 package com.bastex.codelearninghub.javafeatures.java17;
 
+import com.bastex.codelearninghub.javafeatures.java17.model.Employee;
+import com.bastex.codelearninghub.javafeatures.java17.model.Manager;
 import com.bastex.codelearninghub.javafeatures.java17.records.UserRecord;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
@@ -51,6 +53,13 @@ public final class Java17Tester {
         System.out.println(userRecord.firstName());
         System.out.println(userRecord.lastName());
         System.out.println(userRecord);
+
+        // enhanced instanceof
+        final Employee employee = new Manager("John", "Smith", 5000, 850);
+        if (employee instanceof final Manager manager) {
+            System.out.println("Bonus salary for manager: " + manager.getBonusSalary());
+        }
+
     }
 
     private enum Level {
