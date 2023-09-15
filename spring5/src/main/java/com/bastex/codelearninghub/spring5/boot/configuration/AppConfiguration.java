@@ -2,6 +2,7 @@ package com.bastex.codelearninghub.spring5.boot.configuration;
 
 import com.bastex.codelearninghub.spring5.boot.beans.UserPersistenceService;
 import com.bastex.codelearninghub.spring5.boot.datasource.FakeDataSource;
+import com.bastex.codelearninghub.spring5.boot.services.GoogleService;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -30,5 +31,11 @@ public class AppConfiguration {
         fakeDataSource.setPassword(password);
         fakeDataSource.setJdbcUrl(jdbcUrl);
         return fakeDataSource;
+    }
+
+    @Bean
+    GoogleService googleService(@Value("${googlecs.url}") final String googleCsUrl) {
+        final GoogleService googleService = new GoogleService(googleCsUrl);
+        return googleService;
     }
 }

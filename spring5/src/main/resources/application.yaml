@@ -1,0 +1,6 @@
+# can be used instead of application.properties, best to not mix yaml with properties in the same app
+spring:
+  profiles:
+    active: cat,ES,dev
+googlecs:
+  url: localhost:8080/googlecs-yaml-url
