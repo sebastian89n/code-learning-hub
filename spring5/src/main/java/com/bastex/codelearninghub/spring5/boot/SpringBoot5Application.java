@@ -1,5 +1,6 @@
 package com.bastex.codelearninghub.spring5.boot;
 
+import com.bastex.codelearninghub.spring5.boot.configuration.DbConfiguration;
 import com.bastex.codelearninghub.spring5.boot.controllers.di.ConstructorInjectedBootController;
 import com.bastex.codelearninghub.spring5.boot.controllers.di.PropertyInjectedBootController;
 import com.bastex.codelearninghub.spring5.boot.controllers.di.SetterInjectedBootController;
@@ -65,6 +66,9 @@ public class SpringBoot5Application {
     private static void loadingPropertiesExample(final ConfigurableApplicationContext applicationContext) {
         final FakeDataSource fakeDataSource = applicationContext.getBean(FakeDataSource.class);
         log.info("{}", fakeDataSource);
+
+        final DbConfiguration dbConfiguration = applicationContext.getBean(DbConfiguration.class);
+        log.info("{}", dbConfiguration);
     }
 
     /**
