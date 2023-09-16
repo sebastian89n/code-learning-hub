@@ -1,7 +1,8 @@
 package com.bastex.codelearninghub.spring5.boot.beans;
 
-import jakarta.annotation.PostConstruct;
 import lombok.extern.slf4j.Slf4j;
+
+import javax.annotation.PostConstruct;
 
 /**
  * Sample for bean initialized in the @Configuration class using @Bean annotation.

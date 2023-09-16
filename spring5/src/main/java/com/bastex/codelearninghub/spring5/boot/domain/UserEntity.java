@@ -1,7 +1,8 @@
 package com.bastex.codelearninghub.spring5.boot.domain;
 
-import jakarta.persistence.*;
 import lombok.*;
+
+import javax.persistence.*;
 
 /**
  * Sample entity, for Spring Data JPA repository example.
