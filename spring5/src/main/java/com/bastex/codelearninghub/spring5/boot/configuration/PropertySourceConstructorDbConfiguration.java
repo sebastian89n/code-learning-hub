@@ -21,7 +21,7 @@ public class PropertySourceConstructorDbConfiguration {
     private final String jdbcUrl;
 
     @ConstructorBinding
-    // Used to bind properties to constructor param for immutable objects. Can be omitted in later versions of Spring
+    // Used to bind properties to constructor param for immutable objects. Deprecated and optional in Spring Boot 3.x, required in Spring Boot 2.x
     public PropertySourceConstructorDbConfiguration(final String username, final String password, final String jdbcUrl) {
         this.username = username;
         this.password = password;
