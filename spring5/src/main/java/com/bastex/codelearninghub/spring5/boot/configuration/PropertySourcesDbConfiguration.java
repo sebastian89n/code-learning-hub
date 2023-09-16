@@ -13,7 +13,7 @@ import org.springframework.context.annotation.PropertySource;
 @PropertySource("classpath:datasource.properties")
 @Configuration
 @Data
-public class DbConfiguration {
+public class PropertySourcesDbConfiguration {
     private String username;
 
     private String password;

@@ -1,6 +1,7 @@
 package com.bastex.codelearninghub.spring5.boot;
 
-import com.bastex.codelearninghub.spring5.boot.configuration.DbConfiguration;
+import com.bastex.codelearninghub.spring5.boot.configuration.PropertySourceConstructorDbConfiguration;
+import com.bastex.codelearninghub.spring5.boot.configuration.PropertySourcesDbConfiguration;
 import com.bastex.codelearninghub.spring5.boot.controllers.di.ConstructorInjectedBootController;
 import com.bastex.codelearninghub.spring5.boot.controllers.di.PropertyInjectedBootController;
 import com.bastex.codelearninghub.spring5.boot.controllers.di.SetterInjectedBootController;
@@ -12,12 +13,14 @@ import com.bastex.codelearninghub.spring5.boot.services.GreetingBootService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.ConfigurableApplicationContext;
 
 // by default executes @ComponentScan on all beans within the same package recursively + acts as @Configuration class - @Bean can be specified here
 // open @SpringBootApplication definition for details
 // scanBasePackages can override default packages to scan. By the default it scans only classes within same package as class with @SpringBootApplication anno(recursively)
 @SpringBootApplication(scanBasePackages = {"com.bastex.codelearninghub.spring5.boot", "com.bastex.codelearninghub.spring5.context.annotations"})
+@EnableConfigurationProperties(PropertySourceConstructorDbConfiguration.class)
 @Slf4j
 public class SpringBoot5Application {
 
@@ -67,8 +70,11 @@ public class SpringBoot5Application {
         final FakeDataSource fakeDataSource = applicationContext.getBean(FakeDataSource.class);
         log.info("{}", fakeDataSource);
 
-        final DbConfiguration dbConfiguration = applicationContext.getBean(DbConfiguration.class);
+        final PropertySourcesDbConfiguration dbConfiguration = applicationContext.getBean(PropertySourcesDbConfiguration.class);
         log.info("{}", dbConfiguration);
+
+        final PropertySourceConstructorDbConfiguration propertySourceConstructorDbConfiguration = applicationContext.getBean(PropertySourceConstructorDbConfiguration.class);
+        log.info("{}", propertySourceConstructorDbConfiguration);
     }
 
     /**
