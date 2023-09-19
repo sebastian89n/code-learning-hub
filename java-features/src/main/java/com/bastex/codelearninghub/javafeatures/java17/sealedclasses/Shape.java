@@ -11,6 +11,7 @@ public abstract sealed class Shape {
 
     // extending class can be another sealed class
     // this time we need permits because permitted classes are outside sealed class
+    // permitted classes must be located within the same class or package
     public static abstract sealed class Rectangle extends Shape permits RectangleFilled, RectangleTransparent {
 
     }
