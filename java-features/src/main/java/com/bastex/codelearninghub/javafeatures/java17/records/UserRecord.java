@@ -2,6 +2,7 @@ package com.bastex.codelearninghub.javafeatures.java17.records;
 
 /**
  * Internally implements equals/hashcode/toString/getters. Immutable object.
+ * Cannot extend or be extended.
  */
 public record UserRecord(String firstName, String lastName) {
     // examples of canonical constructor. Must have the same level or higher of visibility as  record
