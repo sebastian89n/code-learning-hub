@@ -1,7 +1,10 @@
 package com.bastex.codelearninghub.javafeatures.java17.sealedclasses;
 
-// Sealed class must contain subclasses
-// if subclasses are contained directly within sealed class we don't need to specify them with permits
+/**
+ * Sealed class must contain subclasses
+ * if subclasses are contained directly within sealed class we don't need to specify them with permits
+ * extending classes must be explicitly marked as either final, non-sealed or sealed.
+ */
 public abstract sealed class Shape {
 
     // extending class can be final -> cannot be further extended
