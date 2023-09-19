@@ -3,6 +3,9 @@ package com.bastex.codelearninghub.javafeatures.java17;
 import com.bastex.codelearninghub.javafeatures.java17.model.Employee;
 import com.bastex.codelearninghub.javafeatures.java17.model.Manager;
 import com.bastex.codelearninghub.javafeatures.java17.records.UserRecord;
+import com.bastex.codelearninghub.javafeatures.java17.sealedclasses.Celestial;
+import com.bastex.codelearninghub.javafeatures.java17.sealedclasses.RectangleFilled;
+import com.bastex.codelearninghub.javafeatures.java17.sealedclasses.Shape;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 
@@ -59,6 +62,19 @@ public final class Java17Tester {
         if (employee instanceof final Manager manager) {
             System.out.println("Bonus salary for manager: " + manager.getBonusSalary());
         }
+
+        // text blocks
+        final String query = """
+                SELECT "EMP_ID", "LAST_NAME" FROM "EMPLOYEE_TB"
+                WHERE "CITY" = 'INDIANAPOLIS'
+                ORDER BY "EMP_ID", "LAST_NAME";
+                """;
+
+        // sealed classes
+        final Shape shape = new RectangleFilled();
+
+        // sealed interface
+        final Celestial planet = new Celestial.Planet();
 
     }
 
