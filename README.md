@@ -6,9 +6,9 @@ Currently based on Java 21.
 
 ### Modules
 
+- algorithms
 - design patterns
 - html5
 - java-features
 - junit5
 - spring5
-- spring-boot-sample-app
