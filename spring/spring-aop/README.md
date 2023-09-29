@@ -15,7 +15,7 @@ and objects. (Such concerns are often termed "crosscutting" concerns in AOP lite
   exception. In Spring AOP, a join point always represents a method execution.
 
 - Advice: Action taken by an aspect at a particular join point. Different types of advice include "around", "before",
-  and "after" advice. (Advice types are discussed later.) Many AOP frameworks, including Spring, model an advice as an
+  and "after" advice. Many AOP frameworks, including Spring, model an advice as an
   interceptor and maintain a chain of interceptors around the join point.
 
 - Pointcut: A predicate that matches join points. Advice is associated with a pointcut expression and runs at any join

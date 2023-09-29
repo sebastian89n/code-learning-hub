@@ -11,7 +11,7 @@ public class SpringAopApp {
         final ConfigurableApplicationContext applicationContext = SpringApplication.run(SpringAopApp.class);
         final MathService mathService = applicationContext.getBean(MathService.class);
 
-        final int result = mathService.add(5, 8);
+        mathService.add(5, 8);
 
         mathService.subtract(8, 5);
         mathService.subtractFromHighest(4, 8);
