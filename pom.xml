@@ -26,6 +26,7 @@
         <module>junit5</module>
         <module>spring</module>
         <module>algorithms</module>
+        <module>spring/spring-aop</module>
     </modules>
 
     <dependencies>
