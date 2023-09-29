@@ -28,6 +28,6 @@ public class XmlTranslationServiceImpl implements XmlTranslationService {
 
     @Override
     public void printComponentType() {
-        log.info("Component type: {}. Version: {}, Printing executed {} times. {}", this.getClass().getSimpleName(), version, ++executionCount, messageContainerBean.getMessage());
+        log.info("Component type: {}. Version: {}, Printing executed {} times. {}", this.getClass().getSimpleName(), version, ++executionCount, messageContainerBean.message());
     }
 }
