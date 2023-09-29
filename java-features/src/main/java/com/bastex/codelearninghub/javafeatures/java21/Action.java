@@ -5,7 +5,8 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, property = "type")
 @JsonSubTypes({ @JsonSubTypes.Type(value = Action.Add.class), //
-		@JsonSubTypes.Type(value = Action.Remove.class) })
+		@JsonSubTypes.Type(value = Action.Remove.class), //
+		@JsonSubTypes.Type(value = Action.Set.class, name = "set")})
 public sealed interface Action permits Action.Add, Action.Remove, Action.Set
 {
 

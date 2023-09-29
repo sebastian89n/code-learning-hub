@@ -58,6 +58,11 @@ public final class Java21Tester
 				{
 					"type": "removeFrom",
 					"position": 2
+				},
+				{
+					"type": "set",
+					"position": 1,
+					"value": "at-updated"
 				}
 				]""";
 	}
