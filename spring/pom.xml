@@ -23,6 +23,7 @@
         <module>spring-context-properties</module>
         <module>spring-context-lifecycle</module>
         <module>spring-context-dependency-injection</module>
+        <module>spring-data-jpa</module>
     </modules>
 
     <properties>
