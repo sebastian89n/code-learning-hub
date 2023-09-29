@@ -25,7 +25,7 @@
         <module>java-features</module>
         <module>junit5</module>
         <module>spring</module>
-        <module>spring-boot-sample-app</module>
+        <module>algorithms</module>
     </modules>
 
     <dependencies>
