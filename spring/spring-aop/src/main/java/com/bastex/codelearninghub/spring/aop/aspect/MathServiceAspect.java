@@ -37,7 +37,7 @@ public class MathServiceAspect {
     }
 
     /**
-     * JointPoint can be injected if needed
+     * JointPoint is optional and can be injected if needed
      **/
     @Before("execution(int com.bastex.codelearninghub.spring.aop.service.MathService.subtract*(..))")
     public void monitorBeforeSubtract(final JoinPoint jp) {
