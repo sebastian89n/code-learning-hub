@@ -6,3 +6,5 @@ In order to do that we use @ComponentScan annotation on @Configuration class
 and we provide packages to scan or filters for inclusions/exclusions.
 
 Spring Context finds beans in provided packages on classes with annotations like @Component, @Service etc.
+
+In this example Spring context is initialized with AnnotationConfigApplicationContext.
