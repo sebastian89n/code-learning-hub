@@ -2,6 +2,8 @@
 
 Project containing multiple modules with code samples for learning purposes
 
+Currently based on Java 21.
+
 ### Modules
 
 - design patterns
