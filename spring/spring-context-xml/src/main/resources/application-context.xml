@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
        xmlns="http://www.springframework.org/schema/beans"
        xsi:schemaLocation="
     http://www.springframework.org/schema/beans
-    http://www.springframework.org/schema/beans/spring-beans.xsd">
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context.xsd">
 
     <!-- Some basic sample for Spring xml context bean definitions -->
+
+    <!-- load the properties file: sport.properties -->
+    <context:property-placeholder location="classpath:application.properties"/>
 
     <!-- prototype scope example, new bean will be created for each place where it is injected -->
     <bean id="messageContainerBean"
@@ -20,7 +26,7 @@
     <bean id="xmlBeanService"
           class="com.bastex.codelearninghub.spring.context.xml.services.XmlTranslationServiceImpl" init-method="init"
           destroy-method="destroy">
-        <constructor-arg name="version" value="0.1-ALPHA"/>
+        <constructor-arg name="version" value="${translation.service.version}"/>
         <constructor-arg name="messageContainerBean" ref="messageContainerBean"/>
         <constructor-arg name="textToTranslate">
             <list>
