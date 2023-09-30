@@ -18,7 +18,8 @@
           class="com.bastex.codelearninghub.spring.context.xml.services.I18nEnServiceImpl"/>
 
     <bean id="xmlBeanService"
-          class="com.bastex.codelearninghub.spring.context.xml.services.XmlTranslationServiceImpl">
+          class="com.bastex.codelearninghub.spring.context.xml.services.XmlTranslationServiceImpl" init-method="init"
+          destroy-method="destroy">
         <constructor-arg name="version" value="0.1-ALPHA"/>
         <constructor-arg name="messageContainerBean" ref="messageContainerBean"/>
         <constructor-arg name="textToTranslate">

@@ -30,4 +30,12 @@ public class XmlTranslationServiceImpl implements XmlTranslationService {
     public void printComponentType() {
         log.info("Component type: {}. Version: {}, Printing executed {} times. {}", this.getClass().getSimpleName(), version, ++executionCount, messageContainerBean.message());
     }
+
+    public void init() {
+        log.info("Init method");
+    }
+
+    public void destroy() {
+        log.info("Destroy method");
+    }
 }
