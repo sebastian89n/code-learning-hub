@@ -9,6 +9,6 @@ Currently based on Java 21.
 - algorithms
 - design patterns
 - html5
-- java-features
+- java
 - junit5
 - spring

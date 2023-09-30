@@ -10,3 +10,4 @@ Project contains examples of Spring 5 library components
 - **spring-context-lifecycle** - some basic annotations and interfaces that can be used for handling bean lifecycle
   management
 - **spring-context-dependency-injection** - examples of DI in Spring
+- **spring-data-jpa** - examples of JPA mapping, Spring Data repositories etc.
