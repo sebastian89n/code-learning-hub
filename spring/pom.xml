@@ -17,6 +17,7 @@
     <packaging>pom</packaging>
 
     <modules>
+        <module>spring-aop</module>
         <module>spring-context-annotations</module>
         <module>spring-context-configuration</module>
         <module>spring-context-xml</module>

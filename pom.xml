@@ -20,13 +20,12 @@
     </properties>
 
     <modules>
+        <module>algorithms</module>
         <module>design-patterns</module>
         <module>html5</module>
         <module>java-features</module>
         <module>junit5</module>
         <module>spring</module>
-        <module>algorithms</module>
-        <module>spring/spring-aop</module>
     </modules>
 
     <dependencies>
