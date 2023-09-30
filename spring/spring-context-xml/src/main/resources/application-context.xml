@@ -39,7 +39,7 @@
         <property name="translationQueryCount" value="0"/>
         <property name="translationServices">
             <list>
-                <ref bean="i18nService"/> <!-- referencing existing bean -->
+                <ref bean="i18nEnService"/> <!-- referencing existing bean -->
                 <bean class="com.bastex.codelearninghub.spring.context.xml.services.I18nEsServiceImpl"/> <!-- creating bean -->
             </list>
         </property>
