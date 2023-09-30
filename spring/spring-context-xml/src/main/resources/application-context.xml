@@ -26,7 +26,8 @@
     <bean id="xmlBeanService"
           class="com.bastex.codelearninghub.spring.context.xml.services.XmlTranslationServiceImpl" init-method="init"
           destroy-method="destroy">
-        <constructor-arg name="version" value="${translation.service.version}"/>
+        <constructor-arg name="version"
+                         value="${translation.service.version}"/> <!-- Value read from properties file -->
         <constructor-arg name="messageContainerBean" ref="messageContainerBean"/>
         <constructor-arg name="textToTranslate">
             <list>
