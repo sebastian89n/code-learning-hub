@@ -16,7 +16,8 @@
     <!-- prototype scope example, new bean will be created for each place where it is injected -->
     <bean id="messageContainerBean"
           class="com.bastex.codelearninghub.spring.context.xml.beans.MessageContainerBean" scope="prototype">
-        <constructor-arg index="0" value="END MESSAGE"/>
+        <constructor-arg index="0"
+                         value="Value initialized via constructor field on index 0"/>
     </bean>
 
     <!-- name is same as id, but it can contain multiple aliases comma,semicolon or whitespace separated -->
