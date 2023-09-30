@@ -34,7 +34,7 @@
                 <value>bar</value>
             </list>
         </constructor-arg>
-        <property name="executionCount" value="0"/>
+        <property name="translationQueryCount" value="0"/>
         <property name="translationServices">
             <list>
                 <ref bean="i18nService"/> <!-- referencing existing bean -->

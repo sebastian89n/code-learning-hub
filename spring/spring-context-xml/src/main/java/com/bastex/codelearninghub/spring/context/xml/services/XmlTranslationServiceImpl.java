@@ -22,13 +22,13 @@ public class XmlTranslationServiceImpl implements XmlTranslationService {
     private final List<String> textToTranslate;
 
     // only used to demonstrate initialization of properties in Spring xml context
-    private int executionCount;
+    private int translationQueryCount;
 
     private List<I18nService> translationServices;
 
     @Override
     public void printComponentType() {
-        log.info("Component type: {}. Version: {}, Printing executed {} times. {}", this.getClass().getSimpleName(), version, ++executionCount, messageContainerBean.message());
+        log.info("Component type: {}. Version: {}, Printing executed {} times. {}", this.getClass().getSimpleName(), version, ++translationQueryCount, messageContainerBean.message());
     }
 
     public void init() {
