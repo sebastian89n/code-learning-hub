@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="author" content="Sebastian Nowak"/>
+
+    <link rel="stylesheet" href="/resources/css/bootstrap.min.css"/>
+    <script src="/resources/js/bootstrap.js"></script>
+
+    <title>List of books</title>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Library app</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="/books/">Books <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/authors">Authors</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title" th:text="${book.title}">book.title</h5>
+        <div class="card-text">
+            <p>ID: <span th:text="${book.id}">book.id</span></p>
+            <p>ISBN: <span th:text="${book.isbn}">book.isbn</span></p>
+            <p>Publication date: <span th:text="${book.publicationDate}">book.publicationDate</span></p>
+            <p>Publisher name: <span th:text="${book.publisherName}">book.publisherName</span></p>
+        </div>
+        <button type="button" class="btn btn-primary" onclick="window.location='/books'">Go back</button>
+    </div>
+</div>
+
+</body>
+</html>

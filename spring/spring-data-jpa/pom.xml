@@ -7,9 +7,14 @@
         <groupId>com.bastex</groupId>
         <artifactId>code-learning-hub-spring</artifactId>
         <version>0.0.1-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath>
     </parent>
 
     <artifactId>code-learning-hub-spring-data-jpa</artifactId>
+
+    <properties>
+        <spring-boot.repackage.skip>true</spring-boot.repackage.skip>
+    </properties>
 
     <dependencies>
         <dependency>

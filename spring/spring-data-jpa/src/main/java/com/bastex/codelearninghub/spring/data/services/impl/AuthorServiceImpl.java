@@ -2,12 +2,13 @@ package com.bastex.codelearninghub.spring.data.services.impl;
 
 import com.bastex.codelearninghub.spring.data.domain.Author;
 import com.bastex.codelearninghub.spring.data.domain.projections.AuthorProjection;
+import com.bastex.codelearninghub.spring.data.domain.query.AuthorSort;
 import com.bastex.codelearninghub.spring.data.repositories.AuthorRepository;
 import com.bastex.codelearninghub.spring.data.services.AuthorService;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -20,8 +21,8 @@ class AuthorServiceImpl implements AuthorService {
 
     @Override
     @Transactional(readOnly = false)
-    public void save(@NonNull final Author author) {
-        authorRepository.save(author);
+    public long save(@NonNull final Author author) {
+        return authorRepository.save(author).getId();
     }
 
     @Override
@@ -32,8 +33,8 @@ class AuthorServiceImpl implements AuthorService {
 
     @Override
     @Transactional(readOnly = true)
-    public Page<AuthorProjection> findAll(@NonNull final Pageable page) {
-        return authorRepository.findAllAuthors(page);
+    public Page<AuthorProjection> findAll(final int page, final int size, @NonNull final AuthorSort authorSort) {
+        return authorRepository.findAllAuthorsBy(PageRequest.of(page, size, authorSort.getSort()));
     }
 
     @Override
