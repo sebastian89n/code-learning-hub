@@ -72,7 +72,7 @@ public final class Java21Tester {
             switch (action) {
                 case final Add add -> handleAdd(add, values);
                 case final Remove remove -> handleRemove(remove, values);
-                case Action.Set(final int position, final String value) -> values.set(position, value);
+                case final Action.Set set -> values.set(set.position(), set.value());
             }
         });
 
@@ -81,10 +81,10 @@ public final class Java21Tester {
 
     private static void handleAdd(final Add action, final List<String> values) {
         switch (action) {
-            case Add.Last(final String value) ->
-                    values.addLast(value); // new method in sequenced collections, equivalent to .add
-            case Add.First(final String value) -> values.addFirst(value); // sequenced collections to the rescue!
-            case Add.At(final int position, final String value) -> values.add(position, value);
+            case final Add.Last last ->
+                    values.addLast(last.value()); // new method in sequenced collections, equivalent to .add
+            case final Add.First first -> values.addFirst(first.value()); // sequenced collections to the rescue!
+            case final Add.At at -> values.add(at.position(), at.value());
         }
     }
 
@@ -94,14 +94,14 @@ public final class Java21Tester {
             // first 2 branches of this switch
             case final Remove.Last ignored -> values.removeLast(); // sequenced collections to the rescue!
             case final Remove.First ignored -> values.removeFirst(); // sequenced collections to the rescue!
-            case Remove.From(final int position) -> values.remove(position);
+            case final Remove.From from -> values.remove(from.position());
         }
     }
 
     private static void updateList(final List<Person> people, final Person target1) {
         switch (ListUtils.safeBinarySearch(people, target1)) {
-            case ListPosition.Found(final int position) -> people.set(position, target1);
-            case ListPosition.NotFound(final int candidatePosition) -> people.add(candidatePosition, target1);
+            case final ListPosition.Found found -> people.set(found.position(), target1);
+            case final ListPosition.NotFound notFound -> people.add(notFound.candidatePosition(), target1);
         }
     }
 
