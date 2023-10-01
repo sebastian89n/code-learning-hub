@@ -7,7 +7,7 @@ import java.time.LocalDate;
 
 @Builder
 @Getter
-public class BookSearchDTO {
+public class BookSearchQuery {
     private final String title;
 
     private final String isbn;

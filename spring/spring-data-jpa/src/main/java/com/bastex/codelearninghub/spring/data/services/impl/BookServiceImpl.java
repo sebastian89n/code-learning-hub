@@ -3,7 +3,7 @@ package com.bastex.codelearninghub.spring.data.services.impl;
 import com.bastex.codelearninghub.spring.data.domain.Book;
 import com.bastex.codelearninghub.spring.data.domain.projections.BookIdIsbnProjection;
 import com.bastex.codelearninghub.spring.data.domain.projections.BookProjection;
-import com.bastex.codelearninghub.spring.data.domain.query.BookSearchDTO;
+import com.bastex.codelearninghub.spring.data.domain.query.BookSearchQuery;
 import com.bastex.codelearninghub.spring.data.repositories.BookRepository;
 import com.bastex.codelearninghub.spring.data.services.BookService;
 import lombok.RequiredArgsConstructor;
@@ -29,8 +29,8 @@ class BookServiceImpl implements BookService {
 
     @Override
     @Transactional(readOnly = true)
-    public List<BookProjection> searchBooks(final BookSearchDTO bookSearchDTO) {
-        return bookRepository.searchBooks(bookSearchDTO);
+    public List<BookProjection> searchBooks(final BookSearchQuery bookSearchQuery) {
+        return bookRepository.searchBooks(bookSearchQuery);
     }
 
     @Override

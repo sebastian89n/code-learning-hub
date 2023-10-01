@@ -2,7 +2,7 @@ package com.bastex.codelearninghub.spring.data;
 
 import com.bastex.codelearninghub.spring.data.domain.projections.BookIdIsbnProjection;
 import com.bastex.codelearninghub.spring.data.domain.projections.BookProjection;
-import com.bastex.codelearninghub.spring.data.domain.query.BookSearchDTO;
+import com.bastex.codelearninghub.spring.data.domain.query.BookSearchQuery;
 import com.bastex.codelearninghub.spring.data.services.BookService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
@@ -45,11 +45,11 @@ public class SpringDataJpaApp {
         algorithms.forEach(SpringDataJpaApp::logBookIdIsbn);
 
         log.info("-- bookService.searchBooks");
-        final BookSearchDTO bookSearchDTO = BookSearchDTO.builder()
+        final BookSearchQuery bookSearchQuery = BookSearchQuery.builder()
                 .title("Algorithms, 4th Edition")
                 .build();
 
-        final List<BookProjection> bookProjections = bookService.searchBooks(bookSearchDTO);
+        final List<BookProjection> bookProjections = bookService.searchBooks(bookSearchQuery);
         bookProjections.forEach(SpringDataJpaApp::logBook);
 
         log.info("-- bookService.findAllBooksByAuthor");

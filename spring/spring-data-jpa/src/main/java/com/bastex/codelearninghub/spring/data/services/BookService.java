@@ -4,7 +4,7 @@ package com.bastex.codelearninghub.spring.data.services;
 import com.bastex.codelearninghub.spring.data.domain.Book;
 import com.bastex.codelearninghub.spring.data.domain.projections.BookIdIsbnProjection;
 import com.bastex.codelearninghub.spring.data.domain.projections.BookProjection;
-import com.bastex.codelearninghub.spring.data.domain.query.BookSearchDTO;
+import com.bastex.codelearninghub.spring.data.domain.query.BookSearchQuery;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
@@ -15,7 +15,7 @@ import java.util.Optional;
 public interface BookService {
     void save(Book book);
 
-    List<BookProjection> searchBooks(BookSearchDTO bookSearchDTO);
+    List<BookProjection> searchBooks(BookSearchQuery bookSearchQuery);
 
     Page<BookProjection> findAll(Pageable page);
 
