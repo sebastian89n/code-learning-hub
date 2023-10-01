@@ -6,7 +6,6 @@ Currently based on Java 21.
 
 ### Modules
 
-- algorithms
 - design patterns
 - html5
 - java
