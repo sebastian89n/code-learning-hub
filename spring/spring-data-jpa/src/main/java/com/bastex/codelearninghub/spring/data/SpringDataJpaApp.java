@@ -3,7 +3,9 @@ package com.bastex.codelearninghub.spring.data;
 import com.bastex.codelearninghub.spring.data.domain.projections.AuthorProjection;
 import com.bastex.codelearninghub.spring.data.domain.projections.BookIdIsbnProjection;
 import com.bastex.codelearninghub.spring.data.domain.projections.BookProjection;
+import com.bastex.codelearninghub.spring.data.domain.query.AuthorSort;
 import com.bastex.codelearninghub.spring.data.domain.query.BookSearchQuery;
+import com.bastex.codelearninghub.spring.data.domain.query.BookSort;
 import com.bastex.codelearninghub.spring.data.services.AuthorService;
 import com.bastex.codelearninghub.spring.data.services.BookService;
 import lombok.extern.slf4j.Slf4j;
@@ -11,8 +13,6 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Sort;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -35,8 +35,7 @@ public class SpringDataJpaApp {
 
     private static void testBookQueries(final BookService bookService) {
         log.info("-- bookService.findAll");
-        final Sort sortBy = Sort.by("lastUpdatedTimestamp").descending().and(Sort.by("title"));
-        final Page<BookProjection> books = bookService.findAll(PageRequest.of(0, 10, sortBy));
+        final Page<BookProjection> books = bookService.findAll(0, 10, BookSort.idAscending);
         books.forEach(SpringDataJpaApp::logBook);
 
         log.info("-- bookService.findBookIdIsbnByTitle");
@@ -48,7 +47,7 @@ public class SpringDataJpaApp {
         bookProjection.ifPresentOrElse(SpringDataJpaApp::logBook, () -> log.warn("Book not found"));
 
         log.info("-- bookService.findAllBookIdIsbnByTitleLike");
-        final Page<BookIdIsbnProjection> algorithmsBooks = bookService.findAllBookIdIsbnByTitleLike("Algorithms%", PageRequest.of(0, 10));
+        final Page<BookIdIsbnProjection> algorithmsBooks = bookService.findAllBookIdIsbnByTitleLike("Algorithms%", 0, 10, BookSort.idAscending);
         algorithmsBooks.forEach(SpringDataJpaApp::logBookIdIsbn);
 
         log.info("-- bookService.findAllBookIdIsbnByTitleContainsAndPublicationDateAfter");
@@ -62,7 +61,7 @@ public class SpringDataJpaApp {
         bookProjections.forEach(SpringDataJpaApp::logBook);
 
         log.info("-- bookService.findAllBooksByAuthor");
-        final Page<BookProjection> allBooksByAuthor = bookService.findAllBooksByAuthor("Robert", "Sedgewick", PageRequest.of(0, 10));
+        final Page<BookProjection> allBooksByAuthor = bookService.findAllBooksByAuthor("Robert", "Sedgewick", 0, 10, BookSort.idAscending);
         allBooksByAuthor.forEach(SpringDataJpaApp::logBook);
 
         log.info("-- bookService.findAllBooksByAuthor");
@@ -73,7 +72,7 @@ public class SpringDataJpaApp {
 
     private static void testAuthorQueries(final AuthorService authorService) {
         log.info("-- authorService.findAll");
-        final Page<AuthorProjection> allAuthors = authorService.findAll(PageRequest.of(0, 10));
+        final Page<AuthorProjection> allAuthors = authorService.findAll(0, 10, AuthorSort.idAscending);
         allAuthors.forEach(SpringDataJpaApp::logAuthor);
         final AuthorProjection authorProjection = allAuthors.getContent().get(0);
 

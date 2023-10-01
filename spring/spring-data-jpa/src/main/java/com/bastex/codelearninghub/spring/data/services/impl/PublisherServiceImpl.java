@@ -15,8 +15,8 @@ class PublisherServiceImpl implements PublisherService {
 
     @Override
     @Transactional(readOnly = false)
-    public void save(@NonNull final Publisher publisher) {
-        publisherRepository.save(publisher);
+    public long save(@NonNull final Publisher publisher) {
+        return publisherRepository.save(publisher).getId();
     }
 
     @Override

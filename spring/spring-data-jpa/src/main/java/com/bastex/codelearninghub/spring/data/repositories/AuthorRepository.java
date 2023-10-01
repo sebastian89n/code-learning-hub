@@ -17,6 +17,6 @@ public interface AuthorRepository extends JpaRepository<Author, Long> {
      */
     Optional<AuthorProjection> findAuthorById(long id);
 
-    Page<AuthorProjection> findAllAuthors(Pageable page);
+    Page<AuthorProjection> findAllAuthorsBy(Pageable page);
 
 }

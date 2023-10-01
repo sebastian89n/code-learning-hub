@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="author" content="Sebastian Nowak"/>
+
+    <link rel="stylesheet" href="/resources/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/resources/css/application.css"/>
+    <script src="/resources/js/bootstrap.js"></script>
+
+    <title>List of books</title>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Library app</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="/books/">Books</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="/authors">Authors <span class="sr-only">(current)</span></a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<table class="table">
+    <tr>
+        <th>ID</th>
+        <th>Email</th>
+        <th>First name</th>
+        <th>Last name</th>
+    </tr>
+    <tr class="table-data-row" th:each="author : ${authors}"
+        th:onclick="'javascript:redirectToAuthor(' + ${author.id} + ')'">
+        <td th:text="${author.id}">author.id</td>
+        <td th:text="${author.email}">author.email</td>
+        <td th:text="${author.firstName}">author.firstName</td>
+        <td th:text="${author.lastName}">author.lastName</td>
+    </tr>
+</table>
+</body>
+</html>
+<script>
+    function redirectToAuthor(authorId) {
+        window.location = "/authors/" + authorId
+    }
+</script>

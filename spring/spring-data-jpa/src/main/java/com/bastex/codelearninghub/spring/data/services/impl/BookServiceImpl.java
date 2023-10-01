@@ -4,12 +4,13 @@ import com.bastex.codelearninghub.spring.data.domain.Book;
 import com.bastex.codelearninghub.spring.data.domain.projections.BookIdIsbnProjection;
 import com.bastex.codelearninghub.spring.data.domain.projections.BookProjection;
 import com.bastex.codelearninghub.spring.data.domain.query.BookSearchQuery;
+import com.bastex.codelearninghub.spring.data.domain.query.BookSort;
 import com.bastex.codelearninghub.spring.data.repositories.BookRepository;
 import com.bastex.codelearninghub.spring.data.services.BookService;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -25,8 +26,8 @@ class BookServiceImpl implements BookService {
 
     @Override
     @Transactional(readOnly = false)
-    public void save(@NonNull final Book book) {
-        bookRepository.save(book);
+    public long save(@NonNull final Book book) {
+        return bookRepository.save(book).getId();
     }
 
     @Override
@@ -53,26 +54,26 @@ class BookServiceImpl implements BookService {
 
     @Override
     @Transactional(readOnly = true)
-    public Page<BookProjection> findAll(@NonNull final Pageable page) {
-        return bookRepository.findAllBooks(page);
+    public Page<BookProjection> findAll(final int page, final int size, @NonNull final BookSort bookSort) {
+        return bookRepository.findAllBooks(PageRequest.of(page, size, bookSort.getSort()));
     }
 
     @Override
     @Transactional(readOnly = true)
-    public Page<BookProjection> findAllBooksByTitleContains(@NonNull final String title, @NonNull final Pageable page) {
-        return bookRepository.findAllBooksByTitleContains(title, page);
+    public Page<BookProjection> findAllBooksByTitleContains(@NonNull final String title, final int page, final int size, @NonNull final BookSort bookSort) {
+        return bookRepository.findAllBooksByTitleContains(title, PageRequest.of(page, size, bookSort.getSort()));
     }
 
     @Override
     @Transactional(readOnly = true)
-    public Page<BookProjection> findAllBooksByPublisherName(@NonNull final String publisherName, @NonNull final Pageable page) {
-        return bookRepository.findAllBooksByPublisherName(publisherName, page);
+    public Page<BookProjection> findAllBooksByPublisherName(@NonNull final String publisherName, final int page, final int size, @NonNull final BookSort bookSort) {
+        return bookRepository.findAllBooksByPublisherName(publisherName, PageRequest.of(page, size, bookSort.getSort()));
     }
 
     @Override
     @Transactional(readOnly = true)
-    public Page<BookProjection> findAllBooksByAuthor(@NonNull final String firstName, @NonNull final String lastName, @NonNull final Pageable page) {
-        return bookRepository.findAllBooksByAuthor(firstName, lastName, page);
+    public Page<BookProjection> findAllBooksByAuthor(@NonNull final String firstName, @NonNull final String lastName, final int page, final int size, @NonNull final BookSort bookSort) {
+        return bookRepository.findAllBooksByAuthor(firstName, lastName, PageRequest.of(page, size, bookSort.getSort()));
     }
 
     @Override
@@ -83,8 +84,8 @@ class BookServiceImpl implements BookService {
 
     @Override
     @Transactional(readOnly = true)
-    public Page<BookIdIsbnProjection> findAllBookIdIsbnByTitleLike(@NonNull final String title, @NonNull final Pageable page) {
-        return bookRepository.findAllBookIdIsbnByTitleLike(title, page);
+    public Page<BookIdIsbnProjection> findAllBookIdIsbnByTitleLike(@NonNull final String title, final int page, final int size, @NonNull final BookSort bookSort) {
+        return bookRepository.findAllBookIdIsbnByTitleLike(title, PageRequest.of(page, size, bookSort.getSort()));
     }
 
     @Override
