@@ -88,7 +88,7 @@ public interface BookRepository extends JpaRepository<Book, Long>, BookRepositor
 
 
     /**
-     * Below Spring Data method naming conventions
+     * Below examples of Spring Data methods using naming convention.
      */
     Optional<BookIdIsbnProjection> findBookIdIsbnByTitle(String title);
 
