@@ -24,6 +24,11 @@ public class DataLoader implements CommandLineRunner {
 
     @Override
     public void run(final String... args) {
+        initializeDbData();
+
+    }
+
+    private void initializeDbData() {
         final Author robertSedgewickAuthor = new Author();
         robertSedgewickAuthor.setFirstName("Robert");
         robertSedgewickAuthor.setLastName("Sedgewick");
@@ -73,6 +78,5 @@ public class DataLoader implements CommandLineRunner {
         pythonBook.getAuthors().add(robertDonderoAuthor);
         pythonBook.setPublisher(addisonWesleyPub);
         bookService.save(pythonBook);
-
     }
 }

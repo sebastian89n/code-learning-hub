@@ -5,20 +5,18 @@ import com.bastex.codelearninghub.spring.data.domain.projections.AuthorProjectio
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
+
+import java.util.Optional;
 
 @Repository
 public interface AuthorRepository extends JpaRepository<Author, Long> {
     /**
-     * Spring Data will automatically provide implementation for the interface. We just need to map properties to getters provided in the interface
+     * Retrieving projections: Spring Data will automatically provide implementation for the interface.
+     * We just need to map properties to getters provided in the interface
      */
-    @Query("SELECT a.id AS id, " +
-            "a.createdTimestamp AS createdTimestamp, " +
-            "a.lastUpdatedTimestamp AS lastUpdatedTimestamp, " +
-            "a.email AS email, " +
-            "a.firstName AS firstName, " +
-            "a.lastName AS lastName " +
-            "FROM Author a")
-    Page<AuthorProjection> findAllAuthors(Pageable page);
+    Optional<AuthorProjection> findAuthorById(long id);
+
+    Page<AuthorProjection> findAllAuthorsBy(Pageable page);
+
 }

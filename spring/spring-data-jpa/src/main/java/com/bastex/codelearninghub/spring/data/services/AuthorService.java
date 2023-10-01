@@ -6,8 +6,12 @@ import com.bastex.codelearninghub.spring.data.domain.projections.AuthorProjectio
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
+import java.util.Optional;
+
 public interface AuthorService {
     void save(Author author);
+
+    Optional<AuthorProjection> findById(long authorId);
 
     Page<AuthorProjection> findAll(final Pageable page);
 

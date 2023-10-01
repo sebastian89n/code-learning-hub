@@ -6,6 +6,7 @@ import com.bastex.codelearninghub.spring.data.domain.projections.BookProjection;
 import com.bastex.codelearninghub.spring.data.domain.query.BookSearchQuery;
 import com.bastex.codelearninghub.spring.data.repositories.BookRepository;
 import com.bastex.codelearninghub.spring.data.services.BookService;
+import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -15,6 +16,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 @Service
 @RequiredArgsConstructor
@@ -23,55 +25,71 @@ class BookServiceImpl implements BookService {
 
     @Override
     @Transactional(readOnly = false)
-    public void save(final Book book) {
+    public void save(@NonNull final Book book) {
         bookRepository.save(book);
     }
 
     @Override
+    @Transactional(readOnly = false)
+    public int updatePublicationDateByBookIds(@NonNull final LocalDate newPublicationDate, @NonNull final Set<Long> bookIds) {
+        if (bookIds.isEmpty()) {
+            throw new IllegalArgumentException("Book ids cannot be empty");
+        }
+
+        return bookRepository.updatePublicationDateByBookIds(newPublicationDate, bookIds);
+    }
+
+    @Override
     @Transactional(readOnly = true)
-    public List<BookProjection> searchBooks(final BookSearchQuery bookSearchQuery) {
+    public List<BookProjection> searchBooks(@NonNull final BookSearchQuery bookSearchQuery) {
         return bookRepository.searchBooks(bookSearchQuery);
     }
 
     @Override
     @Transactional(readOnly = true)
-    public Page<BookProjection> findAll(final Pageable page) {
+    public Optional<BookProjection> findById(final long bookId) {
+        return bookRepository.findBookById(bookId);
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public Page<BookProjection> findAll(@NonNull final Pageable page) {
         return bookRepository.findAllBooks(page);
     }
 
     @Override
     @Transactional(readOnly = true)
-    public Page<BookProjection> findAllBooksByTitleContains(final String title, final Pageable page) {
+    public Page<BookProjection> findAllBooksByTitleContains(@NonNull final String title, @NonNull final Pageable page) {
         return bookRepository.findAllBooksByTitleContains(title, page);
     }
 
     @Override
     @Transactional(readOnly = true)
-    public Page<BookProjection> findAllBooksByPublisherName(final String publisherName, final Pageable page) {
+    public Page<BookProjection> findAllBooksByPublisherName(@NonNull final String publisherName, @NonNull final Pageable page) {
         return bookRepository.findAllBooksByPublisherName(publisherName, page);
     }
 
     @Override
     @Transactional(readOnly = true)
-    public Page<BookProjection> findAllBooksByAuthor(final String firstName, final String lastName, final Pageable page) {
+    public Page<BookProjection> findAllBooksByAuthor(@NonNull final String firstName, @NonNull final String lastName, @NonNull final Pageable page) {
         return bookRepository.findAllBooksByAuthor(firstName, lastName, page);
     }
 
     @Override
     @Transactional(readOnly = true)
-    public Optional<BookIdIsbnProjection> findBookIdIsbnByTitle(final String title) {
+    public Optional<BookIdIsbnProjection> findBookIdIsbnByTitle(@NonNull final String title) {
         return bookRepository.findBookIdIsbnByTitle(title);
     }
 
     @Override
     @Transactional(readOnly = true)
-    public Page<BookIdIsbnProjection> findAllBookIdIsbnByTitleLike(final String title, final Pageable page) {
+    public Page<BookIdIsbnProjection> findAllBookIdIsbnByTitleLike(@NonNull final String title, @NonNull final Pageable page) {
         return bookRepository.findAllBookIdIsbnByTitleLike(title, page);
     }
 
     @Override
     @Transactional(readOnly = true)
-    public List<BookIdIsbnProjection> findAllBookIdIsbnByTitleContainsAndPublicationDateAfter(final String title, final LocalDate publicationDate) {
+    public List<BookIdIsbnProjection> findAllBookIdIsbnByTitleContainsAndPublicationDateAfter(@NonNull final String title, @NonNull final LocalDate publicationDate) {
         return bookRepository.findAllBookIdIsbnByTitleContainsAndPublicationDateGreaterThan(title, publicationDate);
     }
 

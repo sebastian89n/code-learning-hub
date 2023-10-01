@@ -11,11 +11,16 @@ import org.springframework.data.domain.Pageable;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 public interface BookService {
     void save(Book book);
 
+    int updatePublicationDateByBookIds(LocalDate newPublicationDate, Set<Long> bookIds);
+
     List<BookProjection> searchBooks(BookSearchQuery bookSearchQuery);
+
+    Optional<BookProjection> findById(long bookId);
 
     Page<BookProjection> findAll(Pageable page);
 

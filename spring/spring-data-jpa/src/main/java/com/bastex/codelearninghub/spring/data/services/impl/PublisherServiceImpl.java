@@ -3,6 +3,7 @@ package com.bastex.codelearninghub.spring.data.services.impl;
 import com.bastex.codelearninghub.spring.data.domain.Publisher;
 import com.bastex.codelearninghub.spring.data.repositories.PublisherRepository;
 import com.bastex.codelearninghub.spring.data.services.PublisherService;
+import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -14,7 +15,7 @@ class PublisherServiceImpl implements PublisherService {
 
     @Override
     @Transactional(readOnly = false)
-    public void save(final Publisher publisher) {
+    public void save(@NonNull final Publisher publisher) {
         publisherRepository.save(publisher);
     }
 

@@ -13,7 +13,7 @@ import javax.persistence.Embeddable;
 @Embeddable
 @Setter
 @Getter
-@ToString()
+@ToString
 public class Address {
     @Column(name = "addresslocal")
     private String addressLocal;

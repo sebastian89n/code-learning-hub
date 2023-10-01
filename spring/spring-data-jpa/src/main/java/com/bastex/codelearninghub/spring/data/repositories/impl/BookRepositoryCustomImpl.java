@@ -15,6 +15,9 @@ import java.util.function.Consumer;
 
 @RequiredArgsConstructor
 class BookRepositoryCustomImpl implements BookRepositoryCustom {
+    /**
+     * Entity Manager will be injected by Spring Data JPA automatically when it initializes BookRepository
+     */
     private final EntityManager entityManager;
 
     @Override

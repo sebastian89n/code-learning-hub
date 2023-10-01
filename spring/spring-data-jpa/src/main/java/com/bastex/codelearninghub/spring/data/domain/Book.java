@@ -14,7 +14,7 @@ import java.util.Set;
 @Table(name = "books")
 @Setter
 @Getter
-@ToString(callSuper = true, exclude = {"authors"})
+@ToString(callSuper = true, exclude = {"authors", "publisher"})
 public class Book extends BaseEntity {
     @Column(name = "title", nullable = false)
     private String title;
