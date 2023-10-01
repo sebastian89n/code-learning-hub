@@ -33,7 +33,7 @@ class AuthorServiceImpl implements AuthorService {
     @Override
     @Transactional(readOnly = true)
     public Page<AuthorProjection> findAll(@NonNull final Pageable page) {
-        return authorRepository.findAllAuthorsBy(page);
+        return authorRepository.findAllAuthors(page);
     }
 
     @Override
