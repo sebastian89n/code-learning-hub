@@ -1,8 +1,8 @@
-package com.bastex.codelearninghub.spring.data.domain.dto;
+package com.bastex.codelearninghub.spring.data.domain.projections;
 
 import java.time.Instant;
 
-public interface BaseEntityDTO {
+public interface BaseEntityProjection {
     Long getId();
 
     Instant getCreatedTimestamp();

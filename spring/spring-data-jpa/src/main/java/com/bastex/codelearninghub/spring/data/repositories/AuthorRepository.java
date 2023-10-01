@@ -1,7 +1,7 @@
 package com.bastex.codelearninghub.spring.data.repositories;
 
 import com.bastex.codelearninghub.spring.data.domain.Author;
-import com.bastex.codelearninghub.spring.data.domain.dto.AuthorDTO;
+import com.bastex.codelearninghub.spring.data.domain.projections.AuthorProjection;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -20,5 +20,5 @@ public interface AuthorRepository extends JpaRepository<Author, Long> {
             "a.firstName AS firstName, " +
             "a.lastName AS lastName " +
             "FROM Author a")
-    Page<AuthorDTO> findAllAuthors(Pageable page);
+    Page<AuthorProjection> findAllAuthors(Pageable page);
 }

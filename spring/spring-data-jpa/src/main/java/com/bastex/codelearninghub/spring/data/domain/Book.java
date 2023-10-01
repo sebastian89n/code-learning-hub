@@ -11,6 +11,7 @@ import java.util.LinkedHashSet;
 import java.util.Set;
 
 @Entity
+@Table(name = "books")
 @Setter
 @Getter
 @ToString(callSuper = true, exclude = {"authors"})
@@ -27,11 +28,11 @@ public class Book extends BaseEntity {
     @Setter(value = AccessLevel.PACKAGE)
     @ManyToMany
     @JoinTable(name = "author_book",
-            joinColumns = @JoinColumn(name = "book_id"),
-            inverseJoinColumns = @JoinColumn(name = "author_id"))
+            joinColumns = @JoinColumn(name = "book_id", referencedColumnName = "oid"),
+            inverseJoinColumns = @JoinColumn(name = "author_id", referencedColumnName = "oid"))
     private Set<Author> authors = new LinkedHashSet<>();
 
     @ManyToOne
-    @JoinColumn(name = "publisher_id")
+    @JoinColumn(name = "publisher_id", referencedColumnName = "oid")
     private Publisher publisher;
 }

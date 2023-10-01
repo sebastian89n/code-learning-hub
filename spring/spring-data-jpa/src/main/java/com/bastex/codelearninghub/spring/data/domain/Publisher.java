@@ -5,13 +5,12 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
 @Entity
+@Table(name = "publishers")
 @Setter
 @Getter
 @ToString(callSuper = true, exclude = {"books"})
@@ -19,17 +18,14 @@ public class Publisher extends BaseEntity {
     @Column(name = "name", nullable = false)
     private String name;
 
-    @Column(name = "addresslocal")
-    private String addressLocal;
+    @Column(name = "emailaddress")
+    private String emailAddress;
 
-    @Column(name = "city")
-    private String city;
+    @Column(name = "phonenumber")
+    private String phoneNumber;
 
-    @Column(name = "state")
-    private String state;
-
-    @Column(name = "zip")
-    private String zip;
+    @Embedded
+    public Address address;
 
     @Setter(value = AccessLevel.PACKAGE)
     @OneToMany(mappedBy = "publisher")

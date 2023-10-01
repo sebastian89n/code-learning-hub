@@ -1,8 +1,8 @@
-package com.bastex.codelearninghub.spring.data.domain.dto;
+package com.bastex.codelearninghub.spring.data.domain.projections;
 
 import java.time.LocalDate;
 
-public interface BookDTO extends BaseEntityDTO {
+public interface BookProjection extends BaseEntityProjection {
     String getTitle();
 
     String getIsbn();

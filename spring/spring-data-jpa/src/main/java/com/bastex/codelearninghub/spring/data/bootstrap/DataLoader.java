@@ -1,5 +1,6 @@
 package com.bastex.codelearninghub.spring.data.bootstrap;
 
+import com.bastex.codelearninghub.spring.data.domain.Address;
 import com.bastex.codelearninghub.spring.data.domain.Author;
 import com.bastex.codelearninghub.spring.data.domain.Book;
 import com.bastex.codelearninghub.spring.data.domain.Publisher;
@@ -43,6 +44,15 @@ public class DataLoader implements CommandLineRunner {
 
         final Publisher addisonWesleyPub = new Publisher();
         addisonWesleyPub.setName("Addison Wesley");
+
+        final Address address = new Address();
+        address.setAddressLocal("501 Boylston St.");
+        address.setCity("Boston");
+        address.setState("Massachusetts");
+        address.setZip("02216");
+        address.setCountry("US");
+
+        addisonWesleyPub.setAddress(address);
         publisherService.save(addisonWesleyPub);
 
         final Book algorithmsBook = new Book();

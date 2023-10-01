@@ -1,7 +1,7 @@
 package com.bastex.codelearninghub.spring.data.services.impl;
 
 import com.bastex.codelearninghub.spring.data.domain.Author;
-import com.bastex.codelearninghub.spring.data.domain.dto.AuthorDTO;
+import com.bastex.codelearninghub.spring.data.domain.projections.AuthorProjection;
 import com.bastex.codelearninghub.spring.data.repositories.AuthorRepository;
 import com.bastex.codelearninghub.spring.data.services.AuthorService;
 import lombok.RequiredArgsConstructor;
@@ -23,7 +23,7 @@ class AuthorServiceImpl implements AuthorService {
 
     @Override
     @Transactional(readOnly = true)
-    public Page<AuthorDTO> findAll(final Pageable page) {
+    public Page<AuthorProjection> findAll(final Pageable page) {
         return authorRepository.findAllAuthors(page);
     }
 

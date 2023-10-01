@@ -1,19 +1,27 @@
 package com.bastex.codelearninghub.spring.data.repositories;
 
 import com.bastex.codelearninghub.spring.data.domain.Book;
-import com.bastex.codelearninghub.spring.data.domain.dto.BookDTO;
+import com.bastex.codelearninghub.spring.data.domain.projections.BookIdIsbnProjection;
+import com.bastex.codelearninghub.spring.data.domain.projections.BookProjection;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
+
+import java.time.LocalDate;
+import java.util.List;
+import java.util.Optional;
 
 /**
  * Repository annotation is optional but causes Spring to do exception translation.
- * It will catch all JDBC/JPA/Hibernate/ORM impl exceptions and re-throw DataAccessException
+ * It will catch all JDBC/JPA/Hibernate/ORM impl exceptions and re-throw DataAccessException.
+ * <p>
+ * Extends BookRepositoryCustom that contains customized query implementation with optional parameters.
  */
 @Repository
-public interface BookRepository extends JpaRepository<Book, Long> {
+public interface BookRepository extends JpaRepository<Book, Long>, BookRepositoryCustom {
     @Query("SELECT b.id AS id, " +
             "b.createdTimestamp AS createdTimestamp, " +
             "b.lastUpdatedTimestamp AS lastUpdatedTimestamp, " +
@@ -22,5 +30,53 @@ public interface BookRepository extends JpaRepository<Book, Long> {
             "b.publicationDate AS publicationDate, " +
             "b.publisher.name AS publisherName " +
             "FROM Book b")
-    Page<BookDTO> findAllBooks(Pageable page);
+    Page<BookProjection> findAllBooks(Pageable page);
+
+    @Query("SELECT b.id AS id, " +
+            "b.createdTimestamp AS createdTimestamp, " +
+            "b.lastUpdatedTimestamp AS lastUpdatedTimestamp, " +
+            "b.title AS title, " +
+            "b.isbn AS isbn, " +
+            "b.publicationDate AS publicationDate, " +
+            "b.publisher.name AS publisherName " +
+            "FROM Book b " +
+            "WHERE b.title LIKE %:title%")
+    Page<BookProjection> findAllBooksByTitleContains(@Param("title") String title, Pageable page);
+
+    @Query("SELECT b.id AS id, " +
+            "b.createdTimestamp AS createdTimestamp, " +
+            "b.lastUpdatedTimestamp AS lastUpdatedTimestamp, " +
+            "b.title AS title, " +
+            "b.isbn AS isbn, " +
+            "b.publicationDate AS publicationDate, " +
+            "b.publisher.name AS publisherName " +
+            "FROM Book b " +
+            "WHERE b.publisher.name = :publisherName")
+    Page<BookProjection> findAllBooksByPublisherName(@Param("publisherName") String publisherName, Pageable page);
+
+    /**
+     * Example with JOIN
+     */
+    @Query("SELECT b.id AS id, " +
+            "b.createdTimestamp AS createdTimestamp, " +
+            "b.lastUpdatedTimestamp AS lastUpdatedTimestamp, " +
+            "b.title AS title, " +
+            "b.isbn AS isbn, " +
+            "b.publicationDate AS publicationDate, " +
+            "b.publisher.name AS publisherName " +
+            "FROM Book b JOIN b.authors a WHERE a.firstName = :firstName AND a.lastName = :lastName ")
+    Page<BookProjection> findAllBooksByAuthor(@Param("firstName") String firstName, @Param("lastName") String lastName, Pageable page);
+
+
+    /**
+     * Below Spring Data method naming conventions
+     */
+    Optional<BookIdIsbnProjection> findBookIdIsbnByTitle(String title);
+
+    /**
+     * Like requires wildcard % provided in the String
+     */
+    Page<BookIdIsbnProjection> findAllBookIdIsbnByTitleLike(String title, Pageable page);
+
+    List<BookIdIsbnProjection> findAllBookIdIsbnByTitleContainsAndPublicationDateGreaterThan(String title, LocalDate publicationDate);
 }

@@ -8,10 +8,12 @@ import lombok.ToString;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
+import javax.persistence.Table;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
 @Entity
+@Table(name = "authors")
 @Setter
 @Getter
 @ToString(callSuper = true, exclude = {"books"})
