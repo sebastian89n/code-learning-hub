@@ -17,9 +17,6 @@ Server deploys on localhost:8080
 
 H2 console:
 http://localhost:8080/h2-console
-
-JDBC url visible in the logs during server startup:
-
-2023-10-01 19:49:58.966 INFO 11276 --- [  restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console
-availableat '/h2-console'. Database available at '**jdbc:h2:mem:89b72fce-cbe4-4c68-914d-ab02839e739a**'
+JDBC url jdbc:h2:mem:app-db
+username/password as predefined
 
