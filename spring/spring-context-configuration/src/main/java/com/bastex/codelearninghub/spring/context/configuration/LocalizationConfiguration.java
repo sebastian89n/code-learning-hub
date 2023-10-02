@@ -19,7 +19,8 @@ public class LocalizationConfiguration {
 
     @Bean(name = "i18nEnService") // bean name is specified manually
     @Primary
-        // we have multiple interface implementations in the context. This one will be used if no bean name is specified when getting bean from the context
+        // we have multiple interface implementations in the context.
+        // Primary bean will be used if no bean name is specified when getting bean from the context
     I18nService i18nEnService() {
         return new I18nEnServiceImpl();
     }

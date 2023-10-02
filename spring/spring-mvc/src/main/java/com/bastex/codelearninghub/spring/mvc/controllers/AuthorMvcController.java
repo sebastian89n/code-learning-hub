@@ -21,7 +21,7 @@ import java.util.Optional;
 @Controller
 @RequestMapping("/authors")
 @RequiredArgsConstructor
-public class AuthorController {
+public class AuthorMvcController {
     private final AuthorWebService authorWebService;
 
     @RequestMapping

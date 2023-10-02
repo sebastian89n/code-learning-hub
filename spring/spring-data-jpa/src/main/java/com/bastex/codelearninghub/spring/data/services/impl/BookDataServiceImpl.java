@@ -6,7 +6,7 @@ import com.bastex.codelearninghub.spring.data.domain.projections.BookProjection;
 import com.bastex.codelearninghub.spring.data.domain.query.BookSearchQuery;
 import com.bastex.codelearninghub.spring.data.domain.query.BookSort;
 import com.bastex.codelearninghub.spring.data.repositories.BookRepository;
-import com.bastex.codelearninghub.spring.data.services.BookService;
+import com.bastex.codelearninghub.spring.data.services.BookDataService;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -21,7 +21,7 @@ import java.util.Set;
 
 @Service
 @RequiredArgsConstructor
-class BookServiceImpl implements BookService {
+class BookDataServiceImpl implements BookDataService {
     private final BookRepository bookRepository;
 
     @Override

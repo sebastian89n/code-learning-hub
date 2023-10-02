@@ -2,7 +2,7 @@ package com.bastex.codelearninghub.spring.data.services.impl;
 
 import com.bastex.codelearninghub.spring.data.domain.Publisher;
 import com.bastex.codelearninghub.spring.data.repositories.PublisherRepository;
-import com.bastex.codelearninghub.spring.data.services.PublisherService;
+import com.bastex.codelearninghub.spring.data.services.PublisherDataService;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -10,7 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @RequiredArgsConstructor
-class PublisherServiceImpl implements PublisherService {
+class PublisherDataServiceImpl implements PublisherDataService {
     private final PublisherRepository publisherRepository;
 
     @Override

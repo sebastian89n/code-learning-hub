@@ -29,7 +29,7 @@ public class MathServiceAspect {
 
     /**
      * Here * at the beginning fo execution defines many return types and ".." defines many arguments types.
-     * It could be used to intercept if there are more than one overloaded methods of the same name.
+     * It could be used to intercept overloaded/multiple methods.
      */
     @AfterThrowing(pointcut = "execution(* com.bastex.codelearninghub.spring.aop.service.MathService.add(..))", throwing = "e")
     public void afterThrowingAdd(final JoinPoint jp, final Exception e) {

@@ -21,7 +21,7 @@ import java.util.Optional;
 @Controller
 @RequestMapping("books")
 @RequiredArgsConstructor
-public class BookController {
+public class BookMvcController {
     private final BookWebService bookWebService;
 
     @RequestMapping

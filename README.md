@@ -1,13 +1,13 @@
 # code-learning-hub
 
-Project containing multiple modules with code samples for learning purposes
+Project containing multiple modules with sample code snippets for learning purposes
 
 Currently based on Java 21.
 
 ### Modules
 
 - design patterns
-- html5
+- html
 - java
-- junit5
 - spring
+- testing

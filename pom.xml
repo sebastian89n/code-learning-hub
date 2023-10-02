@@ -21,9 +21,9 @@
 
     <modules>
         <module>design-patterns</module>
-        <module>html5</module>
+        <module>html</module>
         <module>java</module>
-        <module>junit5</module>
+        <module>testing</module>
         <module>spring</module>
     </modules>
 

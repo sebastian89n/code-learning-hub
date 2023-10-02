@@ -24,7 +24,7 @@ public abstract class BaseEntity implements Serializable {
     @CreationTimestamp
     public Instant createdTimestamp;
 
-    @Column(name = "lastupdatedtimestamp")
+    @Column(name = "lastupdatedtimestamp", nullable = false)
     @UpdateTimestamp
     public Instant lastUpdatedTimestamp;
 }

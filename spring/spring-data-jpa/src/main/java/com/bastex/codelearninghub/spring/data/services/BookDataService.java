@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
-public interface BookService {
+public interface BookDataService {
     long save(Book book);
 
     int updatePublicationDateByBookIds(LocalDate newPublicationDate, Set<Long> bookIds);

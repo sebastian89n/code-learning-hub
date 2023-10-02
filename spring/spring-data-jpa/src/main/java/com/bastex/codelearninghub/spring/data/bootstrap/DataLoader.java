@@ -4,9 +4,9 @@ import com.bastex.codelearninghub.spring.data.domain.Address;
 import com.bastex.codelearninghub.spring.data.domain.Author;
 import com.bastex.codelearninghub.spring.data.domain.Book;
 import com.bastex.codelearninghub.spring.data.domain.Publisher;
-import com.bastex.codelearninghub.spring.data.services.AuthorService;
-import com.bastex.codelearninghub.spring.data.services.BookService;
-import com.bastex.codelearninghub.spring.data.services.PublisherService;
+import com.bastex.codelearninghub.spring.data.services.AuthorDataService;
+import com.bastex.codelearninghub.spring.data.services.BookDataService;
+import com.bastex.codelearninghub.spring.data.services.PublisherDataService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -16,11 +16,11 @@ import java.time.LocalDate;
 @Component
 @RequiredArgsConstructor
 public class DataLoader implements CommandLineRunner {
-    private final AuthorService authorService;
+    private final AuthorDataService authorDataService;
 
-    private final BookService bookService;
+    private final BookDataService bookDataService;
 
-    private final PublisherService publisherService;
+    private final PublisherDataService publisherDataService;
 
     @Override
     public void run(final String... args) {
@@ -33,19 +33,19 @@ public class DataLoader implements CommandLineRunner {
         robertSedgewickAuthor.setFirstName("Robert");
         robertSedgewickAuthor.setLastName("Sedgewick");
         robertSedgewickAuthor.setEmail("robert.sedgewick@gmail.com");
-        authorService.save(robertSedgewickAuthor);
+        authorDataService.save(robertSedgewickAuthor);
 
         final Author kevinWayneAuthor = new Author();
         kevinWayneAuthor.setFirstName("Kevin");
         kevinWayneAuthor.setLastName("Wayne");
         kevinWayneAuthor.setEmail("kevin.wayne@gmail.com");
-        authorService.save(kevinWayneAuthor);
+        authorDataService.save(kevinWayneAuthor);
 
         final Author robertDonderoAuthor = new Author();
         robertDonderoAuthor.setFirstName("Robert");
         robertDonderoAuthor.setLastName("Dondero");
         robertDonderoAuthor.setEmail("robert.dondero@gmail.com");
-        authorService.save(robertDonderoAuthor);
+        authorDataService.save(robertDonderoAuthor);
 
         final Publisher addisonWesleyPub = new Publisher();
         addisonWesleyPub.setName("Addison Wesley");
@@ -58,7 +58,7 @@ public class DataLoader implements CommandLineRunner {
         address.setCountry("US");
 
         addisonWesleyPub.setAddress(address);
-        publisherService.save(addisonWesleyPub);
+        publisherDataService.save(addisonWesleyPub);
 
         final Book algorithmsBook = new Book();
         algorithmsBook.setTitle("Algorithms, 4th Edition");
@@ -67,7 +67,7 @@ public class DataLoader implements CommandLineRunner {
         algorithmsBook.getAuthors().add(robertSedgewickAuthor);
         algorithmsBook.getAuthors().add(kevinWayneAuthor);
         algorithmsBook.setPublisher(addisonWesleyPub);
-        bookService.save(algorithmsBook);
+        bookDataService.save(algorithmsBook);
 
         final Book pythonBook = new Book();
         pythonBook.setTitle("Introduction to Programming in Python: An Interdisciplinary Approach");
@@ -77,6 +77,6 @@ public class DataLoader implements CommandLineRunner {
         pythonBook.getAuthors().add(kevinWayneAuthor);
         pythonBook.getAuthors().add(robertDonderoAuthor);
         pythonBook.setPublisher(addisonWesleyPub);
-        bookService.save(pythonBook);
+        bookDataService.save(pythonBook);
     }
 }

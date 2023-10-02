@@ -11,3 +11,4 @@ Project contains examples of Spring 5 library components
   management
 - **spring-context-dependency-injection** - examples of DI in Spring
 - **spring-data-jpa** - examples of JPA mapping, Spring Data repositories etc.
+- **spring-mvc** examples of Spring MVC. Uses spring-data-jpa module for DAO.

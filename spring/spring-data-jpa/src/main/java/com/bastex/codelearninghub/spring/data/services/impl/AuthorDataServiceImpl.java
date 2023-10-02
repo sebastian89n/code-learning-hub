@@ -4,7 +4,7 @@ import com.bastex.codelearninghub.spring.data.domain.Author;
 import com.bastex.codelearninghub.spring.data.domain.projections.AuthorProjection;
 import com.bastex.codelearninghub.spring.data.domain.query.AuthorSort;
 import com.bastex.codelearninghub.spring.data.repositories.AuthorRepository;
-import com.bastex.codelearninghub.spring.data.services.AuthorService;
+import com.bastex.codelearninghub.spring.data.services.AuthorDataService;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -16,7 +16,7 @@ import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
-class AuthorServiceImpl implements AuthorService {
+class AuthorDataServiceImpl implements AuthorDataService {
     private final AuthorRepository authorRepository;
 
     @Override

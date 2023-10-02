@@ -9,7 +9,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 public class SpringContextAnnotationApp {
     public static void main(final String[] args) {
         // Annotation config example by loading context with AnnotationConfigApplicationContext by specifying @Configuration class
-        // Spring5CoreAnnotationConfiguration uses @ComponentScan to find beans annotated with Spring annotations like @Component, @Service, @Repository etc
+        // Spring5CoreAnnotationConfiguration uses @ComponentScan to find beans annotated with Spring annotations like @Component, @Service etc
         final AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(SpringContextAnnotationConfiguration.class);
 
         final UserInfo userInfo = applicationContext.getBean(UserInfo.class);

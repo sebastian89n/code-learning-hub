@@ -10,7 +10,7 @@
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <artifactId>code-learning-hub-junit5</artifactId>
+    <artifactId>code-learning-hub-testing</artifactId>
 
     <properties>
         <junit.jupiter.version>5.10.0</junit.jupiter.version>

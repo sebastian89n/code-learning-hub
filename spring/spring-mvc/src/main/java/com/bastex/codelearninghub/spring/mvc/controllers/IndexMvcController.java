@@ -9,7 +9,7 @@ import org.springframework.web.servlet.ModelAndView;
  * Another approach would be to use a filter with the redirect.
  */
 @Controller
-public class IndexController {
+public class IndexMvcController {
     @RequestMapping
     public ModelAndView index() {
         return new ModelAndView("index");

@@ -8,7 +8,7 @@ import org.springframework.data.domain.Page;
 
 import java.util.Optional;
 
-public interface AuthorService {
+public interface AuthorDataService {
     long save(Author author);
 
     Optional<AuthorProjection> findById(long authorId);
