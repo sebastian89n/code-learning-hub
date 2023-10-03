@@ -2,6 +2,7 @@ package com.bastex.codelearninghub.spring.data.services.impl;
 
 import com.bastex.codelearninghub.spring.data.domain.Book;
 import com.bastex.codelearninghub.spring.data.domain.projections.BookIdIsbnProjection;
+import com.bastex.codelearninghub.spring.data.domain.projections.BookNoteProjection;
 import com.bastex.codelearninghub.spring.data.domain.projections.BookProjection;
 import com.bastex.codelearninghub.spring.data.domain.query.BookSearchQuery;
 import com.bastex.codelearninghub.spring.data.domain.query.BookSort;
@@ -74,6 +75,12 @@ class BookDataServiceImpl implements BookDataService {
     @Transactional(readOnly = true)
     public Page<BookProjection> findAllBooksByAuthor(@NonNull final String firstName, @NonNull final String lastName, final int page, final int size, @NonNull final BookSort bookSort) {
         return bookRepository.findAllBooksByAuthor(firstName, lastName, PageRequest.of(page, size, bookSort.getSort()));
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public Optional<BookNoteProjection> findBookNoteById(final long bookId) {
+        return bookRepository.findBookNoteById(bookId);
     }
 
     @Override

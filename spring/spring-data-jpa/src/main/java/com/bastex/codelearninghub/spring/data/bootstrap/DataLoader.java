@@ -3,6 +3,7 @@ package com.bastex.codelearninghub.spring.data.bootstrap;
 import com.bastex.codelearninghub.spring.data.domain.Address;
 import com.bastex.codelearninghub.spring.data.domain.Author;
 import com.bastex.codelearninghub.spring.data.domain.Book;
+import com.bastex.codelearninghub.spring.data.domain.BookNote;
 import com.bastex.codelearninghub.spring.data.domain.Publisher;
 import com.bastex.codelearninghub.spring.data.services.AuthorDataService;
 import com.bastex.codelearninghub.spring.data.services.BookDataService;
@@ -67,6 +68,11 @@ public class DataLoader implements CommandLineRunner {
         algorithmsBook.getAuthors().add(robertSedgewickAuthor);
         algorithmsBook.getAuthors().add(kevinWayneAuthor);
         algorithmsBook.setPublisher(addisonWesleyPub);
+
+        final BookNote bookNote = new BookNote();
+        bookNote.setNote("Very good introduction for Algorithms. Examples based on Java.");
+        algorithmsBook.setNote(bookNote);
+
         bookDataService.save(algorithmsBook);
 
         final Book pythonBook = new Book();

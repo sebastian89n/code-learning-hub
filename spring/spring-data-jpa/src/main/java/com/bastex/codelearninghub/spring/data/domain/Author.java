@@ -12,11 +12,11 @@ import javax.persistence.Table;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
-@Entity
-@Table(name = "authors")
 @Setter
 @Getter
 @ToString(callSuper = true, exclude = {"books"})
+@Entity
+@Table(name = "authors")
 public class Author extends BaseEntity {
     @Column(name = "email")
     public String email;
