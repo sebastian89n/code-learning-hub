@@ -2,6 +2,7 @@ package com.bastex.codelearninghub.spring.data;
 
 import com.bastex.codelearninghub.spring.data.domain.projections.AuthorProjection;
 import com.bastex.codelearninghub.spring.data.domain.projections.BookIdIsbnProjection;
+import com.bastex.codelearninghub.spring.data.domain.projections.BookNoteProjection;
 import com.bastex.codelearninghub.spring.data.domain.projections.BookProjection;
 import com.bastex.codelearninghub.spring.data.domain.query.AuthorSort;
 import com.bastex.codelearninghub.spring.data.domain.query.BookSearchQuery;
@@ -68,6 +69,17 @@ public class SpringDataJpaApp {
         final Set<Long> idsToUpdate = allBooksByAuthor.stream().map(BookProjection::getId).collect(Collectors.toUnmodifiableSet());
         final int updated = bookDataService.updatePublicationDateByBookIds(LocalDate.of(2023, 1, 1), idsToUpdate);
         log.info("Updated {} books", updated);
+
+        log.info("-- bookService.findBookNoteById");
+        final List<BookNoteProjection> bookNotes = books.map(BookProjection::getId)
+                .map(bookDataService::findBookNoteById)
+                .filter(Optional::isPresent)
+                .map(Optional::get)
+                .stream()
+                .toList();
+
+        bookNotes.forEach(bookNote -> log.info("Book id: {}, Note: {}", bookNote
+                .getId(), bookNote.getNote()));
     }
 
     private static void testAuthorQueries(final AuthorDataService authorDataService) {
