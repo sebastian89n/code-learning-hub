@@ -3,6 +3,7 @@ package com.bastex.codelearninghub.spring.data.services;
 
 import com.bastex.codelearninghub.spring.data.domain.Book;
 import com.bastex.codelearninghub.spring.data.domain.projections.BookIdIsbnProjection;
+import com.bastex.codelearninghub.spring.data.domain.projections.BookNoteProjection;
 import com.bastex.codelearninghub.spring.data.domain.projections.BookProjection;
 import com.bastex.codelearninghub.spring.data.domain.query.BookSearchQuery;
 import com.bastex.codelearninghub.spring.data.domain.query.BookSort;
@@ -29,6 +30,8 @@ public interface BookDataService {
     Page<BookProjection> findAllBooksByPublisherName(String publisherName, int page, int size, BookSort bookSort);
 
     Page<BookProjection> findAllBooksByAuthor(String firstName, String lastName, int page, int size, BookSort bookSort);
+
+    Optional<BookNoteProjection> findBookNoteById(long bookId);
 
     Optional<BookIdIsbnProjection> findBookIdIsbnByTitle(String title);
 

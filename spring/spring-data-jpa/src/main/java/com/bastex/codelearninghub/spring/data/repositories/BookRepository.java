@@ -2,6 +2,7 @@ package com.bastex.codelearninghub.spring.data.repositories;
 
 import com.bastex.codelearninghub.spring.data.domain.Book;
 import com.bastex.codelearninghub.spring.data.domain.projections.BookIdIsbnProjection;
+import com.bastex.codelearninghub.spring.data.domain.projections.BookNoteProjection;
 import com.bastex.codelearninghub.spring.data.domain.projections.BookProjection;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -86,6 +87,13 @@ public interface BookRepository extends JpaRepository<Book, Long>, BookRepositor
             "FROM Book b JOIN b.authors a WHERE a.firstName = :firstName AND a.lastName = :lastName ")
     Page<BookProjection> findAllBooksByAuthor(@Param("firstName") String firstName, @Param("lastName") String lastName, Pageable page);
 
+
+    @Query("SELECT b.id AS id, " +
+            "b.createdTimestamp AS createdTimestamp, " +
+            "b.lastUpdatedTimestamp AS lastUpdatedTimestamp, " +
+            "n.note AS note " +
+            "FROM Book b LEFT JOIN b.note n WHERE b.id = :bookId")
+    Optional<BookNoteProjection> findBookNoteById(@Param("bookId") long bookId);
 
     /**
      * Below examples of Spring Data methods using naming convention.
