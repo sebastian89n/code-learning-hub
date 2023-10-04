@@ -1,6 +1,5 @@
-package com.bastex.codelearninghub.testing.util;
+package com.bastex.codelearninghub.testing;
 
-import com.bastex.codelearninghub.testing.UserManager;
 import com.bastex.codelearninghub.testing.domain.User;
 import com.bastex.codelearninghub.testing.exceptions.UserValidationException;
 import com.bastex.codelearninghub.testing.services.AuditInMemoryService;
