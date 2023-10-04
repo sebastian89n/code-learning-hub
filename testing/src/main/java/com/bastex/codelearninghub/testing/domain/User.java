@@ -4,17 +4,11 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.Instant;
-
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class User {
-    Long id;
-
-    Instant createdTimestamp;
-
-    Instant updatedTimestamp;
+    private Long id;
 
     private String email;
 

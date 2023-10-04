@@ -4,20 +4,24 @@ import com.bastex.codelearninghub.testing.domain.User;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
 
-import java.util.*;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.LinkedHashSet;
+import java.util.Map;
+import java.util.Set;
 
 @NoArgsConstructor
-public class UserMapService implements UserService {
+public class UserInMemoryService implements UserService {
     protected final Map<Long, User> idToEntity = new HashMap<>();
 
     @Override
-    public User save(@NonNull final User entity) {
-        if (entity.getId() == null) {
-            entity.setId(getNextId());
+    public User save(@NonNull final User user) {
+        if (user.getId() == null) {
+            user.setId(getNextId());
         }
 
-        idToEntity.put(entity.getId(), entity);
-        return entity;
+        idToEntity.put(user.getId(), user);
+        return user;
     }
 
     @Override
@@ -31,8 +35,8 @@ public class UserMapService implements UserService {
     }
 
     @Override
-    public boolean delete(@NonNull final User entity) {
-        return idToEntity.entrySet().removeIf(existingEntity -> existingEntity.getValue().equals(entity));
+    public boolean delete(@NonNull final User user) {
+        return idToEntity.entrySet().removeIf(existingEntity -> existingEntity.getValue().equals(user));
     }
 
     @Override
