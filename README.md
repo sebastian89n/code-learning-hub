@@ -7,7 +7,7 @@ Currently based on Java 21.
 ### Modules
 
 - design patterns
-- html
 - java
 - spring
 - testing
+- web
