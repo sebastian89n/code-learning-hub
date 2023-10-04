@@ -24,10 +24,10 @@
 
     <modules>
         <module>design-patterns</module>
-        <module>html</module>
         <module>java</module>
         <module>testing</module>
         <module>spring</module>
+        <module>web</module>
     </modules>
 
     <dependencies>
