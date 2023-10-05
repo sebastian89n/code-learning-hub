@@ -8,11 +8,13 @@ import java.util.Set;
 public interface UserService {
     User save(@NonNull final User user);
 
-    User findById(@NonNull final Long id);
+    User findById(final long userId);
 
     Set<User> findAll();
 
+    boolean exists(final long userId);
+
     boolean delete(@NonNull final User user);
 
-    boolean deleteById(@NonNull final Long id);
+    boolean deleteById(final long userId);
 }

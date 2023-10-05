@@ -25,7 +25,7 @@ public class UserInMemoryService implements UserService {
     }
 
     @Override
-    public User findById(@NonNull final Long id) {
+    public User findById(final long id) {
         return idToEntity.get(id);
     }
 
@@ -35,13 +35,18 @@ public class UserInMemoryService implements UserService {
     }
 
     @Override
+    public boolean exists(final long userId) {
+        return idToEntity.containsKey(userId);
+    }
+
+    @Override
     public boolean delete(@NonNull final User user) {
         return idToEntity.entrySet().removeIf(existingEntity -> existingEntity.getValue().equals(user));
     }
 
     @Override
-    public boolean deleteById(@NonNull final Long id) {
-        final User removed = idToEntity.remove(id);
+    public boolean deleteById(final long userId) {
+        final User removed = idToEntity.remove(userId);
         return removed != null;
     }
 

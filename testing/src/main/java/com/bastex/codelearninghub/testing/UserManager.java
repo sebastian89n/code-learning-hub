@@ -6,6 +6,8 @@ import com.bastex.codelearninghub.testing.services.AuditService;
 import com.bastex.codelearninghub.testing.services.UserService;
 import lombok.RequiredArgsConstructor;
 
+import java.util.Optional;
+
 @RequiredArgsConstructor
 public class UserManager {
     private final UserService userService;
@@ -22,7 +24,7 @@ public class UserManager {
         final User savedUser = userService.save(user);
 
         auditService.addSaveNewEntryEvent(savedUser.getId());
-        return upsert(user);
+        return savedUser;
     }
 
     public User upsert(final User user) {
@@ -37,6 +39,28 @@ public class UserManager {
         }
 
         return savedUser;
+    }
+
+    public boolean deleteUserById(final long userId) {
+        final boolean deleted = userService.deleteById(userId);
+        if (deleted) {
+            auditService.addNewDeletedEvent(userId);
+        }
+
+        return deleted;
+    }
+
+    public Optional<User> findUserById(final long userId) {
+        return Optional.ofNullable(userService.findById(userId));
+    }
+
+    public Optional<String> findUserFullNameById(final long userId) {
+        final User user = userService.findById(userId);
+        return user != null ? Optional.of(user.getFirstName() + " " + user.getLastName()) : Optional.empty();
+    }
+
+    public boolean exists(final long userId) {
+        return userService.exists(userId);
     }
 
     private static void validateUser(final User user) {
