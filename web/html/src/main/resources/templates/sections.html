@@ -5,78 +5,78 @@
     <meta content="Sebastian Nowak" name="author"/>
     <meta content="Website demonstrating HTML5 elements" name="description"/>
     <meta charset="UTF-8"/>
-    <link href="../static/resources/css/main.css" rel="stylesheet" type="text/css"/>
     <link href="../static/resources/images/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
+    <link href="../static/resources/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <script src="../static/resources/js/bootstrap.js"></script>
     <noscript>
         <meta content="5; url=http://www.google.pl" http-equiv="refresh"/>
     </noscript>
 </head>
 <body>
-<section id="mainBody">
-    <header id="mainHeader">
-        <hgroup>
-            <h1>HTML5</h1>
-            <h2>Examples of html5 elements</h2>
-        </hgroup>
-        <nav id="mainNav">
-            <ul>
-                <li><a href="index.html">Start page</a></li>
-                <li><a href="textelements.html">Text elements</a></li>
-                <li><a href="grouping.html">Grouping elements</a></li>
-                <li><a href="sections.html" id="current">Sections</a></li>
-                <li><a href="tables.html">Tables</a></li>
-                <li><a href="form.html">Forms</a></li>
-                <li><a href="input.html">Input element</a></li>
-                <li><a href="form2.html">Other form elements</a></li>
-                <li><a href="resources.html">Embedding resources</a></li>
-            </ul>
-            <p class="clear"></p>
-        </nav>
-    </header>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">HTML5 Elements<i class="fa-solid fa-house"></i></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
 
-    <section id="content">
-        <header>
-            <hgroup>
-                <h1>Header h1 in hgroup [deprecated]</h1>
-                <h2>Header h2 in hgroup</h2>
-            </hgroup>
-        </header>
-        <hr/>
-        <section id="section1">
-            <h1>Header h1 in nested section 2</h1>
-            <section>
-                <h1>Header h1 in nested section 3</h1>
-            </section>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item"><a class="nav-link" href="index.html">Start page</a></li>
+            <li class="nav-item"><a class="nav-link" href="textelements.html">Text elements</a></li>
+            <li class="nav-item"><a class="nav-link" href="grouping.html">Grouping elements</a></li>
+            <li class="nav-item active"><a class="nav-link" href="sections.html">Sections</a></li>
+            <li class="nav-item"><a class="nav-link" href="tables.html">Tables</a></li>
+            <li class="nav-item"><a class="nav-link" href="form.html">Forms</a></li>
+            <li class="nav-item"><a class="nav-link" href="input.html">Input element</a></li>
+            <li class="nav-item"><a class="nav-link" href="form2.html">Other form elements</a></li>
+            <li class="nav-item"><a class="nav-link" href="resources.html">Embedding resources</a></li>
+        </ul>
+    </div>
+</nav>
+
+<section class="container-fluid p-2">
+    <header>
+        <hgroup>
+            <h1>Header h1 in hgroup</h1>
+            <h2>hgroup has been deprecated</h2>
+        </hgroup>
+    </header>
+    <hr/>
+    <section id="section1">
+        <h1>Header h1 in nested section 2</h1>
+        <section>
+            <h1>Header h1 in nested section 3</h1>
         </section>
-        <hr/>
-        <article>
-            <h1>Header in article</h1>
-            <p>Paragraph in articles</p>
-            <address>
-                Any questions or remarks? <a href="mailto:trash@gmail.com">Email me</a>
-            </address>
-        </article>
-        <hr/>
-        <aside>
-            Aside text content.
-            <p class="clear"></p>
-        </aside>
-        <p>Lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum
-            lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum
-            lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum
-            Lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum
-            lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum
-            lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum</p>
-        <hr/>
-        <details>
-            <summary>Element details</summary>
-            Hidden text containing detailed information.
-        </details>
-        <hr/>
-        <footer>
-            <p>Text in the footer</p>
-        </footer>
     </section>
+    <hr/>
+    <article>
+        <h1>Header in article</h1>
+        <p>Paragraph in articles</p>
+        <address>
+            Any questions or remarks? <a href="mailto:trash@gmail.com">Email me</a>
+        </address>
+    </article>
+    <hr/>
+    <aside>
+        Aside text content.
+        <p class="clear"></p>
+    </aside>
+    <p>Lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum
+        lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum
+        lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum
+        Lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum
+        lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum
+        lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum</p>
+    <hr/>
+    <details>
+        <summary>Element details</summary>
+        Hidden text containing detailed information.
+    </details>
+    <hr/>
+    <footer>
+        <p>Text in the footer</p>
+    </footer>
 </section>
 </body>
 </html>

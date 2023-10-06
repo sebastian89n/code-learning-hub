@@ -5,93 +5,123 @@
     <meta content="Sebastian Nowak" name="author"/>
     <meta content="Website demonstrating HTML5 elements" name="description"/>
     <meta charset="UTF-8"/>
-    <link href="../static/resources/css/main.css" rel="stylesheet" type="text/css"/>
     <link href="../static/resources/images/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
+    <link href="../static/resources/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <script src="../static/resources/js/bootstrap.js"></script>
     <noscript>
         <meta content="5; url=http://www.google.pl" http-equiv="refresh"/>
     </noscript>
 </head>
 <body>
-<section id="mainBody">
-    <header id="mainHeader">
-        <hgroup>
-            <h1>HTML5</h1>
-            <h2>Examples of html5 elements</h2>
-        </hgroup>
-        <nav id="mainNav">
-            <ul>
-                <li><a href="index.html">Start page</a></li>
-                <li><a href="textelements.html">Text elements</a></li>
-                <li><a href="grouping.html">Grouping elements</a></li>
-                <li><a href="sections.html">Sections</a></li>
-                <li><a href="tables.html">Tables</a></li>
-                <li><a href="form.html">Forms</a></li>
-                <li><a href="input.html" id="current">Input element</a></li>
-                <li><a href="form2.html">Other form elements</a></li>
-                <li><a href="resources.html">Embedding resources</a></li>
-            </ul>
-            <p class="clear"></p>
-        </nav>
-    </header>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">HTML5 Elements<i class="fa-solid fa-house"></i></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
 
-    <section id="content">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item"><a class="nav-link" href="index.html">Start page</a></li>
+            <li class="nav-item"><a class="nav-link" href="textelements.html">Text elements</a></li>
+            <li class="nav-item"><a class="nav-link" href="grouping.html">Grouping elements</a></li>
+            <li class="nav-item"><a class="nav-link" href="sections.html">Sections</a></li>
+            <li class="nav-item"><a class="nav-link" href="tables.html">Tables</a></li>
+            <li class="nav-item"><a class="nav-link" href="form.html">Forms</a></li>
+            <li class="nav-item active"><a class="nav-link" href="input.html">Input element</a></li>
+            <li class="nav-item"><a class="nav-link" href="form2.html">Other form elements</a></li>
+            <li class="nav-item"><a class="nav-link" href="resources.html">Embedding resources</a></li>
+        </ul>
+    </div>
+</nav>
 
-        <form action="#" autocomplete="off" method="post" name="fruitsForm" style="float: left; margin-right: 20px">
-            <fieldset style="width: 500px; border-radius: 10px; border-color: orange;">
-                <legend>Fruits form</legend>
+<section class="container-fluid p-2">
+
+    <form action="#" autocomplete="off" method="post" name="fruitsForm" class="form-inline">
+        <fieldset>
+            <legend>Fruits form</legend>
+            <div class="form-group">
                 <label for="firstname">First name: </label>
                 <input id="firstname" maxlength="10" name="firstname" placeholder="What's your name?"
                        size="20" type="text"/>
-                <br/>
+            </div>
+            <br/>
+            <div class="form-group">
                 <label for="lastname">Last name: </label>
                 <input disabled id="lastname" maxlength="15" name="lastname"
                        placeholder="What's your last name?" size="20" type="text"/>
-                <br/>
+            </div>
+            <br/>
+            <div class="form-group">
                 <label for="password">Password: </label>
                 <input id="password" name="password" placeholder="Minimum six digits"
                        type="password"/>
-                <br/>
-                <input name="recordID" type="hidden" value="1234"/>
+            </div>
+            <br/>
+            <input name="recordID" type="hidden" value="1234"/>
 
+            <div class="form-group">
                 <label for="email">Email: </label>
                 <input id="email" name="email" placeholder="user@domain.com"
                        type="email"/>
-                <br/>
+            </div>
+            <br/>
+            <div class="form-group">
                 <label for="tel">Phone: </label>
                 <input id="tel" name="tel" placeholder="XXX-XXX-XXX"
                        type="tel"/>
-                <br/>
+            </div>
+            <br/>
+            <div class="form-group">
                 <label for="url">Home page: </label>
                 <input id="url" name="url" type="url"/>
-                <br/>
+            </div>
+            <br/>
+            <div class="form-group">
                 <label for="city">City: </label>
                 <input id="city" name="city" size="20" value="London"/>
-                <br/>
+            </div>
+            <br/>
+            <div class="form-group">
                 <label for="favfruit">Favorite fruit: </label>
                 <input id="favfruit" list="fruitlist" name="favfruit"/>
-                <br/>
+            </div>
+            <br/>
+            <div class="form-group">
                 <label for="price">Price per unit: </label>
                 <input id="price" max="100" min="0" name="price" step="1"
                        type="number" value="1"/>
-                <br/>
+            </div>
+            <br/>
+            <div class="form-group">
                 <label for="priceInShop">Price per unit in your shop: 1
                     <input id="priceInShop" max="100" min="0" name="priceInShop"
                            step="1" type="range" value="1"/>100
                 </label>
-                <br/>
+            </div>
+            <br/>
+            <div class="form-group">
                 <label for="search">Search: </label>
                 <input id="search" name="search" type="search"/>
-                <br/>
+            </div>
+            <br/>
+            <div class="form-group">
                 <label for="lastbuy">When did you last buy that fruit?</label>
                 <input id="lastbuy" name="lastbuy" type="date"/>
-                <br/>
+            </div>
+            <br/>
+            <div class="form-group">
                 <label for="color">Color: </label>
                 <input id="color" name="color" type="color"/>
-                <br/>
+            </div>
+            <br/>
+            <div class="form-group">
                 <label for="veggie">Are you vegetarian: </label>
                 <input id="veggie" name="veggie" required type="checkbox"/>
-                <br/>
-                <fieldset style="width: 300px">
+            </div>
+            <br/>
+            <div class="form-group">
+                <fieldset>
                     <legend>Vote for your favorite fruit</legend>
                     <label for="apples">
                         <input checked id="apples" name="fave"
@@ -109,32 +139,32 @@
                         Cherries
                     </label>
                 </fieldset>
-                <br/>
+            </div>
+            <br/>
 
-                <br/>
-                <input type="submit" value="Vote"/>
-                <input type="reset" value="Clear form"/>
-                <input type="button" value="My button"/>
-                <br/>
-            </fieldset>
-        </form>
-        <form action="#" method="post" name="files" style="float: left">
-            <fieldset style="width: 500px; border-radius: 10px; border-color: orange;">
-                <legend>Prześlij plik</legend>
-                <label for="filedata">Wybierz plik: </label>
-                <input id="filedata" name="fileddata" type="file"/>
-                <br/>
-                <input alt="Zagłosuj" name="ZaglosujImg"
-                       src="../static/resources/images/Accept.png" style="width: 32px; height: 32px;" type="image"/>
-            </fieldset>
-        </form>
-        <p class="clear"></p>
-        <datalist id="fruitlist">
-            <option label="Wspaniałe jabłka" value="Jablka">
-            <option value="Pomarancze">Orzeźwiające pomarańczę</option>
-            <option value="Wisnie">
-        </datalist>
-    </section>
+            <br/>
+            <input type="submit" value="Vote" class="btn btn-primary"/>
+            <input type="reset" value="Clear form" class="btn"/>
+            <input type="button" value="My button" class="btn"/>
+            <br/>
+        </fieldset>
+    </form>
+    <form action="#" method="post" name="files" style="float: left">
+        <fieldset style="width: 500px; border-radius: 10px; border-color: orange;">
+            <legend>Prześlij plik</legend>
+            <label for="filedata">Wybierz plik: </label>
+            <input id="filedata" name="fileddata" type="file"/>
+            <br/>
+            <input alt="Zagłosuj" name="ZaglosujImg"
+                   src="../static/resources/images/Accept.png" style="width: 32px; height: 32px;" type="image"/>
+        </fieldset>
+    </form>
+    <p class="clear"></p>
+    <datalist id="fruitlist">
+        <option label="Wspaniałe jabłka" value="Jablka">
+        <option value="Pomarancze">Orzeźwiające pomarańczę</option>
+        <option value="Wisnie">
+    </datalist>
 </section>
 </body>
 </html>
