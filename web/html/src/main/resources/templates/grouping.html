@@ -5,104 +5,104 @@
     <meta content="Sebastian Nowak" name="author"/>
     <meta content="Website demonstrating HTML5 elements" name="description"/>
     <meta charset="UTF-8"/>
-    <link href="../static/resources/css/main.css" rel="stylesheet" type="text/css"/>
     <link href="../static/resources/images/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
+    <link href="../static/resources/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <script src="../static/resources/js/bootstrap.js"></script>
     <noscript>
-        <meta content="0; url=http://www.google.pl" http-equiv="refresh"/>
+        <meta content="5; url=http://www.google.pl" http-equiv="refresh"/>
     </noscript>
 </head>
 <body>
-<section id="mainBody">
-    <header id="mainHeader">
-        <hgroup>
-            <h1>HTML5</h1>
-            <h2>Examples of html5 elements</h2>
-        </hgroup>
-        <nav id="mainNav">
-            <ul>
-                <li><a href="index.html">Start page</a></li>
-                <li><a href="textelements.html">Text elements</a></li>
-                <li><a href="grouping.html" id="current">Grouping elements</a></li>
-                <li><a href="sections.html">Sections</a></li>
-                <li><a href="tables.html">Tables</a></li>
-                <li><a href="form.html">Forms</a></li>
-                <li><a href="input.html">Input element</a></li>
-                <li><a href="form2.html">Other form elements</a></li>
-                <li><a href="resources.html">Embedding resources</a></li>
-            </ul>
-            <p class="clear"></p>
-        </nav>
-    </header>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">HTML5 Elements<i class="fa-solid fa-house"></i></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
 
-    <section id="content">
-        Div element:<br/>
-        <div class="favorites">
-            <p>I like tangerines, which scientific name is
-                <i>citrus reticulata</i>.</p>
-        </div>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item"><a class="nav-link" href="index.html">Start page</a></li>
+            <li class="nav-item"><a class="nav-link" href="textelements.html">Text elements</a></li>
+            <li class="nav-item active"><a class="nav-link" href="grouping.html">Grouping elements</a></li>
+            <li class="nav-item"><a class="nav-link" href="sections.html">Sections</a></li>
+            <li class="nav-item"><a class="nav-link" href="tables.html">Tables</a></li>
+            <li class="nav-item"><a class="nav-link" href="form.html">Forms</a></li>
+            <li class="nav-item"><a class="nav-link" href="input.html">Input element</a></li>
+            <li class="nav-item"><a class="nav-link" href="form2.html">Other form elements</a></li>
+            <li class="nav-item"><a class="nav-link" href="resources.html">Embedding resources</a></li>
+        </ul>
+    </div>
+</nav>
 
-        Preformatted text:<br/>
-        <pre><code>
+<section class="container-fluid p-2">
+    Div element:<br/>
+    <div class="favorites">
+        <p>I like tangerines, which scientific name is
+            <i>citrus reticulata</i>.</p>
+    </div>
+
+    Preformatted text:<br/>
+    <pre><code>
 var fruits = ["apples", "oranges", "mangos", "cherries"];
 for (var i = 0; i &lt; fruits.length, i++) {
     document.writeln("I like " + fruits[i]);
 }
 </code></pre>
-        Quote:<br/>
-        <blockquote cite="https://en.wikipedia.org/wiki/Apple">
-            An apple is a round, edible fruit produced by an apple tree (Malus domestica).
-            Apple trees are cultivated worldwide and are the most widely grown species in the genus Malus.
-            The tree originated in Central Asia, where its wild ancestor, Malus sieversii, is still found.
-            Apples have been grown for thousands of years in Asia and Europe and were introduced to North America by
-            European colonists.
-            Apples have religious and mythological significance in many cultures, including Norse, Greek, and European
-            Christian tradition
-        </blockquote>
+    Quote:<br/>
+    <blockquote cite="https://en.wikipedia.org/wiki/Apple">
+        An apple is a round, edible fruit produced by an apple tree (Malus domestica).
+        Apple trees are cultivated worldwide and are the most widely grown species in the genus Malus.
+        The tree originated in Central Asia, where its wild ancestor, Malus sieversii, is still found.
+        Apples have been grown for thousands of years in Asia and Europe and were introduced to North America by
+        European colonists.
+        Apples have religious and mythological significance in many cultures, including Norse, Greek, and European
+        Christian tradition
+    </blockquote>
 
-        <hr/> <!-- horizontal line, separates content -->
+    <hr/> <!-- horizontal line, separates content -->
 
-        Ordered list:<br/>
+    Ordered list:<br/>
 
-        <ol type="a">
-            <li>bananas</li>
-            <li>mangos</li>
-            <li>cherries</li>
-            <li value="5">plums</li>
-            <li>peaches</li>
-            <li>grapes</li>
-        </ol>
+    <ol type="a">
+        <li>bananas</li>
+        <li>mangos</li>
+        <li>cherries</li>
+        <li value="5">plums</li>
+        <li>peaches</li>
+        <li>grapes</li>
+    </ol>
 
-        Unordered list:<br/>
-        <ul>
-            <li>bananas</li>
-            <li>mangos</li>
-            <li>cherries</li>
-            <li>plums</li>
-            <li>peaches</li>
-            <li>grapes</li>
-        </ul>
+    Unordered list:<br/>
+    <ul>
+        <li>bananas</li>
+        <li>mangos</li>
+        <li>cherries</li>
+        <li>plums</li>
+        <li>peaches</li>
+        <li>grapes</li>
+    </ul>
 
-        Definition list:<br/>
-        <dl>
-            <dt>Apple</dt>
-            <dd>[definition of apple]</dd>
-            <dd><i>Malus domestica</i></dd>
-            <dt>Banana</dt>
-            <dd>[definition of banana]</dd>
-            <dd><i>Musa acuminata</i></dd>
-            <dt>Cherries</dt>
-            <dd>[definition of cherries] <i>Prunus</i></dd>
-        </dl>
+    Definition list:<br/>
+    <dl>
+        <dt>Apple</dt>
+        <dd>[definition of apple]</dd>
+        <dd><i>Malus domestica</i></dd>
+        <dt>Banana</dt>
+        <dd>[definition of banana]</dd>
+        <dd><i>Musa acuminata</i></dd>
+        <dt>Cherries</dt>
+        <dd>[definition of cherries] <i>Prunus</i></dd>
+    </dl>
 
-        Figure<br/>
+    Figure<br/>
 
-        <figure>
-            <figcaption>Listing 23. code elements</figcaption>
-            <code>var fruits = ["apples", "oranges", "mangos", "cherries"];<br/>
-                document.writeln("I like " + fruits.length + " fruits.");
-            </code>
-        </figure>
-    </section>
+    <figure>
+        <figcaption>Listing 23. code elements</figcaption>
+        <code>var fruits = ["apples", "oranges", "mangos", "cherries"];<br/>
+            document.writeln("I like " + fruits.length + " fruits.");
+        </code>
+    </figure>
 </section>
 </body>
 </html>

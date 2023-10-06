@@ -5,154 +5,152 @@
     <meta content="Sebastian Nowak" name="author"/>
     <meta content="Website demonstrating HTML5 elements" name="description"/>
     <meta charset="UTF-8"/>
-    <link href="../static/resources/css/main.css" rel="stylesheet" type="text/css"/>
-    <link href="../static/resources/css/tables.css" rel="stylesheet" type="text/css"/>
     <link href="../static/resources/images/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
+    <link href="../static/resources/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <script src="../static/resources/js/bootstrap.js"></script>
     <noscript>
         <meta content="5; url=http://www.google.pl" http-equiv="refresh"/>
     </noscript>
 </head>
 <body>
-<section id="mainBody">
-    <header id="mainHeader">
-        <hgroup>
-            <h1>HTML5</h1>
-            <h2>Examples of html5 elements</h2>
-        </hgroup>
-        <nav id="mainNav">
-            <ul>
-                <li><a href="index.html">Start page</a></li>
-                <li><a href="textelements.html">Text elements</a></li>
-                <li><a href="grouping.html">Grouping elements</a></li>
-                <li><a href="sections.html">Sections</a></li>
-                <li><a href="tables.html" id="current">Tables</a></li>
-                <li><a href="form.html">Forms</a></li>
-                <li><a href="input.html">Input element</a></li>
-                <li><a href="form2.html">Other form elements</a></li>
-                <li><a href="resources.html">Embedding resources</a></li>
-            </ul>
-            <p class="clear"></p>
-        </nav>
-    </header>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">HTML5 Elements<i class="fa-solid fa-house"></i></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
 
-    <section id="content">
-        <table>
-            <thead>
-            <tr>
-                <th>Position</th>
-                <th>Name</th>
-                <th>Color</th>
-                <th>Size</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <th>Fav:</th>
-                <td>Apple</td>
-                <td>Green</td>
-                <td>Medium</td>
-            </tr>
-            <tr>
-                <th>Second fav:</th>
-                <td>Orange</td>
-                <td>Orange</td>
-                <td>Big</td>
-            </tr>
-            <tr>
-                <th>Third fav:</th>
-                <td>Cherry</td>
-                <td>Red</td>
-                <td>Small</td>
-            </tr>
-            </tbody>
-            <tfoot>
-            <tr>
-                <th>Position</th>
-                <th>Name</th>
-                <th>Color</th>
-                <th>Size</th>
-            </tr>
-            </tfoot>
-        </table>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item"><a class="nav-link" href="index.html">Start page</a></li>
+            <li class="nav-item"><a class="nav-link" href="textelements.html">Text elements</a></li>
+            <li class="nav-item"><a class="nav-link" href="grouping.html">Grouping elements</a></li>
+            <li class="nav-item"><a class="nav-link" href="sections.html">Sections</a></li>
+            <li class="nav-item active"><a class="nav-link" href="tables.html">Tables</a></li>
+            <li class="nav-item"><a class="nav-link" href="form.html">Forms</a></li>
+            <li class="nav-item"><a class="nav-link" href="input.html">Input element</a></li>
+            <li class="nav-item"><a class="nav-link" href="form2.html">Other form elements</a></li>
+            <li class="nav-item"><a class="nav-link" href="resources.html">Embedding resources</a></li>
+        </ul>
+    </div>
+</nav>
 
-        <br/><br/>
+<section class="container-fluid p-2">
+    <table class="table">
+        <thead class="thead-light">
+        <tr>
+            <th>Position</th>
+            <th>Name</th>
+            <th>Color</th>
+            <th>Size</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <th>Fav:</th>
+            <td>Apple</td>
+            <td>Green</td>
+            <td>Medium</td>
+        </tr>
+        <tr>
+            <th>Second fav:</th>
+            <td>Orange</td>
+            <td>Orange</td>
+            <td>Big</td>
+        </tr>
+        <tr>
+            <th>Third fav:</th>
+            <td>Cherry</td>
+            <td>Red</td>
+            <td>Small</td>
+        </tr>
+        </tbody>
+        <tfoot class="thead-light">
+        <tr>
+            <th>Position</th>
+            <th>Name</th>
+            <th>Color</th>
+            <th>Size</th>
+        </tr>
+        </tfoot>
+    </table>
 
-        <table>
+    <hr/>
 
-            <caption>Summary of fruit analysis in 2023</caption>
-            <colgroup id="colgroup1">
-                <col id="col1And2" span="2"/>
-                <col id="col3"/>
-            </colgroup>
-            <colgroup id="colgroup2" span="2"></colgroup>
+    <table id="rowNumbers" class="table table-dark">
+        <tr>
+            <td>1</td>
+            <td rowspan="3">2</td>
+            <td>3</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>6</td>
+        </tr>
+        <tr>
+            <td>7</td>
+            <td>9</td>
+        </tr>
+    </table>
 
-            <thead>
-            <tr>
-                <th>Position</th>
-                <th>Name</th>
-                <th>Color</th>
-                <th colspan="2">Size and votes</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <th>Fav:</th>
-                <td>Apple</td>
-                <td>Green</td>
-                <td>Medium</td>
-                <td>500</td>
-            </tr>
-            <tr>
-                <th>Second fav:</th>
-                <td>Orange</td>
-                <td>Orange</td>
-                <td>Big</td>
-                <td>450</td>
-            </tr>
-            <tr>
-                <th>Third fav:</th>
-                <td>Pomegranate</td>
-                <td colspan="2" rowspan="2">
-                    Different colors and sizes
-                </td>
-                <td>203</td>
-            </tr>
-            <tr>
-                <th rowspan="2">Fourth fav:</th>
-                <td>Cherry</td>
-                <td rowspan="2">75</td>
-            </tr>
-            <tr>
-                <td>Ananas</td>
-                <td>Brown</td>
-                <td>Very big</td>
-            </tr>
-            </tbody>
-            <tfoot>
-            <tr>
-                <th colspan="5">&copy; 2023 - Results</th>
-            </tr>
-            </tfoot>
-        </table>
+    <hr/>
 
-        <br/><br/>
+    <table class="table">
+        <caption>Summary of fruit analysis in 2023</caption>
+        <colgroup id="colgroup1">
+            <col id="col1And2" span="2"/>
+            <col id="col3"/>
+        </colgroup>
+        <colgroup id="colgroup2" span="2"></colgroup>
 
-        <table id="rowNumbers">
-            <tr>
-                <td>1</td>
-                <td rowspan="3">2</td>
-                <td>3</td>
-            </tr>
-            <tr>
-                <td>4</td>
-                <td>6</td>
-            </tr>
-            <tr>
-                <td>7</td>
-                <td>9</td>
-            </tr>
-        </table>
-    </section>
+        <thead class="thead-light">
+        <tr>
+            <th>Position</th>
+            <th>Name</th>
+            <th>Color</th>
+            <th colspan="2">Size and votes</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <th>Fav:</th>
+            <td>Apple</td>
+            <td>Green</td>
+            <td>Medium</td>
+            <td>500</td>
+        </tr>
+        <tr>
+            <th>Second fav:</th>
+            <td>Orange</td>
+            <td>Orange</td>
+            <td>Big</td>
+            <td>450</td>
+        </tr>
+        <tr>
+            <th>Third fav:</th>
+            <td>Pomegranate</td>
+            <td colspan="2" rowspan="2">
+                Different colors and sizes
+            </td>
+            <td>203</td>
+        </tr>
+        <tr>
+            <th rowspan="2">Fourth fav:</th>
+            <td>Cherry</td>
+            <td rowspan="2">75</td>
+        </tr>
+        <tr>
+            <td>Ananas</td>
+            <td>Brown</td>
+            <td>Very big</td>
+        </tr>
+        </tbody>
+        <tfoot>
+        <tr>
+            <th colspan="5">&copy; 2023 - Results</th>
+        </tr>
+        </tfoot>
+    </table>
 </section>
 </body>
 </html>
