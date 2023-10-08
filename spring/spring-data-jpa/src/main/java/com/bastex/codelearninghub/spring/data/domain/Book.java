@@ -8,6 +8,8 @@ import lombok.ToString;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
@@ -29,6 +31,10 @@ public class Book extends BaseEntity {
 
     @Column(name = "isbn", nullable = false)
     private String isbn;
+
+    @Column(name = "type", nullable = false)
+    @Enumerated(EnumType.STRING)
+    private BookType type;
 
     @Column(name = "publicationdate", columnDefinition = "DATE", nullable = false)
     private LocalDate publicationDate;
