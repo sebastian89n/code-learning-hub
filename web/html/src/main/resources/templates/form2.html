@@ -19,7 +19,6 @@
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item"><a class="nav-link" href="index.html">Start page</a></li>
@@ -35,11 +34,11 @@
     </div>
 </nav>
 
-<section class="container-fluid p-2">
+<section class="container-fluid p-3">
     <form action="#" autocomplete="off" method="post" class="form">
         <div class="form-group">
             <label for="fave">Favorite fruit: </label>
-            <select id="fave" name="fave">
+            <select id="fave" name="fave" class="form-control">
                 <optgroup label="Favourites">
                     <option label="Apples" selected value="apples"></option>
                     <option label="Oranges" value="oranges">Oranges</option>
@@ -51,7 +50,9 @@
             </select>
         </div>
         <div class="form-group">
-            <textarea cols="20" id="story" name="story" rows="5" style="margin: 5px 0" wrap="hard">Tell us why it's your favorite fruit</textarea>
+            <label for="story">Tell us why it's your favorite fruit:</label>
+            <textarea class="form-control" cols="20" id="story" name="story" rows="5" wrap="hard"
+                      placeholder="Tell us why it's your favorite fruit"></textarea>
         </div>
         <div class="form-group">
             <input type="submit" value="Send"/>
