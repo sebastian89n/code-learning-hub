@@ -26,6 +26,7 @@
         <module>spring-context-dependency-injection</module>
         <module>spring-data-jpa</module>
         <module>spring-mvc</module>
+        <module>spring-cloud-gateway</module>
     </modules>
 
     <properties>
