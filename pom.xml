@@ -25,10 +25,10 @@
     <modules>
         <module>design-patterns</module>
         <module>java</module>
-        <module>testing</module>
-        <module>spring</module>
-        <module>web</module>
         <module>java-libs</module>
+        <module>spring</module>
+        <module>testing</module>
+        <module>web</module>
     </modules>
 
     <dependencies>
