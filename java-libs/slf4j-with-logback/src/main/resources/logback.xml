@@ -1,0 +1,54 @@
+<!-- scan can be used to reload logback file periodically -->
+<configuration scan="false" scanPeriod="15 seconds">
+    <!-- Disable logback internal logging -->
+    <statusListener class="ch.qos.logback.core.status.NopStatusListener"/>
+
+    <!-- Defines property -->
+    <property name="LOG_FILE" value="logs"/>
+
+    <!-- Property file from classpath -->
+    <property resource="logging.properties"/>
+
+    <!-- Console appender -->
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%-5level %d{HH:mm:ss.SSS} [%thread] %logger{100} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- File appender -->
+    <appender name="FILE" class="ch.qos.logback.core.FileAppender">
+        <file>${LOG_FILE}.log</file>
+        <append>true</append>
+        <encoder>
+            <pattern>${FILE_LOGGING_ENCODER_PATTERN}</pattern> <!-- pattern loaded from logging.properties -->
+        </encoder>
+    </appender>
+
+    <!-- Rolling File appender -->
+    <appender name="ROLLING_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_FILE}.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!-- daily rollover -->
+            <fileNamePattern>${LOG_FILE}.%d{yyyy-MM-dd}.gz</fileNamePattern>
+
+            <!-- keep 30 days' worth of history capped at 3GB total size -->
+            <maxHistory>30</maxHistory>
+            <totalSizeCap>3GB</totalSizeCap>
+        </rollingPolicy>
+        <encoder>
+            <pattern>${FILE_LOGGING_ENCODER_PATTERN}</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Root logger with parametrized log level read from env variables. By default WARN. -->
+    <root level="${SLF4J_WITH_LOGBACK_ROOT_LOG_LEVEL:-WARN}">
+        <appender-ref ref="STDOUT"/>
+        <!--        <appender-ref ref="FILE"/>-->
+        <!--        <appender-ref ref="ROLLING_FILE"/>-->
+    </root>
+
+    <!-- Customized logger for utils package with defualt INFO log level. -->
+    <logger name="com.bastex.codelearninghub.java.libs.slf4jwithlogback.utils"
+            level="${SLF4J_WITH_LOGBACK_UTILS_LOG_LEVEL:-INFO}"/>
+</configuration>
