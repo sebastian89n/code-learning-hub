@@ -18,6 +18,7 @@
 
     <modules>
         <module>spring-aop</module>
+        <module>spring-cloud-gateway</module>
         <module>spring-context-annotations</module>
         <module>spring-context-configuration</module>
         <module>spring-context-xml</module>
@@ -26,7 +27,6 @@
         <module>spring-context-dependency-injection</module>
         <module>spring-data-jpa</module>
         <module>spring-mvc</module>
-        <module>spring-cloud-gateway</module>
     </modules>
 
     <properties>

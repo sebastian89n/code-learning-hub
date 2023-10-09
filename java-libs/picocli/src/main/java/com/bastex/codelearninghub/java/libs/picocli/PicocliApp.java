@@ -47,7 +47,7 @@ public class PicocliApp {
 
         @Override
         public Integer call() {
-            try (final HttpClient httpClient = HttpClient.newBuilder().build();) {
+            try (final HttpClient httpClient = HttpClient.newBuilder().build()) {
                 for (final CallType callType : callTypes) {
                     validateInputs(callType);
                     final HttpRequest httpRequest = switch (callType) {
@@ -72,7 +72,7 @@ public class PicocliApp {
             return HttpRequest.newBuilder()
                     .GET()
                     .uri(new URI("https://httpbin.org/uuid"))
-                    .header("accept", "application/json")
+                    .header("Accept", "application/json")
                     .build();
         }
 
@@ -81,7 +81,7 @@ public class PicocliApp {
             return HttpRequest.newBuilder()
                     .GET()
                     .uri(new URI("https://httpbin.org/delay/" + delay))
-                    .header("accept", "application/json")
+                    .header("Accept", "application/json")
                     .build();
         }
 
@@ -89,6 +89,7 @@ public class PicocliApp {
         private HttpRequest prepareAnythingRequest(final String payload, final Path payloadPath) {
             final HttpRequest.Builder requestBuilder = HttpRequest.newBuilder()
                     .uri(new URI("https://httpbin.org/anything"))
+                    .header("Accept", "application/json")
                     .header("Content-Type", "application/json");
 
             if (payload != null && !payload.isBlank()) {

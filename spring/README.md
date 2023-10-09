@@ -3,6 +3,7 @@
 Project contains examples of Spring 5 library components
 
 - **spring-aop** - example of Spring Aspect Oriented Programming module
+- **spring-cloud-gateway** - example of Spring Cloud Gateway module with yaml mapping
 - **spring-context-annotations** - example of how to configure Spring context with component scanning and annotations
 - **spring-context-configuration** - example of how to configure Spring context using @Configuration class with @Bean
 - **spring-context-xml** - example of how to configure Spring context from xml
