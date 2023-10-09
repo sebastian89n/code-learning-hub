@@ -28,6 +28,7 @@
         <module>testing</module>
         <module>spring</module>
         <module>web</module>
+        <module>java-libs</module>
     </modules>
 
     <dependencies>
