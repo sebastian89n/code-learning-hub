@@ -62,9 +62,10 @@ public final class Java11Tester {
 //                        Paths.get("src/test/resources/sample.txt")))
                 .build();
 
-        final HttpClient httpClient = HttpClient.newBuilder().build();
-        final HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
-        System.out.println(response.body());
+        try (final HttpClient httpClient = HttpClient.newBuilder().build()) {
+            final HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
+            System.out.println(response.body());
+        }
     }
 
     private static Optional<String> getEmptyOptional() {
