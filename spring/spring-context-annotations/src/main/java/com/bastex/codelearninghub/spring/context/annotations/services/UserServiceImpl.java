@@ -5,7 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 @Slf4j
-@Service("annotationInitializedBeanService")
+@Service("userService")
 class UserServiceImpl implements UserService {
     @Override
     public String extractFullUserName(final UserInfo userInfo) {

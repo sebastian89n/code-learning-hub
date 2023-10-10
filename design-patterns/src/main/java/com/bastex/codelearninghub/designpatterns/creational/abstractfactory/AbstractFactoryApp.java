@@ -1,5 +1,8 @@
 package com.bastex.codelearninghub.designpatterns.creational.abstractfactory;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 public class AbstractFactoryApp {
     public static void main(final String[] args) {
         WidgetFactory factory = new PinkThemeWidgetFactory();
@@ -14,6 +17,6 @@ public class AbstractFactoryApp {
     }
 
     private static void initializeGUI(final ScrollBar bar, final Window window) {
-        System.out.println("Do initazation logic here with " + bar.getClass().getName() + " and " + window.getClass().getName());
+        log.info("Do initialization logic here with {} and {}", bar.getClass().getName(), window.getClass().getName());
     }
 }

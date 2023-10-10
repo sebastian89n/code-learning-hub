@@ -13,6 +13,7 @@
     <packaging>pom</packaging>
 
     <modules>
+        <module>junit-with-mockito</module>
         <module>picocli</module>
         <module>slf4j-with-logback</module>
     </modules>

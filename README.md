@@ -10,5 +10,4 @@ Currently based on Java 21.
 - java
 - java-libs
 - spring
-- testing
 - web

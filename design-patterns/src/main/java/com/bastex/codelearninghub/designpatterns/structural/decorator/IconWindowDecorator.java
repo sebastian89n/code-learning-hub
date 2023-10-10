@@ -1,6 +1,8 @@
 package com.bastex.codelearninghub.designpatterns.structural.decorator;
 
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 public class IconWindowDecorator extends WindowDecorator {
     public IconWindowDecorator(final Window window) {
         super(window);
@@ -8,7 +10,7 @@ public class IconWindowDecorator extends WindowDecorator {
 
     @Override
     public void draw() {
-        System.out.println("Drawing icon");
+        log.info("Drawing icon");
         window.draw();
     }
 }

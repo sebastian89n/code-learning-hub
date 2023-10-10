@@ -1,9 +1,13 @@
 package com.bastex.codelearninghub.designpatterns.structural.flyweight;
 
 
+import lombok.extern.slf4j.Slf4j;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
+@Slf4j
 public class WordProcessor {
     private final List<Letter> letters = new ArrayList<>();
 
@@ -12,10 +16,8 @@ public class WordProcessor {
     }
 
     public void printLetters() {
-        for (final Letter letter : letters) {
-            System.out.print(letter.getValue());
-        }
-        System.out.println();
+        final String aggregated = letters.stream().map(Letter::getValue).collect(Collectors.joining());
+        log.info(aggregated);
     }
 
 }

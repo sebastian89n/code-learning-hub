@@ -25,7 +25,7 @@ public class LocalizationConfiguration {
         return new I18nEnServiceImpl();
     }
 
-    // bean name taken from method name
+    // No bean name provided in the annotation. Method name becomes bean name
     @Bean
     I18nService i18nEsService() {
         return new I18nEsServiceImpl();

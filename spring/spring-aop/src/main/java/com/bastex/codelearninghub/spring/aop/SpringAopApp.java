@@ -1,6 +1,6 @@
 package com.bastex.codelearninghub.spring.aop;
 
-import com.bastex.codelearninghub.spring.aop.service.MathService;
+import com.bastex.codelearninghub.spring.aop.services.MathService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

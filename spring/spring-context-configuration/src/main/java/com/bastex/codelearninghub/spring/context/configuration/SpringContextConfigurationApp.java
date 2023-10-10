@@ -13,7 +13,6 @@ public class SpringContextConfigurationApp {
     public static void main(final String[] args) {
         // Annotation config example by loading context with AnnotationConfigApplicationContext by specifying @Configuration class
         // Allows to use Spring core with dependency injection and IoC(Inversion of Control -> beans are initialized by runtime env/framework) by loading @Configuration class
-
         final AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext();
         applicationContext.register(MainContextConfiguration.class);
 
@@ -24,7 +23,7 @@ public class SpringContextConfigurationApp {
         final I18nService i18nService = applicationContext.getBean(I18nService.class);// gets primary bean because no name is specified
         log.info(i18nService.getGreeting());
 
-        final I18nService i18nEsService = applicationContext.getBean("i18nEsService", I18nService.class); // gets bean by name
+        final I18nService i18nEsService = applicationContext.getBean("i18nEsService", I18nService.class); // get bean by name and type
         log.info(i18nEsService.getGreeting());
 
         final PetService petService = applicationContext.getBean(PetService.class); // uses profile to pick up right implementation

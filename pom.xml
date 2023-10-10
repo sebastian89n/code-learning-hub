@@ -27,7 +27,6 @@
         <module>java</module>
         <module>java-libs</module>
         <module>spring</module>
-        <module>testing</module>
         <module>web</module>
     </modules>
 
