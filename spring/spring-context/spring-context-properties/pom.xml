@@ -5,10 +5,10 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.bastex</groupId>
-        <artifactId>code-learning-hub-spring</artifactId>
+        <artifactId>code-learning-hub-spring-context</artifactId>
         <version>0.0.1-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <artifactId>code-learning-hub-spring-context-annotations</artifactId>
+    <artifactId>code-learning-hub-spring-context-properties</artifactId>
 </project>
