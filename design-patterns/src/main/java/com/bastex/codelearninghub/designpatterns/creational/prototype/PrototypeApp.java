@@ -1,5 +1,8 @@
 package com.bastex.codelearninghub.designpatterns.creational.prototype;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 public class PrototypeApp {
 
     public static void main(final String[] args) {
@@ -10,13 +13,13 @@ public class PrototypeApp {
 
         Graphic graphic = tool.createGraphic();
 
-        System.out.println("Graphic instance " + graphic.getClass());
-        System.out.println("Graphic url " + graphic.getUrl());
+        log.info("Graphic instance {}", graphic.getClass());
+        log.info("Graphic url {}", graphic.getUrl());
 
         image.setUrl("test");
 
         graphic = tool.createGraphic();
-        System.out.println("Graphic url " + graphic.getUrl());
+        log.info("Graphic url {}", graphic.getUrl());
 
         final Video video = new Video();
         video.setUrl("http://test.video.com");
@@ -25,8 +28,8 @@ public class PrototypeApp {
 
         graphic = tool.createGraphic();
 
-        System.out.println("Graphic instance " + graphic.getClass());
-        System.out.println("Graphic url " + graphic.getUrl());
+        log.info("Graphic instance {}", graphic.getClass());
+        log.info("Graphic url {}", graphic.getUrl());
 
 
     }

@@ -1,5 +1,5 @@
-# java-features
+# java
 
-Project contains examples of the new features that were introduced in Java 9+.
+Project contains modules with base Java code examples.
 
-It may also contain some other useful Java snippets in the future.
+- **java-new-features** - snippets with new features in Java language

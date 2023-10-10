@@ -1,9 +1,12 @@
 package com.bastex.codelearninghub.designpatterns.behavioral.observer;
 
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 public class InputText implements Observer {
     public void setText(final String text) {
-        System.out.println("Inputtext set text: " + text);
+        log.info("Inputtext set text: {}", text);
     }
 
     @Override

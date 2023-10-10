@@ -1,5 +1,8 @@
 package com.bastex.codelearninghub.designpatterns.creational.builder;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 public class MongoDbQuery implements Query {
     private String from;
 
@@ -7,7 +10,7 @@ public class MongoDbQuery implements Query {
 
     @Override
     public void execute() {
-        System.out.println("Executing mongoDbQuery from: " + from + " where " + where);
+        log.info("Executing mongoDbQuery from: {} where {}", from, where);
     }
 
     public void setFrom(final String from) {
