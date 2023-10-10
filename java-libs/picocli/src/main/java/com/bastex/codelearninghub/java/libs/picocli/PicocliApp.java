@@ -1,17 +1,13 @@
 package com.bastex.codelearninghub.java.libs.picocli;
 
 import com.bastex.codelearninghub.java.libs.picocli.utils.InputValidator;
-import lombok.SneakyThrows;
+import com.bastex.codelearninghub.java.libs.picocli.utils.RequestPreparator;
 import lombok.extern.slf4j.Slf4j;
 import picocli.CommandLine;
 
-import java.io.IOException;
-import java.net.URI;
-import java.net.URISyntaxException;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
-import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.LinkedHashSet;
 import java.util.Set;
@@ -49,11 +45,16 @@ public class PicocliApp {
         public Integer call() {
             try (final HttpClient httpClient = HttpClient.newBuilder().build()) {
                 for (final CallType callType : callTypes) {
-                    validateInputs(callType);
                     final HttpRequest httpRequest = switch (callType) {
-                        case UUID -> prepareUuidRequest();
-                        case DELAY -> prepareDelayRequest(delay);
-                        case ANYTHING -> prepareAnythingRequest(payload, payloadPath);
+                        case UUID -> RequestPreparator.prepareUuidRequest();
+                        case DELAY -> {
+                            InputValidator.validateInputsForDelayCall(delay);
+                            yield RequestPreparator.prepareDelayRequest(delay);
+                        }
+                        case ANYTHING -> {
+                            InputValidator.validateInputsForAnythingCall(payload, payloadPath);
+                            yield RequestPreparator.prepareAnythingRequest(payload, payloadPath);
+                        }
                     };
 
                     final HttpResponse<String> response = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
@@ -65,49 +66,6 @@ public class PicocliApp {
             }
 
             return 0;
-        }
-
-        @SneakyThrows(URISyntaxException.class)
-        private HttpRequest prepareUuidRequest() {
-            return HttpRequest.newBuilder()
-                    .GET()
-                    .uri(new URI("https://httpbin.org/uuid"))
-                    .header("Accept", "application/json")
-                    .build();
-        }
-
-        @SneakyThrows(URISyntaxException.class)
-        private HttpRequest prepareDelayRequest(final int delay) {
-            return HttpRequest.newBuilder()
-                    .GET()
-                    .uri(new URI("https://httpbin.org/delay/" + delay))
-                    .header("Accept", "application/json")
-                    .build();
-        }
-
-        @SneakyThrows({URISyntaxException.class, IOException.class})
-        private HttpRequest prepareAnythingRequest(final String payload, final Path payloadPath) {
-            final HttpRequest.Builder requestBuilder = HttpRequest.newBuilder()
-                    .uri(new URI("https://httpbin.org/anything"))
-                    .header("Accept", "application/json")
-                    .header("Content-Type", "application/json");
-
-            if (payload != null && !payload.isBlank()) {
-                requestBuilder.POST(HttpRequest.BodyPublishers.ofString(payload));
-            } else if (payloadPath != null && Files.exists(payloadPath)) {
-                requestBuilder.POST(HttpRequest.BodyPublishers.ofFile(payloadPath));
-            }
-
-            return requestBuilder.build();
-        }
-
-        private void validateInputs(final CallType callType) {
-            switch (callType) {
-                case UUID -> {
-                }
-                case DELAY -> InputValidator.validateInputsForDelayCall(delay);
-                case ANYTHING -> InputValidator.validateInputsForAnythingCall(payload, payloadPath);
-            }
         }
     }
 
