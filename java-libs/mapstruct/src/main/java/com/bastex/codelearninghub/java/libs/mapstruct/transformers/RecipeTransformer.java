@@ -20,7 +20,7 @@ public interface RecipeTransformer {
      */
     RecipeTransformer INSTANCE = Mappers.getMapper(RecipeTransformer.class);
 
-    @Mapping(target = "name", source = "description.name") // maps value from inner object
+    @Mapping(target = "name", source = "description.name")
     @Mapping(target = "preparationTimeInMinutes", source = "prepTime")
     @Mapping(target = "cookingTimeInMinutes", source = "cookTime")
     RecipeDTO toRecipeDTO(Recipe recipe);
