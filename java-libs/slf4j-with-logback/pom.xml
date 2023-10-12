@@ -12,10 +12,6 @@
 
     <artifactId>code-learning-hub-slf4j-with-logback</artifactId>
 
-    <properties>
-        <logback.version>1.4.11</logback.version>
-    </properties>
-
     <dependencies>
         <dependency>
             <groupId>org.slf4j</groupId>

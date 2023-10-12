@@ -10,16 +10,16 @@ public class SpringContextAnnotationApp {
     public static void main(final String[] args) {
         // Annotation config example by loading context with AnnotationConfigApplicationContext by specifying @Configuration class
         // SpringContextAnnotationConfiguration uses @ComponentScan to find beans annotated with Spring annotations like @Component, @Service etc
-        final AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(SpringContextAnnotationConfiguration.class);
+        try (final AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(SpringContextAnnotationConfiguration.class)) {
+            final UserInfo userInfo = applicationContext.getBean(UserInfo.class);
+            userInfo.setFirstName("John");
+            userInfo.setLastName("Smith");
 
-        final UserInfo userInfo = applicationContext.getBean(UserInfo.class);
-        userInfo.setFirstName("John");
-        userInfo.setLastName("Smith");
+            // you can provide specific bean name when getting bean from the context
+            final UserService userService = applicationContext.getBean("userService", UserService.class);
+            final String fullName = userService.extractFullUserName(userInfo);
 
-        // you can provide specific bean name when getting bean from the context
-        final UserService userService = applicationContext.getBean("userService", UserService.class);
-        final String fullName = userService.extractFullUserName(userInfo);
-
-        log.info("User full name: {}", fullName);
+            log.info("User full name: {}", fullName);
+        }
     }
 }

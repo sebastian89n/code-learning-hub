@@ -4,25 +4,23 @@ import com.bastex.codelearninghub.java.libs.mapstruct.domain.Ingredient;
 import com.bastex.codelearninghub.java.libs.mapstruct.domain.Recipe;
 import com.bastex.codelearninghub.java.libs.mapstruct.dto.IngredientDTO;
 import com.bastex.codelearninghub.java.libs.mapstruct.dto.RecipeDTO;
+import com.bastex.codelearninghub.java.libs.mapstruct.transformers.common.MapperBaseConfig;
+import com.bastex.codelearninghub.java.libs.mapstruct.transformers.common.MapperUtilities;
+import org.mapstruct.AfterMapping;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
-import org.mapstruct.factory.Mappers;
+import org.mapstruct.MappingTarget;
 
-import java.util.Collections;
-import java.util.LinkedHashSet;
 import java.util.List;
-import java.util.Set;
+import java.util.stream.Collectors;
 
-@Mapper
+@Mapper(config = MapperBaseConfig.class, uses = MapperUtilities.class)
 public interface RecipeTransformer {
-    /**
-     * In real application best to be mapped as Bean in CDI/Spring Context
-     */
-    RecipeTransformer INSTANCE = Mappers.getMapper(RecipeTransformer.class);
-
     @Mapping(target = "name", source = "description.name")
     @Mapping(target = "preparationTimeInMinutes", source = "prepTime")
     @Mapping(target = "cookingTimeInMinutes", source = "cookTime")
+    @Mapping(target = "ingredientsSummaryAsText", ignore = true)
+        // ingredientsSummaryAsText is filled up in afterMapping method
     RecipeDTO toRecipeDTO(Recipe recipe);
 
     @NameToDescription
@@ -38,14 +36,15 @@ public interface RecipeTransformer {
     @Mapping(target = "description", source = "name")
     Ingredient toIngredient(IngredientDTO ingredientDTO);
 
-    /**
-     * Forcing Mapstruct to transform List to unmodifiable Set.
-     */
-    default <T> Set<T> toSet(final List<T> list) {
-        if (list == null) {
-            return Collections.emptySet();
-        } else {
-            return Collections.unmodifiableSet(new LinkedHashSet<>(list));
+    @AfterMapping
+    default void afterMapping(final Recipe recipe, @MappingTarget final RecipeDTO recipeDTO) {
+        final List<Ingredient> ingredients = recipe.getIngredients();
+        if (ingredients != null && !ingredients.isEmpty()) {
+            final String ingredientsSummary = ingredients.stream()
+                    .map(ingredient -> ingredient.getDescription() + "[" + ingredient.getAmount() + "]")
+                    .collect(Collectors.joining("\n"));
+
+            recipeDTO.setIngredientsSummaryAsText("Summary of ingredients: \n" + ingredientsSummary);
         }
     }
 }
