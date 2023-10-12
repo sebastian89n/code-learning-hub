@@ -12,10 +12,6 @@
 
     <artifactId>code-learning-hub-junit-with-mockito</artifactId>
 
-    <properties>
-        <junit.jupiter.version>5.10.0</junit.jupiter.version>
-    </properties>
-
     <dependencies>
         <dependency>
             <groupId>org.junit.jupiter</groupId>

@@ -11,11 +11,12 @@
 
     <artifactId>code-learning-hub-mapstruct</artifactId>
 
-    <properties>
-        <org.mapstruct.version>1.5.5.Final</org.mapstruct.version>
-    </properties>
-
     <dependencies>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
         <dependency>
             <groupId>org.mapstruct</groupId>
             <artifactId>mapstruct</artifactId>

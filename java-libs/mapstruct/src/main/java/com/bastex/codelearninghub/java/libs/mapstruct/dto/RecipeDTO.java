@@ -14,6 +14,8 @@ public class RecipeDTO {
 
     private Integer servings;
 
+    private String url;
+
     private String direction;
 
     private DifficultyDTO difficulty;
@@ -21,4 +23,6 @@ public class RecipeDTO {
     private Set<IngredientDTO> ingredients;
 
     private Set<String> alternativeNames;
+
+    private String ingredientsSummaryAsText;
 }
