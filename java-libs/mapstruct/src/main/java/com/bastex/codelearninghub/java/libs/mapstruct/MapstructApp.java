@@ -18,29 +18,36 @@ import java.util.List;
 public class MapstructApp {
     public static void main(final String[] args) {
         try (final ConfigurableApplicationContext applicationContext = new AnnotationConfigApplicationContext(MapstructAppConfiguration.class)) {
-            final Recipe originalRecipe = new Recipe();
-            originalRecipe.setId(5L);
-            originalRecipe.setDescription(new Description("Lasagna"));
-            originalRecipe.setDifficulty(Difficulty.MODERATE);
-            originalRecipe.setUrl("https://www.allrecipes.com/recipe/23600/worlds-best-lasagna/");
-            originalRecipe.setCookTime(160);
-            originalRecipe.setPrepTime(30);
-            originalRecipe.setAlternativeNames(List.of("gnocchi", "tortellini"));
-            originalRecipe.setServings(12);
-            originalRecipe.setDirection("<INSTRUCTIONS>");
-
-            final Ingredient ingredient1 = new Ingredient();
-            ingredient1.setDescription("lasagna noodles");
-            ingredient1.setAmount(new BigDecimal(1));
-
-            originalRecipe.setIngredients(List.of(ingredient1));
-
             final RecipeTransformer recipeTransformer = applicationContext.getBean(RecipeTransformer.class);
+
+            final Recipe originalRecipe = prepareRecipe();
+            log.info("Original Recipe: {}", originalRecipe);
+
             final RecipeDTO recipeDTO = recipeTransformer.toRecipeDTO(originalRecipe);
             log.info("RecipeDTO: {}", recipeDTO);
 
             final Recipe transformedRecipe = recipeTransformer.toRecipe(recipeDTO);
-            log.info("Recipe: {}", transformedRecipe);
+            log.info("Transformed Recipe: {}", transformedRecipe);
         }
+    }
+
+    private static Recipe prepareRecipe() {
+        final Recipe originalRecipe = new Recipe();
+        originalRecipe.setId(5L);
+        originalRecipe.setDescription(new Description("Lasagna"));
+        originalRecipe.setDifficulty(Difficulty.MODERATE);
+        originalRecipe.setUrl("https://www.allrecipes.com/recipe/23600/worlds-best-lasagna/");
+        originalRecipe.setCookTime(160);
+        originalRecipe.setPrepTime(30);
+        originalRecipe.setAlternativeNames(List.of("gnocchi", "tortellini"));
+        originalRecipe.setServings(12);
+        originalRecipe.setDirection("<INSTRUCTIONS>");
+
+        final Ingredient ingredient1 = new Ingredient();
+        ingredient1.setDescription("lasagna noodles");
+        ingredient1.setAmount(new BigDecimal(1));
+
+        originalRecipe.setIngredients(List.of(ingredient1));
+        return originalRecipe;
     }
 }
