@@ -7,6 +7,7 @@ Currently based on Java 21.
 ### Modules
 
 - design patterns
+- jakarta-ee
 - java
 - java-libs
 - spring
