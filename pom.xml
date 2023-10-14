@@ -22,6 +22,7 @@
         <jackson.version>2.15.2</jackson.version>
         <lombok.version>1.18.30</lombok.version>
         <org.mapstruct.version>1.5.5.Final</org.mapstruct.version>
+        <mapstruct.binding.version>0.2.0</mapstruct.binding.version>
         <slf4j.version>2.0.9</slf4j.version>
         <logback.version>1.4.11</logback.version>
         <junit.jupiter.version>5.10.0</junit.jupiter.version>
@@ -29,6 +30,7 @@
 
     <modules>
         <module>design-patterns</module>
+        <module>jakarta-ee</module>
         <module>java</module>
         <module>java-libs</module>
         <module>spring</module>
