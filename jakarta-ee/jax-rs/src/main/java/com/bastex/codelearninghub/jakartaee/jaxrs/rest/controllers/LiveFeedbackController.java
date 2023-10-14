@@ -6,7 +6,6 @@ import com.bastex.codelearninghub.jakartaee.jaxrs.web.requests.FeedbackRequest;
 import com.bastex.codelearninghub.jakartaee.jaxrs.web.responses.FeedbackResponse;
 import com.bastex.codelearninghub.jakartaee.jaxrs.web.responses.FeedbacksListResponse;
 import jakarta.inject.Singleton;
-import jakarta.servlet.http.HttpServletRequest;
 import jakarta.ws.rs.Consumes;
 import jakarta.ws.rs.DELETE;
 import jakarta.ws.rs.GET;
@@ -15,7 +14,6 @@ import jakarta.ws.rs.Path;
 import jakarta.ws.rs.PathParam;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.QueryParam;
-import jakarta.ws.rs.core.Context;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 import lombok.extern.slf4j.Slf4j;
@@ -57,8 +55,7 @@ public class LiveFeedbackController {
      * Injecting HttpServletRequest via @Context to get query param instead of using @QueryParam("userId")
      */
     @DELETE
-    public Response deleteFeedbacks(@Context final HttpServletRequest request) {
-        final String userId = request.getParameter("userId");
+    public Response deleteFeedbacks(@QueryParam("userId") final String userId) {
         final boolean deleted = userId != null ? liveFeedbackService.deleteFeedbacksByUserId(userId)
                 : liveFeedbackService.deleteAllFeedbacks();
 

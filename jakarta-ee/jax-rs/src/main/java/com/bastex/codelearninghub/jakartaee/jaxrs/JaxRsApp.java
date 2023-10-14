@@ -13,16 +13,18 @@ import java.net.URI;
 public class JaxRsApp {
     public static void main(final String[] args) {
         try {
-//            final RestResourceConfig resourceConfig = new RestResourceConfig();
             final ResourceConfig resourceConfig = ResourceConfig.forApplication(new RestApplication());
             resourceConfig.packages("com.bastex.codelearninghub.jakartaee.jaxrs.rest",
                     "com.bastex.codelearninghub.jakartaee.jaxrs.filters");
             resourceConfig.register(new JacksonFeature());
 
-            // Start Jetty Server
+//            final HttpServer server = GrizzlyWebContainerFactory.create(URI.create("http://localhost:8080/"),
+//                    new ServletContainer(resourceConfig), Collections.emptyMap(), Collections.emptyMap());
+
             final HttpServer server = GrizzlyHttpServerFactory.createHttpServer(
                     URI.create("http://localhost:8080/"), resourceConfig);
 
+            // Start Server
             Runtime.getRuntime().addShutdownHook(new Thread(() -> {
                 try {
                     log.info("Shutting down the application...");
