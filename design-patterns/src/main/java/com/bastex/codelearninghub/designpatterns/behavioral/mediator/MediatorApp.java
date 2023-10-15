@@ -8,8 +8,7 @@ public class MediatorApp {
     public static void main(final String[] args) {
         final ScreenDirector screenDirector = new ScreenDirectorImpl();
 
-        final ItemList itemList = new ItemList();
-        itemList.setScreendirector(screenDirector);
+        final ItemList itemList = new ItemList(screenDirector);
 
         itemList.getItems().add("Data item one");
         itemList.getItems().add("Data item two");

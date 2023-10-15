@@ -1,9 +1,9 @@
 package com.bastex.codelearninghub.java.libs.junitwithmockito;
 
 import com.bastex.codelearninghub.java.libs.junitwithmockito.domain.User;
-import com.bastex.codelearninghub.java.libs.junitwithmockito.exceptions.UserValidationException;
 import com.bastex.codelearninghub.java.libs.junitwithmockito.services.AuditService;
 import com.bastex.codelearninghub.java.libs.junitwithmockito.services.UserService;
+import com.bastex.codelearninghub.java.libs.junitwithmockito.utils.UserValidationUtils;
 import lombok.RequiredArgsConstructor;
 
 import java.util.Optional;
@@ -15,20 +15,15 @@ public class UserManager {
     private final AuditService auditService;
 
     public User addNewUser(final User user) {
-        validateUser(user);
-
-        if (user.getId() != null) {
-            throw new UserValidationException("Id cannot be provided for new user");
-        }
+        UserValidationUtils.validateNewUser(user);
 
         final User savedUser = userService.save(user);
-
         auditService.addSaveNewEntryEvent(savedUser.getId());
         return savedUser;
     }
 
     public User upsert(final User user) {
-        validateUser(user);
+        UserValidationUtils.validateUser(user);
 
         final User savedUser = userService.save(user);
 
@@ -61,15 +56,5 @@ public class UserManager {
 
     public boolean exists(final long userId) {
         return userService.exists(userId);
-    }
-
-    private static void validateUser(final User user) {
-        if (user == null) {
-            throw new UserValidationException("User cannot be empty");
-        }
-
-        if (user.getEmail() == null || user.getEmail().isBlank()) {
-            throw new UserValidationException("User email must be provided");
-        }
     }
 }

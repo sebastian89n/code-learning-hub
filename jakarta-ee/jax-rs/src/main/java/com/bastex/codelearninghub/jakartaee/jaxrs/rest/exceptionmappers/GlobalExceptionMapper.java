@@ -1,6 +1,6 @@
 package com.bastex.codelearninghub.jakartaee.jaxrs.rest.exceptionmappers;
 
-import com.bastex.codelearninghub.jakartaee.jaxrs.web.responses.ValidationErrorResponse;
+import com.bastex.codelearninghub.jakartaee.jaxrs.web.responses.ErrorResponse;
 import jakarta.ws.rs.WebApplicationException;
 import jakarta.ws.rs.core.Response;
 import jakarta.ws.rs.ext.ExceptionMapper;
@@ -16,7 +16,7 @@ public class GlobalExceptionMapper implements ExceptionMapper<WebApplicationExce
     public Response toResponse(final WebApplicationException e) {
         if (e.getResponse() != null && e.getMessage() != null && !e.getMessage().isBlank()) {
             return Response.status(e.getResponse().getStatus())
-                    .entity(new ValidationErrorResponse(e.getMessage()))
+                    .entity(new ErrorResponse(e.getMessage()))
                     .build();
         }
 

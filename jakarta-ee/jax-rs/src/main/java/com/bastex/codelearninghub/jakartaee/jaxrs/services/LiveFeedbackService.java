@@ -1,6 +1,6 @@
 package com.bastex.codelearninghub.jakartaee.jaxrs.services;
 
-import com.bastex.codelearninghub.jakartaee.jaxrs.web.requests.FeedbackRequest;
+import com.bastex.codelearninghub.jakartaee.jaxrs.web.requests.CreateFeedbackRequest;
 import com.bastex.codelearninghub.jakartaee.jaxrs.web.responses.FeedbackResponse;
 
 import java.util.List;
@@ -11,7 +11,7 @@ public interface LiveFeedbackService {
         return new LiveFeedbackInMemoryService();
     }
 
-    FeedbackResponse addFeedback(FeedbackRequest feedback);
+    FeedbackResponse createFeedback(CreateFeedbackRequest feedback);
 
     boolean deleteFeedbackById(long feedbackId);
 

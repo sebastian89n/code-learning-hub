@@ -2,17 +2,17 @@ package com.bastex.codelearninghub.designpatterns.behavioral.mediator;
 
 
 import lombok.Getter;
-import lombok.Setter;
+import lombok.RequiredArgsConstructor;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@RequiredArgsConstructor
 public class ItemList {
     @Getter
     private final List<String> items = new ArrayList<>();
 
-    @Setter
-    private ScreenDirector screendirector;
+    private final ScreenDirector screendirector;
 
 
     public void selectItem(final int itemNumber) {

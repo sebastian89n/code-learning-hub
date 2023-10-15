@@ -2,7 +2,7 @@ package com.bastex.codelearninghub.jakartaee.jaxrs.services;
 
 import com.bastex.codelearninghub.jakartaee.jaxrs.domain.Feedback;
 import com.bastex.codelearninghub.jakartaee.jaxrs.transformers.FeedbackTransformer;
-import com.bastex.codelearninghub.jakartaee.jaxrs.web.requests.FeedbackRequest;
+import com.bastex.codelearninghub.jakartaee.jaxrs.web.requests.CreateFeedbackRequest;
 import com.bastex.codelearninghub.jakartaee.jaxrs.web.responses.FeedbackResponse;
 import jakarta.inject.Singleton;
 
@@ -18,8 +18,8 @@ class LiveFeedbackInMemoryService implements LiveFeedbackService {
     private final Map<Long, Feedback> feedbacksById = new LinkedHashMap<>();
 
     @Override
-    public FeedbackResponse addFeedback(final FeedbackRequest feedbackRequest) {
-        final Feedback feedback = FeedbackTransformer.INSTANCE.toFeedback(feedbackRequest);
+    public FeedbackResponse createFeedback(final CreateFeedbackRequest createFeedbackRequest) {
+        final Feedback feedback = FeedbackTransformer.INSTANCE.toFeedback(createFeedbackRequest);
         feedback.setId(getNextId());
         feedbacksById.put(feedback.getId(), feedback);
         return FeedbackTransformer.INSTANCE.toFeedbackResponse(feedback);

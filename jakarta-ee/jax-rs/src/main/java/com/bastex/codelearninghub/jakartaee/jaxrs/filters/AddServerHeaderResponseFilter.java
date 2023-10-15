@@ -6,7 +6,7 @@ import jakarta.ws.rs.container.ContainerResponseFilter;
 import jakarta.ws.rs.ext.Provider;
 
 /**
- * Example of Response Filter
+ * Example of global ResponseFilter
  */
 @Provider
 public class AddServerHeaderResponseFilter implements ContainerResponseFilter {
