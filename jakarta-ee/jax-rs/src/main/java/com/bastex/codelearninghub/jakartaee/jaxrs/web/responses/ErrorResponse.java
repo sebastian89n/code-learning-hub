@@ -7,6 +7,6 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class ValidationErrorResponse {
+public class ErrorResponse {
     private String errorDetails;
 }

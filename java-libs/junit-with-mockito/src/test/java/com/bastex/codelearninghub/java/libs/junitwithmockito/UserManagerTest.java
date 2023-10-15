@@ -133,7 +133,7 @@ class UserManagerTest {
         savedUser.setFirstName("James");
         savedUser.setLastName("Bond");
 
-        // mock implementation of save method
+        // mocks save method in userServiceMock to return specific result for specific input
         Mockito.when(userServiceMock.save(newUser)).thenReturn(savedUser);
 
         userManagerWithMockServices.addNewUser(newUser);
@@ -176,10 +176,14 @@ class UserManagerTest {
         Assertions.assertTrue(userById.isPresent());
 
         final User updatedUserAfterSaving = userById.get();
-        Assertions.assertEquals(userToUpdate.getId(), updatedUserAfterSaving.getId());
-        Assertions.assertEquals(userToUpdate.getEmail(), updatedUserAfterSaving.getEmail());
-        Assertions.assertEquals(userToUpdate.getFirstName(), updatedUserAfterSaving.getFirstName());
-        Assertions.assertEquals(userToUpdate.getLastName(), updatedUserAfterSaving.getLastName());
+
+        // Execute always all assertions, even if preceding assertions fail
+        Assertions.assertAll("Not all fields have been update",
+                () -> Assertions.assertEquals(userToUpdate.getId(), updatedUserAfterSaving.getId()),
+                () -> Assertions.assertEquals(userToUpdate.getEmail(), updatedUserAfterSaving.getEmail()),
+                () -> Assertions.assertEquals(userToUpdate.getFirstName(), updatedUserAfterSaving.getFirstName()),
+                () -> Assertions.assertEquals(userToUpdate.getLastName(), updatedUserAfterSaving.getLastName())
+        );
     }
 
     @Test
@@ -195,9 +199,7 @@ class UserManagerTest {
         savedUser.setFirstName("James");
         savedUser.setLastName("Bond");
 
-        // mock implementation of save method
         Mockito.when(userServiceMock.save(newUser)).thenReturn(savedUser);
-
         userManagerWithMockServices.upsert(newUser);
 
         Mockito.verify(auditServiceMock, Mockito.times(1))

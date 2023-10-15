@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class FeedbackRequest {
+public class CreateFeedbackRequest {
     private String text;
 
     private String userId;

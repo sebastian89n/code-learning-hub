@@ -2,7 +2,7 @@ package com.bastex.codelearninghub.jakartaee.jaxrs.rest.controllers;
 
 import com.bastex.codelearninghub.jakartaee.jaxrs.services.LiveFeedbackService;
 import com.bastex.codelearninghub.jakartaee.jaxrs.web.RequestValidationUtils;
-import com.bastex.codelearninghub.jakartaee.jaxrs.web.requests.FeedbackRequest;
+import com.bastex.codelearninghub.jakartaee.jaxrs.web.requests.CreateFeedbackRequest;
 import com.bastex.codelearninghub.jakartaee.jaxrs.web.responses.FeedbackResponse;
 import com.bastex.codelearninghub.jakartaee.jaxrs.web.responses.FeedbacksListResponse;
 import jakarta.inject.Singleton;
@@ -29,17 +29,17 @@ public class LiveFeedbackController {
     private final LiveFeedbackService liveFeedbackService = LiveFeedbackService.newInMemoryInstance();
 
     @PUT
-    @Produces(MediaType.APPLICATION_JSON)
-    @Consumes(MediaType.APPLICATION_JSON)
-    public Response addFeedback(final FeedbackRequest request) {
+    @Produces({MediaType.APPLICATION_JSON})
+    // example of specifying produced type on the method. Support multiple types.
+    @Consumes(MediaType.APPLICATION_JSON) // example of specifying consumed type on the method
+    public Response createFeedback(final CreateFeedbackRequest request) {
         RequestValidationUtils.validateRequest(request);
 
-        final FeedbackResponse feedbackResponse = liveFeedbackService.addFeedback(request);
+        final FeedbackResponse feedbackResponse = liveFeedbackService.createFeedback(request);
         return Response.ok(feedbackResponse).build();
     }
 
     @GET
-    @Produces(MediaType.APPLICATION_JSON)
     public Response getAllFeedbacks(@QueryParam("userId") final String userId) {
         final FeedbacksListResponse feedbacksResponse = new FeedbacksListResponse();
         if (userId == null) {
@@ -51,9 +51,6 @@ public class LiveFeedbackController {
         return Response.ok(feedbacksResponse).build();
     }
 
-    /**
-     * Injecting HttpServletRequest via @Context to get query param instead of using @QueryParam("userId")
-     */
     @DELETE
     public Response deleteFeedbacks(@QueryParam("userId") final String userId) {
         final boolean deleted = userId != null ? liveFeedbackService.deleteFeedbacksByUserId(userId)

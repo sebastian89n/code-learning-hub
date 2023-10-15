@@ -7,7 +7,7 @@ import jakarta.ws.rs.ext.Provider;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * Example of Request Filter
+ * Example of global RequestFilter
  */
 @Slf4j
 @Provider

@@ -1,7 +1,7 @@
 package com.bastex.codelearninghub.jakartaee.jaxrs.transformers;
 
 import com.bastex.codelearninghub.jakartaee.jaxrs.domain.Feedback;
-import com.bastex.codelearninghub.jakartaee.jaxrs.web.requests.FeedbackRequest;
+import com.bastex.codelearninghub.jakartaee.jaxrs.web.requests.CreateFeedbackRequest;
 import com.bastex.codelearninghub.jakartaee.jaxrs.web.responses.FeedbackResponse;
 import org.mapstruct.AfterMapping;
 import org.mapstruct.Mapper;
@@ -22,7 +22,7 @@ public abstract class FeedbackTransformer {
 
     @Mapping(target = "id", ignore = true)
     @Mapping(target = "created", ignore = true)
-    public abstract Feedback toFeedback(FeedbackRequest feedbackRequest);
+    public abstract Feedback toFeedback(CreateFeedbackRequest createFeedbackRequest);
 
     public abstract FeedbackResponse toFeedbackResponse(Feedback feedback);
 
@@ -31,7 +31,7 @@ public abstract class FeedbackTransformer {
     }
 
     @AfterMapping
-    void toFeedbackAfterMapping(final FeedbackRequest feedbackRequest, @MappingTarget final Feedback feedback) {
+    void toFeedbackAfterMapping(final CreateFeedbackRequest createFeedbackRequest, @MappingTarget final Feedback feedback) {
         feedback.setCreated(Instant.now());
     }
 }
