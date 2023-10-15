@@ -31,7 +31,7 @@ public abstract class FeedbackTransformer {
     }
 
     @AfterMapping
-    void toFeedbackAfterMapping(final CreateFeedbackRequest createFeedbackRequest, @MappingTarget final Feedback feedback) {
+    void finalizeToFeedbackMapping(final CreateFeedbackRequest createFeedbackRequest, @MappingTarget final Feedback feedback) {
         feedback.setCreated(Instant.now());
     }
 }
