@@ -3,20 +3,6 @@
                    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
 
-    <changeSet id="1.0-create-book-notes" author="Sebastian-Nowak">
-        <createTable schemaName="${schemaName}" tableName="book_notes">
-            <column name="oid" type="bigint">
-                <constraints primaryKey="true"/>
-            </column>
-            <column name="createdtimestamp" type="timestamp">
-                <constraints nullable="false"/>
-            </column>
-            <column name="lastupdatedtimestamp" type="timestamp">
-                <constraints nullable="false"/>
-            </column>
-            <column name="note" type="clob">
-                <constraints nullable="false"/>
-            </column>
-        </createTable>
-    </changeSet>
+    <include file="db.changelog-1.0-initialize-db.xml" relativeToChangelogFile="true"/>
+    <include file="db.changelog-1.0-initialize-data.xml" relativeToChangelogFile="true"/>
 </databaseChangeLog>

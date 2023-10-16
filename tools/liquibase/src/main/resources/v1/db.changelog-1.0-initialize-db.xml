@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog logicalFilePath="db.changelog-1.0.xml" xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <changeSet id="1.0-create-book-notes" author="Sebastian-Nowak">
+        <createTable schemaName="${schemaName}" tableName="book_notes">
+            <column name="oid" type="bigint">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="createdtimestamp" type="timestamp">
+                <constraints nullable="false"/>
+            </column>
+            <column name="lastupdatedtimestamp" type="timestamp">
+                <constraints nullable="false"/>
+            </column>
+            <column name="note" type="clob">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="1.0-create-publishers" author="Sebastian-Nowak">
+        <createTable schemaName="${schemaName}" tableName="publishers">
+            <column name="oid" type="bigint">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="createdtimestamp" type="timestamp">
+                <constraints nullable="false"/>
+            </column>
+            <column name="lastupdatedtimestamp" type="timestamp">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR(128)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="email" type="VARCHAR(64)"/>
+            <column name="phonenumber" type="VARCHAR(32)"/>
+            <column name="addresslocal" type="VARCHAR(64)"/>
+            <column name="city" type="VARCHAR(64)"/>
+            <column name="state" type="VARCHAR(64)"/>
+            <column name="zip" type="VARCHAR(32)"/>
+            <column name="country" type="VARCHAR(64)"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="1.0-create-authors" author="Sebastian-Nowak">
+        <createTable schemaName="${schemaName}" tableName="authors">
+            <column name="oid" type="bigint">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="createdtimestamp" type="timestamp">
+                <constraints nullable="false"/>
+            </column>
+            <column name="lastupdatedtimestamp" type="timestamp">
+                <constraints nullable="false"/>
+            </column>
+            <column name="firstname" type="VARCHAR(128)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="lastname" type="VARCHAR(128)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="email" type="VARCHAR(64)"/>
+        </createTable>
+    </changeSet>
+
+    <!-- Single transaction on multiple actions to properly create books table with foreign keys -->
+    <changeSet id="1.0-create-books" author="Sebastian-Nowak">
+        <createTable schemaName="${schemaName}" tableName="books">
+            <column name="oid" type="bigint">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="createdtimestamp" type="timestamp">
+                <constraints nullable="false"/>
+            </column>
+            <column name="lastupdatedtimestamp" type="timestamp">
+                <constraints nullable="false"/>
+            </column>
+            <column name="active" type="CHAR(1)" defaultValue="T">
+                <constraints nullable="false"/>
+            </column>
+            <column name="title" type="VARCHAR(128)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="isbn" type="VARCHAR(128)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="type" type="VARCHAR(32)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="publicationdate" type="DATE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="note_id" type="bigint"/>
+            <column name="publisher_id" type="bigint"/>
+        </createTable>
+
+        <addForeignKeyConstraint baseTableSchemaName="${schemaName}"
+                                 baseTableName="books"
+                                 baseColumnNames="note_id"
+                                 constraintName="fk_books_note_id"
+                                 referencedTableSchemaName="${schemaName}"
+                                 referencedTableName="book_notes"
+                                 referencedColumnNames="oid"
+        />
+
+        <addForeignKeyConstraint baseTableSchemaName="${schemaName}"
+                                 baseTableName="books"
+                                 baseColumnNames="publisher_id"
+                                 constraintName="fk_books_publisher_id"
+                                 referencedTableSchemaName="${schemaName}"
+                                 referencedTableName="publishers"
+                                 referencedColumnNames="oid"
+        />
+
+        <createTable schemaName="${schemaName}" tableName="author_book">
+            <column name="book_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="author_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addForeignKeyConstraint baseTableSchemaName="${schemaName}"
+                                 baseTableName="author_book"
+                                 baseColumnNames="book_id"
+                                 constraintName="fk_author_book_book_id"
+                                 referencedTableSchemaName="${schemaName}"
+                                 referencedTableName="books"
+                                 referencedColumnNames="oid"
+        />
+
+        <addForeignKeyConstraint baseTableSchemaName="${schemaName}"
+                                 baseTableName="author_book"
+                                 baseColumnNames="author_id"
+                                 constraintName="fk_author_book_author_id"
+                                 referencedTableSchemaName="${schemaName}"
+                                 referencedTableName="authors"
+                                 referencedColumnNames="oid"
+        />
+    </changeSet>
+</databaseChangeLog>
