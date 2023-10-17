@@ -77,7 +77,6 @@ public final class Java17Tester {
 
         // sealed interface
         final Celestial planet = new Celestial.Planet();
-
     }
 
     private enum Level {

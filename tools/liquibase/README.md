@@ -12,6 +12,3 @@ database changes easily. Liquibase makes it easy for anyone involved in the appl
 
 
 - Deploy database and application changes together, so they always stay in sync.
-
-
-

@@ -68,8 +68,8 @@
             <column name="isbn" value="032157351X"/>
             <column name="type" value="IT"/>
             <column name="publicationdate" valueDate="2018-10-01"/>
-            <column name="note_id" valueNumeric="4"/>
-            <column name="publisher_id" valueNumeric="3"/>
+            <column name="note_id" valueNumeric="5"/>
+            <column name="publisher_id" valueNumeric="4"/>
         </insert>
 
         <insert schemaName="${schemaName}" tableName="books">
@@ -81,30 +81,30 @@
             <column name="isbn" value="0134076435"/>
             <column name="type" value="IT"/>
             <column name="publicationdate" valueDate="2015-05-08"/>
-            <column name="publisher_id" valueNumeric="3"/>
+            <column name="publisher_id" valueNumeric="4"/>
         </insert>
 
-        <insert schemaName="${schemaName}" tableName="book_author">
+        <insert schemaName="${schemaName}" tableName="author_book">
             <column name="book_id" valueNumeric="6"/>
             <column name="author_id" valueNumeric="1"/>
         </insert>
 
-        <insert schemaName="${schemaName}" tableName="book_author">
+        <insert schemaName="${schemaName}" tableName="author_book">
             <column name="book_id" valueNumeric="6"/>
             <column name="author_id" valueNumeric="2"/>
         </insert>
 
-        <insert schemaName="${schemaName}" tableName="book_author">
+        <insert schemaName="${schemaName}" tableName="author_book">
             <column name="book_id" valueNumeric="7"/>
             <column name="author_id" valueNumeric="1"/>
         </insert>
 
-        <insert schemaName="${schemaName}" tableName="book_author">
+        <insert schemaName="${schemaName}" tableName="author_book">
             <column name="book_id" valueNumeric="7"/>
             <column name="author_id" valueNumeric="2"/>
         </insert>
 
-        <insert schemaName="${schemaName}" tableName="book_author">
+        <insert schemaName="${schemaName}" tableName="author_book">
             <column name="book_id" valueNumeric="7"/>
             <column name="author_id" valueNumeric="3"/>
         </insert>
