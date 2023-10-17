@@ -3,7 +3,7 @@
                    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
 
-    <changeSet id="1.0-create-book-notes" author="Sebastian-Nowak" context="initDataScript">
+    <changeSet id="1.0-create-book-notes" author="Sebastian-Nowak">
         <createTable schemaName="${schemaName}" tableName="book_notes">
             <column name="oid" type="bigint">
                 <constraints primaryKey="true"/>
@@ -20,7 +20,7 @@
         </createTable>
     </changeSet>
 
-    <changeSet id="1.0-create-publishers" author="Sebastian-Nowak" context="initDataScript">
+    <changeSet id="1.0-create-publishers" author="Sebastian-Nowak">
         <createTable schemaName="${schemaName}" tableName="publishers">
             <column name="oid" type="bigint">
                 <constraints primaryKey="true"/>
@@ -44,7 +44,7 @@
         </createTable>
     </changeSet>
 
-    <changeSet id="1.0-create-authors" author="Sebastian-Nowak" context="initDataScript">
+    <changeSet id="1.0-create-authors" author="Sebastian-Nowak">
         <createTable schemaName="${schemaName}" tableName="authors">
             <column name="oid" type="bigint">
                 <constraints primaryKey="true"/>
@@ -66,7 +66,7 @@
     </changeSet>
 
     <!-- Single transaction on multiple actions to properly create books table with foreign keys -->
-    <changeSet id="1.0-create-books" author="Sebastian-Nowak" context="initDataScript">
+    <changeSet id="1.0-create-books" author="Sebastian-Nowak">
         <createTable schemaName="${schemaName}" tableName="books">
             <column name="oid" type="bigint">
                 <constraints primaryKey="true"/>

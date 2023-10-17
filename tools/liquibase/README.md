@@ -2,13 +2,26 @@
 
 Example of Liquibase scripts and code to execute them programmatically via separate jar.
 
-Liquibase is an open-source database schema change management solution which enables you to manage revisions of your
-database changes easily. Liquibase makes it easy for anyone involved in the application release process to:
+It uses Spring Boot to automatically execute the configured scripts.
 
-- Eliminate errors and delays when releasing databases.
+It can be also done by hand by using liquibase.Liquibase class.
 
+It can be run against h2 or postgres depending on the application.properties(jdbc url etc.).
+It also works with other db types but requires proper driver to be provided.
 
-- Deploy and roll back changes for specific versions without needing to know what has already been deployed.
+By the default if no context is provided, Liquibase will run every changeset.
+So we provide dummy context(can be any name) to initialize only default changesets(without any context specified).
+initDataScript context will execute changesets to initialize data via Liquibase inserts.
 
+To test local postgres download zip from:
+https://www.enterprisedb.com/download-postgresql-binaries
 
-- Deploy database and application changes together, so they always stay in sync.
+From bin folder:
+
+- initdb.exe -D ../data --username=postgres --auth=trust (initializes db)
+- pg_ctl.exe start -D ../data (starts db)
+- psql --username postgres (logs into console)
+
+Afterward we need to create db configured in jdbc url in psql
+CREATE DATABASE testdb
+\c testdb (to switch to that db inside the console)

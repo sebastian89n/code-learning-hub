@@ -9,7 +9,5 @@ public class LiquibaseApp {
     public static void main(final String[] args) throws InterruptedException {
         final ConfigurableApplicationContext applicationContext = SpringApplication.run(LiquibaseApp.class);
         AppContext.INSTANCE.setApplicationContext(applicationContext);
-
-        Thread.currentThread().join();
     }
 }
