@@ -9,5 +9,5 @@ public enum AppContext {
     INSTANCE;
 
     @Setter
-    private ApplicationContext applicationContext;
+    private ApplicationContext context;
 }
