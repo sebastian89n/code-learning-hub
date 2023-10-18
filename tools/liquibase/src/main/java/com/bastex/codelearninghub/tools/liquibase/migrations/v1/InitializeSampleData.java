@@ -4,13 +4,16 @@ import com.bastex.codelearninghub.spring.data.bootstrap.DataLoader;
 import com.bastex.codelearninghub.spring.data.services.AuthorDataService;
 import com.bastex.codelearninghub.spring.data.services.BookDataService;
 import com.bastex.codelearninghub.spring.data.services.PublisherDataService;
-import com.bastex.codelearninghub.tools.liquibase.AppContext;
+import com.bastex.codelearninghub.tools.liquibase.AppContextHolder;
 import liquibase.change.custom.CustomTaskChange;
 import liquibase.database.Database;
 import liquibase.exception.SetupException;
 import liquibase.exception.ValidationErrors;
 import liquibase.resource.ResourceAccessor;
 
+/**
+ * Requires no args constructor for Liquibase.
+ */
 public class InitializeSampleData implements CustomTaskChange {
     private final AuthorDataService authorDataService;
 
@@ -19,9 +22,9 @@ public class InitializeSampleData implements CustomTaskChange {
     private final PublisherDataService publisherDataService;
 
     public InitializeSampleData() {
-        this.authorDataService = AppContext.INSTANCE.getContext().getBean(AuthorDataService.class);
-        this.bookDataService = AppContext.INSTANCE.getContext().getBean(BookDataService.class);
-        this.publisherDataService = AppContext.INSTANCE.getContext().getBean(PublisherDataService.class);
+        this.authorDataService = AppContextHolder.INSTANCE.getContext().getBean(AuthorDataService.class);
+        this.bookDataService = AppContextHolder.INSTANCE.getContext().getBean(BookDataService.class);
+        this.publisherDataService = AppContextHolder.INSTANCE.getContext().getBean(PublisherDataService.class);
     }
 
     @Override

@@ -5,7 +5,7 @@ import lombok.Setter;
 import org.springframework.context.ApplicationContext;
 
 @Getter
-public enum AppContext {
+public enum AppContextHolder {
     INSTANCE;
 
     @Setter
