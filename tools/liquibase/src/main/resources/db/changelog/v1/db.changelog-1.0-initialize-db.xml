@@ -140,5 +140,7 @@
                                  referencedTableName="authors"
                                  referencedColumnNames="oid"
         />
+
+        <!-- TODO created indexes -->
     </changeSet>
 </databaseChangeLog>

@@ -22,6 +22,12 @@ import java.util.concurrent.Callable;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
+/**
+ * EnableJpaRepositories and EntityScan are required here because we load repositories and entities from a different package.
+ * By the default it wouldn't be required if entities were within same module in subpackages.
+ * <p>
+ * We set ApplicationContext to Singleton instance because Liquibase scripts that initialize CustomTaskChange do not use Spring context.
+ */
 @EntityScan("com.bastex.codelearninghub.spring.data.domain")
 @EnableJpaRepositories(basePackages = "com.bastex.codelearninghub.spring.data.repositories")
 @SpringBootApplication(scanBasePackages = {"com.bastex.codelearninghub.spring.data.services"})
