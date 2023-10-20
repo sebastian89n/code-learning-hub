@@ -5,6 +5,8 @@
 
     <!-- Create tables -->
     <changeSet id="1.0-create-book-notes" author="Sebastian-Nowak">
+        <comment>Created book_notes table</comment>
+
         <createTable schemaName="${schemaName}" tableName="book_notes">
             <column name="oid" type="bigint">
                 <constraints primaryKey="true"/>
@@ -22,6 +24,8 @@
     </changeSet>
 
     <changeSet id="1.0-create-publishers" author="Sebastian-Nowak">
+        <comment>Created publishers table</comment>
+
         <createTable schemaName="${schemaName}" tableName="publishers">
             <column name="oid" type="bigint">
                 <constraints primaryKey="true"/>
@@ -46,6 +50,8 @@
     </changeSet>
 
     <changeSet id="1.0-create-authors" author="Sebastian-Nowak">
+        <comment>Created authors table</comment>
+
         <createTable schemaName="${schemaName}" tableName="authors">
             <column name="oid" type="bigint">
                 <constraints primaryKey="true"/>
@@ -68,6 +74,8 @@
 
     <!-- Single transaction on multiple actions to properly create books table with foreign keys -->
     <changeSet id="1.0-create-books" author="Sebastian-Nowak">
+        <comment>Created books and author_book tables</comment>
+
         <createTable schemaName="${schemaName}" tableName="books">
             <column name="oid" type="bigint">
                 <constraints primaryKey="true"/>
@@ -145,6 +153,8 @@
 
     <!-- Create index examples -->
     <changeSet id="1.0-create-authors-indexes" author="Sebastian-Nowak">
+        <comment>Created indexes for authors table</comment>
+
         <createIndex schemaName="${schemaName}" tableName="authors" indexName="authors_firstname_lastname_idx">
             <column name="firstname"/>
             <column name="lastname"/>
@@ -152,6 +162,8 @@
     </changeSet>
 
     <changeSet id="1.0-create-books-indexes" author="Sebastian-Nowak">
+        <comment>Created indexes for books table</comment>
+
         <createIndex schemaName="${schemaName}" tableName="books" indexName="books_title_idx">
             <column name="title"/>
         </createIndex>
@@ -159,6 +171,8 @@
 
     <!-- Create Hibernate sequence -->
     <changeSet id="1.0-hibernate-sequence" author="Sebastian-Nowak">
+        <comment>Created hibernate_sequences</comment>
+
         <createSequence schemaName="${schemaName}" sequenceName="hibernate_sequence" startValue="1" incrementBy="1"/>
     </changeSet>
 </databaseChangeLog>
