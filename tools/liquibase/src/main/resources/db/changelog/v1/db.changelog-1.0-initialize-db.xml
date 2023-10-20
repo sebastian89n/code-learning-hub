@@ -3,6 +3,7 @@
                    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
 
+    <!-- Create tables -->
     <changeSet id="1.0-create-book-notes" author="Sebastian-Nowak">
         <createTable schemaName="${schemaName}" tableName="book_notes">
             <column name="oid" type="bigint">
@@ -140,7 +141,24 @@
                                  referencedTableName="authors"
                                  referencedColumnNames="oid"
         />
+    </changeSet>
 
-        <!-- TODO created indexes -->
+    <!-- Create index examples -->
+    <changeSet id="1.0-create-authors-indexes" author="Sebastian-Nowak">
+        <createIndex schemaName="${schemaName}" tableName="authors" indexName="authors_firstname_lastname_idx">
+            <column name="firstname"/>
+            <column name="lastname"/>
+        </createIndex>
+    </changeSet>
+
+    <changeSet id="1.0-create-books-indexes" author="Sebastian-Nowak">
+        <createIndex schemaName="${schemaName}" tableName="books" indexName="books_title_idx">
+            <column name="title"/>
+        </createIndex>
+    </changeSet>
+
+    <!-- Create Hibernate sequence -->
+    <changeSet id="1.0-hibernate-sequence" author="Sebastian-Nowak">
+        <createSequence schemaName="${schemaName}" sequenceName="hibernate_sequence" startValue="1" incrementBy="1"/>
     </changeSet>
 </databaseChangeLog>

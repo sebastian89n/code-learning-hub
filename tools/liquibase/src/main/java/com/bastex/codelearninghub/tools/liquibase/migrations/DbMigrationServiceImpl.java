@@ -1,6 +1,6 @@
-package com.bastex.codelearninghub.tools.liquibase;
+package com.bastex.codelearninghub.tools.liquibase.migrations;
 
-import liquibase.Contexts;
+import com.bastex.codelearninghub.tools.liquibase.beans.LiquibaseConfig;
 import liquibase.Liquibase;
 import liquibase.database.Database;
 import liquibase.database.DatabaseFactory;
@@ -8,6 +8,7 @@ import liquibase.database.jvm.JdbcConnection;
 import liquibase.exception.DatabaseException;
 import liquibase.exception.LiquibaseException;
 import liquibase.resource.ClassLoaderResourceAccessor;
+import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
@@ -19,24 +20,30 @@ import java.sql.SQLException;
 
 @Slf4j
 @Service
-class DbMigrationService {
+@RequiredArgsConstructor
+class DbMigrationServiceImpl implements DbMigrationService {
+    private final LiquibaseConfig liquibaseConfig;
+
+    @Override
     @SneakyThrows({SQLException.class, DatabaseException.class})
-    void executeMigration(final String dbUrl, final String dbSchema, final String dbUsername, final String dbPassword, final String contexts) {
-        try (final Connection connection = DriverManager.getConnection(dbUrl, dbUsername, dbPassword)) {
+    public void runMigration() {
+        try (final Connection connection = DriverManager.getConnection(liquibaseConfig.url(),
+                liquibaseConfig.username(),
+                liquibaseConfig.password())) {
+
             final Database database = DatabaseFactory.getInstance()
                     .findCorrectDatabaseImplementation(new JdbcConnection(connection));
 
-            initializeSchemaEnv(dbSchema);
-            upgradeDatabase(database, contexts);
+            initializeSchemaEnv(liquibaseConfig.dbSchema());
+            upgradeDatabase(database, liquibaseConfig.contextsToRun());
         }
     }
 
     @SneakyThrows(LiquibaseException.class)
     private void upgradeDatabase(final Database database, final String contexts) {
-        final String dbChangeLogLocation = "classpath:db/changelog/db.changelog-master.xml";
-        try (final Liquibase liquibase = new Liquibase(dbChangeLogLocation, new ClassLoaderResourceAccessor(this.getClass().getClassLoader()), database)) {
+        try (final Liquibase liquibase = new Liquibase(liquibaseConfig.dbChangeLogLocation(), new ClassLoaderResourceAccessor(this.getClass().getClassLoader()), database)) {
             log.info("Starting database migration...");
-            liquibase.update(new Contexts());
+            liquibase.update(contexts);
             log.info("Migration finished successfully");
         }
     }

@@ -13,14 +13,14 @@ import liquibase.resource.ResourceAccessor;
 /**
  * Requires no args constructor for Liquibase.
  */
-public class InitializeSampleData implements CustomSpringBeanTaskChange {
+public class InitializeSampleDataTask implements CustomSpringBeanTaskChange {
     private final AuthorDataService authorDataService;
 
     private final BookDataService bookDataService;
 
     private final PublisherDataService publisherDataService;
 
-    public InitializeSampleData() {
+    public InitializeSampleDataTask() {
         this.authorDataService = AppContextHolder.INSTANCE.getContext().getBean(AuthorDataService.class);
         this.bookDataService = AppContextHolder.INSTANCE.getContext().getBean(BookDataService.class);
         this.publisherDataService = AppContextHolder.INSTANCE.getContext().getBean(PublisherDataService.class);

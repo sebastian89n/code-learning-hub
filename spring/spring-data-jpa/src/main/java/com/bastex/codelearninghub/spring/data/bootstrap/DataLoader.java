@@ -27,7 +27,6 @@ public class DataLoader implements CommandLineRunner {
     @Override
     public void run(final String... args) {
         initializeDbData();
-
     }
 
     private void initializeDbData() {
