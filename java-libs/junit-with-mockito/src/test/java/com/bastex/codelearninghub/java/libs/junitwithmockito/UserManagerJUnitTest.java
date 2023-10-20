@@ -3,9 +3,7 @@ package com.bastex.codelearninghub.java.libs.junitwithmockito;
 import com.bastex.codelearninghub.java.libs.junitwithmockito.domain.User;
 import com.bastex.codelearninghub.java.libs.junitwithmockito.exceptions.UserValidationException;
 import com.bastex.codelearninghub.java.libs.junitwithmockito.services.AuditInMemoryService;
-import com.bastex.codelearninghub.java.libs.junitwithmockito.services.AuditService;
 import com.bastex.codelearninghub.java.libs.junitwithmockito.services.UserInMemoryService;
-import com.bastex.codelearninghub.java.libs.junitwithmockito.services.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
@@ -13,47 +11,36 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
 
 import java.util.Optional;
 
 @Slf4j
-class UserManagerTest {
+class UserManagerJUnitTest {
     private static final long NOT_EXISTING_USER_ID = 999_999_999L;
 
     private UserManager defaultUserManager;
 
-    private UserManager userManagerWithMockServices;
-
-    private AuditService auditServiceMock;
-
-    private UserService userServiceMock;
-
     @BeforeAll
-    static void setup() {
+    static void beforeAll() {
         log.info("@BeforeAll - executes once before all test methods in this class");
     }
 
     @BeforeEach
-    void init() {
+    void beforeEach() {
         log.info("@BeforeEach - executes before each test method in this class");
         defaultUserManager = new UserManager(new UserInMemoryService(), new AuditInMemoryService());
         defaultUserManager.upsert(new User(1L, "john.smith@gmail.com", "John", "Smith"));
         defaultUserManager.upsert(new User(2L, "john.wick@gmail.com", "John", "Wick"));
         defaultUserManager.upsert(new User(3L, "arnold.gomez@gmail.com", "Arnold", "Gomez"));
-
-        auditServiceMock = Mockito.mock(AuditService.class);
-        userServiceMock = Mockito.mock(UserService.class);
-        userManagerWithMockServices = new UserManager(userServiceMock, auditServiceMock);
     }
 
     @AfterEach
-    void tearDown() {
+    void afterEach() {
         log.info("@AfterEach - executed after each test method.");
     }
 
     @AfterAll
-    static void down() {
+    static void afterAll() {
         log.info("@AfterAll - executed after all test methods.");
     }
 
@@ -121,29 +108,6 @@ class UserManagerTest {
     }
 
     @Test
-    void addNewUser_NewUserIsAdded_MakeSureAuditMethodIsCalled() {
-        final User newUser = new User();
-        newUser.setEmail("james.bond@gmail.com");
-        newUser.setFirstName("James");
-        newUser.setLastName("Bond");
-
-        final User savedUser = new User();
-        savedUser.setId(10L);
-        savedUser.setEmail("james.bond@gmail.com");
-        savedUser.setFirstName("James");
-        savedUser.setLastName("Bond");
-
-        // mocks save method in userServiceMock to return specific result for specific input
-        Mockito.when(userServiceMock.save(newUser)).thenReturn(savedUser);
-
-        userManagerWithMockServices.addNewUser(newUser);
-
-        // verify that audit method was called once
-        Mockito.verify(auditServiceMock, Mockito.times(1))
-                .addSaveNewEntryEvent(10L);
-    }
-
-    @Test
     void upsert_NewUserIsAdded_ShouldSuccessfullyAddNewUser() {
         final User newUser = new User();
         newUser.setEmail("james.bond@gmail.com");
@@ -187,46 +151,6 @@ class UserManagerTest {
     }
 
     @Test
-    void upsert_NewUserAdded_ShouldCallCorrectAuditMethod() {
-        final User newUser = new User();
-        newUser.setEmail("james.bond@gmail.com");
-        newUser.setFirstName("James");
-        newUser.setLastName("Bond");
-
-        final User savedUser = new User();
-        savedUser.setId(10L);
-        savedUser.setEmail("james.bond@gmail.com");
-        savedUser.setFirstName("James");
-        savedUser.setLastName("Bond");
-
-        Mockito.when(userServiceMock.save(newUser)).thenReturn(savedUser);
-        userManagerWithMockServices.upsert(newUser);
-
-        Mockito.verify(auditServiceMock, Mockito.times(1))
-                .addSaveNewEntryEvent(10L);
-        Mockito.verify(auditServiceMock, Mockito.never()).addUpdateNewEntryEvent(Mockito.anyLong());
-    }
-
-    @Test
-    void upsert_ExistingUserUpdated_ShouldCallCorrectAuditMethod() {
-        final User existingUser = new User();
-        existingUser.setId(10L);
-        existingUser.setEmail("james.bond@gmail.com");
-        existingUser.setFirstName("James");
-        existingUser.setLastName("Bond");
-
-        // mock implementation of save method
-        Mockito.when(userServiceMock.save(existingUser)).thenReturn(existingUser);
-
-        userManagerWithMockServices.upsert(existingUser);
-
-        Mockito.verify(auditServiceMock, Mockito.times(1))
-                .addUpdateNewEntryEvent(10L);
-        Mockito.verify(auditServiceMock, Mockito.never())
-                .addSaveNewEntryEvent(Mockito.anyLong());
-    }
-
-    @Test
     void deleteUserById_UserDoesNotExists_ShouldReturnFalse() {
         final boolean deleted = defaultUserManager.deleteUserById(NOT_EXISTING_USER_ID);
         Assertions.assertFalse(deleted);
@@ -244,30 +168,6 @@ class UserManagerTest {
 
         final Optional<User> deletedUserById = defaultUserManager.findUserById(userId);
         Assertions.assertFalse(deletedUserById.isPresent());
-    }
-
-    @Test
-    void deleteUserById_UserIsDeleted_MakeSureAuditMethodIsCalled() {
-        final long userId = 10L;
-        Mockito.when(userServiceMock.deleteById(userId)).thenReturn(true);
-
-        userManagerWithMockServices.deleteUserById(userId);
-
-        // Verify method is called only once
-        Mockito.verify(auditServiceMock, Mockito.times(1))
-                .addNewDeletedEvent(userId);
-    }
-
-    @Test
-    void deleteUserById_UserIsNotDeleted_MakeSureAuditMethodIsNotCalled() {
-        // mock implementation of save method
-        final long userId = 10L;
-        Mockito.when(userServiceMock.deleteById(userId)).thenReturn(false);
-
-        userManagerWithMockServices.deleteUserById(userId);
-
-        // verify that audit method was not called
-        Mockito.verify(auditServiceMock, Mockito.never()).addNewDeletedEvent(Mockito.anyLong());
     }
 
     @Test
