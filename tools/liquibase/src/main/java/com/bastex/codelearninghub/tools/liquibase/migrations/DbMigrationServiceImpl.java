@@ -41,7 +41,8 @@ class DbMigrationServiceImpl implements DbMigrationService {
 
     @SneakyThrows(LiquibaseException.class)
     private void upgradeDatabase(final Database database, final String contexts) {
-        try (final Liquibase liquibase = new Liquibase(liquibaseConfig.dbChangeLogLocation(), new ClassLoaderResourceAccessor(this.getClass().getClassLoader()), database)) {
+        try (final Liquibase liquibase = new Liquibase(liquibaseConfig.dbChangeLogLocation(),
+                new ClassLoaderResourceAccessor(this.getClass().getClassLoader()), database)) {
             log.info("Starting database migration...");
             liquibase.update(contexts);
             log.info("Migration finished successfully");
