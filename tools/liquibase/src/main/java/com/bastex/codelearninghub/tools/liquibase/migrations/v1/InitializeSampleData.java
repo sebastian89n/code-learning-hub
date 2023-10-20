@@ -4,17 +4,16 @@ import com.bastex.codelearninghub.spring.data.bootstrap.DataLoader;
 import com.bastex.codelearninghub.spring.data.services.AuthorDataService;
 import com.bastex.codelearninghub.spring.data.services.BookDataService;
 import com.bastex.codelearninghub.spring.data.services.PublisherDataService;
-import com.bastex.codelearninghub.tools.liquibase.AppContextHolder;
-import liquibase.change.custom.CustomTaskChange;
+import com.bastex.codelearninghub.tools.liquibase.contexthelper.AppContextHolder;
+import com.bastex.codelearninghub.tools.liquibase.contexthelper.CustomSpringBeanTaskChange;
 import liquibase.database.Database;
-import liquibase.exception.SetupException;
 import liquibase.exception.ValidationErrors;
 import liquibase.resource.ResourceAccessor;
 
 /**
  * Requires no args constructor for Liquibase.
  */
-public class InitializeSampleData implements CustomTaskChange {
+public class InitializeSampleData implements CustomSpringBeanTaskChange {
     private final AuthorDataService authorDataService;
 
     private final BookDataService bookDataService;
@@ -40,12 +39,7 @@ public class InitializeSampleData implements CustomTaskChange {
     }
 
     @Override
-    public void setUp() throws SetupException {
-    }
-
-    @Override
     public void setFileOpener(final ResourceAccessor resourceAccessor) {
-
     }
 
     @Override

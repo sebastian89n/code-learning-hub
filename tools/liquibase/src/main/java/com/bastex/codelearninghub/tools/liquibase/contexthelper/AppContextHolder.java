@@ -1,4 +1,4 @@
-package com.bastex.codelearninghub.tools.liquibase;
+package com.bastex.codelearninghub.tools.liquibase.contexthelper;
 
 import lombok.Getter;
 import lombok.Setter;
