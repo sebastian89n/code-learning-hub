@@ -19,13 +19,13 @@ import java.util.Set;
 @Entity
 @Table(name = "publishers")
 public class Publisher extends BaseEntity {
-    @Column(name = "name", nullable = false)
+    @Column(name = "name", nullable = false, length = 128)
     private String name;
 
-    @Column(name = "emailaddress")
-    private String emailAddress;
+    @Column(name = "email", length = 64)
+    private String email;
 
-    @Column(name = "phonenumber")
+    @Column(name = "phonenumber", length = 32)
     private String phoneNumber;
 
     @Embedded

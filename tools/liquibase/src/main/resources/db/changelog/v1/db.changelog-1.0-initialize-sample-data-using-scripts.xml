@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog logicalFilePath="db.changelog-1.0.xml" xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <property name="createdtimestamp" value="2023-10-14T22:28:12"/>
+    <property name="lastupdatedtimestamp" value="2023-10-16T10:13:55"/>
+
+    <changeSet id="1.0-insert-authors" author="Sebastian-Nowak" context="initDataScript">
+        <insert schemaName="${schemaName}" tableName="authors">
+            <column name="oid" valueNumeric="1"/>
+            <column name="createdtimestamp" valueDate="${createdtimestamp}"/>
+            <column name="lastupdatedtimestamp" valueDate="${lastupdatedtimestamp}"/>
+            <column name="firstname" value="Robert"/>
+            <column name="lastname" value="Sedgewick"/>
+            <column name="email" value="robert.sedgewick@gmail.com"/>
+        </insert>
+
+        <insert schemaName="${schemaName}" tableName="authors">
+            <column name="oid" valueNumeric="2"/>
+            <column name="createdtimestamp" valueDate="${createdtimestamp}"/>
+            <column name="lastupdatedtimestamp" valueDate="${lastupdatedtimestamp}"/>
+            <column name="firstname" value="Kevin"/>
+            <column name="lastname" value="Wayne"/>
+            <column name="email" value="kevin.wayne@gmail.com"/>
+        </insert>
+
+        <insert schemaName="${schemaName}" tableName="authors">
+            <column name="oid" valueNumeric="3"/>
+            <column name="createdtimestamp" valueDate="${createdtimestamp}"/>
+            <column name="lastupdatedtimestamp" valueDate="${lastupdatedtimestamp}"/>
+            <column name="firstname" value="Robert"/>
+            <column name="lastname" value="Dondero"/>
+            <column name="email" value="robert.dondero@gmail.com"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="1.0-insert-publishers" author="Sebastian-Nowak" context="initDataScript">
+        <insert schemaName="${schemaName}" tableName="publishers">
+            <column name="oid" valueNumeric="4"/>
+            <column name="createdtimestamp" valueDate="${createdtimestamp}"/>
+            <column name="lastupdatedtimestamp" valueDate="${lastupdatedtimestamp}"/>
+            <column name="name" value="Addison Wesley"/>
+            <column name="addresslocal" value="501 Boylston St."/>
+            <column name="city" value="Boston"/>
+            <column name="state" value="Massachusetts"/>
+            <column name="zip" value="02216"/>
+            <column name="country" value="US"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="1.0-insert-book_notes" author="Sebastian-Nowak" context="initDataScript">
+        <insert schemaName="${schemaName}" tableName="book_notes">
+            <column name="oid" valueNumeric="5"/>
+            <column name="createdtimestamp" valueDate="${createdtimestamp}"/>
+            <column name="lastupdatedtimestamp" valueDate="${lastupdatedtimestamp}"/>
+            <column name="note" value="Very good introduction for Algorithms. Examples based on Java."/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="1.0-insert-books" author="Sebastian-Nowak" context="initDataScript">
+        <insert schemaName="${schemaName}" tableName="books">
+            <column name="oid" valueNumeric="6"/>
+            <column name="createdtimestamp" valueDate="${createdtimestamp}"/>
+            <column name="lastupdatedtimestamp" valueDate="${lastupdatedtimestamp}"/>
+            <column name="active" value="T"/>
+            <column name="title" value="Algorithms, 4th Edition"/>
+            <column name="isbn" value="032157351X"/>
+            <column name="type" value="IT"/>
+            <column name="publicationdate" valueDate="2018-10-01"/>
+            <column name="note_id" valueNumeric="5"/>
+            <column name="publisher_id" valueNumeric="4"/>
+        </insert>
+
+        <insert schemaName="${schemaName}" tableName="books">
+            <column name="oid" valueNumeric="7"/>
+            <column name="createdtimestamp" valueDate="${createdtimestamp}"/>
+            <column name="lastupdatedtimestamp" valueDate="${lastupdatedtimestamp}"/>
+            <column name="active" value="T"/>
+            <column name="title" value="Introduction to Programming in Python: An Interdisciplinary Approach"/>
+            <column name="isbn" value="0134076435"/>
+            <column name="type" value="IT"/>
+            <column name="publicationdate" valueDate="2015-05-08"/>
+            <column name="publisher_id" valueNumeric="4"/>
+        </insert>
+
+        <insert schemaName="${schemaName}" tableName="author_book">
+            <column name="book_id" valueNumeric="6"/>
+            <column name="author_id" valueNumeric="1"/>
+        </insert>
+
+        <insert schemaName="${schemaName}" tableName="author_book">
+            <column name="book_id" valueNumeric="6"/>
+            <column name="author_id" valueNumeric="2"/>
+        </insert>
+
+        <insert schemaName="${schemaName}" tableName="author_book">
+            <column name="book_id" valueNumeric="7"/>
+            <column name="author_id" valueNumeric="1"/>
+        </insert>
+
+        <insert schemaName="${schemaName}" tableName="author_book">
+            <column name="book_id" valueNumeric="7"/>
+            <column name="author_id" valueNumeric="2"/>
+        </insert>
+
+        <insert schemaName="${schemaName}" tableName="author_book">
+            <column name="book_id" valueNumeric="7"/>
+            <column name="author_id" valueNumeric="3"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>

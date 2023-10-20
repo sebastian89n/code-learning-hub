@@ -10,10 +10,11 @@
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <artifactId>code-learning-hub-web</artifactId>
+    <artifactId>code-learning-hub-tools</artifactId>
     <packaging>pom</packaging>
 
     <modules>
-        <module>html</module>
+
+        <module>liquibase</module>
     </modules>
 </project>

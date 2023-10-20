@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog logicalFilePath="db.changelog-1.0.xml" xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+    <changeSet id="1.0-initialize-sample-data-using-code" author="Sebastian-Nowak" context="initDataCode">
+        <customChange class="com.bastex.codelearninghub.tools.liquibase.migrations.v1.InitializeSampleDataTask"/>
+    </changeSet>
+</databaseChangeLog>

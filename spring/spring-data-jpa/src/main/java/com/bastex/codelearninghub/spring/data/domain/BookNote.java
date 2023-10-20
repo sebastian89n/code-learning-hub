@@ -18,7 +18,7 @@ import javax.persistence.Table;
 public class BookNote extends BaseEntity {
 
     @Column(name = "note")
-    @Lob
+    @Lob // @Lob with String type will generate clob
     private String note;
 
     @OneToOne(mappedBy = "note")
