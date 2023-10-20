@@ -7,6 +7,8 @@
     <property name="lastupdatedtimestamp" value="2023-10-16T10:13:55"/>
 
     <changeSet id="1.0-insert-authors" author="Sebastian-Nowak" context="initDataScript">
+        <comment>Initialized sample data using scripts</comment>
+
         <insert schemaName="${schemaName}" tableName="authors">
             <column name="oid" valueNumeric="1"/>
             <column name="createdtimestamp" valueDate="${createdtimestamp}"/>

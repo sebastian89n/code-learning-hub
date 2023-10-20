@@ -4,27 +4,26 @@ import com.bastex.codelearninghub.spring.data.bootstrap.DataLoader;
 import com.bastex.codelearninghub.spring.data.services.AuthorDataService;
 import com.bastex.codelearninghub.spring.data.services.BookDataService;
 import com.bastex.codelearninghub.spring.data.services.PublisherDataService;
-import com.bastex.codelearninghub.tools.liquibase.contexthelper.AppContextHolder;
 import com.bastex.codelearninghub.tools.liquibase.contexthelper.CustomSpringBeanTaskChange;
 import liquibase.database.Database;
 import liquibase.exception.ValidationErrors;
 import liquibase.resource.ResourceAccessor;
+import lombok.NoArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 
 /**
- * Requires no args constructor for Liquibase.
+ * Requires no args constructor for Liquibase to initialize CustomTaskChange.
  */
+@NoArgsConstructor
 public class InitializeSampleDataTask implements CustomSpringBeanTaskChange {
-    private final AuthorDataService authorDataService;
+    @Autowired
+    private AuthorDataService authorDataService;
 
-    private final BookDataService bookDataService;
+    @Autowired
+    private BookDataService bookDataService;
 
-    private final PublisherDataService publisherDataService;
-
-    public InitializeSampleDataTask() {
-        this.authorDataService = AppContextHolder.INSTANCE.getContext().getBean(AuthorDataService.class);
-        this.bookDataService = AppContextHolder.INSTANCE.getContext().getBean(BookDataService.class);
-        this.publisherDataService = AppContextHolder.INSTANCE.getContext().getBean(PublisherDataService.class);
-    }
+    @Autowired
+    private PublisherDataService publisherDataService;
 
     @Override
     public void execute(final Database database) {
