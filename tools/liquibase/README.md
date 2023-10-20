@@ -1,6 +1,6 @@
 # liquibase
 
-Example of Liquibase scripts and code to execute them programmatically via separate jar.
+Example of Liquibase scripts and Java code to execute them programmatically.
 
 It is a bit more complex example with Spring Boot autoconfiguration disabled. It demonstrates how we can configure
 it manually to enable Spring context for custom migrations in the code.
