@@ -12,7 +12,8 @@ import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**
- * Requires no args constructor for Liquibase to initialize CustomTaskChange.
+ * Requires no args constructor for Liquibase to be able to initialize it.
+ * \@Autowired fields are initialized because LiquibaseInitializedSpringMigration register this class as Spring bean.
  */
 @NoArgsConstructor
 public class PopulateDbWithSampleDataMigration implements LiquibaseInitializedSpringMigration {
