@@ -4,20 +4,19 @@ import com.bastex.codelearninghub.spring.data.bootstrap.DataLoader;
 import com.bastex.codelearninghub.spring.data.services.AuthorDataService;
 import com.bastex.codelearninghub.spring.data.services.BookDataService;
 import com.bastex.codelearninghub.spring.data.services.PublisherDataService;
-import com.bastex.codelearninghub.tools.liquibase.contexthelper.CustomSpringBeanTaskChange;
+import com.bastex.codelearninghub.tools.liquibase.contexthelper.LiquibaseInitializedSpringMigration;
 import liquibase.database.Database;
 import liquibase.exception.ValidationErrors;
 import liquibase.resource.ResourceAccessor;
 import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
 /**
  * Requires no args constructor for Liquibase to initialize CustomTaskChange.
  */
 @NoArgsConstructor
-@Component
-public class InitializeSampleDataTask implements CustomSpringBeanTaskChange {
+public class PopulateDbWithSampleDataMigration implements LiquibaseInitializedSpringMigration {
+
     @Autowired
     private AuthorDataService authorDataService;
 
