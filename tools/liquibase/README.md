@@ -10,7 +10,9 @@ It also works with other db types but requires proper driver to be provided in t
 
 By the default if no context is provided, Liquibase will run every changeset.
 So we provide dummy context called "update" to initialize only default changesets(those without any context specified).
+
 initDataScript context will execute changesets to insert sample data via Liquibase inserts.
+
 initDataCode context will initialize sample data via code
 
 To test local postgres download zip from:
@@ -22,6 +24,8 @@ From bin folder:
 - pg_ctl.exe start -D ../data (starts db)
 - psql --username postgres (logs into console)
 
-Afterward we need to create db configured in jdbc url in psql
+Afterwards we need to create db configured in jdbc url in psql
+
 CREATE DATABASE testdb
+
 \c testdb (to switch to that db inside the console)

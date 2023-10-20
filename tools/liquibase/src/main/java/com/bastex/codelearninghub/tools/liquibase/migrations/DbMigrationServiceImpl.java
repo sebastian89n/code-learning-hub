@@ -51,10 +51,8 @@ class DbMigrationServiceImpl implements DbMigrationService {
     private static void initializeSchemaEnv(final String dbSchema) {
         if (StringUtils.isNotBlank(dbSchema)) {
             System.setProperty("schemaName", dbSchema);
-            System.setProperty("schemaName.", dbSchema);
         } else {
             System.setProperty("schemaName", "");
-            System.setProperty("schemaName.", "");
         }
     }
 }

@@ -5,6 +5,7 @@
     <changeSet id="1.0-initialize-sample-data-using-code" author="Sebastian-Nowak" context="initDataCode">
         <comment>Initialized sample data using code</comment>
 
-        <customChange class="com.bastex.codelearninghub.tools.liquibase.migrations.v1.InitializeSampleDataTask"/>
+        <customChange
+                class="com.bastex.codelearninghub.tools.liquibase.migrations.v1.PopulateDbWithSampleDataMigration"/>
     </changeSet>
 </databaseChangeLog>

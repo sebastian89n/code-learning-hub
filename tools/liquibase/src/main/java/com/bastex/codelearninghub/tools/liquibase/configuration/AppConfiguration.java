@@ -17,8 +17,6 @@ public class AppConfiguration {
                                     @Value("${spring.datasource.password:}") final String password,
                                     @Value("${spring.liquibase.change-log}") final String dbChangelogLocation,
                                     @Value("${spring.liquibase.contexts:update}") final String contextsAsText) {
-        // TODO contex to Context
-
         return new LiquibaseConfig(url, dbSchema, username, password, dbChangelogLocation, contextsAsText);
     }
 }
