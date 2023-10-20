@@ -10,11 +10,13 @@ import liquibase.exception.ValidationErrors;
 import liquibase.resource.ResourceAccessor;
 import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 /**
  * Requires no args constructor for Liquibase to initialize CustomTaskChange.
  */
 @NoArgsConstructor
+@Component
 public class InitializeSampleDataTask implements CustomSpringBeanTaskChange {
     @Autowired
     private AuthorDataService authorDataService;
