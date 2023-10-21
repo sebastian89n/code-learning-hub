@@ -3,32 +3,22 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.bastex</groupId>
+    <parent>
+        <groupId>com.bastex</groupId>
+        <artifactId>code-learning-hub-bom</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+        <relativePath>code-learning-hub-bom/pom.xml</relativePath>
+    </parent>
+
     <artifactId>code-learning-hub</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
 
     <name>code-learning-hub</name>
     <description>Pom module containing various coding related modules with examples</description>
 
     <packaging>pom</packaging>
 
-    <properties>
-        <java.version>21</java.version>
-        <maven.compiler.source>21</maven.compiler.source>
-        <maven.compiler.target>21</maven.compiler.target>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-
-        <spring.version>5.3.29</spring.version>
-        <jackson.version>2.15.2</jackson.version>
-        <lombok.version>1.18.30</lombok.version>
-        <org.mapstruct.version>1.5.5.Final</org.mapstruct.version>
-        <mapstruct.binding.version>0.2.0</mapstruct.binding.version>
-        <slf4j.version>2.0.9</slf4j.version>
-        <logback.version>1.4.11</logback.version>
-        <junit.jupiter.version>5.10.0</junit.jupiter.version>
-    </properties>
-
     <modules>
+        <module>code-learning-hub-bom</module>
         <module>design-patterns</module>
         <module>jakarta-ee</module>
         <module>java</module>
@@ -42,18 +32,14 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>${lombok.version}</version>
-            <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
-            <version>${slf4j.version}</version>
         </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-simple</artifactId>
-            <version>${slf4j.version}</version>
         </dependency>
     </dependencies>
 </project>

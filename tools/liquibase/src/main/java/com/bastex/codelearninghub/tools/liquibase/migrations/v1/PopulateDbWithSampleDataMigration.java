@@ -4,7 +4,7 @@ import com.bastex.codelearninghub.spring.data.bootstrap.DataLoader;
 import com.bastex.codelearninghub.spring.data.services.AuthorDataService;
 import com.bastex.codelearninghub.spring.data.services.BookDataService;
 import com.bastex.codelearninghub.spring.data.services.PublisherDataService;
-import com.bastex.codelearninghub.tools.liquibase.contexthelper.LiquibaseInitializedSpringMigration;
+import com.bastex.codelearninghub.tools.liquibase.contexthelper.LiquibaseInitializedSpringAwareMigration;
 import liquibase.database.Database;
 import liquibase.exception.ValidationErrors;
 import liquibase.resource.ResourceAccessor;
@@ -16,7 +16,7 @@ import org.springframework.beans.factory.annotation.Autowired;
  * \@Autowired fields are initialized because LiquibaseInitializedSpringMigration register this class as Spring bean.
  */
 @NoArgsConstructor
-public class PopulateDbWithSampleDataMigration implements LiquibaseInitializedSpringMigration {
+public class PopulateDbWithSampleDataMigration implements LiquibaseInitializedSpringAwareMigration {
 
     @Autowired
     private AuthorDataService authorDataService;
