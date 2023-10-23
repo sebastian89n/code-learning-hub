@@ -11,9 +11,4 @@
     </parent>
 
     <artifactId>code-learning-hub-xml-parsers</artifactId>
-    <packaging>pom</packaging>
-
-    <modules>
-        <module>dom-parser</module>
-    </modules>
 </project>

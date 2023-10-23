@@ -1,5 +1,6 @@
-package com.bastex.codelearninghub.java.domparser;
+package com.bastex.codelearninghub.java.xmlparsers.dom;
 
+import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -19,8 +20,10 @@ import java.io.InputStream;
 import java.io.StringWriter;
 
 @Slf4j
-public class DomParserApp {
-    public static void main(final String[] args) throws Exception {
+public class XmlDOMTester {
+
+    @SneakyThrows
+    public static void testDomParser() {
         final DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
         final DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();
 
@@ -30,7 +33,7 @@ public class DomParserApp {
 
     private static void queryExistingDocument(final DocumentBuilder documentBuilder) throws IOException, SAXException {
         final Document document;
-        try (final InputStream students = DomParserApp.class.getClassLoader().getResourceAsStream("students.xml")) {
+        try (final InputStream students = XmlDOMTester.class.getClassLoader().getResourceAsStream("students.xml")) {
             document = documentBuilder.parse(students);
         }
         document.getDocumentElement().normalize();
