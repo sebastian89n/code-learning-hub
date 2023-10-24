@@ -10,5 +10,5 @@
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <artifactId>code-learning-hub-xml-parsers</artifactId>
+    <artifactId>code-learning-hub-jaxp</artifactId>
 </project>

@@ -1,5 +1,7 @@
-package com.bastex.codelearninghub.java.xmlparsers.dom;
+package com.bastex.codelearninghub.java.jaxp.dom;
 
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.w3c.dom.Document;
@@ -8,6 +10,7 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
+import javax.xml.XMLConstants;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.transform.OutputKeys;
@@ -20,21 +23,24 @@ import java.io.InputStream;
 import java.io.StringWriter;
 
 @Slf4j
-public class XmlDOMTester {
-
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
+public final class JaxpDomTester {
     @SneakyThrows
     public static void testDomParser() {
         final DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
+        documentBuilderFactory.setFeature(XMLConstants.FEATURE_SECURE_PROCESSING, true);
+
         final DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();
 
-        queryExistingDocument(documentBuilder);
+        parseExistingDocument(documentBuilder);
         createNewDocument(documentBuilder);
     }
 
-    private static void queryExistingDocument(final DocumentBuilder documentBuilder) throws IOException, SAXException {
+    private static void parseExistingDocument(final DocumentBuilder documentBuilder) throws IOException, SAXException {
         final Document document;
-        try (final InputStream students = XmlDOMTester.class.getClassLoader().getResourceAsStream("students.xml")) {
-            document = documentBuilder.parse(students);
+        try (final InputStream studentsInputStream = JaxpDomTester.class.getClassLoader()
+                .getResourceAsStream("students.xml")) {
+            document = documentBuilder.parse(studentsInputStream);
         }
         document.getDocumentElement().normalize();
 
