@@ -17,7 +17,7 @@ import java.io.InputStream;
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 final class DomValidationHelper {
     static void validateSchema() throws SAXException, IOException {
-        try (final InputStream studentsIs = JaxpDomTester.class.getClassLoader()
+        try (final InputStream studentsIs = DomValidationHelper.class.getClassLoader()
                 .getResourceAsStream("students.xml");
              final InputStream studentsSchemaIs = DomValidationHelper.class.getClassLoader()
                      .getResourceAsStream("students.xsd")) {
