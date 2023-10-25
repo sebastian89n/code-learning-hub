@@ -55,7 +55,7 @@ public final class JaxpStaxTester {
             if (xmlEvent.isStartElement()) {
                 final StartElement startElement = xmlEvent.asStartElement();
                 final String elementName = startElement.getName().getLocalPart();
-                
+
                 switch (elementName) {
                     case STUDENT_ELEMENT -> {
                         final Attribute idAttr = startElement.getAttributeByName(new QName("id"));
@@ -97,8 +97,8 @@ public final class JaxpStaxTester {
             }
 
             return value;
+        } else {
+            throw new IllegalStateException("Unable to extract next inline value");
         }
-
-        throw new IllegalStateException("Unable to extract next inline value");
     }
 }

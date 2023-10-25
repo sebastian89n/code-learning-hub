@@ -35,8 +35,8 @@ public class StudentHandler extends DefaultHandler {
     }
 
     @Override
-    public void startElement(final String uri, final String localName, final String qName, final Attributes attributes) throws SAXException {
-        switch (qName) {
+    public void startElement(final String uri, final String localName, final String elementName, final Attributes attributes) {
+        switch (elementName) {
             case STUDENT_ELEMENT -> {
                 final String id = attributes.getValue("id");
                 final Student student = new Student();
@@ -48,22 +48,20 @@ public class StudentHandler extends DefaultHandler {
     }
 
     @Override
-    public void endElement(final String uri, final String localName, final String qName) throws SAXException {
+    public void endElement(final String uri, final String localName, final String qName) {
         switch (qName) {
             case FIRSTNAME_ELEMENT -> getLatestStudent().setFirstName(elementValueBuilder.toString());
             case LASTNAME_ELEMENT -> getLatestStudent().setLastName(elementValueBuilder.toString());
             case BIRTHDATE_ELEMENT -> {
                 final String dateAsText = elementValueBuilder.toString();
-                if (!dateAsText.isBlank()) {
-                    final LocalDate birthDate = LocalDate.parse(dateAsText);
-                    getLatestStudent().setBirthDate(birthDate);
-                }
+                final LocalDate birthDate = LocalDate.parse(dateAsText);
+                getLatestStudent().setBirthDate(birthDate);
             }
         }
     }
 
     @Override
-    public void characters(final char[] ch, final int start, final int length) throws SAXException {
+    public void characters(final char[] ch, final int start, final int length) {
         elementValueBuilder.append(ch, start, length);
     }
 
@@ -80,7 +78,7 @@ public class StudentHandler extends DefaultHandler {
     }
 
     @Override
-    public void warning(final SAXParseException e) throws SAXException {
+    public void warning(final SAXParseException e) {
         log.warn("Encountered a warning during parsing of xml document", e);
     }
 
