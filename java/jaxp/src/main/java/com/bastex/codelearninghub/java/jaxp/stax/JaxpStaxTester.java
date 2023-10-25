@@ -14,7 +14,6 @@ import javax.xml.stream.events.Attribute;
 import javax.xml.stream.events.EndElement;
 import javax.xml.stream.events.StartElement;
 import javax.xml.stream.events.XMLEvent;
-import java.io.IOException;
 import java.io.InputStream;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -30,25 +29,21 @@ import static com.bastex.codelearninghub.java.jaxp.model.students.StudentXmlCons
 public final class JaxpStaxTester {
     @SneakyThrows
     public static void testStaxParser() {
-        final List<Student> students = parseDocument();
-
-        log.info("Students parsed with StAX:");
-        students.forEach(student -> log.info("{}", student));
-    }
-
-    private static List<Student> parseDocument() throws IOException, XMLStreamException {
         final XMLInputFactory xmlInputFactory = XMLInputFactory.newInstance();
 
         try (final InputStream studentsIs = JaxpStaxTester.class.getClassLoader()
                 .getResourceAsStream("students.xml")) {
-            return parseStudents(xmlInputFactory, studentsIs);
+            final List<Student> students = parseStudents(xmlInputFactory, studentsIs);
+
+            log.info("Students parsed with StAX:");
+            students.forEach(student -> log.info("{}", student));
         }
     }
 
-    private static List<Student> parseStudents(final XMLInputFactory xmlInputFactory, final InputStream studentsInputStream) throws XMLStreamException {
+    private static List<Student> parseStudents(final XMLInputFactory xmlInputFactory, final InputStream studentsIs) throws XMLStreamException {
         final List<Student> students = new ArrayList<>();
 
-        final XMLEventReader eventReader = xmlInputFactory.createXMLEventReader(studentsInputStream);
+        final XMLEventReader eventReader = xmlInputFactory.createXMLEventReader(studentsIs);
         Student currentStudent = new Student();
         while (eventReader.hasNext()) {
             final XMLEvent xmlEvent = eventReader.nextEvent();
