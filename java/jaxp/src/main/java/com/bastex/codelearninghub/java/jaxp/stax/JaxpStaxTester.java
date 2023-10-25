@@ -7,9 +7,11 @@ import lombok.NoArgsConstructor;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 
+import javax.xml.namespace.QName;
 import javax.xml.stream.XMLEventReader;
 import javax.xml.stream.XMLInputFactory;
 import javax.xml.stream.XMLStreamException;
+import javax.xml.stream.events.Attribute;
 import javax.xml.stream.events.EndElement;
 import javax.xml.stream.events.StartElement;
 import javax.xml.stream.events.XMLEvent;
@@ -17,10 +19,10 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.time.LocalDate;
 
-import static com.bastex.codelearninghub.java.jaxp.model.students.StudentElements.BIRTHDATE_ELEMENT;
-import static com.bastex.codelearninghub.java.jaxp.model.students.StudentElements.FIRSTNAME_ELEMENT;
-import static com.bastex.codelearninghub.java.jaxp.model.students.StudentElements.LASTNAME_ELEMENT;
-import static com.bastex.codelearninghub.java.jaxp.model.students.StudentElements.STUDENT_ELEMENT;
+import static com.bastex.codelearninghub.java.jaxp.model.students.StudentXmlConstants.BIRTHDATE_ELEMENT;
+import static com.bastex.codelearninghub.java.jaxp.model.students.StudentXmlConstants.FIRSTNAME_ELEMENT;
+import static com.bastex.codelearninghub.java.jaxp.model.students.StudentXmlConstants.LASTNAME_ELEMENT;
+import static com.bastex.codelearninghub.java.jaxp.model.students.StudentXmlConstants.STUDENT_ELEMENT;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 @Slf4j
@@ -28,7 +30,9 @@ public final class JaxpStaxTester {
     @SneakyThrows
     public static void testStaxParser() {
         final Students students = parseDocument();
-        log.info("Students: {}", students);
+
+        log.info("Students parsed with StAX:");
+        students.getStudents().forEach(student -> log.info("{}", student));
     }
 
     private static Students parseDocument() throws IOException, XMLStreamException {
@@ -45,7 +49,11 @@ public final class JaxpStaxTester {
                 if (xmlEvent.isStartElement()) {
                     final StartElement startElement = xmlEvent.asStartElement();
                     switch (startElement.getName().getLocalPart()) {
-                        case STUDENT_ELEMENT -> currentStudent = new Student();
+                        case STUDENT_ELEMENT -> {
+                            final Attribute idAttr = startElement.getAttributeByName(new QName("id"));
+                            currentStudent = new Student();
+                            currentStudent.setId(idAttr.getValue());
+                        }
                         case FIRSTNAME_ELEMENT -> {
                             xmlEvent = eventReader.nextEvent();
                             if (xmlEvent.isCharacters()) {

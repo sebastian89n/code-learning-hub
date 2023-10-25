@@ -4,7 +4,7 @@ import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
-public final class StudentElements {
+public final class StudentXmlConstants {
     public static final String STUDENT_ELEMENT = "student";
 
     public static final String FIRSTNAME_ELEMENT = "firstname";
