@@ -19,8 +19,8 @@ public final class JaxpDomTester {
 
         final DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();
 
-        DomValidateHelper.validateSchema();
-        DomParseHelper.parseExistingDocument(documentBuilder);
+        DomValidationHelper.validateSchema();
+        DomParsingHelper.parseExistingDocument(documentBuilder);
         DomCreateDocumentHelper.createNewDocument(documentBuilder);
     }
 }

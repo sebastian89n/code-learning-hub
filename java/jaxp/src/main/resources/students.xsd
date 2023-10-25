@@ -10,10 +10,22 @@
 
     <xs:complexType name="student">
         <xs:sequence>
-            <xs:element name="firstname" type="xs:string"/>
-            <xs:element name="lastname" type="xs:string"/>
-            <xs:element name="birthdate" type="xs:date"/>
+            <xs:element name="firstname" type="name"/>
+            <xs:element name="lastname" type="name"/>
+            <xs:element name="birthdate" type="date"/>
         </xs:sequence>
         <xs:attribute name="id" type="xs:integer" use="required"/>
     </xs:complexType>
+
+    <xs:simpleType name="name">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="\p{L}+"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="date">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="\d{4}-\d{2}-\d{2}"/>
+        </xs:restriction>
+    </xs:simpleType>
 </xs:schema>

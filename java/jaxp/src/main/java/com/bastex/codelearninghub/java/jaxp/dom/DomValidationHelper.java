@@ -15,11 +15,11 @@ import java.io.InputStream;
 
 @Slf4j
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
-final class DomValidateHelper {
+final class DomValidationHelper {
     static void validateSchema() throws SAXException, IOException {
         try (final InputStream studentsIs = JaxpDomTester.class.getClassLoader()
                 .getResourceAsStream("students.xml");
-             final InputStream studentsSchemaIs = JaxpDomTester.class.getClassLoader()
+             final InputStream studentsSchemaIs = DomValidationHelper.class.getClassLoader()
                      .getResourceAsStream("students.xsd")) {
             final SchemaFactory schemaFactory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
             final Schema schema = schemaFactory.newSchema(new StreamSource(studentsSchemaIs));

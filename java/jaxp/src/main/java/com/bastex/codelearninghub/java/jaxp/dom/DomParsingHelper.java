@@ -1,7 +1,6 @@
 package com.bastex.codelearninghub.java.jaxp.dom;
 
 import com.bastex.codelearninghub.java.jaxp.model.students.Student;
-import com.bastex.codelearninghub.java.jaxp.model.students.Students;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -15,20 +14,22 @@ import javax.xml.parsers.DocumentBuilder;
 import java.io.IOException;
 import java.io.InputStream;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 @Slf4j
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
-final class DomParseHelper {
+final class DomParsingHelper {
     static void parseExistingDocument(final DocumentBuilder documentBuilder) throws IOException, SAXException {
         final Document document;
-        try (final InputStream studentsIs = JaxpDomTester.class.getClassLoader()
+        try (final InputStream studentsIs = DomParsingHelper.class.getClassLoader()
                 .getResourceAsStream("students.xml")) {
             document = documentBuilder.parse(studentsIs);
         }
         document.getDocumentElement().normalize();
         log.info("Root element name: {}", document.getDocumentElement().getNodeName());
 
-        final Students students = new Students();
+        final List<Student> students = new ArrayList<>();
 
         final NodeList studentsElements = document.getElementsByTagName("student");
         for (int i = 0; i < studentsElements.getLength(); i++) {
@@ -42,12 +43,12 @@ final class DomParseHelper {
                 final String birthdate = extractRequiredValueFromTag(student, "birthdate");
 
                 final Student parsedStudent = new Student(id, firstname, lastname, LocalDate.parse(birthdate));
-                students.getStudents().add(parsedStudent);
+                students.add(parsedStudent);
             }
         }
 
         log.info("Students parsed with DOM:");
-        students.getStudents().forEach(student -> log.info("{}", student));
+        students.forEach(student -> log.info("{}", student));
     }
 
     private static String extractRequiredValueFromTag(final Element element, final String tagName) {
