@@ -4,7 +4,7 @@ import com.bastex.codelearninghub.jakartaee.jaxws.server.web.DailyQuotesWebServi
 import jakarta.xml.ws.Endpoint;
 import lombok.SneakyThrows;
 
-public class JaxWsApp {
+public class JaxWsServerApp {
     @SneakyThrows
     public static void main(final String[] args) {
         Endpoint.publish("http://localhost:8080/DailyQuotesService", new DailyQuotesWebService());

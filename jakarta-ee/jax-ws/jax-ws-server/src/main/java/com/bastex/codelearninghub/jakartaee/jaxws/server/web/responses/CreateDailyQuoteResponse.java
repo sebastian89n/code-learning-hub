@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@XmlType(propOrder = {"quoteId"})
+@XmlType(name = "CreateDailyQuoteResponseType", propOrder = {"quoteId"})
 @XmlAccessorType(XmlAccessType.FIELD)
 public class CreateDailyQuoteResponse {
     @XmlElement(name = "quoteId", required = true)

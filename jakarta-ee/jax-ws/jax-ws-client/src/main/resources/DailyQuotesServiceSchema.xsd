@@ -1,0 +1,149 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by XML-WS Runtime (https://github.com/eclipse-ee4j/metro-jax-ws). Runtime's version is XML-WS Runtime 4.0.1 git-revision#298606e. -->
+<xs:schema xmlns:tns="http://www.jaxws.bastex.com/DailyQuotesService" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           version="1.0" targetNamespace="http://www.jaxws.bastex.com/DailyQuotesService">
+
+    <xs:element name="CreateDailyQuote" type="tns:CreateDailyQuote"/>
+
+    <xs:element name="CreateDailyQuoteResponse" type="tns:CreateDailyQuoteResponse"/>
+
+    <xs:element name="DeleteDailyQuoteById" type="tns:DeleteDailyQuoteById"/>
+
+    <xs:element name="DeleteDailyQuoteByIdResponse" type="tns:DeleteDailyQuoteByIdResponse"/>
+
+    <xs:element name="GetAllDailyQuotes" type="tns:GetAllDailyQuotes"/>
+
+    <xs:element name="GetAllDailyQuotesResponse" type="tns:GetAllDailyQuotesResponse"/>
+
+    <xs:element name="GetDailyQuoteById" type="tns:GetDailyQuoteById"/>
+
+    <xs:element name="GetDailyQuoteByIdResponse" type="tns:GetDailyQuoteByIdResponse"/>
+
+    <xs:element name="ValidationFault" type="tns:DailyQuoteValidationException"/>
+
+    <xs:complexType name="GetDailyQuoteById">
+        <xs:sequence>
+            <xs:element name="GetDailyQuoteByIdRequest" type="tns:GetDailyQuoteByIdRequestType" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="GetDailyQuoteByIdRequestType">
+        <xs:sequence>
+            <xs:element name="quoteId" type="xs:long"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="GetDailyQuoteByIdResponse">
+        <xs:sequence>
+            <xs:element name="GetDailyQuoteByIdResponse" type="tns:GetDailyQuoteByIdResponseType" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="GetDailyQuoteByIdResponseType">
+        <xs:sequence>
+            <xs:element name="dailyQuote" type="tns:DailyQuoteResponseType" minOccurs="0"/>
+            <xs:element name="status" type="tns:statusResponse"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="DailyQuoteResponseType">
+        <xs:sequence>
+            <xs:element name="id" type="xs:long"/>
+            <xs:element name="quote" type="xs:string"/>
+            <xs:element name="userId" type="xs:string"/>
+            <xs:element name="createdDatetime" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="CreateDailyQuote">
+        <xs:sequence>
+            <xs:element name="CreateDailyQuoteRequest" type="tns:CreateDailyQuoteRequestType" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="CreateDailyQuoteRequestType">
+        <xs:sequence>
+            <xs:element name="quote" type="xs:string"/>
+            <xs:element name="userId" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="CreateDailyQuoteResponse">
+        <xs:sequence>
+            <xs:element name="CreateDailyQuoteResponse" type="tns:CreateDailyQuoteResponseType" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="CreateDailyQuoteResponseType">
+        <xs:sequence>
+            <xs:element name="quoteId" type="xs:long"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="DailyQuoteValidationException">
+        <xs:sequence>
+            <xs:element name="fault" type="tns:fault" minOccurs="0"/>
+            <xs:element name="message" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="fault">
+        <xs:sequence>
+            <xs:element name="faultCode" type="xs:string" minOccurs="0"/>
+            <xs:element name="faultString" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="DeleteDailyQuoteById">
+        <xs:sequence>
+            <xs:element name="DeleteDailyQuoteByIdRequest" type="tns:DeleteDailyQuoteByIdRequestType" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="DeleteDailyQuoteByIdRequestType">
+        <xs:sequence>
+            <xs:element name="quoteId" type="xs:long"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="DeleteDailyQuoteByIdResponse">
+        <xs:sequence>
+            <xs:element name="DeleteDailyQuoteByIdResponse" type="tns:DeleteDailyQuoteByIdResponseType" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="DeleteDailyQuoteByIdResponseType">
+        <xs:sequence>
+            <xs:element name="status" type="tns:statusResponse"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="GetAllDailyQuotes">
+        <xs:sequence/>
+    </xs:complexType>
+
+    <xs:complexType name="GetAllDailyQuotesResponse">
+        <xs:sequence>
+            <xs:element name="GetAllDailyQuotesResponse" type="tns:GetAllDailyQuotesResponseType" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="GetAllDailyQuotesResponseType">
+        <xs:sequence>
+            <xs:element name="dailyQuotes" minOccurs="0">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="dailyQuote" type="tns:DailyQuoteResponseType" maxOccurs="unbounded"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:simpleType name="statusResponse">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="SUCCESS"/>
+            <xs:enumeration value="NOT_FOUND"/>
+            <xs:enumeration value="ERROR"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

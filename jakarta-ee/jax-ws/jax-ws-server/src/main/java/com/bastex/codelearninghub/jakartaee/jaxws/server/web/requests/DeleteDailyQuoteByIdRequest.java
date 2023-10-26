@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@XmlType(propOrder = {"quoteId"})
+@XmlType(name = "DeleteDailyQuoteByIdRequestType", propOrder = {"quoteId"})
 @XmlAccessorType(XmlAccessType.FIELD)
 public class DeleteDailyQuoteByIdRequest {
     @XmlElement(name = "quoteId", required = true)
