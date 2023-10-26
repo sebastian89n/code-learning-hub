@@ -6,7 +6,6 @@ import jakarta.xml.bind.Marshaller;
 import jakarta.xml.bind.Unmarshaller;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
-import org.xml.sax.SAXException;
 
 import javax.xml.XMLConstants;
 import javax.xml.transform.stream.StreamSource;
@@ -28,7 +27,6 @@ public class JaxbApp {
 
         // setting value to transient field
         employees.getEmployees().forEach(employee -> employee.setLastUpdatedTimestamp(Instant.now()));
-
         marshallEmployees(employees, jaxbContext, schema);
     }
 
@@ -39,7 +37,7 @@ public class JaxbApp {
         try (final InputStream employeesIs = JaxbApp.class.getClassLoader().getResourceAsStream("employees.xml");
              final InputStream employeesSchemaIs = JaxbApp.class.getClassLoader().getResourceAsStream("employees.xsd")) {
             // optional schema validation when unmarshalling
-            final Schema schema = prepareSchema(employeesSchemaIs, unmarshaller);
+            final Schema schema = prepareSchema(employeesSchemaIs);
             unmarshaller.setSchema(schema);
 
             final Employees employees = (Employees) unmarshaller.unmarshal(employeesIs);
@@ -64,7 +62,8 @@ public class JaxbApp {
         log.info("Marshalled xml:\n{}", xmlOutput);
     }
 
-    private static Schema prepareSchema(final InputStream employeesSchemaIs, final Unmarshaller unmarshaller) throws SAXException {
+    @SneakyThrows
+    private static Schema prepareSchema(final InputStream employeesSchemaIs) {
         final SchemaFactory schemaFactory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
         return schemaFactory.newSchema(new StreamSource(employeesSchemaIs));
     }

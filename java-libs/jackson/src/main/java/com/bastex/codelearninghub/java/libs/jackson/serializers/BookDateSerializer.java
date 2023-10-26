@@ -9,7 +9,6 @@ import java.io.IOException;
 import java.time.Instant;
 
 public class BookDateSerializer extends StdSerializer<Instant> {
-
     protected BookDateSerializer() {
         super(Instant.class);
     }

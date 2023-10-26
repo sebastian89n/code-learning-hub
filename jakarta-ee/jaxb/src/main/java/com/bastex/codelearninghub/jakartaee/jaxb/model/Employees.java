@@ -17,6 +17,6 @@ import java.util.List;
 @XmlRootElement(name = "employees")
 @XmlAccessorType(XmlAccessType.FIELD) // specifies from where annotations should read from.
 public class Employees {
-    @XmlElement(name = "employee")
+    @XmlElement(name = "employee", required = true)
     List<Employee> employees = new ArrayList<>();
 }

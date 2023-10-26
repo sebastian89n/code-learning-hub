@@ -13,6 +13,6 @@ annotations. It also supports schema validation.
 * **@XmlAttribute**: define the id field is mapped as an attribute instead of an element
 * **@XmlTransient**: annotate fields that we don’t want to be included in XML
 
-Furthermore, JAXB-2 Maven plugin(jaxb2-maven-plugin) can be configured to generate Java classes based on XSD schema or
-generate schema based on
-JAXB annotation classes.
+Furthermore, JAXB-2 Maven plugin(jaxb2-maven-plugin) can be configured to generate Java classes with JAXB annotations
+based on XSD schema or
+generate schema based on JAXB annotated classes.

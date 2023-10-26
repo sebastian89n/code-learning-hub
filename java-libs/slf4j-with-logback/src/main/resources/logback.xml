@@ -48,7 +48,7 @@
         <!--        <appender-ref ref="ROLLING_FILE"/>-->
     </root>
 
-    <!-- Customized logger for utils package with defualt INFO log level. -->
+    <!-- Customized logger for utils package with default INFO log level. -->
     <logger name="com.bastex.codelearninghub.java.libs.slf4jwithlogback.utils"
             level="${SLF4J_WITH_LOGBACK_UTILS_LOG_LEVEL:-INFO}"/>
 </configuration>

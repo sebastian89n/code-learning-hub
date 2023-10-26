@@ -1,6 +1,6 @@
 package com.bastex.codelearninghub.jakartaee.jaxb.model;
 
-import com.bastex.codelearninghub.jakartaee.jaxb.adapters.LocalDateAdapter;
+import com.bastex.codelearninghub.jakartaee.jaxb.adapters.LocalDateXmlAdapter;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
@@ -23,19 +23,18 @@ import java.time.LocalDate;
 @XmlType(propOrder = {"id", "firstName", "lastName", "birthDate"}) // specifies order of elements
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Employee {
-
     // specifies attribute
-    @XmlAttribute(name = "id")
+    @XmlAttribute(name = "id", required = true)
     private String id;
 
-    @XmlElement(name = "firstname")
+    @XmlElement(name = "firstname", required = true)
     private String firstName;
 
-    @XmlElement(name = "lastname")
+    @XmlElement(name = "lastname", required = true)
     private String lastName;
 
-    @XmlElement(name = "birthdate")
-    @XmlJavaTypeAdapter(LocalDateAdapter.class) // adapter to parse String to LocalDate and vice versa
+    @XmlElement(name = "birthdate", required = true)
+    @XmlJavaTypeAdapter(LocalDateXmlAdapter.class) // adapter to parse String to LocalDate and vice versa
     private LocalDate birthDate;
 
     @XmlTransient // field will be ignored when marshalling / unmarshalling
