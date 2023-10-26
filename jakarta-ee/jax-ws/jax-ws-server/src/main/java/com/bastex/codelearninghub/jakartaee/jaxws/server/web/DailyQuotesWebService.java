@@ -22,7 +22,10 @@ import lombok.extern.slf4j.Slf4j;
 import java.util.List;
 
 @Slf4j
-@WebService(name = "DailyQuotesService", serviceName = "DailyQuotesService", portName = "DailyQuotesServicePort", targetNamespace = "http://www.jaxws.bastex.com/DailyQuotesService")
+@WebService(name = "DailyQuotesService",
+        serviceName = "DailyQuotesService",
+        portName = "DailyQuotesServicePort",
+        targetNamespace = "http://www.jaxws.bastex.com/DailyQuotesService")
 public class DailyQuotesWebService {
     private final DailyQuoteService dailyQuoteService = DailyQuoteService.newInMemoryInstance();
 
@@ -44,7 +47,9 @@ public class DailyQuotesWebService {
     @WebMethod(operationName = "GetAllDailyQuotes")
     @WebResult(name = "GetAllDailyQuotesResponse")
     public GetAllDailyQuotesResponse getAllDailyQuotes() {
-        final List<DailyQuoteResponse> dailyQuoteResponses = dailyQuoteService.findAllDailyQuotes().stream().map(DailyQuotesWebService::transformToDailyQuoteResponse).toList();
+        final List<DailyQuoteResponse> dailyQuoteResponses = dailyQuoteService.findAllDailyQuotes()
+                .stream().map(DailyQuotesWebService::transformToDailyQuoteResponse)
+                .toList();
 
         return new GetAllDailyQuotesResponse(dailyQuoteResponses);
     }
@@ -52,10 +57,14 @@ public class DailyQuotesWebService {
     @WebMethod(operationName = "GetDailyQuoteById")
     @WebResult(name = "GetDailyQuoteByIdResponse")
     public GetDailyQuoteByIdResponse getDailyQuoteById(@WebParam(name = "GetDailyQuoteByIdRequest") final GetDailyQuoteByIdRequest getDailyQuoteByIdRequest) {
-        return dailyQuoteService.findDailyQuoteById(getDailyQuoteByIdRequest.getQuoteId()).map(DailyQuotesWebService::transformToDailyQuoteResponse).map(dailyQuoteResponse -> new GetDailyQuoteByIdResponse(dailyQuoteResponse, StatusResponse.SUCCESS)).orElseGet(GetDailyQuoteByIdResponse::new);
+        return dailyQuoteService.findDailyQuoteById(getDailyQuoteByIdRequest.getQuoteId())
+                .map(DailyQuotesWebService::transformToDailyQuoteResponse)
+                .map(dailyQuoteResponse -> new GetDailyQuoteByIdResponse(dailyQuoteResponse, StatusResponse.SUCCESS))
+                .orElseGet(GetDailyQuoteByIdResponse::new);
     }
 
     private static DailyQuoteResponse transformToDailyQuoteResponse(final DailyQuote quote) {
-        return new DailyQuoteResponse(quote.getId(), quote.getQuote(), quote.getUserId(), DateFormatUtils.formatDate(quote.getCreatedTimestamp()));
+        return new DailyQuoteResponse(quote.getId(), quote.getQuote(), quote.getUserId(),
+                DateFormatUtils.formatDate(quote.getCreatedTimestamp()));
     }
 }
