@@ -42,7 +42,7 @@ public class LiveFeedbackController {
     @GET
     public Response getAllFeedbacks(@QueryParam("userId") final String userId) {
         final FeedbacksListResponse feedbacksResponse = new FeedbacksListResponse();
-        if (userId == null) {
+        if (userId == null || userId.isBlank()) {
             feedbacksResponse.setFeedbacks(liveFeedbackService.findAllFeedbacks());
         } else {
             feedbacksResponse.setFeedbacks(liveFeedbackService.findAllFeedbacksByUserId(userId));

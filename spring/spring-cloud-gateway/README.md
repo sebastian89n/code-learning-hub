@@ -2,7 +2,7 @@
 
 Basic example of Spring Cloud Gateway usage with yaml mapping.
 
-Examples uses forwarded requests to https://httpbin.org/ to get some sample responses.
+Examples forward requests to https://httpbin.org/ to get some sample responses.
 
 Curl examples are stored in the comments in the application.yml.
 
