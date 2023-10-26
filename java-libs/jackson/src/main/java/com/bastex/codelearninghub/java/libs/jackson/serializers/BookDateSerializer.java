@@ -1,6 +1,6 @@
 package com.bastex.codelearninghub.java.libs.jackson.serializers;
 
-import com.bastex.codelearninghub.java.libs.jackson.utils.DateFormattingUtils;
+import com.bastex.codelearninghub.java.libs.jackson.utils.DateFormatUtils;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
@@ -16,7 +16,7 @@ public class BookDateSerializer extends StdSerializer<Instant> {
     @Override
     public void serialize(final Instant instant, final JsonGenerator jsonGenerator, final SerializerProvider serializerProvider) throws IOException {
         if (instant != null) {
-            jsonGenerator.writeString(DateFormattingUtils.formatDate(instant));
+            jsonGenerator.writeString(DateFormatUtils.formatDate(instant));
         }
     }
 }

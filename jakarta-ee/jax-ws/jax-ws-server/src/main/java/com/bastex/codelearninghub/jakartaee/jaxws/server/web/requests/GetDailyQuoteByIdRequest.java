@@ -1,4 +1,4 @@
-package com.bastex.codelearninghub.jakartaee.jaxws.server.web.responses;
+package com.bastex.codelearninghub.jakartaee.jaxws.server.web.requests;
 
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
@@ -11,9 +11,9 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@XmlType(name = "DeleteDailyQuoteResponse")
+@XmlType(propOrder = {"quoteId"})
 @XmlAccessorType(XmlAccessType.FIELD)
-public class DeleteDailyQuoteResponse {
+public class GetDailyQuoteByIdRequest {
     @XmlElement(name = "quoteId", required = true)
     private Long quoteId;
 }

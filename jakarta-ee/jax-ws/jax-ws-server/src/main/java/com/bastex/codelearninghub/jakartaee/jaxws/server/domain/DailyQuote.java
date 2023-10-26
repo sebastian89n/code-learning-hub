@@ -10,6 +10,8 @@ import java.time.Instant;
 @NoArgsConstructor
 @AllArgsConstructor
 public class DailyQuote {
+    private Long id;
+
     private String quote;
 
     private String userId;

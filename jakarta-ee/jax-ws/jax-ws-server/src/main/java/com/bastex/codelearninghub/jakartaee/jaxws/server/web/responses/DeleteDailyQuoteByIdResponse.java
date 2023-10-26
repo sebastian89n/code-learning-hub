@@ -1,5 +1,6 @@
 package com.bastex.codelearninghub.jakartaee.jaxws.server.web.responses;
 
+import com.bastex.codelearninghub.jakartaee.jaxws.server.web.dto.StatusResponse;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
@@ -11,9 +12,9 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@XmlType(propOrder = {"quoteId"})
+@XmlType(propOrder = {"status"})
 @XmlAccessorType(XmlAccessType.FIELD)
-public class CreateDailyQuoteResponse {
-    @XmlElement(name = "quoteId", required = true)
-    private Long quoteId;
+public class DeleteDailyQuoteByIdResponse {
+    @XmlElement(name = "status", required = true)
+    private StatusResponse status;
 }

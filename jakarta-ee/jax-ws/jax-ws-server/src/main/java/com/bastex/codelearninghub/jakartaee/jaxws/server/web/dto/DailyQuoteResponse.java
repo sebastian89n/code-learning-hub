@@ -1,4 +1,4 @@
-package com.bastex.codelearninghub.jakartaee.jaxws.server.web.requests;
+package com.bastex.codelearninghub.jakartaee.jaxws.server.web.dto;
 
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
@@ -11,12 +11,18 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@XmlType(propOrder = {"quote", "userId"})
+@XmlType(propOrder = {"id", "quote", "userId", "createdDatetime"})
 @XmlAccessorType(XmlAccessType.FIELD)
-public class CreateDailyQuoteRequest {
+public class DailyQuoteResponse {
+    @XmlElement(name = "id", required = true)
+    private Long id;
+
     @XmlElement(name = "quote", required = true)
     private String quote;
 
     @XmlElement(name = "userId", required = true)
     private String userId;
+
+    @XmlElement(name = "createdDatetime", required = true)
+    private String createdDatetime;
 }
