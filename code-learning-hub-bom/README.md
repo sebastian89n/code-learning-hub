@@ -6,7 +6,7 @@ dependencies and provide a central place to define and update those versions.
 BOM provides the flexibility to add a dependency to our module without worrying about the version that we should depend
 on.
 
-BOM can be inherited as a parent, in this case we inherit both dependencyManagement and pluginManagement sections.
+BOM can be inherited as a parent, in which case we inherit both dependencyManagement and pluginManagement sections.
 
 e.g.
 

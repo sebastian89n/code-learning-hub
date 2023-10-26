@@ -29,6 +29,8 @@
         <mockito.version>5.5.0</mockito.version>
         <liquibase.version>4.24.0</liquibase.version>
         <postgres.version>42.6.0</postgres.version>
+        <jakarta.xml.bind.api.version>4.0.1</jakarta.xml.bind.api.version>
+        <jaxb.impl.version>4.0.4</jaxb.impl.version>
     </properties>
 
     <dependencyManagement>
@@ -38,6 +40,19 @@
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-context</artifactId>
                 <version>${spring.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.sun.xml.bind</groupId>
+                <artifactId>jaxb-impl</artifactId>
+                <version>${jaxb.impl.version}</version>
+            </dependency>
+
+            <!-- Jakarta -->
+            <dependency>
+                <groupId>jakarta.xml.bind</groupId>
+                <artifactId>jakarta.xml.bind-api</artifactId>
+                <version>${jakarta.xml.bind.api.version}</version>
             </dependency>
 
             <!-- Jersey dependencies -->

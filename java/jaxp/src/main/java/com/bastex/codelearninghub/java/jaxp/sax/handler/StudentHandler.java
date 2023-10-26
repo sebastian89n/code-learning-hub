@@ -48,8 +48,8 @@ public class StudentHandler extends DefaultHandler {
     }
 
     @Override
-    public void endElement(final String uri, final String localName, final String qName) {
-        switch (qName) {
+    public void endElement(final String uri, final String localName, final String elementName) {
+        switch (elementName) {
             case FIRSTNAME_ELEMENT -> getLatestStudent().setFirstName(elementValueBuilder.toString());
             case LASTNAME_ELEMENT -> getLatestStudent().setLastName(elementValueBuilder.toString());
             case BIRTHDATE_ELEMENT -> {

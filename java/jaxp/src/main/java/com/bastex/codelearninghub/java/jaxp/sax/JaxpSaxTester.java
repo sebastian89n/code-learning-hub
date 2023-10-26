@@ -27,7 +27,7 @@ public final class JaxpSaxTester {
         saxParserFactory.setNamespaceAware(true);
 
         final StudentHandler studentHandler = new StudentHandler();
-        try (final InputStream studentsInputStream = JaxpSaxTester.class.getClassLoader()
+        try (final InputStream studentsIs = JaxpSaxTester.class.getClassLoader()
                 .getResourceAsStream("students.xml");
              final InputStream studentsSchemaIs = JaxpDomTester.class.getClassLoader()
                      .getResourceAsStream("students.xsd")) {
@@ -38,7 +38,7 @@ public final class JaxpSaxTester {
             saxParserFactory.setSchema(schema);
 
             final SAXParser saxParser = saxParserFactory.newSAXParser();
-            saxParser.parse(studentsInputStream, studentHandler);
+            saxParser.parse(studentsIs, studentHandler);
         }
 
         final List<Student> students = studentHandler.getStudents();
