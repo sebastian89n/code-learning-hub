@@ -6,4 +6,8 @@ Application runs REST queries against httpbin.org
 
 e.g. program arguments to run
 
--ct=UUID -ct=DELAY -ct=ANYTHING -d=1 -p="{'text': 'value'}"
+--call-type=UUID
+
+--call-type=DELAY --delay=1
+
+--call-type=ANYTHING --delay=1 --payload="{'text': 'value'}"

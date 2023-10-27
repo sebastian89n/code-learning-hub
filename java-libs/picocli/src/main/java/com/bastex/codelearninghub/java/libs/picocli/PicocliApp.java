@@ -58,7 +58,7 @@ public class PicocliApp {
                     };
 
                     final HttpResponse<String> response = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
-                    log.info("{}({}): \n{}", callType, response.statusCode(), response.body());
+                    log.info("{}, response code {}: \n{}", callType, response.statusCode(), response.body());
                 }
 
             } catch (final Exception e) {
