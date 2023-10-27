@@ -11,11 +11,14 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@XmlType(name = "CreateDailyQuoteRequestType", propOrder = {"quote", "userId"})
+@XmlType(name = "CreateDailyQuoteReq", propOrder = {"quote", "author", "userId"})
 @XmlAccessorType(XmlAccessType.FIELD)
 public class CreateDailyQuoteRequest {
     @XmlElement(name = "quote", required = true)
     private String quote;
+
+    @XmlElement(name = "author")
+    private String author;
 
     @XmlElement(name = "userId", required = true)
     private String userId;

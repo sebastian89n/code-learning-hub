@@ -1,7 +1,7 @@
 package com.bastex.codelearninghub.jakartaee.jaxws.server.web;
 
 import com.bastex.codelearninghub.jakartaee.jaxws.server.domain.DailyQuote;
-import com.bastex.codelearninghub.jakartaee.jaxws.server.exceptions.DailyQuoteValidationException;
+import com.bastex.codelearninghub.jakartaee.jaxws.server.exceptions.InputValidationException;
 import com.bastex.codelearninghub.jakartaee.jaxws.server.services.DailyQuoteService;
 import com.bastex.codelearninghub.jakartaee.jaxws.server.utils.DateFormatUtils;
 import com.bastex.codelearninghub.jakartaee.jaxws.server.web.dto.DailyQuoteResponse;
@@ -22,17 +22,18 @@ import lombok.extern.slf4j.Slf4j;
 import java.util.List;
 
 @Slf4j
-@WebService(name = "DailyQuotesService",
-        serviceName = "DailyQuotesService",
-        portName = "DailyQuotesServicePort",
-        targetNamespace = "http://www.jaxws.bastex.com/DailyQuotesService")
+@WebService(serviceName = "DailyQuotesService",
+        portName = "DailyQuotesPort",
+        targetNamespace = "http://www.jaxws.codelearninghub.bastex.com/DailyQuotesService")
 public class DailyQuotesWebService {
     private final DailyQuoteService dailyQuoteService = DailyQuoteService.newInMemoryInstance();
 
     @WebMethod(operationName = "CreateDailyQuote")
     @WebResult(name = "CreateDailyQuoteResponse")
-    public CreateDailyQuoteResponse createDailyQuote(@WebParam(name = "CreateDailyQuoteRequest") final CreateDailyQuoteRequest createDailyQuoteRequest) throws DailyQuoteValidationException {
-        final long quoteId = dailyQuoteService.createDailyQuote(createDailyQuoteRequest.getQuote(), createDailyQuoteRequest.getUserId());
+    public CreateDailyQuoteResponse createDailyQuote(@WebParam(name = "CreateDailyQuoteRequest") final CreateDailyQuoteRequest createDailyQuoteRequest) throws InputValidationException {
+        final long quoteId = dailyQuoteService.createDailyQuote(createDailyQuoteRequest.getQuote(),
+                createDailyQuoteRequest.getAuthor(),
+                createDailyQuoteRequest.getUserId());
         return new CreateDailyQuoteResponse(quoteId);
     }
 
@@ -64,7 +65,12 @@ public class DailyQuotesWebService {
     }
 
     private static DailyQuoteResponse transformToDailyQuoteResponse(final DailyQuote quote) {
-        return new DailyQuoteResponse(quote.getId(), quote.getQuote(), quote.getUserId(),
-                DateFormatUtils.formatDate(quote.getCreatedTimestamp()));
+        return new DailyQuoteResponse(
+                quote.getId(),
+                quote.getQuote(),
+                quote.getAuthor(),
+                quote.getUserId(),
+                DateFormatUtils.formatDate(quote.getCreatedTimestamp())
+        );
     }
 }

@@ -1,7 +1,7 @@
 package com.bastex.codelearninghub.jakartaee.jaxws.server.services;
 
 import com.bastex.codelearninghub.jakartaee.jaxws.server.domain.DailyQuote;
-import com.bastex.codelearninghub.jakartaee.jaxws.server.exceptions.DailyQuoteValidationException;
+import com.bastex.codelearninghub.jakartaee.jaxws.server.exceptions.InputValidationException;
 
 import java.util.List;
 import java.util.Optional;
@@ -11,7 +11,7 @@ public interface DailyQuoteService {
         return new DailyQuoteInMemoryService();
     }
 
-    long createDailyQuote(final String quote, final String userId) throws DailyQuoteValidationException;
+    long createDailyQuote(final String quote, String author, final String userId) throws InputValidationException;
 
     boolean deleteDailyQuoteById(final long quoteId);
 

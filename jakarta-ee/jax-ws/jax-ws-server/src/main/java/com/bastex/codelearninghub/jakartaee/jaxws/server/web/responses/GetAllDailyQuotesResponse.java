@@ -16,7 +16,7 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@XmlType(name = "GetAllDailyQuotesResponseType", propOrder = {"dailyQuotes"})
+@XmlType(name = "GetAllDailyQuotesResp", propOrder = {"dailyQuotes"})
 @XmlAccessorType(XmlAccessType.FIELD)
 public class GetAllDailyQuotesResponse {
     @XmlElement(name = "dailyQuote", required = true)

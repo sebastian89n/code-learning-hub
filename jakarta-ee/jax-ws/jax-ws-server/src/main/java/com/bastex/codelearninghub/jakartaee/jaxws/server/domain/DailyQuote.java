@@ -14,6 +14,8 @@ public class DailyQuote {
 
     private String quote;
 
+    private String author;
+
     private String userId;
 
     private Instant createdTimestamp;
