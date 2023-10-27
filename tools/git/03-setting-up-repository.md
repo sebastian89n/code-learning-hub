@@ -26,5 +26,8 @@ git config -l
 
 ```
 git config --global user.name="John Smith"
+```
+
+```
 git config --global user.name="john.smith@gmail.com"
 ```
