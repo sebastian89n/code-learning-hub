@@ -1,6 +1,6 @@
 package com.bastex.codelearninghub.java.libs.jackson.deserializers;
 
-import com.bastex.codelearninghub.java.libs.jackson.utils.DateFormattingUtils;
+import com.bastex.codelearninghub.java.libs.jackson.utils.DateFormatUtils;
 import com.fasterxml.jackson.core.JacksonException;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.databind.DeserializationContext;
@@ -18,7 +18,7 @@ public class BookDateDeserializer extends StdDeserializer<Instant> {
     public Instant deserialize(final JsonParser jsonParser, final DeserializationContext deserializationContext) throws IOException, JacksonException {
         final String valueAsString = jsonParser.getValueAsString();
         if (valueAsString != null && !valueAsString.isEmpty()) {
-            return DateFormattingUtils.parse(valueAsString);
+            return DateFormatUtils.parse(valueAsString);
         }
 
         return null;

@@ -29,7 +29,7 @@
         <mockito.version>5.5.0</mockito.version>
         <liquibase.version>4.24.0</liquibase.version>
         <postgres.version>42.6.0</postgres.version>
-        <jakarta.xml.bind.api.version>4.0.1</jakarta.xml.bind.api.version>
+        <jakarta.version>4.0.1</jakarta.version>
         <jaxb.impl.version>4.0.4</jaxb.impl.version>
     </properties>
 
@@ -52,7 +52,19 @@
             <dependency>
                 <groupId>jakarta.xml.bind</groupId>
                 <artifactId>jakarta.xml.bind-api</artifactId>
-                <version>${jakarta.xml.bind.api.version}</version>
+                <version>${jakarta.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>jakarta.xml.ws</groupId>
+                <artifactId>jakarta.xml.ws-api</artifactId>
+                <version>${jakarta.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.sun.xml.ws</groupId>
+                <artifactId>jaxws-rt</artifactId>
+                <version>${jakarta.version}</version>
             </dependency>
 
             <!-- Jersey dependencies -->

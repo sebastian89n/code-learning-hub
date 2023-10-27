@@ -11,7 +11,7 @@ import java.time.format.DateTimeFormatter;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 @Slf4j
-public final class DateFormattingUtils {
+public final class DateFormatUtils {
     private static final DateTimeFormatter STANDARD_DATE_OUTPUT_FORMAT = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSS")
             .withZone(ZoneId.of("UTC"));
 

@@ -5,18 +5,21 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.bastex</groupId>
-        <artifactId>code-learning-hub</artifactId>
+        <artifactId>code-learning-hub-jax-ws</artifactId>
         <version>0.0.1-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <artifactId>code-learning-hub-jakarta-ee</artifactId>
-    <packaging>pom</packaging>
+    <artifactId>code-learning-hub-jax-ws-server</artifactId>
 
-    <modules>
-        <module>jax-rs</module>
-        <module>jax-ws</module>
-        <module>jaxb</module>
-    </modules>
-
+    <dependencies>
+        <dependency>
+            <groupId>jakarta.xml.ws</groupId>
+            <artifactId>jakarta.xml.ws-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.sun.xml.ws</groupId>
+            <artifactId>jaxws-rt</artifactId>
+        </dependency>
+    </dependencies>
 </project>

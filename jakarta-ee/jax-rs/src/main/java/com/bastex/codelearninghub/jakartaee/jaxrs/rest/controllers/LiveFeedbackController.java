@@ -29,8 +29,8 @@ public class LiveFeedbackController {
     private final LiveFeedbackService liveFeedbackService = LiveFeedbackService.newInMemoryInstance();
 
     @PUT
+    // example of specifying produced type on the method. Supports multiple types.
     @Produces({MediaType.APPLICATION_JSON})
-    // example of specifying produced type on the method. Support multiple types.
     @Consumes(MediaType.APPLICATION_JSON) // example of specifying consumed type on the method
     public Response createFeedback(final CreateFeedbackRequest request) {
         RequestValidationUtils.validateRequest(request);
