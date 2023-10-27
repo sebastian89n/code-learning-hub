@@ -12,13 +12,13 @@ import com.bastex.codelearninghub.jaxws.dailyquotesservice.GetDailyQuoteByIdResp
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 
-import java.net.URL;
+import java.net.URI;
 
 @Slf4j
 public class JaxWsClientApp {
     @SneakyThrows
     public static void main(final String[] args) {
-        final DailyQuotesService dailyQuotesService = new DailyQuotesService(new URL("http://localhost:8080/DailyQuotesService?wsdl"));
+        final DailyQuotesService dailyQuotesService = new DailyQuotesService(URI.create("http://localhost:8080/DailyQuotesService?wsdl").toURL());
 
         final CreateDailyQuoteReq createDailyQuote = prepareDailyQuote("The only constant in the technology industry is change.",
                 "Marc Benioff", "user1");
