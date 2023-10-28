@@ -1,18 +1,40 @@
-# jaxb
+# JAXB: Jakarta XML Binding (previously Java Architecture for XML Binding
 
-JAXB - Jakarta XML Binding (previously Java Architecture for XML Binding)
+JAXB, or Java Architecture for XML Binding, is a Java technology that simplifies the conversion of XML data to Java
+objects (unmarshalling) and Java objects to XML data (marshalling). It provides a standardized way to work with XML data
+in Java applications.
 
-JAXB provides a fast and convenient way to marshal (write) Java objects into XML and unmarshal (read) XML into objects.
-It supports a binding framework that maps XML elements and attributes to Java fields and properties using Java
-annotations. It also supports schema validation.
+## Overview
 
-* **@XmlRootElement**: The name of the root XML element is derived from the class name, and we can also specify the name
-  of the root element of the XML using its name attribute.
-* **@XmlType**: define the order in which the fields are written in the XML file
-* **@XmlElement**: define the actual XML element name that will be used
-* **@XmlAttribute**: define the id field is mapped as an attribute instead of an element
-* **@XmlTransient**: annotate fields that we don’t want to be included in XML
+JAXB allows developers to map Java classes to XML schemas and vice versa. It provides a set of annotations for
+customizing the mapping and controlling how Java objects are serialized to XML and deserialized from XML. JAXB is
+commonly used in applications that need to interact with XML-based data sources or produce XML responses, such as web
+services.
 
-Furthermore, JAXB-2 Maven plugin(jaxb2-maven-plugin) can be configured to generate Java classes with JAXB annotations
-based on XSD schema or
-generate schema based on JAXB annotated classes.
+## Common Annotations
+
+JAXB uses annotations to define how Java classes are mapped to XML elements and attributes. Some of the most common
+annotations include:
+
+1. `@XmlRootElement`: Marks a Java class as the root element for XML representation. It defines the XML element that
+   encapsulates an instance of the class when marshalled to XML.
+
+2. `@XmlElement`: Specifies the mapping of a Java class field or property to an XML element. It allows customization of
+   the XML element name, namespace, and more.
+
+3. `@XmlAttribute`: Maps a Java field or property to an XML attribute. It indicates that the associated value should be
+   represented as an attribute within the XML element.
+
+4. `@XmlType`: Defines the XML type for a Java class. It allows specifying a name for the XML type and its namespace.
+
+5. `@XmlTransient`: Excludes a Java field or property from XML binding, indicating that it should not be included in the
+   XML representation.
+
+6. `@XmlAccessorType`: Controls the access type for fields or properties within a class. It can be set to `FIELD` (
+   default) or `PROPERTY`.
+
+7. `@XmlAccessorOrder`: Specifies the order in which fields or properties are marshalled to XML. It can be set
+   to `ALPHABETICAL` (default) or `UNDEFINED`.
+
+These annotations help developers define how Java objects correspond to XML data, offering fine-grained control over the
+mapping process. JAXB simplifies the integration of XML data in Java applications and is widely used in various domains.

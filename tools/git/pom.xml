@@ -5,18 +5,11 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.bastex</groupId>
-        <artifactId>code-learning-hub</artifactId>
+        <artifactId>code-learning-hub-tools</artifactId>
         <version>0.0.1-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <artifactId>code-learning-hub-java-libs</artifactId>
+    <artifactId>code-learning-hub-git</artifactId>
     <packaging>pom</packaging>
-
-    <modules>
-        <module>jackson</module>
-        <module>junit-with-mockito</module>
-        <module>mapstruct</module>
-        <module>picocli</module>
-        <module>slf4j-with-logback</module>
-    </modules>
 </project>

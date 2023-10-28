@@ -1,13 +1,10 @@
 # jax-ws-server
 
-JAX-WS - Jakarta XML Web Services(previously Java API for XML Web Services) is a standardized API for creating and
-consuming SOAP (Simple Object Access Protocol) web services.
+Server publish the service on: `http://localhost:8080/DailyQuotesService`
 
-Server publish the service on: http://localhost:8080/DailyQuotesService
+WSDL: `http://localhost:8080/DailyQuotesService?wsdl`
 
-WSDL: http://localhost:8080/DailyQuotesService?wsdl
-
-XSD: http://localhost:8080/DailyQuotesService?xsd=1
+XSD: `http://localhost:8080/DailyQuotesService?xsd=1`
 
 JAX-WS uses JAXB to map messages.
 
@@ -15,4 +12,5 @@ Example of Bottom-Up approach - WSDL is generated from Java classes mapped with 
 
 Top-Down is when you generate Java code from existing WSDL.
 
-It can be tested using jax-ws-client or by using some external tool like SoapUI.
+It can be tested using jax-ws-client or by using some external tool like SoapUI(I recommend to check it out, it is a
+great tool).
