@@ -11,8 +11,6 @@ Examples forward requests to https://httpbin.org/ to get some sample responses.
 
 Curl examples are stored in the comments in the application.yml.
 
-Same and more complex configuration can be done in Java code including custom filters etc.
-
 ## Overview
 
 Spring Cloud Gateway offers a range of features and concepts that make it a versatile and critical component for

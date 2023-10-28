@@ -44,7 +44,7 @@ challenges. Key features and technologies in Jakarta EE include:
 8. **JAX-WS (Jakarta XML Web Services):** JAX-WS enables the creation and consumption of SOAP-based web services in
    Jakarta EE applications, allowing seamless communication with external services.
 
-9. **JAX-RS (Jakarta RESTful Web Services):** JAX-RS provides a framework for building RESTful web services in Java
+9. **JAX-RS (Jakarta RESTful Web Services):** JAX-RS provides a framework for building RESTful web services in Jakarta
    EE, making it easy to create, expose, and consume RESTful APIs.
 
 10. **JAXB (Jakarta XML Binding):** JAXB allows developers to map Java classes to XML schemas and vice

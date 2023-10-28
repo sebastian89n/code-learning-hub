@@ -65,7 +65,7 @@ in web architecture:
   which method handles specific request paths.
 
 - **`@GetMapping`:** The `@GetMapping` annotation is a shortcut for specifying that a method should handle HTTP GET
-  requests. It is equivalent to @RequestMapping(method = RequestMethod.GET)
+  requests. It is equivalent to `@RequestMapping(method = RequestMethod.GET)`
 
 - Other annotations like `@PostMapping`, `@PutMapping`, `@DeleteMapping`, and `@PatchMapping` are used for specific HTTP
   methods.

@@ -36,7 +36,7 @@ interaction:
 
 - `PagingAndSortingRepository` provides methods to do pagination and sorting records.
 
-- `JpaRepository` provides some JPA-related methods such as flushing the persistence context and deleting records in a
+- `JpaRepository` provides some JPA-related methods like flushing the persistence context or deleting records in a
   batch.
 
 ## @Repository annotation
