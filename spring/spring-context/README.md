@@ -1,5 +1,7 @@
 # Modules
 
+- **spring-context-annotations** - example of how to configure Spring context using @Configuration class and
+  @ComponentScan
 - **spring-context-configuration** - example of how to configure Spring context using @Configuration class with @Bean
 - **spring-context-xml** - example of how to configure Spring context from xml
 - **spring-context-properties** - loading values from properties files, overriding with profiles etc.

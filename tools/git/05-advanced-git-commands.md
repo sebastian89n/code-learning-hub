@@ -46,8 +46,10 @@ Sometimes, you may need to undo changes in Git. Here are a few commands to help 
 ### Git Reflog
 
 `git reflog` is a valuable Git command used for tracking and managing your Git history, especially in scenarios where
-you need to recover lost commits, branches, or understand reference changes. It displays a detailed history of the "
-tips" of branches and other references in your Git repository. Each entry in the reflog includes a commit's SHA-1
+you need to recover lost commits, branches, or understand reference changes.
+
+It displays a detailed history of the "tips" of branches and other references in your Git repository. Each entry in the
+reflog includes a commit's SHA-1
 hash, the action taken, and a reference's name.
 
 This command will display a list of recent reference changes, typically including branch updates, commits, merges, and

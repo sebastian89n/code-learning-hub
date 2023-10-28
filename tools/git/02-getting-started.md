@@ -99,43 +99,43 @@ Now that you have a Git repository set up, let's explore the basic Git workflow:
 
 2. **Committing Changes:**
 
-After staging your changes, create a commit with a message to describe what you've done:
+   After staging your changes, create a commit with a message to describe what you've done:
 
-```bash
-git commit -m "Your commit message"
-```
+    ```bash
+    git commit -m "Your commit message"
+    ```
 
-Make sure to replace "Your commit message" with a brief, descriptive message that explains the purpose of the commit.
+   Make sure to replace "Your commit message" with a brief, descriptive message that explains the purpose of the commit.
 
 3. **Viewing Commit History:**
 
-To see the commit history of your project, use:
+   To see the commit history of your project, use:
 
-```bash
-git log
-```
+    ```bash
+    git log
+    ```
 
-This displays a list of commits, including their unique hash, author, date, and commit message.
+   This displays a list of commits, including their unique hash, author, date, and commit message.
 
-There are optional parameters to customize log output:
+   There are optional parameters to customize log output:
 
-```bash
-git log --pretty=oneline
-```
+    ```bash
+    git log --pretty=oneline
+    ```
 
-```bash
-git log --pretty=oneline --since="2023-01-01" --until="2023-09-12" --author="John Smith"
-```
+    ```bash
+    git log --pretty=oneline --since="2023-01-01" --until="2023-09-12" --author="John Smith"
+    ```
 
-To display last x revisions use:
+   To display last x revisions use:
 
-```bash
-git log --pretty=oneline -5
-```
+    ```bash
+    git log --pretty=oneline -5
+    ```
 
-To check current contributors to the project use:
+   To check current contributors to the project use:
 
-```bash
-git shortlog -s -n
-```
+    ```bash
+    git shortlog -s -n
+    ```
 
