@@ -17,10 +17,12 @@ in `.git/refs/remotes/{remoteRepoName}/`
 
 ### Remote repositories
 
-Git enables you to collaborate with others using remote repositories. Here are some key remote repository commands:
+Git enables you to collaborate with others using remote repositories.
 
 In the examples below `origin` is a name of remote repository stored in your local git repository. A different name can
 be chosen and there could be more than one remote repository configured under different names as well.
+
+Here are some key remote repository commands:
 
 - **Add a remote repository:**
   ```bash

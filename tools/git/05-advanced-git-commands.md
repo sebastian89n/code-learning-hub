@@ -37,9 +37,32 @@ Sometimes, you may need to undo changes in Git. Here are a few commands to help 
   ```bash
   git reset --hard HEAD@{1}
   ```
+
 - **Amend the last commit (change commit message or add more changes):**
   ```bash
   git commit --amend
+  ```
+
+### Git Reflog
+
+`git reflog` is a valuable Git command used for tracking and managing your Git history, especially in scenarios where
+you need to recover lost commits, branches, or understand reference changes. It displays a detailed history of the "
+tips" of branches and other references in your Git repository. Each entry in the reflog includes a commit's SHA-1
+hash, the action taken, and a reference's name.
+
+This command will display a list of recent reference changes, typically including branch updates, commits, merges, and
+other Git actions:
+
+  ```bash
+  git reflog
+  ```
+
+Suppose you accidentally delete a branch, and you want to recover it:
+
+- First, run git reflog to find the SHA-1 hash of the lost branch's tip.
+- Then, create a new branch from that commit:
+  ```bash
+  git branch new_branch_name recovered_commit_hash
   ```
 
 ### Git Rebase
@@ -61,6 +84,24 @@ commands:
   git rebase -i HEAD~n
   ```
   Replace n with the number of commits you want to include in the interactive rebase
+
+`git rebase` is a command that modifies your commit history by rewriting it. Be careful when using it:
+
+- **Use on Feature Branches**: It's safer to use on feature branches or branches you're working on alone.
+
+- **Avoid Shared Branches**: Avoid rebasing on shared branches to prevent conflicts and confusion.
+
+- **Resolve Conflicts**: Carefully resolve conflicts that may arise during the rebase.
+
+- **Inform Your Team**: If rebasing shared branches, communicate changes with your team.
+
+- **Backup Before Rebasing**: Create backups or snapshots before starting a rebase for safety.
+
+- **Interactive Rebasing**: Use `git rebase -i` for interactive changes like squashing or editing commits.
+
+- **Maintain Clean History**: Use rebase to keep a clean, linear commit history.
+
+With care and understanding, `git rebase` can help you maintain an organized Git history.
 
 ### Git Stash
 
@@ -115,6 +156,11 @@ commands:
   git push origin tag_name
   ```
   note: `origin` is a name of remote repository.
+
+- **List all local tags:**
+  ```bash
+  git tag
+  ```
 
 ### Git Cherry-Pick
 
