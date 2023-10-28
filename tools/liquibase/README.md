@@ -1,11 +1,18 @@
 ## Liquibase: Database Version Control and Migration
 
-Module contains examples of Liquibase scripts and Java code to execute them programmatically.
+Liquibase simplifies the process of managing database changes and schema evolution, enhancing collaboration among
+development teams and database administrators. It is an essential tool for ensuring the integrity and reliability of
+database deployments, especially in agile and DevOps environments.
 
-It is a bit more complex example with Spring Boot autoconfiguration disabled. It demonstrates how we can configure
+Module contains example of Liquibase scripts and Java code to execute them programmatically.
+
+Liquibase is placed in tools module because changesets can be also run as standalone with Liquibase CLI.
+
+In this example, we use Liquibase embedded in Java application with Spring Boot autoconfiguration disabled. It
+demonstrates how we can configure
 it manually to enable Spring context for custom migrations in the code.
 
-It can be run against h2 or postgres depending on the application.properties(jdbc url etc.).
+It can be run against `h2` or `postgres` depending on the application.properties(jdbc url etc.).
 It also works with other db types but requires proper driver to be provided in the pom / classpath.
 
 By the default if no context is provided, Liquibase will run every changeset.
@@ -61,20 +68,3 @@ Liquibase offers a range of features and concepts that make it a valuable tool f
 
 - **Changelog Management:** A changelog file lists the change sets and their execution order, making it easy to maintain
   and track changes over time.
-
-### Common Information
-
-- **`liquibase.properties`:** This configuration file specifies the database connection details and other settings that
-  Liquibase uses.
-
-- **`liquibase.changelog.xml`:** The changelog file is an XML file that lists all the change sets in the correct order.
-
-- **`<changeSet>`:** Within the changelog file, each database change is defined as a `<changeSet>` element, specifying
-  the SQL statements or database actions to execute.
-
-- **Liquibase CLI:** The Liquibase Command-Line Interface (CLI) allows developers to apply and manage database changes
-  using simple commands.
-
-Liquibase simplifies the process of managing database changes and schema evolution, enhancing collaboration among
-development teams and database administrators. It is an essential tool for ensuring the integrity and reliability of
-database deployments, especially in agile and DevOps environments.

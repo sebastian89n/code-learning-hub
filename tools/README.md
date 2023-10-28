@@ -11,6 +11,9 @@ Project contains examples of various useful tools
   large projects with speed and efficiency
 
 
+- **linux-shell** - useful Linux shell commands for Java developers
+
+
 - **liquibase** - Liquibase is a database schema change management solution that enables to revise and release database
   changes
 

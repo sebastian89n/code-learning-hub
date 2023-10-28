@@ -1,6 +1,6 @@
 # Git Tutorial
 
-## Section 3: Understanding Local in Git
+## Section 3: Understanding Local Branches in Git
 
 When working with Git, it's important to distinguish between **local branches** and **remote branches**. These concepts
 are fundamental to version control and collaboration.
