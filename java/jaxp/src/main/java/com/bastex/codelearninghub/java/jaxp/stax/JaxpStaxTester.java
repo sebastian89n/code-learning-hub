@@ -84,16 +84,20 @@ public final class JaxpStaxTester {
 
     @SneakyThrows(XMLStreamException.class)
     private static String extractNextInlineValue(final XMLEventReader eventReader) {
-        final XMLEvent nextEvent = eventReader.nextEvent();
-        if (nextEvent.isCharacters()) {
-            final String value = nextEvent.asCharacters().getData();
-            if (value == null || value.isBlank()) {
-                throw new IllegalStateException("Unable to extract next inline value");
-            }
+        if (eventReader.hasNext()) {
+            final XMLEvent nextEvent = eventReader.nextEvent();
+            if (nextEvent.isCharacters()) {
+                final String value = nextEvent.asCharacters().getData();
+                if (value == null || value.isBlank()) {
+                    throw new IllegalStateException("Unable to extract next inline value. Value is not specified or empty");
+                }
 
-            return value;
+                return value;
+            } else {
+                throw new IllegalStateException("Unable to extract next inline value. Value is not specified or empty.");
+            }
         } else {
-            throw new IllegalStateException("Unable to extract next inline value");
+            throw new IllegalStateException("Unable to extract next inline value. Value is not specified or empty.");
         }
     }
 }

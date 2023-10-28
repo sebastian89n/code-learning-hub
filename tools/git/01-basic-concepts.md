@@ -1,78 +1,71 @@
 # Basic concepts
 
-#### Local Repository
+#### Repository (Repo):
 
-Every VCS tool provides a private workplace as a working copy. Developers make changes in their private workplace and
-after commit, these changes become a part of the repository. Git takes it one step further by providing them a private
-copy of the whole repository. Users can perform many operations with this repository such as add file, remove file,
-rename file, move file, commit changes, and many more.
+A repository is a directory or storage space where your project lives. It contains all the files and folders that make
+up your project, along with the version history.
 
-#### Working Directory and Staging Area or Index
+#### Working Directory:
 
-The working directory is the place where files are checked out. In other CVCS, developers generally make modifications
-and commit their changes directly to the repository. But Git uses a different strategy. Git doesn’t track each and every
-modified file. Whenever you do commit an operation, Git looks for the files present in the staging area. Only those
-files present in the staging area are considered for commit and not all the modified files.
+The working directory is the directory on your local machine where you make changes to your project. These changes are
+not yet part of the Git repository.
 
-Let us see the basic workflow of Git.
+#### Staging Area (Index):
 
-Step 1 − You modify a file from the working directory.
+The staging area is a buffer that holds changes you want to commit. It allows you to select which changes you want to
+include in the next commit.
 
-Step 2 − You add these files to the staging area.
+#### Commit:
 
-Step 3 − You perform commit operation that moves the files from the staging area. After push operation, it stores the
-changes permanently to the Git repository.
+A commit is a snapshot of your project at a specific point in time. It records changes made to the files in the staging
+area. Each commit has a unique identifier (a SHA-1 hash) and a commit message to describe the changes.
 
-#### Blobs
+#### Branch:
 
-Blob stands for Binary Large Object. Each version of a file is represented by blob. A blob holds the file data but
-doesn’t contain any metadata about the file. It is a binary file, and in Git database, it is named as SHA1 hash of that
-file. In Git, files are not addressed by names. Everything is content-addressed.
+A branch is a separate line of development within a Git repository. It allows you to work on new features or bug fixes
+independently without affecting the main project. The main branch is often called the "master" branch.
 
-#### Trees
+#### Checkout:
 
-Tree is an object, which represents a directory. It holds blobs as well as other sub-directories. A tree is a binary
-file that stores references to blobs and trees which are also named as SHA1 hash of the tree object.
+Checking out a branch means switching to a different branch or commit. It updates your working directory to reflect the
+state of the branch or commit you checked out.
 
-#### Commits
+#### Merge:
 
-Commit holds the current state of the repository. A commit is also named by SHA1 hash. You can consider a commit object
-as a node of the linked list. Every commit object has a pointer to the parent commit object. From a given commit, you
-can traverse back by looking at the parent pointer to view the history of the commit. If a commit has multiple parent
-commits, then that particular commit has been created by merging two branches.
+Merging is the process of combining changes from one branch into another. This is often used to integrate feature
+branches back into the main branch.
 
-#### Branches
+#### Pull Request (PR):
 
-Branches are used to create another line of development. By default, Git has a master branch, which is same as trunk in
-Subversion. Usually, a branch is created to work on a new feature. Once the feature is completed, it is merged back with
-the master branch and we delete the branch. Every branch is referenced by HEAD, which points to the latest commit in the
-branch. Whenever you make a commit, HEAD is updated with the latest commit.
+A pull request is a feature in Git hosting platforms (like GitHub) that allows you to propose changes to a repository.
+It's a way to review, discuss, and merge code changes.
 
-#### Tags
+#### Clone:
 
-Tag assigns a meaningful name with a specific version in the repository. Tags are very similar to branches, but the
-difference is that tags are immutable. It means, tag is a branch, which nobody intends to modify. Once a tag is created
-for a particular commit, even if you create a new commit, it will not be updated. Usually, developers create tags for
-product releases.
+Cloning is the process of creating a copy of a Git repository on your local machine. This is typically done to start
+working on an existing project.
 
-#### Clone
+#### Fork:
 
-Clone operation creates the instance of the repository. Clone operation not only checks out the working copy, but it
-also mirrors the complete repository. Users can perform many operations with this local repository. The only time
-networking gets involved is when the repository instances are being synchronized.
+Forking is a way to create a copy of a repository under your own account on Git hosting platforms. It's often used when
+you want to contribute to an open-source project.
 
-#### Pull
+#### Remote:
 
-Pull operation copies the changes from a remote repository instance to a local one. The pull operation is used for
-synchronization between two repository instances. This is same as the update operation in Subversion.
+A remote is a reference to a repository hosted on a remote server. It allows you to interact with repositories on
+platforms like GitHub or GitLab.
 
-#### Push
+#### Pull:
 
-Push operation copies changes from a local repository instance to a remote one. This is used to store the changes
-permanently into the Git repository. This is same as the commit operation in Subversion.
+Pulling is the process of fetching changes from a remote repository and merging them into your local branch. It's often
+used to keep your local repository up to date with changes made by others.
 
-#### HEAD
+#### Push:
 
-HEAD is a pointer, which always points to the latest commit in the branch. Whenever you make a commit, HEAD is updated
-with the latest commit. The heads of the branches are stored in .git/refs/heads/ directory.
+Pushing is the process of sending your local commits to a remote repository. It updates the remote repository with your
+changes.
 
+#### Conflict:
+
+Conflicts occur when Git is unable to automatically merge changes from different branches. You must resolve conflicts
+manually by editing the affected files.

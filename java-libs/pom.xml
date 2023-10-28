@@ -19,5 +19,4 @@
         <module>picocli</module>
         <module>slf4j-with-logback</module>
     </modules>
-
 </project>

@@ -1,37 +1,42 @@
-# jaxp
+# JAXP: Java API for XML Processing
 
-JAXP - Java API for XML Processing
+[ `-Djaxp.debug=1` to print implementation that is being used ]
 
-JAXP is a widely-used Java API that offers a standard way to process XML data. It provides a set of interfaces and
-classes that enable us to parse, transform, and validate XML documents. JAXP is part of the Java Standard Edition (SE)
-platform and is supported by various XML parsers and processors.
+JAXP, or Java API for XML Processing, is a set of standard APIs for parsing and processing XML documents in Java. It
+provides a consistent and flexible way to work with XML data, allowing developers to read, manipulate, and generate XML
+content.
 
-Use -Djaxp.debug=1 to show used implementation
+## Overview
 
-### DOM - Document Object Model
+JAXP consists of a set of APIs and tools for XML processing. It is designed to be vendor-neutral, which means that it
+can work with different XML parsers and processors without requiring changes to your code. Different parsers/processors
+can be provided via maven dependencies. E.g.Apache Xerces(SAX, DOM, and StAX), Woodstox(StAX), Xalan(only TrAX)
 
-The DOM parser does not rely on events. Moreover, it loads the whole XML document into memory to parse it. SAX is more
-memory-efficient than DOM
+## Document Object Model (DOM)
 
-DOM has its benefits, too. For example, DOM supports XPath. It makes it also easy to operate on the whole document tree
-at once since the document is loaded into memory.
+DOM is a programming interface for working with XML documents as a tree structure. It
+allows you to create, modify, and navigate XML documents in memory. DOM parsers read the entire XML document into
+memory, making it suitable for smaller documents but potentially memory-intensive for larger ones.
 
-### SAX - the Simple API for XML
+## Simple API for XML (SAX)
 
-SAX is an API used to parse XML documents. It is based on events generated while reading through the document. Callback
-methods receive those events. A custom handler contains those callback methods.
+SAX is an event-based approach for processing XML documents. SAX parsers read XML
+documents sequentially and trigger events as they encounter elements, attributes, and data. SAX is memory-efficient
+and is often used for parsing large XML documents.
 
-The API is efficient because it drops events right after the callbacks received them. Therefore, SAX has efficient
-memory management, unlike DOM, for example.
+## Streaming API for XML (StAX)
 
-### StAX - Streaming API for XML
+StAX is a pull-parsing API for processing XML documents. It allows you to read and
+write XML content in a streaming fashion, similar to reading a file. StAX provides a balance between the tree-based
+approach of DOM and the event-based approach of SAX, offering flexibility and efficiency. It is useful if there's no
+need to parse the whole document, you can stop in the middle. StAX however doesn't provide schema validation
+mechanism.
 
-StAX is more recent than SAX and DOM.
+## Transformation API for XML(TrAX)
 
-The main difference with SAX is that StAX uses a pull mechanism instead of SAX’s push mechanism (using callbacks).
-This means the control is given to the client to decide when the events need to be pulled. Therefore, there is no
-obligation to pull the whole document if only a part of it is needed.
+TrAX is a component of the Java API for XML Processing (JAXP). It provides a standard way to perform XML
+transformations, such as XSLT (Extensible Stylesheet Language Transformations), in Java applications. TrAX is used to
+apply XSLT stylesheets to XML documents, enabling the conversion of XML data into different formats or structures.
 
-It provides an easy API to work with XML with a memory-efficient way of parsing.
 
-Unlike SAX, it doesn’t provide schema validation as one of its features.
+

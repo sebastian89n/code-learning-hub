@@ -49,7 +49,8 @@ public class DailyQuotesWebService {
     @WebResult(name = "GetAllDailyQuotesResponse")
     public GetAllDailyQuotesResponse getAllDailyQuotes() {
         final List<DailyQuoteResponse> dailyQuoteResponses = dailyQuoteService.findAllDailyQuotes()
-                .stream().map(DailyQuotesWebService::transformToDailyQuoteResponse)
+                .stream()
+                .map(DailyQuotesWebService::transformToDailyQuoteResponse)
                 .toList();
 
         return new GetAllDailyQuotesResponse(dailyQuoteResponses);

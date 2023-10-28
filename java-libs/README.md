@@ -1,4 +1,4 @@
-# java-libs
+# Modules
 
 Project contains examples of common Java libraries
 
