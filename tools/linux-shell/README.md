@@ -244,15 +244,18 @@ that every developer should be familiar with:
 
 - `scp`: Securely copy files over SSH.
 
+  Copy file to a server to specified local directory:
     ```bash
     scp local-file.txt username@remote-host:/path/to/destination/
     ```
+  Copy file from a server:
+    ```bash
+    scp username@remote-host:/path/to/destination/remote-file.txt /local_directory
+    ```
+  Copy file from a server to current directory:
     ```bash
     scp username@remote-host:/path/to/destination/remote-file.txt .
     ```
-
-  The `scp` command is used for securely copying files between local and remote machines over SSH. In this example, it
-  copies "local-file.txt" to a remote host at "/path/to/destination."
 
 ## Process Management
 
