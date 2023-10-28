@@ -72,11 +72,11 @@ Here are some key remote repository commands:
   git checkout -b local_branch_name origin/remote_branch_name
   ```
 
-If you have already fetched remote branches in your local repository and you want to create a local branch from remote
+If you have already fetched remote branches in your local repository, and you want to create a local branch from remote
 one with the same name, you can just use:
 
   ```bash
-  git checkout -b remote_branch_name
+  git checkout remote_branch_name
   ```
 
 It will create a local branch called remote_branch_name.
