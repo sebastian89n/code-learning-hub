@@ -185,7 +185,7 @@ SELECT first_name, last_name
 FROM employees;
 ```
 
-## Distinct results
+## Selecting Data with distinct
 
 ```sql
 SELECT DISTINCT last_name

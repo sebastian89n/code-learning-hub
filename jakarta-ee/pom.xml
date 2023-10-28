@@ -18,5 +18,4 @@
         <module>jax-ws</module>
         <module>jaxb</module>
     </modules>
-
 </project>

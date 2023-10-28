@@ -29,21 +29,6 @@ Here are some key remote repository commands:
   git remote add origin repository_url
   ```
 
-- **Push a new branch to remote repository:**
-  ```bash
-  git push --set-upstream origin branch_name
-  ```
-  or simplified form:
-  ```bash
-  git push -u origin branch_name
-  ```
-
-- **Push changes on a branch that already exists on remote repository(local branch needs to have correctly configured
-  upstream to remote branch):**
-  ```bash
-  git push origin branch_name
-  ```
-
 - **Fetch changes from a remote repository:**
 
   git fetch updates your remote-tracking branches under `refs/remote/<remote>/`
@@ -51,12 +36,20 @@ Here are some key remote repository commands:
   ```bash
   git fetch origin branch_name
   ```
+  or to fetch every branch from remote repository:
+  ```bash
+  git fetch origin
+  ```
 
 - **Pull changes from a remote repository:**
 
   git pull brings current local branch up to date with its remote version
   ```bash
   git pull origin branch_name
+  ```
+  or to pull current branch and fetch everything other branch from remote:
+  ```bash
+  git pull origin
   ```
 
   it is equivalent of running:
@@ -72,11 +65,23 @@ Here are some key remote repository commands:
   git checkout -b local_branch_name origin/remote_branch_name
   ```
 
-If you have already fetched remote branches in your local repository, and you want to create a local branch from remote
-one with the same name, you can just use:
-
+  If you want to create a local branch from remote
+  one with the same name, you can just use:
   ```bash
   git checkout remote_branch_name
   ```
 
-It will create a local branch called remote_branch_name.
+- **Push a new branch to remote repository:**
+  ```bash
+  git push --set-upstream origin branch_name
+  ```
+  or simplified form:
+  ```bash
+  git push -u origin branch_name
+  ```
+
+- **Push changes on a branch that already exists on remote repository(local branch needs to have correctly configured
+  upstream to remote branch):**
+  ```bash
+  git push origin branch_name
+  ```
