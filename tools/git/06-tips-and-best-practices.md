@@ -54,15 +54,3 @@ handling line endings, merging binary files, and other repository-specific setti
 ```
 
 Customize your .gitattributes file to suit your project's needs.
-
-### Git Workflows
-
-Different development workflows can help teams work together efficiently. Two common workflows are:
-
-- **Feature Branch Workflow**: Developers work on feature branches and create pull requests for code review and
-  integration.
-
-- **Gitflow Workflow**: This formalized workflow uses branches like develop and release to manage feature development
-  and releases.
-
-Choose a workflow that fits your project's requirements and team structure.
