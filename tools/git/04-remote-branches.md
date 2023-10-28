@@ -2,7 +2,7 @@
 
 ## Section 4: Understanding Remote Branches in Git
 
-## Remote Branches in Git
+### Remote Branches in Git
 
 In Git, **remote branches** represent the state of branches on a remote repository. They are used for collaboration and
 tracking the work done by other team members. Some key points about remote branches include:
@@ -15,7 +15,7 @@ tracking the work done by other team members. Some key points about remote branc
 Local references are representation of all remote branches stored in your local git repository
 in `.git/refs/remotes/{remoteRepoName}/`
 
-## Remote repositories
+### Remote repositories
 
 Git enables you to collaborate with others using remote repositories. Here are some key remote repository commands:
 

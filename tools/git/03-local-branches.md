@@ -5,7 +5,7 @@
 When working with Git, it's important to distinguish between **local branches** and **remote branches**. These concepts
 are fundamental to version control and collaboration.
 
-## Local Branches
+### Local Branches
 
 **Local branches** are branches that exist on your local machine. They are used for development and are entirely under
 your control. Some key points about local branches include:
