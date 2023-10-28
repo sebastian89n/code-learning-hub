@@ -1,6 +1,6 @@
 # Git Tutorial
 
-## Section 4: Advanced Git Commands
+## Section 5: Advanced Git Commands
 
 ### Undoing changes
 

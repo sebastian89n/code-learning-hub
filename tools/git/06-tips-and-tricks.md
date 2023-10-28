@@ -1,6 +1,6 @@
 # Git Tutorial
 
-## Section 5: Git Tips and Best Practices
+## Section 6: Git Tips & Tricks
 
 ### Aliases
 

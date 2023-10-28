@@ -1,6 +1,6 @@
 # Git Tutorial
 
-## Section 6: Additional Resources
+## Section 7: Additional Resources
 
 ### Git Documentation
 
