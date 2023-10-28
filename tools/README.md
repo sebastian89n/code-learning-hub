@@ -10,4 +10,8 @@ Project contains examples of various useful tools
   changes
 
 
+- **puml** - PlantUML is a powerful tool for creating diagrams in a simple, text-based format. It's widely used in
+  software development and other fields to visualize and communicate complex concepts and systems.
+
+
 - **sql** - SQL is a domain-specific language used for managing and querying relational databases

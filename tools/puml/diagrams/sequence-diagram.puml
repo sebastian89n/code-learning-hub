@@ -1,0 +1,10 @@
+@startuml
+actor User
+participant "Web App" as WebApp
+participant "Database" as DB
+
+User -> WebApp: Request Page
+WebApp -> DB: Query Data
+DB --> WebApp: Return Data
+WebApp --> User: Display Page
+@enduml

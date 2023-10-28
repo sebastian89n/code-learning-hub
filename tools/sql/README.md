@@ -101,6 +101,11 @@ DML statements are used to manipulate data within the database, including insert
 
 DCL statements are used to control access to data within the database and to manage user privileges.
 
+### DQL (Data Query Language)
+
+DQL statements are used to retrieve and query data from a database, allowing users to extract specific information using
+the SELECT statement and apply filtering and sorting to meet their data retrieval requirements.
+
 ## SQL execution order
 
 The SQL execution order defines the sequence in which SQL statements are processed, determining how data is retrieved,

@@ -1,0 +1,9 @@
+@startuml
+node "Web Server" {
+  component "Web App"
+}
+node "Database Server" {
+  database "Database"
+}
+"Web App" --> "Database"
+@enduml
