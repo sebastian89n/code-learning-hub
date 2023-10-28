@@ -154,7 +154,7 @@ that every developer should be familiar with:
     wc file.txt
     ```
     ```bash
-    grep ERROR test.txt | wc -l
+    grep ERROR server.logs | wc -l
     ```
 
 ## Archive and Compression
