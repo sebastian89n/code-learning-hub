@@ -2,6 +2,11 @@
 
 Project contains examples of various useful tools
 
+- **docker** -Docker is a platform for developing, shipping, and running applications in lightweight, isolated
+  containers, making it easier to manage application dependencies and deploy software consistently across different
+  environments.
+
+
 - **git** - distributed version control system designed to handle everything from small to very
   large projects with speed and efficiency
 

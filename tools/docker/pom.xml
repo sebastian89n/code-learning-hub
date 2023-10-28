@@ -5,19 +5,10 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.bastex</groupId>
-        <artifactId>code-learning-hub</artifactId>
+        <artifactId>code-learning-hub-tools</artifactId>
         <version>0.0.1-SNAPSHOT</version>
-        <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <artifactId>code-learning-hub-tools</artifactId>
+    <artifactId>code-learning-hub-docker</artifactId>
     <packaging>pom</packaging>
-
-    <modules>
-        <module>docker</module>
-        <module>git</module>
-        <module>liquibase</module>
-        <module>sql</module>
-        <module>puml</module>
-    </modules>
 </project>
