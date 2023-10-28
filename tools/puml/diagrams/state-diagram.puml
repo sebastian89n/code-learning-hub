@@ -1,0 +1,5 @@
+@startuml
+[*] --> Off
+On --> Off: Switch Off
+Off --> On: Switch On
+@enduml

@@ -1,0 +1,28 @@
+@startuml ComplexClassDiagram
+
+class Employee {
+  - EmployeeID: int
+  - FirstName: string
+  - LastName: string
+  - Email: string
+  + getFullName(): string
+}
+
+class Department {
+  - DepartmentID: int
+  - Name: string
+  - Location: string
+  + getDepartmentInfo(): string
+}
+
+class Project {
+  - ProjectID: int
+  - Name: string
+  - Description: string
+  + getProjectDetails(): string
+}
+
+Employee "1" -- "0..1" Department : Works In
+Employee "0..*" -- "0..*" Project : Assigned To
+
+@enduml
