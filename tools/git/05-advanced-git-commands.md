@@ -185,17 +185,3 @@ cherry-pick a commit:
   ```bash
   git cherry-pick commit_hash
   ```
-
-### Git Submodules
-
-Git submodules allow you to include one Git repository within another. Here's how to add and update submodules:
-
-- **Add a submodule:**
-  ```bash
-  git submodule add repository_url path/to/submodule
-  ```
-
-- **Update submodules:**
-  ```bash
-  git submodule update --init --recursive
-  ```
