@@ -162,6 +162,7 @@ that every developer should be familiar with:
   The `zip` command is used to create compressed zip archives. In this example, it creates a zip archive called "
   archive.zip" from the "directory" and its contents.
 
+
 - `unzip`: Extract files from a zip archive.
 
     ```bash
@@ -170,17 +171,27 @@ that every developer should be familiar with:
 
   To extract files from a zip archive called "archive.zip," you can use the `unzip` command.
 
-- `tar`: Archive files.
+
+- `tar`: Extract files from a tar archive.
 
     ```bash
-    tar -cvf archive.tar directory/
+    tar -xvf archive.tar
     ```
 
-  The `tar` command is used to create tar archives. In this example, it archives the "directory" and its contents into a
-  file called "archive.tar."
+  The `tar` command is used to create and manipulate tar archives. To extract files from a tar archive, you can use
+  the `-x` flag, which stands for "extract," and the `-v` flag for "verbose" output. For example, to extract the
+  contents of a tar archive named "archive.tar," you would run:
 
-  To extract files from a tar archive called "archive.tar," you can use the `tar` command with the `-x` flag for
-  extraction. The `-v` flag is for verbose output, so you can see the files being extracted.
+    ```bash
+    tar -xvf archive.tar
+    ```
+
+  The command will extract all the files and directories that were archived in "archive.tar" into the current directory.
+  You can specify a different destination using the `-C` flag followed by the path to the target directory:
+
+    ```bash
+    tar -xvf archive.tar -C /path/to/destination
+    ```
 
 - `gzip`: Compress a file.
 
