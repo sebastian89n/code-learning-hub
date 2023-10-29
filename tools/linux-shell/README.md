@@ -352,7 +352,31 @@ that every developer should be familiar with:
 
   You can use `curl` for various tasks, such as accessing web APIs, downloading files, and more.
 
-  Note: Make sure to replace `https://www.example.com` with the actual URL or endpoint you want to interact with.
+
+- `wget`: Download a file from the internet.
+
+    ```bash
+    wget https://www.example.com/file.txt
+    ```
+
+  The `wget` command is used to download files from the internet via HTTP, HTTPS, or FTP. In this example, we are
+  downloading a file called "file.txt" from the specified URL (https://www.example.com).
+
+  By running the command:
+
+    ```bash
+    wget https://www.example.com/file.txt
+    ```
+
+  `wget` will retrieve the file and save it in the current directory.
+
+  You can also specify a different destination for the downloaded file using the `-P` flag:
+
+    ```bash
+    wget -P /path/to/save https://www.example.com/file.txt
+    ```
+
+  This will download "file.txt" and save it in the specified directory.
 
 ## System Information
 
