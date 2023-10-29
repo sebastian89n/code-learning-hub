@@ -33,13 +33,13 @@ development and other fields to visualize and communicate complex concepts and s
 
 ## Common Diagram Types
 
-1. **Class Diagrams**: Represent classes and their relationships with attributes and methods.
-2. **Sequence Diagrams**: Show interactions between objects over time.
-3. **Use Case Diagrams**: Illustrate the interactions between actors and a system.
-4. **Activity Diagrams**: Depict workflows and processes with various activities and decisions.
-5. **Component Diagrams**: Display system components and their connections.
-6. **State Diagrams**: Describe the behavior of a single object or system.
-7. **Deployment Diagrams**: Illustrate the physical deployment of components in a system.
+- **Class Diagrams**: Represent classes and their relationships with attributes and methods.
+- **Sequence Diagrams**: Show interactions between objects over time.
+- **Use Case Diagrams**: Illustrate the interactions between actors and a system.
+- **Activity Diagrams**: Depict workflows and processes with various activities and decisions.
+- **Component Diagrams**: Display system components and their connections.
+- **State Diagrams**: Describe the behavior of a single object or system.
+- **Deployment Diagrams**: Illustrate the physical deployment of components in a system.
 
 ## Customization
 
