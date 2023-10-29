@@ -301,6 +301,65 @@ that every developer should be familiar with:
 
   You can explore more options by pressing the `h` key while in `top`
 
+
+- `nohup`: Run a command immune to hang-ups.
+
+    ```bash
+    nohup your_command &
+    ```
+
+  The `nohup` command is used to run a command in such a way that it is immune to hang-ups, allowing it to continue
+  running even if you log out or close the terminal. The `&` at the end of the command is used to run the process in the
+  background.
+
+  For example, to run a script called "myscript.sh" in the background and detach it from the terminal, you would run:
+
+    ```bash
+    nohup ./myscript.sh &
+    ```
+
+  This command will start "myscript.sh" and continue running it even if you log out of the system.
+
+  You can check the output of the background process in a file called `nohup.out` in the same directory where you ran
+  the `nohup` command.
+
+## Networking and Data Transfer
+
+- `curl`: Transfer data with URLs.
+
+    ```bash
+    # Make a simple GET request to a URL
+    curl https://www.example.com
+
+    # Save the response to a file
+    curl -o output.html https://www.example.com
+
+    # Follow redirects and save the final page to a file
+    curl -L -o output.html https://www.example.com
+
+    # Send data in a POST request
+    curl -X POST -d "param1=value1&param2=value2" https://www.example.com/api
+
+    # Download a file
+    curl -O https://www.example.com/file.txt
+
+    # Resume a download
+    curl -C - -O https://www.example.com/large-file.zip
+    ```
+
+  The `curl` command is a versatile tool for making HTTP requests and transferring data. Here are some common use cases:
+
+    - Making a simple GET request to a URL.
+    - Saving the response to a file with the `-o` option.
+    - Following redirects with the `-L` option.
+    - Sending data in a POST request with the `-d` option.
+    - Downloading a file with the `-O` option.
+    - Resuming a download with the `-C` option.
+
+  You can use `curl` for various tasks, such as accessing web APIs, downloading files, and more.
+
+  Note: Make sure to replace `https://www.example.com` with the actual URL or endpoint you want to interact with.
+
 ## System Information
 
 - `date`: Display the current date and time.

@@ -2,6 +2,9 @@
 
 ## Section 4: Understanding Remote Branches in Git
 
+When working with Git, it's important to distinguish between **local branches** and **remote branches**. These concepts
+are fundamental to version control and collaboration.
+
 ### Remote Branches in Git
 
 In Git, **remote branches** represent the state of branches on a remote repository. They are used for collaboration and
@@ -47,20 +50,26 @@ Here are some key remote repository commands:
   ```bash
   git pull origin branch_name
   ```
-  or to pull current branch and fetch everything other branch from remote:
-  ```bash
-  git pull origin
-  ```
-
   it is equivalent of running:
     ```bash
   git fetch origin branch_name
   git merge origin/branch_name
+  ```  
+
+  or to pull current branch and fetch everything other branch from remote:
+  ```bash
+  git pull origin
   ```
+  it is equivalent of running:
+    ```bash
+  git fetch origin
+  git merge origin/current_branch_name
+  ```  
+
 - **Checking Out Remote Branches:**
 
   You can create a local version of a remote branch by checking it out. This allows you to work on a copy of the remote
-  branch locally:
+  branch locally(it automatically sets upstream on local branch to remote branch):
   ```bash
   git checkout -b local_branch_name origin/remote_branch_name
   ```
@@ -70,6 +79,9 @@ Here are some key remote repository commands:
   ```bash
   git checkout remote_branch_name
   ```
+  If a branch `remote_branch_name` do not exist in your local branches, but it is in the remote branches reference,
+  command will create a new local branch with the same name and set upstream to remote branch.
+
 
 - **Push a new branch to remote repository:**
   ```bash
@@ -84,4 +96,29 @@ Here are some key remote repository commands:
   upstream to remote branch):**
   ```bash
   git push origin branch_name
+  ```
+
+### Connecting Local and Remote Branches via Upstream
+
+In Git, a local branch can be associated with a remote branch through an "upstream" relationship. This connection allows
+for easier tracking and synchronization between your local and remote repositories.
+
+- **Set Upstream Branch:**
+  To establish an upstream connection, use the following command, where `local-branch` is your local branch
+  and `remote-branch` is the branch on the remote repository (typically origin):
+
+  ```bash
+  git branch --set-upstream-to=origin/remote-branch local-branch
+  ```
+
+  It is done automatically if you checkout remote branch on your local repository(create a local branch from existing
+  remote branch).
+
+
+- **View Upstream Configuration:**
+  To establish an upstream connection, use the following command, where `local-branch` is your local branch
+  and `remote-branch` is the branch on the remote repository (typically origin):
+
+  ```bash
+  git branch -vv
   ```

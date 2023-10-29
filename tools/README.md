@@ -18,6 +18,10 @@ Project contains examples of various useful tools
   changes
 
 
+- **maven** -Maven is a build automation and project management tool for Java and other programming languages, used to
+  streamline the build process, manage project dependencies, and enforce best practices in software development
+
+
 - **puml** - PlantUML is a powerful tool for creating diagrams in a simple, text-based format. It's widely used in
   software development and other fields to visualize and communicate complex concepts and systems.
 
