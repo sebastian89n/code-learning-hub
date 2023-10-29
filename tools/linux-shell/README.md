@@ -142,12 +142,6 @@ that every developer should be familiar with:
     awk '{ print $1 }' file.txt
     ```
 
-- `cut`: Remove sections from lines of files.
-
-    ```bash
-    cut -d, -f1 file.csv
-    ```
-
 - `wc`: Word, line, character, and byte count.
 
     ```bash
@@ -168,12 +162,16 @@ that every developer should be familiar with:
   The `zip` command is used to create compressed zip archives. In this example, it creates a zip archive called "
   archive.zip" from the "directory" and its contents.
 
+
 - `unzip`: Extract files from a zip archive.
 
     ```bash
     unzip archive.zip
     ```
-
+  or
+    ```bash
+    unzip archive.zip -d /path/to/destination
+    ```
   To extract files from a zip archive called "archive.zip," you can use the `unzip` command.
 
 - `tar`: Archive files.
@@ -185,8 +183,15 @@ that every developer should be familiar with:
   The `tar` command is used to create tar archives. In this example, it archives the "directory" and its contents into a
   file called "archive.tar."
 
-  To extract files from a tar archive called "archive.tar," you can use the `tar` command with the `-x` flag for
-  extraction. The `-v` flag is for verbose output, so you can see the files being extracted.
+
+- `tar`: Extract files from a tar archive.
+
+    ```bash
+    tar -xvf archive.tar
+    ```
+    ```bash
+    tar -xvf archive.tar -C /path/to/destination
+    ```
 
 - `gzip`: Compress a file.
 
@@ -244,7 +249,7 @@ that every developer should be familiar with:
 
 - `scp`: Securely copy files over SSH.
 
-  Copy file to a server to specified local directory:
+  Copy local file to specified remote directory on a server:
     ```bash
     scp local-file.txt username@remote-host:/path/to/destination/
     ```
@@ -301,6 +306,89 @@ that every developer should be familiar with:
 
   You can explore more options by pressing the `h` key while in `top`
 
+
+- `nohup`: Run a command immune to hang-ups.
+
+    ```bash
+    nohup your_command &
+    ```
+
+  The `nohup` command is used to run a command in such a way that it is immune to hang-ups, allowing it to continue
+  running even if you log out or close the terminal. The `&` at the end of the command is used to run the process in the
+  background.
+
+  For example, to run a script called "myscript.sh" in the background and detach it from the terminal, you would run:
+
+    ```bash
+    nohup ./myscript.sh &
+    ```
+
+  This command will start "myscript.sh" and continue running it even if you log out of the system.
+
+  You can check the output of the background process in a file called `nohup.out` in the same directory where you ran
+  the `nohup` command.
+
+## Networking and Data Transfer
+
+- `curl`: Transfer data with URLs.
+
+    ```bash
+    # Make a simple GET request to a URL
+    curl https://www.example.com
+
+    # Save the response to a file
+    curl -o output.html https://www.example.com
+
+    # Follow redirects and save the final page to a file
+    curl -L -o output.html https://www.example.com
+
+    # Send data in a POST request
+    curl -X POST -d "param1=value1&param2=value2" https://www.example.com/api
+
+    # Download a file
+    curl -O https://www.example.com/file.txt
+
+    # Resume a download
+    curl -C - -O https://www.example.com/large-file.zip
+    ```
+
+  The `curl` command is a versatile tool for making HTTP requests and transferring data. Here are some common use cases:
+
+    - Making a simple GET request to a URL.
+    - Saving the response to a file with the `-o` option.
+    - Following redirects with the `-L` option.
+    - Sending data in a POST request with the `-d` option.
+    - Downloading a file with the `-O` option.
+    - Resuming a download with the `-C` option.
+
+  You can use `curl` for various tasks, such as accessing web APIs, downloading files, and more.
+
+
+- `wget`: Download a file from the internet.
+
+    ```bash
+    wget https://www.example.com/file.txt
+    ```
+
+  The `wget` command is used to download files from the internet via HTTP, HTTPS, or FTP. In this example, we are
+  downloading a file called "file.txt" from the specified URL (https://www.example.com).
+
+  By running the command:
+
+    ```bash
+    wget https://www.example.com/file.txt
+    ```
+
+  `wget` will retrieve the file and save it in the current directory.
+
+  You can also specify a different destination for the downloaded file using the `-P` flag:
+
+    ```bash
+    wget -P /path/to/save https://www.example.com/file.txt
+    ```
+
+  This will download "file.txt" and save it in the specified directory.
+
 ## System Information
 
 - `date`: Display the current date and time.
@@ -353,3 +441,28 @@ that every developer should be familiar with:
   The `jstack` command is especially useful for diagnosing issues related to thread deadlock, high CPU usage, or other
   performance problems in a Java application. The thread dump provides information about the state of each thread,
   including what they are currently doing and their call stack.
+
+## Data Integrity
+
+- `md5sum`: Calculate the MD5 checksum of a file and save it to a file.
+
+    ```bash
+    md5sum file.txt > file.txt.md5sum
+    ```
+
+  The `md5sum` command is used to calculate the MD5 checksum of a file. In this example, we save the MD5 checksum to a
+  file named "file.txt.md5sum." This saved checksum file can be used for later verification of the file's integrity.
+
+- `md5sum -c`: Check the MD5 checksum using a saved checksum file.
+
+    ```bash
+    md5sum -c file.txt.md5sum
+    ```
+
+  To verify the integrity of a file using the saved MD5 checksum, you can use the `md5sum -c` command. This command
+  checks the file's checksum against the checksum saved in "file.txt.md5sum."
+
+  If the file hasn't been tampered with, you will receive an output like "file.txt: OK." If there's a discrepancy, you
+  will be alerted to it.
+
+  The combination of these commands ensures that a file's integrity can be checked at a later time.

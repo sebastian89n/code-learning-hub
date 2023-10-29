@@ -24,14 +24,14 @@ constraints. They focus on the creation, alteration, and deletion of database sc
 
 DML statements are used to manipulate data within the database, including inserting, updating, and deleting records.
 
-### DCL (Data Control Language):
-
-DCL statements are used to control access to data within the database and to manage user privileges.
-
 ### DQL (Data Query Language)
 
 DQL statements are used to retrieve and query data from a database, allowing users to extract specific information using
 the SELECT statement and apply filtering and sorting to meet their data retrieval requirements.
+
+### DCL (Data Control Language):
+
+DCL statements are used to control access to data within the database and to manage user privileges.
 
 ## SQL execution order
 

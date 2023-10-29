@@ -38,6 +38,18 @@ Sometimes, you may need to undo changes in Git. Here are a few commands to help 
   git reset --hard HEAD@{1}
   ```
 
+- **Git Clean :** used to remove untracked files and directories from your working directory. Be cautious when
+  using this command, as it permanently deletes untracked data.
+
+  Remove untracked files and directories:
+  ```bash
+  git clean -f
+  ```
+  Remove untracked files, directories, and their contents (use with caution):
+  ```bash
+  git clean -f -d
+  ```
+
 - **Amend the last commit (change commit message or add more changes):**
   ```bash
   git commit --amend
@@ -172,18 +184,4 @@ cherry-pick a commit:
 - **Cherry-pick a commit from another branch:**
   ```bash
   git cherry-pick commit_hash
-  ```
-
-### Git Submodules
-
-Git submodules allow you to include one Git repository within another. Here's how to add and update submodules:
-
-- **Add a submodule:**
-  ```bash
-  git submodule add repository_url path/to/submodule
-  ```
-
-- **Update submodules:**
-  ```bash
-  git submodule update --init --recursive
   ```
