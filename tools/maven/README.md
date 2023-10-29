@@ -185,13 +185,14 @@ and plugins throughout your project.
 
 It's important to note that dependencies specified in the `dependencyManagement` and plugins in the `pluginsManagement`
 sections are not automatically inherited by your project's modules. In other words, they serve as templates or central
-configurations.
+configurations. Their primary role is to provide consistent versions for dependencies and plugins used across
+your project. This centralization simplifies version management and ensures uniformity.
 
-To use a dependency or plugin defined in these sections, you must explicitly declare it in your
-module's `dependencies` or `build/plugins` section, specifying the `<groupId>`, `<artifactId>`, and, if needed, the
-version. This explicit declaration ensures that the dependency or plugin is included in your project's build. This
-approach provides flexibility, allowing modules to choose which centrally defined dependencies and plugins they wish to
-use.
+To utilize a dependency or plugin defined in these sections, you must explicitly declare it in your
+module's `dependencies` or `build/plugins` section, specifying the `<groupId>` and `<artifactId>`. If the version is not
+specified here, Maven will automatically use the version provided in `dependencyManagement` or `pluginsManagement`. This
+approach allows you to avoid specifying versions repeatedly in your project's POM, promoting maintainability and
+consistency.
 
 ## Maven BOM
 
@@ -279,8 +280,19 @@ Maven defines build lifecycles that dictate the build phases. Common Maven lifec
 
 ## Goals
 
-Each lifecycle is made up of goals. Goals are specific tasks that can be executed. For example, the `test` phase can
-have a goal to run unit tests.
+In Maven, a **goal** is a specific task or action performed by a plugin during a build process. Goals are the individual
+operations that a plugin can execute. They are defined within a plugin and correspond to specific functionalities that
+the plugin provides.
+
+For example, the `maven-compiler-plugin` offers several goals, including `compile`, `testCompile`, and `install`.
+The `compile` goal is responsible for compiling the project's source code, `testCompile` compiles test source code,
+and `install` installs the project's JAR file in the local repository.
+
+Goals are an integral part of Maven's build process, and you can configure them in your project's POM file. You can
+specify which goals a plugin should execute and when they should run by attaching the plugin to specific build phases.
+
+Each plugin typically documents its available goals and how to configure them. Goals are powerful tools that allow you
+to customize and extend your build process to meet your project's specific requirements.
 
 ## Attaching Plugins to Specific Phases
 
@@ -293,11 +305,15 @@ You can configure your plugins to execute at specific phases in the `pom.xml`. F
         <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-compiler-plugin</artifactId>
-            <version>3.8.0</version>
-            <configuration>
-                <source>1.8</source>
-                <target>1.8</target>
-            </configuration>
+            <version>3.8.1</version>
+            <executions>
+                <execution>
+                    <phase>compile</phase>
+                    <goals>
+                        <goal>compile</goal>
+                    </goals>
+                </execution>
+            </executions>
         </plugin>
     </plugins>
 </build>
