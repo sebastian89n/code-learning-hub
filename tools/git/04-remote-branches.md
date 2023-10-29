@@ -18,7 +18,7 @@ tracking the work done by other team members. Some key points about remote branc
 Local references are representation of all remote branches stored in your local git repository
 in `.git/refs/remotes/{remoteRepoName}/`
 
-### Remote repositories
+### Remote repositories and branches
 
 Git enables you to collaborate with others using remote repositories.
 
