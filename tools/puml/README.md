@@ -15,14 +15,16 @@ development and other fields to visualize and communicate complex concepts and s
     - Use the PlantUML syntax to describe the elements and relationships in your diagram. For example:
 
    ```plantuml
-   @startuml
-   class Car {
-     + make: string
-     + model: string
-     + start()
-     + stop()
-   }
-   @enduml
+    @startuml
+    actor User
+    participant "Web App" as WebApp
+    participant "Database" as DB
+    
+    User -> WebApp: Request Page
+    WebApp -> DB: Query Data
+    DB --> WebApp: Return Data
+    WebApp --> User: Display Page
+    @enduml
    ```
 
 4. **Render the Diagram:**
