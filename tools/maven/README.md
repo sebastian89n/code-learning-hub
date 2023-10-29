@@ -5,13 +5,9 @@
 Maven is a build automation and project management tool primarily used for Java projects. It simplifies the build
 process, manages dependencies, and can automate many aspects of your project.
 
----
-
 ## Installing Maven
 
 You can download and install it from [Maven's official website](https://maven.apache.org/download.cgi).
-
----
 
 ## Project Structure
 
@@ -35,8 +31,6 @@ This structure supports also different languages, for example Kotlin.
 
 The heart of Maven project is the `pom.xml` file (Project Object Model). It contains project metadata,
 dependencies, and build instructions.
-
----
 
 ## Dependency
 
