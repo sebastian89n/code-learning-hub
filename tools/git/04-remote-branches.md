@@ -114,9 +114,6 @@ for easier tracking and synchronization between your local and remote repositori
 
 
 - **View Upstream Configuration:**
-  To establish an upstream connection, use the following command, where `local-branch` is your local branch
-  and `remote-branch` is the branch on the remote repository (typically origin):
-
   ```bash
   git branch -vv
   ```
