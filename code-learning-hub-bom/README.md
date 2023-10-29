@@ -65,4 +65,4 @@ Or it can be imported, in which case we transfer only dependencyManagement secti
         <version>0.0.1-SNAPSHOT</version>
         <type>pom</type>
         <scope>import</scope>
-    </dependency>>
+    </dependency>
