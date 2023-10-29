@@ -249,7 +249,7 @@ that every developer should be familiar with:
 
 - `scp`: Securely copy files over SSH.
 
-  Copy file to a server to specified local directory:
+  Copy local file to specified remote directory on a server:
     ```bash
     scp local-file.txt username@remote-host:/path/to/destination/
     ```
