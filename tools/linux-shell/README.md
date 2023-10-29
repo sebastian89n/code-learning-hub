@@ -142,12 +142,6 @@ that every developer should be familiar with:
     awk '{ print $1 }' file.txt
     ```
 
-- `cut`: Remove sections from lines of files.
-
-    ```bash
-    cut -d, -f1 file.csv
-    ```
-
 - `wc`: Word, line, character, and byte count.
 
     ```bash
