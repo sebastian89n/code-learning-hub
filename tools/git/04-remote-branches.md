@@ -34,7 +34,7 @@ Here are some key remote repository commands:
 
 - **Fetch changes from a remote repository:**
 
-  git fetch updates your remote-tracking branches under `refs/remote/<remote>/`
+  git fetch updates your remote-tracking branches under `.git/refs/remotes/{remoteRepoName}/`
   but it doesn't update your local branches.
   ```bash
   git fetch origin branch_name
