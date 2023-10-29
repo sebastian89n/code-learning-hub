@@ -412,3 +412,28 @@ that every developer should be familiar with:
   The `jstack` command is especially useful for diagnosing issues related to thread deadlock, high CPU usage, or other
   performance problems in a Java application. The thread dump provides information about the state of each thread,
   including what they are currently doing and their call stack.
+
+## Data Integrity
+
+- `md5sum`: Calculate the MD5 checksum of a file and save it to a file.
+
+    ```bash
+    md5sum file.txt > file.txt.md5sum
+    ```
+
+  The `md5sum` command is used to calculate the MD5 checksum of a file. In this example, we save the MD5 checksum to a
+  file named "file.txt.md5sum." This saved checksum file can be used for later verification of the file's integrity.
+
+- `md5sum -c`: Check the MD5 checksum using a saved checksum file.
+
+    ```bash
+    md5sum -c file.txt.md5sum
+    ```
+
+  To verify the integrity of a file using the saved MD5 checksum, you can use the `md5sum -c` command. This command
+  checks the file's checksum against the checksum saved in "file.txt.md5sum."
+
+  If the file hasn't been tampered with, you will receive an output like "file.txt: OK." If there's a discrepancy, you
+  will be alerted to it.
+
+  The combination of these commands ensures that a file's integrity can be checked at a later time.
