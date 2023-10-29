@@ -168,8 +168,20 @@ that every developer should be familiar with:
     ```bash
     unzip archive.zip
     ```
-
+  or
+    ```bash
+    unzip archive.zip -d /path/to/destination
+    ```
   To extract files from a zip archive called "archive.zip," you can use the `unzip` command.
+
+- `tar`: Archive files.
+
+    ```bash
+    tar -cvf archive.tar directory/
+    ```
+
+  The `tar` command is used to create tar archives. In this example, it archives the "directory" and its contents into a
+  file called "archive.tar."
 
 
 - `tar`: Extract files from a tar archive.
