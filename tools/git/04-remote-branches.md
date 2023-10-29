@@ -68,20 +68,18 @@ Here are some key remote repository commands:
 
 - **Checking Out Remote Branches:**
 
-  You can create a local version of a remote branch by checking it out. This allows you to work on a copy of the remote
-  branch locally(it automatically sets upstream on local branch to remote branch):
+  If a branch `remote_branch_name` do not exist in your local branches, but it exists in the remote branches,
+  you can create a new local branch with the same name and set upstream to remote branch by using:
+  ```bash
+  git checkout remote_branch_name
+  ```
+
+  You can also create a local branch from a remote branch with a different name by using:
   ```bash
   git checkout -b local_branch_name origin/remote_branch_name
   ```
 
-  If you want to create a local branch from remote
-  one with the same name, you can just use:
-  ```bash
-  git checkout remote_branch_name
-  ```
-  If a branch `remote_branch_name` do not exist in your local branches, but it is in the remote branches reference,
-  command will create a new local branch with the same name and set upstream to remote branch.
-
+  Commands above create a local branch from remote one and set upstream to that branch.
 
 - **Push a new branch to remote repository:**
   ```bash
