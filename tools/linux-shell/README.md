@@ -189,18 +189,6 @@ that every developer should be familiar with:
     ```bash
     tar -xvf archive.tar
     ```
-
-  The `tar` command is used to create and manipulate tar archives. To extract files from a tar archive, you can use
-  the `-x` flag, which stands for "extract," and the `-v` flag for "verbose" output. For example, to extract the
-  contents of a tar archive named "archive.tar," you would run:
-
-    ```bash
-    tar -xvf archive.tar
-    ```
-
-  The command will extract all the files and directories that were archived in "archive.tar" into the current directory.
-  You can specify a different destination using the `-C` flag followed by the path to the target directory:
-
     ```bash
     tar -xvf archive.tar -C /path/to/destination
     ```
