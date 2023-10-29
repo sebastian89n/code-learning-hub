@@ -1,15 +1,15 @@
 # Maven Tutorial for Java Developers
 
-## What is Maven?
+### What is Maven?
 
 Maven is a build automation and project management tool primarily used for Java projects. It simplifies the build
 process, manages dependencies, and can automate many aspects of your project.
 
-## Installing Maven
+### Installing Maven
 
 You can download and install it from [Maven's official website](https://maven.apache.org/download.cgi).
 
-## Project Structure
+### Project Structure
 
 Maven follows a specific project structure. Typically, your project should have the following directories:
 
@@ -27,18 +27,18 @@ project-root/
 
 This structure supports also different languages, for example Kotlin.
 
-## The `pom.xml` File
+### The `pom.xml` File
 
 The heart of Maven project is the `pom.xml` file (Project Object Model). It contains project metadata,
 dependencies, and build instructions.
 
-## Dependency
+### Dependency
 
 In Maven, a **dependency** represents an external library or artifact that your project relies on. Dependencies are
 declared in the project's `pom.xml` file, and Maven fetches these libraries from repositories to build and run your
 project. Here's how you work with dependencies:
 
-## Declaring Dependencies
+### Declaring Dependencies
 
 To declare a dependency, you include a `<dependency>` element within the `<dependencies>` section of your `pom.xml`. A
 typical dependency declaration includes the `groupId`, `artifactId`, and `version` of the library:
@@ -54,7 +54,7 @@ typical dependency declaration includes the `groupId`, `artifactId`, and `versio
 </dependencies>
 ```
 
-## Dependency Scopes
+### Dependency Scopes
 
 Dependencies can have different scopes, each with a specific purpose. Here are some commonly used dependency scopes:
 
@@ -95,7 +95,7 @@ Examples:
 </dependency>
 ```
 
-## Transitive Dependencies
+### Transitive Dependencies
 
 Maven resolves dependencies transitively, meaning it automatically fetches all the transitive dependencies needed by
 your declared dependencies. This simplifies your project configuration and ensures that your project works seamlessly
@@ -118,7 +118,7 @@ In this representation:
 - "Transitive Dependency X," "Transitive Dependency Y," and "Transitive Dependency Z" are dependencies pulled in
   automatically due to the direct dependencies.
 
-## Exclusions
+### Exclusions
 
 In some cases, you may need to exclude specific transitive dependencies to prevent conflicts. You can do this by
 adding <exclusions> within the <dependency> declaration.
@@ -142,13 +142,13 @@ For example, to exclude a problematic dependency:
 </dependencies>
 ```
 
-## Understanding Dependency Conflicts
+### Understanding Dependency Conflicts
 
 Dependency conflicts occur when different parts of your project require different versions of the same library. For
 example, suppose your project depends on "Library X" with version 1.0, and a plugin you're using relies on "Library X"
 version 2.0. This is a typical scenario for a conflict.
 
-## Resolution Strategy
+### Resolution Strategy
 
 Maven follows a specific resolution strategy to handle these conflicts:
 
@@ -158,7 +158,7 @@ Maven follows a specific resolution strategy to handle these conflicts:
 2. **Version Order**: If there are multiple dependencies at the same level in the hierarchy (at the same distance from
    your project), Maven selects the version that appears first in the list of dependencies.
 
-## Investigating Dependency Conflicts
+### Investigating Dependency Conflicts
 
 Maven provides a useful tool, `dependency:tree`, to visualize the dependency tree of your project. Run the following
 command to generate a tree structure:
@@ -169,7 +169,7 @@ mvn dependency:tree
 
 It can be also visualized using IDE plugins like `Maven Helper` in IntelliJ.
 
-## Dependency and Plugins Management
+### Dependency and Plugins Management
 
 In Maven, `dependencyManagement` and `pluginsManagement` are sections in your project's `pom.xml` file that allow you to
 centralize and manage dependencies and plugins across multiple modules. They serve the following purposes:
@@ -194,13 +194,13 @@ specified here, Maven will automatically use the version provided in `dependency
 approach allows you to avoid specifying versions repeatedly in your project's POM, promoting maintainability and
 consistency.
 
-## Maven BOM
+### Maven BOM
 
 **BOM (Bill of Materials)**: In Maven, a BOM is a special type of POM (Project Object Model) that centralizes and
 manages version information for a set of related dependencies. It simplifies dependency management by providing a single
 place to define and update versions, ensuring consistency across projects that use those dependencies.
 
-## Defining Properties
+### Defining Properties
 
 Maven properties are defined in the project's `pom.xml` or in external property files. To define a property in
 your `pom.xml`, use the `<properties>` section:
@@ -215,7 +215,7 @@ your `pom.xml`, use the `<properties>` section:
 
 You can also define properties externally in a `.properties` file or in the `<build><plugins>` section if needed.
 
-## Using Properties
+### Using Properties
 
 Properties can be used throughout your project's configuration, such as in the pom.xml, plugin configurations, or even
 within your application code. For example:
@@ -244,7 +244,7 @@ within your application code. For example:
 </plugins>
 ```
 
-## Overriding Properties
+### Overriding Properties
 
 Maven properties can be overridden at different levels. The order of precedence is:
 
@@ -255,7 +255,7 @@ Maven properties can be overridden at different levels. The order of precedence 
 
 You can override properties when running Maven commands, which can be useful for customizing builds.
 
-## Benefits of Properties
+### Benefits of Properties
 
 Maven properties offer several benefits:
 
@@ -264,7 +264,7 @@ Maven properties offer several benefits:
 - **Centralization**: Common values are centralized, making it easier to manage and update them consistently.
 - **Clean Configuration**: It keeps your pom.xml clean and focused on project structure and not hardcoded values.
 
-## Maven Lifecycles
+### Maven Lifecycles
 
 Maven defines build lifecycles that dictate the build phases. Common Maven lifecycles include:
 
@@ -278,7 +278,7 @@ Maven defines build lifecycles that dictate the build phases. Common Maven lifec
 - `verify`: Runs checks on the results of integration tests. (e.g., `maven-failsafe-plugin`)
 - `site`: Generates project documentation, reports, and websites. (e.g., `maven-site-plugin`)
 
-## Goals
+### Goals
 
 In Maven, a **goal** is a specific task or action performed by a plugin during a build process. Goals are the individual
 operations that a plugin can execute. They are defined within a plugin and correspond to specific functionalities that
@@ -294,7 +294,7 @@ specify which goals a plugin should execute and when they should run by attachin
 Each plugin typically documents its available goals and how to configure them. Goals are powerful tools that allow you
 to customize and extend your build process to meet your project's specific requirements.
 
-## Attaching Plugins to Specific Phases
+### Attaching Plugins to Specific Phases
 
 You can configure your plugins to execute at specific phases in the `pom.xml`. For example:
 
@@ -319,7 +319,7 @@ You can configure your plugins to execute at specific phases in the `pom.xml`. F
 </build>
 ```
 
-## The `.m2` Folder and `settings.xml` in Maven
+### The `.m2` Folder and `settings.xml` in Maven
 
 In Maven, the `.m2` folder and the `settings.xml` file play important roles in configuring and managing your Maven
 environment.
@@ -335,7 +335,7 @@ it is located in the user's home directory and contains the following important 
 The `.m2` folder is a crucial part of your Maven environment and should not be modified manually except for
 the `settings.xml` file.
 
-## The `settings.xml` File
+### The `settings.xml` File
 
 The `settings.xml` file is a configuration file used to customize and configure Maven settings. It is stored in
 the `.m2` folder and plays a pivotal role in specifying various aspects of your Maven build process. Here are some of
@@ -353,7 +353,7 @@ its key uses:
 
 - **Remote Repositories**: Specify additional remote repositories for dependencies.
 
-## Conclusion
+### Conclusion
 
 Maven is a powerful tool that can simplify the build and dependency management process for Java projects. By
 understanding its core concepts, you can effectively manage your project's dependencies, plugins, and build process.
