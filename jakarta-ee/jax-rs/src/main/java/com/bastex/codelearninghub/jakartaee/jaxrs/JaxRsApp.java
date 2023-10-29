@@ -23,22 +23,24 @@ public class JaxRsApp {
 
             final HttpServer server = GrizzlyHttpServerFactory.createHttpServer(
                     URI.create("http://localhost:8080/"), resourceConfig);
-
-            // Start Server
-            Runtime.getRuntime().addShutdownHook(new Thread(() -> {
-                try {
-                    log.info("Shutting down the application...");
-                    server.shutdownNow();
-                    log.info("Server shut down successfully.");
-                } catch (final Exception e) {
-                    log.error("Unable to stop server.", e);
-                }
-            }));
+            addShutdownHook(server);
 
             log.info("Application started.");
             Thread.currentThread().join();
         } catch (final InterruptedException e) {
             log.error("Thread interrupted", e);
         }
+    }
+
+    private static void addShutdownHook(final HttpServer server) {
+        Runtime.getRuntime().addShutdownHook(new Thread(() -> {
+            try {
+                log.info("Shutting down the application...");
+                server.shutdownNow();
+                log.info("Server shut down successfully.");
+            } catch (final Exception e) {
+                log.error("Unable to stop server.", e);
+            }
+        }));
     }
 }

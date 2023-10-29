@@ -15,6 +15,7 @@
     <modules>
         <module>jackson</module>
         <module>junit-with-mockito</module>
+        <module>liquibase</module>
         <module>mapstruct</module>
         <module>picocli</module>
         <module>slf4j-with-logback</module>

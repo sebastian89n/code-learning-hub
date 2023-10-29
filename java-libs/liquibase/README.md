@@ -1,12 +1,6 @@
 ## Liquibase: Database Version Control and Migration
 
-Liquibase simplifies the process of managing database changes and schema evolution, enhancing collaboration among
-development teams and database administrators. It is an essential tool for ensuring the integrity and reliability of
-database deployments, especially in agile and DevOps environments.
-
 Module contains example of Liquibase scripts and Java code to execute them programmatically.
-
-Liquibase is placed in tools module because changesets can be also run as standalone with Liquibase CLI.
 
 In this example, we use Liquibase embedded in Java application with Spring Boot autoconfiguration disabled. It
 demonstrates how we can configure
