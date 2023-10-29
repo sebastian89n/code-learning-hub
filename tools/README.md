@@ -14,10 +14,6 @@ Project contains examples of various useful tools
 - **linux-shell** - useful Linux shell commands for Java developers
 
 
-- **liquibase** - Liquibase is a database schema change management solution that enables to revise and release database
-  changes
-
-
 - **maven** -Maven is a build automation and project management tool for Java and other programming languages, used to
   streamline the build process, manage project dependencies, and enforce best practices in software development
 

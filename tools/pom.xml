@@ -17,7 +17,6 @@
         <module>docker</module>
         <module>git</module>
         <module>linux-shell</module>
-        <module>liquibase</module>
         <module>maven</module>
         <module>puml</module>
         <module>sql</module>

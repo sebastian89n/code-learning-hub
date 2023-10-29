@@ -8,7 +8,7 @@ SQL is a domain-specific language used for managing and querying relational data
 - **Table**: A collection of related data organized into rows and columns.
 - **SQL Statements**: Commands used to interact with databases.
 - **Primary Key (PK)**: A unique identifier for each record in a table.
-- **Foreign key (FK)** is a database constraint that ensures data integrity by linking a column in one table to the
+- **Foreign Key (FK)** is a database constraint that ensures data integrity by linking a column in one table to the
   primary key of another table, enforcing referential integrity.
 - **Index** is a database structure that improves the speed of data retrieval operations by providing a quick lookup
   of rows in a table based on the values of one or more columns
