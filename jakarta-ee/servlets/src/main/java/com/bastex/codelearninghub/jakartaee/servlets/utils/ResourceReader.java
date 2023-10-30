@@ -17,7 +17,7 @@ import java.util.stream.Collectors;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public final class ResourceReader {
-    private static final Pattern PROPERTIES_FILE_DELIMITER = Pattern.compile("=");
+    private static final Pattern PROPERTY_VALUES_DELIMITER = Pattern.compile("=");
 
     @SneakyThrows(IOException.class)
     public static Map<String, User> readUsersFromResource(@NonNull final String resourcePath) {
@@ -42,7 +42,7 @@ public final class ResourceReader {
 
     private static User transformToUser(final String line) {
         if (line != null && !line.isBlank()) {
-            final String[] split = PROPERTIES_FILE_DELIMITER.split(line);
+            final String[] split = PROPERTY_VALUES_DELIMITER.split(line);
             if (lineContainsProperlyDefinedUser(split)) {
                 final String username = split[0].strip();
                 final String password = split[1].strip();

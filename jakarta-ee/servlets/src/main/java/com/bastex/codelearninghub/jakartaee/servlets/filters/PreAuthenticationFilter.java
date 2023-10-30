@@ -21,12 +21,11 @@ public class PreAuthenticationFilter implements Filter {
     @Override
     public void doFilter(final ServletRequest servletRequest, final ServletResponse servletResponse, final FilterChain filterChain) throws IOException, ServletException {
         final HttpServletRequest request = (HttpServletRequest) servletRequest;
-        final HttpServletResponse response = (HttpServletResponse) servletRequest;
-
+        final HttpServletResponse response = (HttpServletResponse) servletResponse;
         if (isAuthenticated(request) || isAccessingStaticResource(request)) {
             filterChain.doFilter(servletRequest, servletResponse);
         } else {
-            response.sendRedirect("/login.html");
+            response.sendRedirect("/static/login.html");
         }
     }
 
