@@ -5,6 +5,7 @@ Modules with examples of some core Jakarta EE technologies:
 - **jax-rs** - Jakarta RESTful Web Services
 - **jax-ws** - Jakarta XML Web Services
 - **jaxb** - Jakarta XML Binding
+- **servlets** - Jakarta Servlets
 
 ## Jakarta EE (previously Java EE - Java Enterprise Edition)
 
@@ -59,13 +60,17 @@ execution.
 The two main types of containers are:
 
 - **Web Containers:** These containers manage the execution of web applications, including Servlets, JSP, and related
-  web components.
+  web components. Web containers are typically limited versions that include a subset of Jakarta EE technologies,
+  focusing
+  on web-related functionalities.
+
+  **E.g. servers**: Apache Tomcat, Jetty
+
 
 - **EJB Containers:** EJB containers host Enterprise JavaBeans and provide services like transaction management,
   security, and scalability.
 
-Jakarta EE promotes modularity, portability, and reusability, making it a popular choice for building robust,
-enterprise-level applications.
+  **E.g. servers**: Oracle Weblogic, WilfFly
 
 ## Notable Jakarta EE Implementations
 
