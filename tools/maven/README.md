@@ -25,7 +25,19 @@ project-root/
     └─ pom.xml
 ```
 
-This structure supports also different languages, for example Kotlin.
+This structure supports also different languages, like Kotlin etc.
+
+```plaintext
+project-root/
+    ├─ src/
+    │    ├─ main/
+    │    │     ├─ kotlin/
+    │    │     └─ resources/
+    │    └─ test/
+    │         ├─ kotlin/
+    │         └─ resources/
+    └─ pom.xml
+```
 
 ## The `pom.xml` File
 
