@@ -34,3 +34,64 @@ responses in a web-based, distributed, and platform-independent environment.
 9. **Listeners:** Servlet context listeners and session listeners provide mechanisms to detect changes in the web
    application's lifecycle.
 
+# Configuration Methods for Servlets and Filters
+
+## 1. web.xml Configuration
+
+### Description:
+
+- Traditional XML-based configuration for servlets and filters in Jakarta EE (Java Platform, Enterprise Edition)
+  applications.
+- Requires the creation of a web.xml file in the WEB-INF directory.
+
+### Pros:
+
+- Well-established and widely used.
+- Allows fine-grained control over configuration.
+- Supports specifying filter order.
+- Works in both Jakarta EE and Servlet containers.
+
+### Cons:
+
+- Requires additional XML configuration, which can be verbose.
+- Not as concise and flexible as other methods.
+- Must be maintained separately from the source code.
+
+## 2. Programmatic Registration
+
+### Description:
+
+- Servlets and filters are registered programmatically in Java code using ServletContext and FilterRegistration classes.
+- Introduced in Servlet 3.0 specification.
+
+### Pros:
+
+- Allows dynamic and flexible registration of servlets and filters.
+- Enables conditional registration based on application logic.
+- Avoids XML configuration, making configuration more concise.
+
+### Cons:
+
+- Requires manual Java code changes.
+- May not be as easily discoverable as annotations.
+- Some features are container-specific.
+
+## 3. Annotations (e.g., @WebServlet, @WebFilter)
+
+### Description:
+
+- Annotations are introduced in the Servlet 3.0 specification for declarative registration of servlets and filters.
+- Annotations are applied directly to Java classes.
+
+### Pros:
+
+- Concise and easy-to-read configuration.
+- Reduces the need for XML or complex Java code.
+- Supports package scanning for automatic discovery.
+- Simplifies configuration and encourages clean code.
+
+### Cons:
+
+- Limited to Servlet 3.0 and later containers.
+- Cannot specify filter order with @WebFilter (order may be container-specific).
+- May lack the fine-grained control of XML-based configuration.
