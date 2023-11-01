@@ -4,9 +4,9 @@ Jakarta Servlets are a fundamental part of the Jakarta EE platform, providing a 
 flexible way to build dynamic, server-side web applications. Servlets are Java classes that handle requests and generate
 responses in a web-based, distributed, and platform-independent environment.
 
-**To access application:** http://localhost:8080/servlets-app/
+**To access the application:** http://localhost:8080/servlets-app/
 
-**Users preconfigured in:** `users.properties`
+**Users are preconfigured in:** `users.properties`
 
 The provided example offers a simple illustration of using servlets and filters within a Java web application. It
 demonstrates the usage of these components in handling login functionality and serving static resources.
@@ -46,64 +46,29 @@ features tailored to specific requirements.
 9. **Listeners:** Servlet context listeners and session listeners provide mechanisms to detect changes in the web
    application's lifecycle.
 
-# Configuration Methods for Servlets and Filters
+## Configuration Methods for Servlets and Filters
 
-## 1. web.xml Configuration
+### 1. web.xml Configuration
 
-### Description:
+#### Description:
 
 - Traditional XML-based configuration for servlets and filters in Jakarta EE (Java Platform, Enterprise Edition)
   applications.
 - Requires the creation of a web.xml file in the WEB-INF directory.
 
-### Pros:
+### 2. Programmatic Registration
 
-- Well-established and widely used.
-- Allows fine-grained control over configuration.
-- Supports specifying filter order.
-- Works in both Jakarta EE and Servlet containers.
-
-### Cons:
-
-- Requires additional XML configuration, which can be verbose.
-- Not as concise and flexible as other methods.
-- Must be maintained separately from the source code.
-
-## 2. Programmatic Registration
-
-### Description:
+#### Description:
 
 - Servlets and filters are registered programmatically in Java code using ServletContext and FilterRegistration classes.
 - Introduced in Servlet 3.0 specification.
 
-### Pros:
+### 3. Annotations (e.g., @WebServlet, @WebFilter)
 
-- Allows dynamic and flexible registration of servlets and filters.
-- Enables conditional registration based on application logic.
-- Avoids XML configuration, making configuration more concise.
-
-### Cons:
-
-- Requires manual Java code changes.
-- May not be as easily discoverable as annotations.
-- Some features are container-specific.
-
-## 3. Annotations (e.g., @WebServlet, @WebFilter)
-
-### Description:
+#### Description:
 
 - Annotations are introduced in the Servlet 3.0 specification for declarative registration of servlets and filters.
 - Annotations are applied directly to Java classes.
-
-### Pros:
-
-- Concise and easy-to-read configuration.
-- Reduces the need for XML or complex Java code.
-- Supports package scanning for automatic discovery.
-- Simplifies configuration and encourages clean code.
-
-### Cons:
-
-- Limited to Servlet 3.0 and later containers.
 - Cannot specify filter order with @WebFilter (order may be container-specific).
 - May lack the fine-grained control of XML-based configuration.
+
