@@ -1,0 +1,67 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>HTML5 Tester</title>
+    <meta content="Sebastian Nowak" name="author"/>
+    <meta content="Servlets App" name="description"/>
+    <meta charset="UTF-8"/>
+</head>
+<body>
+<section>
+    <h1>Servlets Summary</h1>
+    <p>Servelets are Java-based components that are used for building web applications. They run on the server-side and
+        handle client requests and generate dynamic web content.</p>
+
+    <h2>Key Concepts</h2>
+    <ul>
+        <li><strong>Servlet:</strong> A Java class that extends the `javax.servlet.HttpServlet` class and is responsible
+            for processing HTTP requests and generating HTTP responses.
+        </li>
+        <li><strong>Servlet Container:</strong> A web server or application server that manages the lifecycle of
+            servlets, including their initialization, execution, and destruction.
+        </li>
+        <li><strong>HTTP Methods:</strong> Servlets can handle various HTTP methods such as GET, POST, PUT, DELETE,
+            etc., by implementing specific methods (e.g., `doGet`, `doPost`) to handle each method.
+        </li>
+        <li><strong>Request and Response Objects:</strong> Servlets interact with the client's request through the
+            `HttpServletRequest` object and generate responses using the `HttpServletResponse` object.
+        </li>
+    </ul>
+
+    <h2>Servlet Lifecycle</h2>
+    <p>A servlet goes through the following lifecycle stages:</p>
+    <ol>
+        <li><strong>Initialization:</strong> Servlet is loaded and initialized by the container.</li>
+        <li><strong>Request Handling:</strong> Servlet processes client requests by implementing HTTP methods like
+            `doGet` and `doPost`.
+        </li>
+        <li><strong>Response Generation:</strong> Servlet generates dynamic content and constructs an HTTP response.
+        </li>
+        <li><strong>Destruction:</strong> Servlet is removed from memory by the container.</li>
+    </ol>
+
+    <h2>Servlet Configuration</h2>
+    <p>Servlets are configured using annotations or the `web.xml` deployment descriptor. Configuration includes URL
+        mappings and initialization parameters.</p>
+
+    <h2>Use Cases</h2>
+    <p>Servlets are used for various purposes, including:</p>
+    <ul>
+        <li>Handling user authentication and session management.</li>
+        <li>Processing form data and handling user input.</li>
+        <li>Generating dynamic web content and serving HTML, XML, JSON, etc.</li>
+        <li>Implementing RESTful web services.</li>
+    </ul>
+
+    <h2>Security Considerations</h2>
+    <p>Servlets should be used with security best practices in mind, such as input validation, secure authentication,
+        and protection against common web vulnerabilities like Cross-Site Scripting (XSS) and Cross-Site Request Forgery
+        (CSRF).</p>
+
+    <h2>Conclusion</h2>
+    <p>Servlets are a fundamental technology for building dynamic and interactive web applications in Java. They provide
+        a way to handle HTTP requests and generate customized responses, making them a key component in modern web
+        development.</p>
+</section>
+</body>
+</html>

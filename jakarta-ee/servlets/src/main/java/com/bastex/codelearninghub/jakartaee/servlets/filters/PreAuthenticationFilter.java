@@ -20,12 +20,13 @@ public class PreAuthenticationFilter implements Filter {
 
     @Override
     public void doFilter(final ServletRequest servletRequest, final ServletResponse servletResponse, final FilterChain filterChain) throws IOException, ServletException {
+
         final HttpServletRequest request = (HttpServletRequest) servletRequest;
         final HttpServletResponse response = (HttpServletResponse) servletResponse;
-        if (isAuthenticated(request) || isAccessingStaticResource(request)) {
+        if (isAuthenticated(request) || isAttemptingLogin(request)) {
             filterChain.doFilter(servletRequest, servletResponse);
         } else {
-            response.sendRedirect("/static/login.html");
+            response.sendRedirect(request.getContextPath() + "/login.html");
         }
     }
 
@@ -38,8 +39,8 @@ public class PreAuthenticationFilter implements Filter {
                 && request.getSession().getAttribute(User.USER_SESSION_KEY) != null;
     }
 
-    private static boolean isAccessingStaticResource(final HttpServletRequest request) {
+    private static boolean isAttemptingLogin(final HttpServletRequest request) {
         final String servletPath = request.getServletPath();
-        return servletPath.startsWith("/static/");
+        return servletPath.startsWith("/login");
     }
 }

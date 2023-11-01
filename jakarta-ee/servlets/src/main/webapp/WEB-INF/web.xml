@@ -28,7 +28,7 @@
     <!-- Servlet Configuration -->
     <servlet>
         <servlet-name>AuthenticationServlet</servlet-name>
-        <servlet-class>com.bastex.codelearninghub.jakartaee.servlets.servlets.AuthenticationServlet</servlet-class>
+        <servlet-class>com.bastex.codelearninghub.jakartaee.servlets.servlets.LoginServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>

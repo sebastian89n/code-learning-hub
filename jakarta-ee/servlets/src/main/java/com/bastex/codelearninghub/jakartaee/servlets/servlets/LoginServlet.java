@@ -9,7 +9,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
-public class AuthenticationServlet extends HttpServlet {
+public class LoginServlet extends HttpServlet {
     private AuthenticationService authenticationService;
 
     @Override
@@ -19,6 +19,8 @@ public class AuthenticationServlet extends HttpServlet {
 
     @Override
     protected void doPost(final HttpServletRequest request, final HttpServletResponse response) throws ServletException, IOException {
+        request.getSession().removeAttribute(User.USER_SESSION_KEY);
+
         final String username = request.getParameter("username");
         final String password = request.getParameter("password");
 
@@ -26,6 +28,7 @@ public class AuthenticationServlet extends HttpServlet {
             final boolean authenticated = authenticationService.authenticateUser(username, password);
             if (authenticated) {
                 request.getSession().setAttribute(User.USER_SESSION_KEY, username);
+                response.sendRedirect(request.getContextPath() + "/servlets-info.html");
             } else {
                 response.getWriter().println("Unable to authenticate user");
             }
@@ -37,7 +40,7 @@ public class AuthenticationServlet extends HttpServlet {
 
     private static boolean isAuthParamsProvided(final String username, final String password) {
         return username != null
-                && username.isBlank()
+                && !username.isBlank()
                 && password != null
                 && !password.isBlank();
     }
