@@ -4,6 +4,18 @@ Jakarta Servlets are a fundamental part of the Jakarta EE platform, providing a 
 flexible way to build dynamic, server-side web applications. Servlets are Java classes that handle requests and generate
 responses in a web-based, distributed, and platform-independent environment.
 
+**To access application:** http://localhost:8080/servlets-app/
+
+**Users preconfigured in:** `users.properties`
+
+The provided example offers a simple illustration of using servlets and filters within a Java web application. It
+demonstrates the usage of these components in handling login functionality and serving static resources.
+
+It's important to note that this is a basic demonstration designed to showcase how servlets and filters work together.
+While it serves
+as a starting point for understanding their usage, real-life applications typically involve more complex and diverse
+features tailored to specific requirements.
+
 ## Key Concepts:
 
 1. **Servlet:** A Java class that extends the `javax.servlet.http.HttpServlet` class, responsible for processing HTTP

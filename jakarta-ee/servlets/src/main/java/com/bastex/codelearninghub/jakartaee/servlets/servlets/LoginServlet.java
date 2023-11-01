@@ -14,7 +14,7 @@ public class LoginServlet extends HttpServlet {
 
     @Override
     public void init() {
-        authenticationService = AuthenticationService.newInMemoryInstance("user-db.properties");
+        authenticationService = AuthenticationService.newInMemoryInstance("users.properties");
     }
 
     @Override
