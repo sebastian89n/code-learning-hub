@@ -1,4 +1,11 @@
-# Modules
+# Spring Context: The Heart of the Spring Framework
+
+Spring Context is a crucial component of the Spring Framework, responsible for managing the lifecycle of Spring beans
+and providing various services to Spring-based applications. It creates and maintains the application's object graph,
+handles configuration, and allows for the injection of dependencies. Spring Context is the central hub for managing
+Spring beans and their interactions.
+
+## Modules
 
 - **spring-context-annotations** - example of how to configure Spring context using @Configuration class and
   @ComponentScan
@@ -8,13 +15,6 @@
 - **spring-context-lifecycle** - some basic annotations and interfaces that can be used for handling bean lifecycle
   management
 - **spring-context-dependency-injection** - examples of DI in Spring
-
-## Spring Context: The Heart of the Spring Framework
-
-Spring Context is a crucial component of the Spring Framework, responsible for managing the lifecycle of Spring beans
-and providing various services to Spring-based applications. It creates and maintains the application's object graph,
-handles configuration, and allows for the injection of dependencies. Spring Context is the central hub for managing
-Spring beans and their interactions.
 
 ## Overview
 

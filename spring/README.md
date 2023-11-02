@@ -1,4 +1,12 @@
-# Modules
+# Spring Framework
+
+The Spring Framework is a comprehensive and widely used framework for building Java-based enterprise applications. It
+provides a vast array of features and modules that simplify the development of complex, scalable, and maintainable
+applications. Spring promotes good programming practices, such as modularity, testability, and reusability, and it is
+known for its ability to simplify common enterprise tasks. Below, you'll find an overview of the Spring framework and
+some of the most common Spring modules.
+
+## Modules
 
 Project contains examples of Spring 5 library components
 
@@ -7,14 +15,6 @@ Project contains examples of Spring 5 library components
 - **spring-context** - Spring Context related modules
 - **spring-data-jpa** - examples of JPA mapping, Spring Data repositories etc.
 - **spring-mvc** examples of Spring MVC. Uses spring-data-jpa module for DAO.
-
-## Spring Framework
-
-The Spring Framework is a comprehensive and widely used framework for building Java-based enterprise applications. It
-provides a vast array of features and modules that simplify the development of complex, scalable, and maintainable
-applications. Spring promotes good programming practices, such as modularity, testability, and reusability, and it is
-known for its ability to simplify common enterprise tasks. Below, you'll find an overview of the Spring framework and
-some of the most common Spring modules.
 
 ## Overview
 
