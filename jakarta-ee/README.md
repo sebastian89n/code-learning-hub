@@ -1,4 +1,10 @@
-# Modules
+# Jakarta EE (previously Java EE - Java Enterprise Edition)
+
+Jakarta EE is a set of specifications and APIs for building and deploying
+enterprise-level, distributed, and scalable Java applications. It provides a standardized and robust platform for
+developing server-side applications, often used in business and enterprise environments.
+
+## Modules
 
 Modules with examples of some core Jakarta EE technologies:
 
@@ -6,12 +12,6 @@ Modules with examples of some core Jakarta EE technologies:
 - **jax-ws** - Jakarta XML Web Services
 - **jaxb** - Jakarta XML Binding
 - **servlets** - Jakarta Servlets
-
-## Jakarta EE (previously Java EE - Java Enterprise Edition)
-
-Jakarta EE is a set of specifications and APIs for building and deploying
-enterprise-level, distributed, and scalable Java applications. It provides a standardized and robust platform for
-developing server-side applications, often used in business and enterprise environments.
 
 ## Overview
 
