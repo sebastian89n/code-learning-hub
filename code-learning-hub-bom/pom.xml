@@ -32,6 +32,7 @@
         <jakarta.version>4.0.1</jakarta.version>
         <jaxb.impl.version>4.0.4</jaxb.impl.version>
         <jetty.version>11.0.17</jetty.version>
+        <artemis.version>2.31.2</artemis.version>
     </properties>
 
     <dependencyManagement>
@@ -66,6 +67,13 @@
                 <groupId>com.sun.xml.ws</groupId>
                 <artifactId>jaxws-rt</artifactId>
                 <version>${jakarta.version}</version>
+            </dependency>
+
+            <!-- JMS -->
+            <dependency>
+                <groupId>org.apache.activemq</groupId>
+                <artifactId>artemis-jms-client-all</artifactId>
+                <version>${artemis.version}</version>
             </dependency>
 
             <!-- Jersey dependencies -->

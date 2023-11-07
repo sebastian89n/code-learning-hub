@@ -1,6 +1,7 @@
-# Clean Code by Robert C. Martin
+# Clean Code
 
-Clean Code by Robert C. Martin is a book that provides principles and practices for writing readable, maintainable, and
+**Clean Code by Robert C. Martin** is a book that provides principles and practices for writing readable, maintainable,
+and
 high-quality code. It promotes the idea that well-written code is like a well-written piece of literature, easy to
 understand and elegant in its simplicity. Here are some key takeaways:
 

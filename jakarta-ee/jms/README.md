@@ -6,6 +6,55 @@ sending and receiving messages. It provides a way for different software compone
 a reliable, loosely coupled, and platform-independent manner. JMS is commonly used in enterprise and distributed systems
 to build scalable and reliable messaging solutions.
 
+## Installing Artemis
+
+1. **Download Apache ActiveMQ Artemis**:
+    - Visit the official Apache ActiveMQ Artemis download
+      page: [Download Page](https://activemq.apache.org/components/artemis/download/).
+    - Choose the desired version of Artemis for your platform and download it.
+
+2. **Unzip the Downloaded Archive**:
+    - Locate the downloaded Artemis archive file and unzip it to your preferred directory on your system.
+
+3. **Create a Broker Instance**:
+    - Open a terminal or command prompt.
+    - Navigate to the `bin` folder of the extracted Apache ActiveMQ Artemis distribution using the `cd` command.
+
+   ```shell
+   cd path_to_artemis/bin
+   ```
+
+4. **Create a New Artemis Broker Instance:**
+    - Execute the following command to create a new Artemis broker instance. Replace `your_broker_directory` with the
+      desired path for your broker.
+   ```shell
+   artemis create your_broker_directory
+   ```
+   For example:
+   ```shell
+   artemis create C:\Users\snowak\Dev\apache-artemis-2.31.2\brokers\mybroker
+   ```
+
+5. **Navigate to Your Broker Directory:**
+    - Execute the following command to create a new Artemis broker instance. Replace `your_broker_directory` with the
+      desired path for your broker.
+   ```shell
+   artemis create your_broker_directory
+   ```
+   For example:
+      ```shell
+   cd C:\Users\snowak\Dev\apache-artemis-2.31.2\brokers\mybroker
+   ```
+6. **Start the Artemis Broker:**
+    - Start the Artemis broker using the following command:
+   ```shell
+   artemis run
+   ```
+7. **Access the Artemis Console:**
+    - Once you have started the Apache ActiveMQ Artemis broker, you can access the Artemis console by opening a web
+      browser and navigating to the following URL:
+      http://localhost:8161/console/
+
 ## Key Concepts
 
 To understand JMS as a Java developer, you should be familiar with the following key concepts:
