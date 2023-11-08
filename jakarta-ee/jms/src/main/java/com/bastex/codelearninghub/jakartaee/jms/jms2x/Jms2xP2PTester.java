@@ -26,6 +26,7 @@ public final class Jms2xP2PTester {
             producer.send(destinationQueue, "Queue message");
 
             final JMSConsumer consumer = jmsContext.createConsumer(destinationQueue);
+            // receiveBody is used to extract content of the message directly
             final String messageContent = consumer.receiveBody(String.class);
 
             log.info("Message content: {}", messageContent);

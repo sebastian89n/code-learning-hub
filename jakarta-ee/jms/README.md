@@ -6,6 +6,14 @@ sending and receiving messages. It provides a way for different software compone
 a reliable, loosely coupled, and platform-independent manner. JMS is commonly used in enterprise and distributed systems
 to build scalable and reliable messaging solutions.
 
+**TO ADD:**
+
+- jms message priority
+- JMS headers vs properties
+- JMS headers (provider / developer)
+- anatomy of JMS message
+- fix logger
+
 ## Installing Artemis
 
 1. **Download Apache ActiveMQ Artemis**:
