@@ -21,7 +21,7 @@ import javax.naming.InitialContext;
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public final class JmsReplyToTester {
     @SneakyThrows
-    public static void testJmsPriority() {
+    public static void testReplyTo() {
         final InitialContext context = new InitialContext();
         final Queue requestQueue = (Queue) context.lookup("queue/requestQueue");
 //        final Queue replyQueue = (Queue) context.lookup("queue/replyQueue");
