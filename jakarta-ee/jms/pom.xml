@@ -11,6 +11,11 @@
     </parent>
 
     <artifactId>code-learning-hub-jms</artifactId>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>jms-basics</module>
+    </modules>
 
     <dependencies>
         <dependency>

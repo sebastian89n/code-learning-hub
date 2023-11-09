@@ -1,7 +1,7 @@
-package com.bastex.codelearninghub.jakartaee.jms.jms1x;
+package com.bastex.codelearninghub.jakartaee.jms.basics.jms1x;
 
-import com.bastex.codelearninghub.jakartaee.jms.jms1x.Jms1xHelper.JmsConnection;
-import com.bastex.codelearninghub.jakartaee.jms.utils.JmsCommonUtils;
+import com.bastex.codelearninghub.jakartaee.jms.basics.jms1x.Jms1xHelper.JmsConnection;
+import com.bastex.codelearninghub.jakartaee.jms.basics.utils.JmsCommonUtils;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 import lombok.SneakyThrows;

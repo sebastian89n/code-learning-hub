@@ -1,6 +1,6 @@
-package com.bastex.codelearninghub.jakartaee.jms.jms1x;
+package com.bastex.codelearninghub.jakartaee.jms.basics.jms1x;
 
-import com.bastex.codelearninghub.jakartaee.jms.utils.JmsCommonUtils;
+import com.bastex.codelearninghub.jakartaee.jms.basics.utils.JmsCommonUtils;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 import lombok.SneakyThrows;
@@ -13,9 +13,10 @@ import javax.jms.MessageProducer;
 import javax.jms.Session;
 import javax.jms.TextMessage;
 import javax.jms.Topic;
+import java.util.List;
 
-import static com.bastex.codelearninghub.jakartaee.jms.jms1x.Jms1xHelper.JmsConnection;
-import static com.bastex.codelearninghub.jakartaee.jms.jms1x.Jms1xHelper.openJmsConnection;
+import static com.bastex.codelearninghub.jakartaee.jms.basics.jms1x.Jms1xHelper.JmsConnection;
+import static com.bastex.codelearninghub.jakartaee.jms.basics.jms1x.Jms1xHelper.openJmsConnection;
 
 /**
  * Example of using JMS 1.x API for P2P.
@@ -44,8 +45,8 @@ public final class Jms1xPubSubTester {
             connection.start();
             final Message receivedMessage = consumer1.receive();
             final Message receivedMessage2 = consumer2.receive();
-            JmsCommonUtils.logTextMessage(receivedMessage);
-            JmsCommonUtils.logTextMessage(receivedMessage2);
+
+            JmsCommonUtils.logTextMessages(List.of(receivedMessage, receivedMessage2));
         }
     }
 }

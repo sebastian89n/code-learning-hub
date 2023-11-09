@@ -1,4 +1,4 @@
-package com.bastex.codelearninghub.jakartaee.jms.jms2x;
+package com.bastex.codelearninghub.jakartaee.jms.basics.jms2x;
 
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;

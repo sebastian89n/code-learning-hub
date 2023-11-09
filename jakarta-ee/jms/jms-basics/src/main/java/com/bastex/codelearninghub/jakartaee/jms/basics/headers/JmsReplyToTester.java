@@ -1,6 +1,6 @@
-package com.bastex.codelearninghub.jakartaee.jms.reply;
+package com.bastex.codelearninghub.jakartaee.jms.basics.headers;
 
-import com.bastex.codelearninghub.jakartaee.jms.utils.JmsCommonUtils;
+import com.bastex.codelearninghub.jakartaee.jms.basics.utils.JmsCommonUtils;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 import lombok.SneakyThrows;
@@ -21,14 +21,14 @@ import javax.naming.InitialContext;
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public final class JmsReplyToTester {
     @SneakyThrows
-    public static void testReplyTo() {
+    public static void testJmsReplyTo() {
         final InitialContext context = new InitialContext();
         final Queue requestQueue = (Queue) context.lookup("queue/requestQueue");
 //        final Queue replyQueue = (Queue) context.lookup("queue/replyQueue");
 
         try (final ActiveMQConnectionFactory connectionFactory = new ActiveMQConnectionFactory();
              final JMSContext jmsContext = connectionFactory.createContext()) {
-            // creates a temporary queue instead of using replyQueue from jndi
+            // example of how to create a temporary queue
             final TemporaryQueue replyQueue = jmsContext.createTemporaryQueue();
             sendRequestMessage(jmsContext, requestQueue, replyQueue);
 
@@ -44,16 +44,25 @@ public final class JmsReplyToTester {
 
         final TextMessage requestMessage = jmsContext.createTextMessage();
         requestMessage.setText("Sending a request");
+        // setting replyTo destination in the message
         requestMessage.setJMSReplyTo(replyQueue);
 
         requestProducer.send(requestQueue, requestMessage);
     }
 
-    private static void replyToRequestMessage(final JMSContext jmsContext, final Message message) throws JMSException {
+    private static void replyToRequestMessage(final JMSContext jmsContext, final Message requestMessage) throws JMSException {
         final JMSProducer replyProducer = jmsContext.createProducer();
 
+        final TextMessage replyMessage = jmsContext.createTextMessage("Replying to a request");
+
+        log.info("Setting correlation id to message id: {}", requestMessage.getJMSMessageID());
+        System.out.println("Setting correlation id to message id: " + requestMessage.getJMSMessageID());
+
+        // optionally we can set correlationID to be the messageId of the request Message
+        replyMessage.setJMSCorrelationID(requestMessage.getJMSMessageID());
+
         // uses getJMSReplyTo() to get Destination to respond to
-        replyProducer.send(message.getJMSReplyTo(), "Replying to a request");
+        replyProducer.send(requestMessage.getJMSReplyTo(), replyMessage);
     }
 
     private static Message receiveMessage(final JMSContext jmsContext, final Queue queue) throws JMSException {
@@ -61,6 +70,8 @@ public final class JmsReplyToTester {
 
         final Message receivedMessage = replyConsumer.receive();
         JmsCommonUtils.logTextMessage(receivedMessage);
+        log.info("Received message with correlation id: {}", receivedMessage.getJMSCorrelationID());
+        System.out.println("Received message with correlation id: " + receivedMessage.getJMSCorrelationID());
 
         return receivedMessage;
     }
