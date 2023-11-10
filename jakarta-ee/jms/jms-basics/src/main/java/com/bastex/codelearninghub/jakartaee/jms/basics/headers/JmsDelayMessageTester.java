@@ -14,9 +14,6 @@ import javax.jms.Message;
 import javax.jms.Queue;
 import javax.naming.InitialContext;
 
-/**
- * Expired message will be moved to expiry queue
- */
 @Slf4j
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public final class JmsDelayMessageTester {

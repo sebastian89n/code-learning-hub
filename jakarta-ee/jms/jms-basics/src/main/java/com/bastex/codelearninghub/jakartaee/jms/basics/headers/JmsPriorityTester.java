@@ -43,7 +43,7 @@ public final class JmsPriorityTester {
 
             final JMSConsumer consumer = jmsContext.createConsumer(destinationQueue);
 
-            for (int i = 0; i < 3; i++) {
+            for (int i = 0; i < messages.length; i++) {
                 final Message message = consumer.receive();
                 if (message instanceof final TextMessage textMessage) {
                     log.info("Message priority: {}, content: {}", message.getJMSPriority(), textMessage.getText());

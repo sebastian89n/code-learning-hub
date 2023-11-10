@@ -15,9 +15,6 @@ import javax.jms.Queue;
 import javax.jms.TextMessage;
 import javax.naming.InitialContext;
 
-/**
- * Expired message will be moved to expiry queue
- */
 @Slf4j
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public final class JmsCustomPropertiesTester {

@@ -3,6 +3,7 @@ package com.bastex.codelearninghub.jakartaee.jms.basics;
 import com.bastex.codelearninghub.jakartaee.jms.basics.headers.JmsCustomPropertiesTester;
 import com.bastex.codelearninghub.jakartaee.jms.basics.headers.JmsDelayMessageTester;
 import com.bastex.codelearninghub.jakartaee.jms.basics.headers.JmsMessageExpirationTester;
+import com.bastex.codelearninghub.jakartaee.jms.basics.headers.JmsMessageTypesTester;
 import com.bastex.codelearninghub.jakartaee.jms.basics.headers.JmsPriorityTester;
 import com.bastex.codelearninghub.jakartaee.jms.basics.headers.JmsReplyToTester;
 import com.bastex.codelearninghub.jakartaee.jms.basics.jms1x.Jms1xP2PTester;
@@ -23,7 +24,8 @@ public class JmsBasicsApp {
             case "jmsReplyTo" -> JmsReplyToTester.testJmsReplyTo();
             case "jmsExpiration" -> JmsMessageExpirationTester.testJmsMessageExpiration();
             case "jmsDelay" -> JmsDelayMessageTester.testJmsDelayMessage();
-            default -> JmsCustomPropertiesTester.testJmsCustomProperties();
+            case "jmsCustomProperties" -> JmsCustomPropertiesTester.testJmsCustomProperties();
+            default -> JmsMessageTypesTester.testJmsMessageTypes();
         }
     }
 }
