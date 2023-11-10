@@ -13,7 +13,6 @@ import javax.jms.JMSException;
 import javax.jms.JMSProducer;
 import javax.jms.Message;
 import javax.jms.Queue;
-import javax.jms.TemporaryQueue;
 import javax.jms.TextMessage;
 import javax.naming.InitialContext;
 
@@ -24,12 +23,12 @@ public final class JmsReplyToTester {
     public static void testJmsReplyTo() {
         final InitialContext context = new InitialContext();
         final Queue requestQueue = (Queue) context.lookup("queue/requestQueue");
-//        final Queue replyQueue = (Queue) context.lookup("queue/replyQueue");
+        final Queue replyQueue = (Queue) context.lookup("queue/replyQueue");
 
         try (final ActiveMQConnectionFactory connectionFactory = new ActiveMQConnectionFactory();
              final JMSContext jmsContext = connectionFactory.createContext()) {
             // example of how to create a temporary queue
-            final TemporaryQueue replyQueue = jmsContext.createTemporaryQueue();
+            // final TemporaryQueue replyQueue = jmsContext.createTemporaryQueue();
             sendRequestMessage(jmsContext, requestQueue, replyQueue);
 
             final Message message = receiveMessage(jmsContext, requestQueue);
