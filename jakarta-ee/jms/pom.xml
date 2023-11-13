@@ -15,6 +15,9 @@
 
     <modules>
         <module>jms-basics</module>
+        <module>jms-task-manager</module>
+        <module>jms-task-manager-common</module>
+        <module>jms-task-manager-client</module>
     </modules>
 
     <dependencies>
