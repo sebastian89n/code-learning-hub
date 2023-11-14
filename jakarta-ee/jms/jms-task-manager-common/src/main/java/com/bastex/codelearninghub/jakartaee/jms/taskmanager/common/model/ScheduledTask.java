@@ -14,11 +14,14 @@ public final class ScheduledTask implements Task {
     @Serial
     private static final long serialVersionUID = 1L;
 
-    private Long taskId;
-
-    private TaskType taskType;
+    private String taskUuid;
 
     private String description;
 
     private LocalDate scheduledAt;
+
+    @Override
+    public TaskType getTaskType() {
+        return TaskType.SCHEDULED_TASK;
+    }
 }

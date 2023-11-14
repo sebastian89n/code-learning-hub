@@ -13,9 +13,12 @@ public final class NotificationTask implements Task {
     @Serial
     private static final long serialVersionUID = 1L;
 
-    private Long taskId;
-
-    private TaskType taskType;
+    private String taskUuid;
 
     private String notification;
+
+    @Override
+    public TaskType getTaskType() {
+        return TaskType.NOTIFICATION_TASK;
+    }
 }

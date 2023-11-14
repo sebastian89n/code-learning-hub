@@ -16,23 +16,14 @@
     <modules>
         <module>jms-basics</module>
         <module>jms-task-manager</module>
-        <module>jms-task-manager-common</module>
         <module>jms-task-manager-client</module>
+        <module>jms-task-manager-common</module>
     </modules>
 
     <dependencies>
         <dependency>
             <groupId>org.apache.activemq</groupId>
             <artifactId>artemis-jms-client-all</artifactId>
-        </dependency>
-        <!-- TODO check why slf4j doesn't work -->
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-api</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-simple</artifactId>
         </dependency>
     </dependencies>
 </project>
