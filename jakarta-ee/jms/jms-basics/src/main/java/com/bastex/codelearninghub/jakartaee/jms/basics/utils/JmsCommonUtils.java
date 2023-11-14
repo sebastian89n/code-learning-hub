@@ -22,10 +22,8 @@ public final class JmsCommonUtils {
     public static void logTextMessage(final Message messageToLog) {
         if (messageToLog == null) {
             log.warn("Message is null");
-            System.err.println("Message is null");
         } else if (messageToLog instanceof final TextMessage textMessage) {
             log.info("Received message: {}", textMessage.getText());
-            System.out.println("Received message: " + textMessage.getText());
         }
     }
 }

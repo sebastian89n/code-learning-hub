@@ -47,7 +47,6 @@ public final class JmsPriorityTester {
                 final Message message = consumer.receive();
                 if (message instanceof final TextMessage textMessage) {
                     log.info("Message priority: {}, content: {}", message.getJMSPriority(), textMessage.getText());
-                    System.out.println("Message priority: " + message.getJMSPriority() + ", content: " + textMessage.getText());
                 }
             }
         }

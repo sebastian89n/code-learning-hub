@@ -55,7 +55,6 @@ public final class JmsReplyToTester {
         final TextMessage replyMessage = jmsContext.createTextMessage("Replying to a request");
 
         log.info("Setting correlation id to message id: {}", requestMessage.getJMSMessageID());
-        System.out.println("Setting correlation id to message id: " + requestMessage.getJMSMessageID());
 
         // optionally we can set correlationID to be the messageId of the request Message
         replyMessage.setJMSCorrelationID(requestMessage.getJMSMessageID());
@@ -70,7 +69,6 @@ public final class JmsReplyToTester {
         final Message receivedMessage = replyConsumer.receive();
         JmsCommonUtils.logTextMessage(receivedMessage);
         log.info("Received message with correlation id: {}", receivedMessage.getJMSCorrelationID());
-        System.out.println("Received message with correlation id: " + receivedMessage.getJMSCorrelationID());
 
         return receivedMessage;
     }

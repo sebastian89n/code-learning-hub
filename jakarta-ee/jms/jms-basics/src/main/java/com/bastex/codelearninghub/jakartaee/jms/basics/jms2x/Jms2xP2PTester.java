@@ -30,7 +30,6 @@ public final class Jms2xP2PTester {
             final String messageContent = consumer.receiveBody(String.class);
 
             log.info("Message content: {}", messageContent);
-            System.out.println("Message content: " + messageContent);
         }
     }
 }

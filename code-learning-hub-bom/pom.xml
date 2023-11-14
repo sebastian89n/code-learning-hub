@@ -72,7 +72,7 @@
             <!-- JMS -->
             <dependency>
                 <groupId>org.apache.activemq</groupId>
-                <artifactId>artemis-jms-client-all</artifactId>
+                <artifactId>artemis-jms-client</artifactId>
                 <version>${artemis.version}</version>
             </dependency>
 
