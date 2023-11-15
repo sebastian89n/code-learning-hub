@@ -1,4 +1,4 @@
-package com.bastex.codelearninghub.jakartaee.jms.taskmanager.common.model;
+package com.bastex.codelearninghub.jakartaee.jms.taskmanager.common.model.requests;
 
 import java.io.Serializable;
 

@@ -1,8 +1,8 @@
 package com.bastex.codelearninghub.jakartaee.jms.taskmanager.client.utils;
 
 import com.bastex.codelearninghub.jakartaee.jms.taskmanager.client.exceptions.InvalidInputException;
-import com.bastex.codelearninghub.jakartaee.jms.taskmanager.common.model.Task;
-import com.bastex.codelearninghub.jakartaee.jms.taskmanager.common.model.TaskType;
+import com.bastex.codelearninghub.jakartaee.jms.taskmanager.common.model.requests.Task;
+import com.bastex.codelearninghub.jakartaee.jms.taskmanager.common.model.requests.TaskType;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
@@ -17,8 +17,8 @@ import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
 @Slf4j
-public class InputReader {
-    private static final Pattern DATE_PATTERN = Pattern.compile("[1-2]\\d{3}-\\d{2}-\\d{2}");
+public class TaskFromCLICreator {
+    private static final Pattern DATE_PATTERN = Pattern.compile("\\d{4}-\\d{2}-\\d{2}");
 
     private static final Set<String> TASK_TYPES = Arrays.stream(TaskType.values())
             .map(TaskType::name)
@@ -27,13 +27,13 @@ public class InputReader {
 
     private final Scanner scanner;
 
-    public Optional<Task> readTask() {
+    public Optional<Task> createTaskFromUserInput() {
         log.info("Send a new task? [Y/N]");
         final String sendNewTaskInput = scanner.nextLine();
 
         return switch (sendNewTaskInput) {
             case "Y" -> {
-                log.info("Select task type [{}]", TASK_TYPES);
+                log.info("Select task type {}", TASK_TYPES);
                 final String taskTypeInput = scanner.nextLine();
                 if (taskTypeInput == null || !TASK_TYPES.contains(taskTypeInput)) {
                     throw new InvalidInputException();

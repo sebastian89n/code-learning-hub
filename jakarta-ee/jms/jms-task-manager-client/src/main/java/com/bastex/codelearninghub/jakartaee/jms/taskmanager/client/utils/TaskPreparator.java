@@ -1,8 +1,8 @@
 package com.bastex.codelearninghub.jakartaee.jms.taskmanager.client.utils;
 
-import com.bastex.codelearninghub.jakartaee.jms.taskmanager.common.model.NotificationTask;
-import com.bastex.codelearninghub.jakartaee.jms.taskmanager.common.model.ScheduledTask;
-import com.bastex.codelearninghub.jakartaee.jms.taskmanager.common.model.Task;
+import com.bastex.codelearninghub.jakartaee.jms.taskmanager.common.model.requests.NotificationTask;
+import com.bastex.codelearninghub.jakartaee.jms.taskmanager.common.model.requests.ScheduledTask;
+import com.bastex.codelearninghub.jakartaee.jms.taskmanager.common.model.requests.Task;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 
