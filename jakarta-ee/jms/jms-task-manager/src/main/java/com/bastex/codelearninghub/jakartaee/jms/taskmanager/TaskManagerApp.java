@@ -6,7 +6,6 @@ import org.apache.activemq.artemis.jms.client.ActiveMQConnectionFactory;
 
 import javax.jms.JMSConsumer;
 import javax.jms.JMSContext;
-import javax.jms.JMSProducer;
 import javax.jms.Queue;
 import javax.naming.InitialContext;
 
@@ -20,9 +19,8 @@ public class TaskManagerApp {
         try (final ActiveMQConnectionFactory connectionFactory = new ActiveMQConnectionFactory();
              final JMSContext jmsContext = connectionFactory.createContext()) {
             final JMSConsumer consumer = jmsContext.createConsumer(requestQueue);
-            final JMSProducer producer = jmsContext.createProducer();
             // sets asynchronous message listener in the consumer
-            consumer.setMessageListener(new TaskListener(producer, replyQueue));
+            consumer.setMessageListener(new TaskListener(jmsContext.createProducer(), replyQueue));
 
         }
 
