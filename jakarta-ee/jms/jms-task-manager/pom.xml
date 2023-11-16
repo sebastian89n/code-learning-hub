@@ -11,12 +11,11 @@
     </parent>
 
     <artifactId>code-learning-hub-jms-task-manager</artifactId>
+    <packaging>pom</packaging>
 
-    <dependencies>
-        <dependency>
-            <groupId>com.bastex</groupId>
-            <artifactId>code-learning-hub-jms-task-manager-common</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>
-    </dependencies>
+    <modules>
+        <module>jms-task-manager-server</module>
+        <module>jms-task-manager-client</module>
+        <module>jms-task-manager-common</module>
+    </modules>
 </project>
