@@ -22,15 +22,15 @@ int d; // Avoid using single-letter variable names.
         String customerName; // Meaningful name for a string variable.
 ```
 
-## Functions
+## Methods
 
-- Keep functions short and focused, ideally no more than a few lines. Functions should have a single responsibility and
-  do one thing well. Use meaningful names for functions that reflect their purpose.
+- Keep methods short and focused, ideally no more than a few lines. Methods should have a single responsibility and
+  do one thing well. Use meaningful names for methods that reflect their purpose.
 
 **Bad example:**
 
 ```java
-// Bad function with multiple responsibilities
+// Bad method with multiple responsibilities
 public void processOrderAndSendEmail(Order order){
         // Process the order
         // ...
@@ -40,13 +40,13 @@ public void processOrderAndSendEmail(Order order){
         }
 ```
 
-In the bad example, the function processOrderAndSendEmail has multiple responsibilities. It both processes an order and
-sends an email, violating the principle of having a single responsibility for a function.
+In the bad example, the method processOrderAndSendEmail has multiple responsibilities. It both processes an order and
+sends an email, violating the principle of having a single responsibility for a method.
 
 **Good example:**
 
 ```java
-// Good functions with single responsibilities
+// Good method with single responsibilities
 public void processOrder(Order order){
         // Process the order
         // ...
@@ -58,7 +58,7 @@ public void sendOrderConfirmationEmail(Order order){
         }
 ```
 
-In the good example, the responsibilities have been separated into two functions, processOrder and
+In the good example, the responsibilities have been separated into two methods, processOrder and
 sendOrderConfirmationEmail, each with a single, well-defined responsibility. This makes the code more readable and
 maintainable.
 

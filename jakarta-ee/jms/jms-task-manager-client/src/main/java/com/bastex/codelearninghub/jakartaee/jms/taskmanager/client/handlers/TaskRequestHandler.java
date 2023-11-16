@@ -36,9 +36,7 @@ public final class TaskRequestHandler {
             try {
                 final Optional<Task> task = taskFromCLICreator.createTaskFromUserInput();
                 if (task.isPresent()) {
-                    final ObjectMessage objectMessage = jmsContext.createObjectMessage();
-                    objectMessage.setObject(task.get());
-                    jmsProducer.send(taskRequestQueue, objectMessage);
+                    sendTask(task.get());
                 } else {
                     break;
                 }
@@ -46,5 +44,13 @@ public final class TaskRequestHandler {
                 log.warn("Provided invalid input, please try again. ", e);
             }
         }
+    }
+
+    private void sendTask(final Task taskToSend) throws JMSException {
+        final ObjectMessage objectMessage = jmsContext.createObjectMessage();
+        objectMessage.setObject(taskToSend);
+        jmsProducer.send(taskRequestQueue, objectMessage);
+
+        log.info("Sent task with uuid {}", taskToSend.getTaskUuid());
     }
 }

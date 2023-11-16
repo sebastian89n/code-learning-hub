@@ -21,9 +21,7 @@ public class TaskManagerApp {
             final JMSConsumer consumer = jmsContext.createConsumer(requestQueue);
             // sets asynchronous message listener in the consumer
             consumer.setMessageListener(new TaskListener(jmsContext.createProducer(), replyQueue));
-
+            Thread.currentThread().join();
         }
-
-        Thread.currentThread().join();
     }
 }

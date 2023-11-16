@@ -2,7 +2,6 @@ package com.bastex.codelearninghub.jakartaee.servlets.servlets;
 
 import com.bastex.codelearninghub.jakartaee.servlets.dto.User;
 import com.bastex.codelearninghub.jakartaee.servlets.services.AuthenticationService;
-import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -18,7 +17,7 @@ public class LoginServlet extends HttpServlet {
     }
 
     @Override
-    protected void doPost(final HttpServletRequest request, final HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(final HttpServletRequest request, final HttpServletResponse response) throws IOException {
         request.getSession().removeAttribute(User.USER_SESSION_KEY);
 
         final String username = request.getParameter("username");
