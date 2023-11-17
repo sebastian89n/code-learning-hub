@@ -1,6 +1,7 @@
 package com.bastex.codelearninghub.jakartaee.jms.taskmanager.client;
 
 import com.bastex.codelearninghub.jakartaee.jms.taskmanager.client.handlers.TaskRequestHandler;
+import com.bastex.codelearninghub.jakartaee.jms.taskmanager.client.messagelisteners.ServerNotificationMessageListener;
 import com.bastex.codelearninghub.jakartaee.jms.taskmanager.client.messagelisteners.TaskReplyMessageListener;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.activemq.artemis.jms.client.ActiveMQConnectionFactory;
@@ -8,6 +9,7 @@ import org.apache.activemq.artemis.jms.client.ActiveMQConnectionFactory;
 import javax.jms.JMSConsumer;
 import javax.jms.JMSContext;
 import javax.jms.Queue;
+import javax.jms.Topic;
 import javax.naming.InitialContext;
 
 @Slf4j
@@ -16,16 +18,24 @@ public class TaskManagerClientApp {
         final InitialContext initialContext = new InitialContext();
         final Queue taskRequestQueue = (Queue) initialContext.lookup("queue/taskRequestQueue");
         final Queue taskReplyQueue = (Queue) initialContext.lookup("queue/taskReplyQueue");
+        final Topic notificationTopic = (Topic) initialContext.lookup("topic/notificationTopic");
 
         try (final ActiveMQConnectionFactory connectionFactory = new ActiveMQConnectionFactory();
              final JMSContext jmsContext = connectionFactory.createContext()) {
             log.info("Task Manager Client started");
 
-            final JMSConsumer taskReplyConsumer = jmsContext.createConsumer(taskReplyQueue);
-            taskReplyConsumer.setMessageListener(new TaskReplyMessageListener());
+            initializeMessageConsumers(jmsContext, taskReplyQueue, notificationTopic);
 
             final TaskRequestHandler taskRequestHandler = new TaskRequestHandler(jmsContext, taskRequestQueue);
             taskRequestHandler.handleTaskRequests();
         }
+    }
+
+    private static void initializeMessageConsumers(final JMSContext jmsContext, final Queue taskReplyQueue, final Topic notificationTopic) {
+        final JMSConsumer taskReplyConsumer = jmsContext.createConsumer(taskReplyQueue);
+        taskReplyConsumer.setMessageListener(new TaskReplyMessageListener());
+
+        final JMSConsumer notificationConsumer = jmsContext.createConsumer(notificationTopic);
+        notificationConsumer.setMessageListener(new ServerNotificationMessageListener());
     }
 }

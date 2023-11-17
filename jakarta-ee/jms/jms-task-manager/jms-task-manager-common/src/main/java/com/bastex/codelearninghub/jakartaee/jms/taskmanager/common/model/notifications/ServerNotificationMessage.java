@@ -10,11 +10,9 @@ import java.io.Serializable;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public final class NotificationMessage implements Serializable {
+public final class ServerNotificationMessage implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
-
-    private String taskUuid;
 
     private String notification;
 }
