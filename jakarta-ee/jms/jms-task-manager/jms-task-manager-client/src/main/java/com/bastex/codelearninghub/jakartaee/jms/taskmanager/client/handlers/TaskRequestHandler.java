@@ -1,8 +1,8 @@
 package com.bastex.codelearninghub.jakartaee.jms.taskmanager.client.handlers;
 
-import com.bastex.codelearninghub.jakartaee.jms.taskmanager.client.exceptions.InvalidInputException;
+import com.bastex.codelearninghub.jakartaee.jms.taskmanager.client.exceptions.CLIInputException;
 import com.bastex.codelearninghub.jakartaee.jms.taskmanager.client.utils.TaskFromCLICreator;
-import com.bastex.codelearninghub.jakartaee.jms.taskmanager.common.model.requests.Task;
+import com.bastex.codelearninghub.jakartaee.jms.taskmanager.common.model.tasks.requests.TaskRequest;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 
@@ -32,25 +32,23 @@ public final class TaskRequestHandler {
     public void handleTaskRequests() {
         final TaskFromCLICreator taskFromCLICreator = new TaskFromCLICreator(new Scanner(System.in));
 
-        while (true) {
+        boolean keepCreatingTasks = true;
+        do {
             try {
-                final Optional<Task> task = taskFromCLICreator.createTaskFromUserInput();
-                if (task.isPresent()) {
-                    sendTask(task.get());
-                } else {
-                    break;
-                }
-            } catch (final InvalidInputException e) {
+                final Optional<TaskRequest> task = taskFromCLICreator.createTaskFromUserInput();
+                keepCreatingTasks = task.isPresent();
+                task.ifPresent(this::sendTask);
+            } catch (final CLIInputException e) {
                 log.warn("Provided invalid input, please try again. ", e);
             }
-        }
+        } while (keepCreatingTasks);
     }
 
-    private void sendTask(final Task taskToSend) throws JMSException {
+    private void sendTask(final TaskRequest taskRequestToSend) throws JMSException {
         final ObjectMessage objectMessage = jmsContext.createObjectMessage();
-        objectMessage.setObject(taskToSend);
+        objectMessage.setObject(taskRequestToSend);
         jmsProducer.send(taskRequestQueue, objectMessage);
 
-        log.info("Sent task with uuid {}", taskToSend.getTaskUuid());
+        log.info("Sent task with uuid {}", taskRequestToSend.getTaskUuid());
     }
 }

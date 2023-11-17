@@ -1,4 +1,4 @@
-package com.bastex.codelearninghub.jakartaee.jms.taskmanager.common.model.responses;
+package com.bastex.codelearninghub.jakartaee.jms.taskmanager.common.model.tasks.responses;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

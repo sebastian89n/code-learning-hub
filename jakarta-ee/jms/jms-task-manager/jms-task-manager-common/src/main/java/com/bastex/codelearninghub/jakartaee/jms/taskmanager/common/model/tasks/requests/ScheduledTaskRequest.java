@@ -1,4 +1,4 @@
-package com.bastex.codelearninghub.jakartaee.jms.taskmanager.common.model.requests;
+package com.bastex.codelearninghub.jakartaee.jms.taskmanager.common.model.tasks.requests;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -10,7 +10,7 @@ import java.time.LocalDate;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public final class ScheduledTask implements Task {
+public final class ScheduledTaskRequest implements TaskRequest {
     @Serial
     private static final long serialVersionUID = 1L;
 

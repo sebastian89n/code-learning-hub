@@ -1,7 +1,7 @@
 package com.bastex.codelearninghub.jakartaee.jms.taskmanager.client.exceptions;
 
-public class InvalidInputException extends RuntimeException {
-    public InvalidInputException() {
+public class CLIInputException extends RuntimeException {
+    public CLIInputException() {
         super("Incorrect value. Please provide valid input");
     }
 }

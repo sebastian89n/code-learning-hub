@@ -1,60 +1,36 @@
 package com.bastex.codelearninghub.jakartaee.jms.taskmanager.client.utils;
 
-import com.bastex.codelearninghub.jakartaee.jms.taskmanager.client.exceptions.InvalidInputException;
-import com.bastex.codelearninghub.jakartaee.jms.taskmanager.common.model.requests.Task;
-import com.bastex.codelearninghub.jakartaee.jms.taskmanager.common.model.requests.TaskType;
+import com.bastex.codelearninghub.jakartaee.jms.taskmanager.client.exceptions.CLIInputException;
+import com.bastex.codelearninghub.jakartaee.jms.taskmanager.common.model.tasks.requests.ScheduledTaskRequest;
+import com.bastex.codelearninghub.jakartaee.jms.taskmanager.common.model.tasks.requests.TaskRequest;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 import java.time.LocalDate;
-import java.util.Arrays;
-import java.util.LinkedHashSet;
 import java.util.Optional;
 import java.util.Scanner;
-import java.util.Set;
+import java.util.UUID;
 import java.util.regex.Pattern;
-import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
 @Slf4j
 public class TaskFromCLICreator {
     private static final Pattern DATE_PATTERN = Pattern.compile("\\d{4}-\\d{2}-\\d{2}");
 
-    private static final Set<String> TASK_TYPES = Arrays.stream(TaskType.values())
-            .map(TaskType::name)
-            .sorted()
-            .collect(Collectors.toCollection(LinkedHashSet::new));
-
     private final Scanner scanner;
 
-    public Optional<Task> createTaskFromUserInput() {
+    public Optional<TaskRequest> createTaskFromUserInput() {
         log.info("Send a new task? [Y/N]");
-        final String sendNewTaskInput = scanner.nextLine();
+        final String sendNewTask = scanner.nextLine();
 
-        return switch (sendNewTaskInput) {
-            case "Y" -> {
-                log.info("Select task type {}", TASK_TYPES);
-                final String taskTypeInput = scanner.nextLine();
-                if (taskTypeInput == null || !TASK_TYPES.contains(taskTypeInput)) {
-                    throw new InvalidInputException();
-                } else {
-                    yield prepareTask(taskTypeInput);
-                }
-            }
+        return switch (sendNewTask) {
+            case "Y" -> prepareNewScheduledTask();
             case "N" -> Optional.empty();
-            default -> throw new InvalidInputException();
+            default -> throw new CLIInputException();
         };
     }
 
-    private Optional<Task> prepareTask(final String taskTypeInput) {
-        final TaskType taskType = TaskType.valueOf(taskTypeInput);
-        return switch (taskType) {
-            case SCHEDULED_TASK -> prepareScheduledTask();
-            case NOTIFICATION_TASK -> prepareNotificationTask();
-        };
-    }
-
-    private Optional<Task> prepareScheduledTask() {
+    private Optional<TaskRequest> prepareNewScheduledTask() {
         log.info("Provide task description: [non-empty]");
 
         final String taskDescriptionInput = scanner.nextLine();
@@ -63,26 +39,27 @@ public class TaskFromCLICreator {
         log.info("Provide scheduled date: [yyyy-mm-dd]");
         final String scheduledAtInput = scanner.nextLine();
         if (scheduledAtInput == null || !DATE_PATTERN.matcher(scheduledAtInput).matches()) {
-            throw new InvalidInputException();
+            throw new CLIInputException();
         }
         final LocalDate scheduledAt = LocalDate.parse(scheduledAtInput);
 
-        final Task scheduledTask = TaskPreparator.prepareScheduledTask(taskDescriptionInput, scheduledAt);
-        return Optional.of(scheduledTask);
+
+        final TaskRequest scheduledTaskRequest = prepareNewScheduledTask(taskDescriptionInput, scheduledAt);
+        return Optional.of(scheduledTaskRequest);
     }
 
-    private Optional<Task> prepareNotificationTask() {
-        log.info("Provide notification: [non-empty]");
-        final String notification = scanner.nextLine();
-        validateNonEmptyString(notification);
+    private static TaskRequest prepareNewScheduledTask(final String description, final LocalDate scheduledAt) {
+        final ScheduledTaskRequest scheduledTask = new ScheduledTaskRequest();
+        scheduledTask.setTaskUuid(UUID.randomUUID().toString());
+        scheduledTask.setDescription(description);
+        scheduledTask.setScheduledAt(scheduledAt);
 
-        final Task notificationTask = TaskPreparator.prepareNotificationTask(notification);
-        return Optional.of(notificationTask);
+        return scheduledTask;
     }
 
     private static void validateNonEmptyString(final String taskNotification) {
         if (taskNotification == null || taskNotification.isBlank()) {
-            throw new InvalidInputException();
+            throw new CLIInputException();
         }
     }
 }
