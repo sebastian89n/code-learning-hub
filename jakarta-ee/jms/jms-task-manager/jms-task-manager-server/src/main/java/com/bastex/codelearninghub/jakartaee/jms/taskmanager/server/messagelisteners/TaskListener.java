@@ -35,6 +35,6 @@ public class TaskListener implements MessageListener {
         };
 
         producer.send(taskReplyQueue, taskReply);
-        log.info("Sent a reply for task uuid: {}", taskReply.getTaskUuid());
+        log.info("Sent a reply for task uuid: {}", taskReply.getUuid());
     }
 }

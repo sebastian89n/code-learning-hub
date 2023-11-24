@@ -36,13 +36,15 @@ public final class TaskFromCLICreator {
         final String taskDescriptionInput = scanner.nextLine();
         validateNonEmptyString(taskDescriptionInput);
 
-        log.info("Provide scheduled date: [yyyy-mm-dd]");
+        log.info("Provide scheduled date: [yyyy-mm-dd, equal or after current date]");
         final String scheduledAtInput = scanner.nextLine();
         if (scheduledAtInput == null || !DATE_PATTERN.matcher(scheduledAtInput).matches()) {
             throw new CLIInputException();
         }
         final LocalDate scheduledAt = LocalDate.parse(scheduledAtInput);
-
+        if (scheduledAt.isBefore(LocalDate.now())) {
+            throw new CLIInputException();
+        }
 
         final TaskRequest scheduledTaskRequest = prepareNewScheduledTask(taskDescriptionInput, scheduledAt);
         return Optional.of(scheduledTaskRequest);

@@ -12,7 +12,7 @@ public class ScheduledTaskProcessor implements TaskProcessor<ScheduledTaskReques
         log.info("Starting to process scheduled task with uuid: {}", task.getUuid());
         // some complex logic
         final TaskReply taskReply = TaskReply.builder()
-                .taskUuid(task.getUuid())
+                .uuid(task.getUuid())
                 .status(TaskStatusType.SUCCESS)
                 .build();
 

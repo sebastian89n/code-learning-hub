@@ -15,6 +15,6 @@ public class TaskReplyMessageListener implements MessageListener {
     @SneakyThrows(JMSException.class)
     public void onMessage(final Message message) {
         final TaskReply taskReply = message.getBody(TaskReply.class);
-        log.info("Task {} has finished with status {}", taskReply.getTaskUuid(), taskReply.getStatus());
+        log.info("Task {} has finished with status {}", taskReply.getUuid(), taskReply.getStatus());
     }
 }
