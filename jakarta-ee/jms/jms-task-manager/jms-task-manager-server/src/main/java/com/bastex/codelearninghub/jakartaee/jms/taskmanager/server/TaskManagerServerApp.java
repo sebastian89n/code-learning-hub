@@ -1,6 +1,9 @@
 package com.bastex.codelearninghub.jakartaee.jms.taskmanager.server;
 
+import com.bastex.codelearninghub.jakartaee.jms.taskmanager.common.handlers.MessagesFromCLIHandler;
+import com.bastex.codelearninghub.jakartaee.jms.taskmanager.common.model.notifications.ServerNotificationMessage;
 import com.bastex.codelearninghub.jakartaee.jms.taskmanager.server.messagelisteners.TaskListener;
+import com.bastex.codelearninghub.jakartaee.jms.taskmanager.server.utils.NotificationFromCLICreator;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.activemq.artemis.jms.client.ActiveMQConnectionFactory;
 
@@ -10,6 +13,7 @@ import javax.jms.JMSProducer;
 import javax.jms.Queue;
 import javax.jms.Topic;
 import javax.naming.InitialContext;
+import java.util.Scanner;
 
 @Slf4j
 public class TaskManagerServerApp {
@@ -26,6 +30,12 @@ public class TaskManagerServerApp {
 
             // sets asynchronous message listener in the consumer
             consumer.setMessageListener(new TaskListener(producer, replyQueue));
+
+            final NotificationFromCLICreator notificationFromCLICreator = new NotificationFromCLICreator(new Scanner(System.in));
+            final MessagesFromCLIHandler<ServerNotificationMessage> messagesFromCLIHandler = new MessagesFromCLIHandler<>(jmsContext,
+                    notificationTopic,
+                    notificationFromCLICreator::createNotificationFromUserInput);
+            messagesFromCLIHandler.handleMessagesFromCLI();
 
             Thread.currentThread().join();
         }

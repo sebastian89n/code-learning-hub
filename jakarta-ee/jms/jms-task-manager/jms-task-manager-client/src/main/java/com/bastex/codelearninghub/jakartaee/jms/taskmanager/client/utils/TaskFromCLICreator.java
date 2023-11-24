@@ -1,6 +1,6 @@
 package com.bastex.codelearninghub.jakartaee.jms.taskmanager.client.utils;
 
-import com.bastex.codelearninghub.jakartaee.jms.taskmanager.common.model.exceptions.CLIInputException;
+import com.bastex.codelearninghub.jakartaee.jms.taskmanager.common.exceptions.CLIInputException;
 import com.bastex.codelearninghub.jakartaee.jms.taskmanager.common.model.tasks.requests.ScheduledTaskRequest;
 import com.bastex.codelearninghub.jakartaee.jms.taskmanager.common.model.tasks.requests.TaskRequest;
 import lombok.RequiredArgsConstructor;
@@ -50,7 +50,7 @@ public final class TaskFromCLICreator {
 
     private static TaskRequest prepareNewScheduledTask(final String description, final LocalDate scheduledAt) {
         final ScheduledTaskRequest scheduledTask = new ScheduledTaskRequest();
-        scheduledTask.setTaskUuid(UUID.randomUUID().toString());
+        scheduledTask.setUuid(UUID.randomUUID().toString());
         scheduledTask.setDescription(description);
         scheduledTask.setScheduledAt(scheduledAt);
 

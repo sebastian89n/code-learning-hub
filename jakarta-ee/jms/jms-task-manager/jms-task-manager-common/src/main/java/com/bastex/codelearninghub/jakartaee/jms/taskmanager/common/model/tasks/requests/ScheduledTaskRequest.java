@@ -14,7 +14,7 @@ public final class ScheduledTaskRequest implements TaskRequest {
     @Serial
     private static final long serialVersionUID = 1L;
 
-    private String taskUuid;
+    private String uuid;
 
     private String description;
 

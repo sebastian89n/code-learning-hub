@@ -1,8 +1,10 @@
 package com.bastex.codelearninghub.jakartaee.jms.taskmanager.client;
 
-import com.bastex.codelearninghub.jakartaee.jms.taskmanager.client.handlers.TaskRequestHandler;
 import com.bastex.codelearninghub.jakartaee.jms.taskmanager.client.messagelisteners.ServerNotificationMessageListener;
 import com.bastex.codelearninghub.jakartaee.jms.taskmanager.client.messagelisteners.TaskReplyMessageListener;
+import com.bastex.codelearninghub.jakartaee.jms.taskmanager.client.utils.TaskFromCLICreator;
+import com.bastex.codelearninghub.jakartaee.jms.taskmanager.common.handlers.MessagesFromCLIHandler;
+import com.bastex.codelearninghub.jakartaee.jms.taskmanager.common.model.tasks.requests.TaskRequest;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.activemq.artemis.jms.client.ActiveMQConnectionFactory;
 
@@ -11,6 +13,7 @@ import javax.jms.JMSContext;
 import javax.jms.Queue;
 import javax.jms.Topic;
 import javax.naming.InitialContext;
+import java.util.Scanner;
 
 @Slf4j
 public class TaskManagerClientApp {
@@ -26,8 +29,14 @@ public class TaskManagerClientApp {
 
             initializeMessageConsumers(jmsContext, taskReplyQueue, notificationTopic);
 
-            final TaskRequestHandler taskRequestHandler = new TaskRequestHandler(jmsContext, taskRequestQueue);
-            taskRequestHandler.handleTaskRequests();
+            final TaskFromCLICreator taskFromCLICreator = new TaskFromCLICreator(new Scanner(System.in));
+            final MessagesFromCLIHandler<TaskRequest> messagesFromCLIHandler = new MessagesFromCLIHandler<>(jmsContext,
+                    taskRequestQueue,
+                    taskFromCLICreator::createTaskFromUserInput);
+
+            messagesFromCLIHandler.handleMessagesFromCLI();
+
+            Thread.currentThread().join();
         }
     }
 
