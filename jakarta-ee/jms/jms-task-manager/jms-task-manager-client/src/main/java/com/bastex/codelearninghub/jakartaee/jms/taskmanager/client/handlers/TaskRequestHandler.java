@@ -1,7 +1,7 @@
 package com.bastex.codelearninghub.jakartaee.jms.taskmanager.client.handlers;
 
-import com.bastex.codelearninghub.jakartaee.jms.taskmanager.client.exceptions.CLIInputException;
 import com.bastex.codelearninghub.jakartaee.jms.taskmanager.client.utils.TaskFromCLICreator;
+import com.bastex.codelearninghub.jakartaee.jms.taskmanager.common.model.exceptions.CLIInputException;
 import com.bastex.codelearninghub.jakartaee.jms.taskmanager.common.model.tasks.requests.TaskRequest;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;

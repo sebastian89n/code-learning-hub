@@ -1,6 +1,6 @@
 package com.bastex.codelearninghub.jakartaee.jms.taskmanager.client.utils;
 
-import com.bastex.codelearninghub.jakartaee.jms.taskmanager.client.exceptions.CLIInputException;
+import com.bastex.codelearninghub.jakartaee.jms.taskmanager.common.model.exceptions.CLIInputException;
 import com.bastex.codelearninghub.jakartaee.jms.taskmanager.common.model.tasks.requests.ScheduledTaskRequest;
 import com.bastex.codelearninghub.jakartaee.jms.taskmanager.common.model.tasks.requests.TaskRequest;
 import lombok.RequiredArgsConstructor;
@@ -14,7 +14,7 @@ import java.util.regex.Pattern;
 
 @RequiredArgsConstructor
 @Slf4j
-public class TaskFromCLICreator {
+public final class TaskFromCLICreator {
     private static final Pattern DATE_PATTERN = Pattern.compile("\\d{4}-\\d{2}-\\d{2}");
 
     private final Scanner scanner;
