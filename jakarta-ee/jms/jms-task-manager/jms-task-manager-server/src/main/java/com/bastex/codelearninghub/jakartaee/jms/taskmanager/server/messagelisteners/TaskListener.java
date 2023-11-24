@@ -21,6 +21,7 @@ public class TaskListener implements MessageListener {
     private final JMSProducer producer;
 
     private final Queue taskReplyQueue;
+    private final ScheduledTaskProcessor scheduledTaskProcessor = new ScheduledTaskProcessor();
 
     @Override
     @SneakyThrows(JMSException.class)
@@ -30,7 +31,7 @@ public class TaskListener implements MessageListener {
         log.info("Received task with uuid: {}", messageWithUuid.getUuid());
 
         final TaskReply taskReply = switch (messageWithUuid) {
-            case final ScheduledTaskRequest scheduledTask -> new ScheduledTaskProcessor().processTask(scheduledTask);
+            case final ScheduledTaskRequest scheduledTask -> scheduledTaskProcessor.processTask(scheduledTask);
             default -> throw new IllegalStateException("Unhandled task type");
         };
 

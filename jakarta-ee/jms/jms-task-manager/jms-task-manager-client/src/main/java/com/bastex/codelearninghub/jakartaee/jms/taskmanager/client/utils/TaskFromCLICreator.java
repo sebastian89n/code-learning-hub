@@ -36,7 +36,7 @@ public final class TaskFromCLICreator {
         final String taskDescriptionInput = scanner.nextLine();
         validateNonEmptyString(taskDescriptionInput);
 
-        log.info("Provide scheduled date: [yyyy-mm-dd, equal or after current date]");
+        log.info("Provide scheduled date: [yyyy-mm-dd, current or future date]");
         final String scheduledAtInput = scanner.nextLine();
         if (scheduledAtInput == null || !DATE_PATTERN.matcher(scheduledAtInput).matches()) {
             throw new CLIInputException();
