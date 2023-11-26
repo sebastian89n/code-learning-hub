@@ -34,13 +34,13 @@ public final class JmsMessageListenerTester {
 
             final JMSConsumer consumer = jmsContext.createConsumer(destinationQueue);
             // sets asynchronous message listener in the consumer
-            consumer.setMessageListener(new TaskMessageListener());
+            consumer.setMessageListener(new SampleMessageListener());
 
             Thread.currentThread().join();
         }
     }
 
-    public static class TaskMessageListener implements MessageListener {
+    public static class SampleMessageListener implements MessageListener {
         @Override
         @SneakyThrows(JMSException.class)
         public void onMessage(final Message message) {
