@@ -15,8 +15,7 @@ import javax.jms.TextMessage;
 import javax.jms.Topic;
 import java.util.List;
 
-import static com.bastex.codelearninghub.jakartaee.jms.basics.jms1x.Jms1xHelper.JmsConnection;
-import static com.bastex.codelearninghub.jakartaee.jms.basics.jms1x.Jms1xHelper.openJmsConnection;
+import static com.bastex.codelearninghub.jakartaee.jms.basics.jms1x.Jms1xHelper.Jms1xConnection;
 
 /**
  * Example of using JMS 1.x API for P2P.
@@ -28,7 +27,7 @@ public final class Jms1xPubSubTester {
     @SneakyThrows
     public static void testJms1xBasicsWithPubSub() {
         // uses jndi.properties files
-        try (final JmsConnection jmsConnection = openJmsConnection()) {
+        try (final Jms1xConnection jmsConnection = Jms1xHelper.openJmsConnection()) {
             final Session session = jmsConnection.session();
             final Topic destinationTopic = jmsConnection.topic();
             final Connection connection = jmsConnection.connection();

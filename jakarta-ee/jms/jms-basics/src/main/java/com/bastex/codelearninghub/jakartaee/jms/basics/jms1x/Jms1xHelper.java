@@ -20,7 +20,7 @@ public final class Jms1xHelper {
      * Loaded using jndi.properties files.
      */
     @SneakyThrows
-    public static JmsConnection openJmsConnection() {
+    public static Jms1xConnection openJmsConnection() {
         final InitialContext initialContext = new InitialContext();
         final ConnectionFactory connectionFactory = (ConnectionFactory) initialContext.lookup("ConnectionFactory");
         final Connection connection = connectionFactory.createConnection();
@@ -29,14 +29,14 @@ public final class Jms1xHelper {
         final Queue destinationQueue = (Queue) initialContext.lookup("queue/myQueue");
         final Topic destinationTopic = (Topic) initialContext.lookup("topic/myTopic");
 
-        return new JmsConnection(initialContext, connection, session, destinationQueue, destinationTopic);
+        return new Jms1xConnection(initialContext, connection, session, destinationQueue, destinationTopic);
     }
 
-    public record JmsConnection(InitialContext initialContext,
-                                Connection connection,
-                                Session session,
-                                Queue queue,
-                                Topic topic) implements AutoCloseable {
+    public record Jms1xConnection(InitialContext initialContext,
+                                  Connection connection,
+                                  Session session,
+                                  Queue queue,
+                                  Topic topic) implements AutoCloseable {
         @Override
         public void close() throws Exception {
             if (initialContext != null) {

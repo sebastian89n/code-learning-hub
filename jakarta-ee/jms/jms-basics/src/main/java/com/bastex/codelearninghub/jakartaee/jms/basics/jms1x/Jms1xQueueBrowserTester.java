@@ -1,6 +1,6 @@
 package com.bastex.codelearninghub.jakartaee.jms.basics.jms1x;
 
-import com.bastex.codelearninghub.jakartaee.jms.basics.jms1x.Jms1xHelper.JmsConnection;
+import com.bastex.codelearninghub.jakartaee.jms.basics.jms1x.Jms1xHelper.Jms1xConnection;
 import com.bastex.codelearninghub.jakartaee.jms.basics.utils.JmsCommonUtils;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
@@ -26,7 +26,7 @@ import java.util.Enumeration;
 public final class Jms1xQueueBrowserTester {
     @SneakyThrows
     public static void testJms1xQueueBrowser() {
-        try (final JmsConnection jmsConnection = Jms1xHelper.openJmsConnection()) {
+        try (final Jms1xConnection jmsConnection = Jms1xHelper.openJmsConnection()) {
             final Session session = jmsConnection.session();
             final Queue destinationQueue = jmsConnection.queue();
 

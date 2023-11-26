@@ -23,7 +23,7 @@ import javax.jms.TextMessage;
 public final class Jms1xP2PTester {
     @SneakyThrows
     public static void testJms1xBasicsWithP2P() {
-        try (final Jms1xHelper.JmsConnection jmsConnection = Jms1xHelper.openJmsConnection()) {
+        try (final Jms1xHelper.Jms1xConnection jmsConnection = Jms1xHelper.openJmsConnection()) {
             final Connection connection = jmsConnection.connection();
             final Session session = jmsConnection.session();
             final Queue destinationQueue = jmsConnection.queue();
