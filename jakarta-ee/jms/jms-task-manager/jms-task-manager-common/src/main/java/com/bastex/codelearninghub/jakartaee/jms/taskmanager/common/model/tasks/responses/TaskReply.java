@@ -18,5 +18,9 @@ public final class TaskReply implements MessageWithUuid {
 
     private String uuid;
 
-    private TaskStatusType status;
+    private Status status;
+
+    public enum Status {
+        SUCCESS, ERROR
+    }
 }
