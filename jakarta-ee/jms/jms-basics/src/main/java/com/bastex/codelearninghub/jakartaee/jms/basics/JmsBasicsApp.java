@@ -1,11 +1,13 @@
 package com.bastex.codelearninghub.jakartaee.jms.basics;
 
-import com.bastex.codelearninghub.jakartaee.jms.basics.headers.JmsCustomPropertiesTester;
-import com.bastex.codelearninghub.jakartaee.jms.basics.headers.JmsDelayMessageTester;
-import com.bastex.codelearninghub.jakartaee.jms.basics.headers.JmsMessageExpirationTester;
-import com.bastex.codelearninghub.jakartaee.jms.basics.headers.JmsMessageTypesTester;
-import com.bastex.codelearninghub.jakartaee.jms.basics.headers.JmsPriorityTester;
-import com.bastex.codelearninghub.jakartaee.jms.basics.headers.JmsReplyToTester;
+import com.bastex.codelearninghub.jakartaee.jms.basics.features.JmsCustomPropertiesTester;
+import com.bastex.codelearninghub.jakartaee.jms.basics.features.JmsDelayMessageTester;
+import com.bastex.codelearninghub.jakartaee.jms.basics.features.JmsDurableSubscriptionsTester;
+import com.bastex.codelearninghub.jakartaee.jms.basics.features.JmsMessageExpirationTester;
+import com.bastex.codelearninghub.jakartaee.jms.basics.features.JmsMessageTypesTester;
+import com.bastex.codelearninghub.jakartaee.jms.basics.features.JmsPriorityTester;
+import com.bastex.codelearninghub.jakartaee.jms.basics.features.JmsReplyToTester;
+import com.bastex.codelearninghub.jakartaee.jms.basics.features.JmsSharedSubscriptionsTester;
 import com.bastex.codelearninghub.jakartaee.jms.basics.jms1x.Jms1xP2PTester;
 import com.bastex.codelearninghub.jakartaee.jms.basics.jms1x.Jms1xPubSubTester;
 import com.bastex.codelearninghub.jakartaee.jms.basics.jms1x.Jms1xQueueBrowserTester;
@@ -20,12 +22,14 @@ public class JmsBasicsApp {
             case "jms1xPubSub" -> Jms1xPubSubTester.testJms1xBasicsWithPubSub();
             case "jms1xQueueBrowser" -> Jms1xQueueBrowserTester.testJms1xQueueBrowser();
             case "jms2xP2P" -> Jms2xP2PTester.testJms2xBasicsWithP2P();
-            case "jmsPriority" -> JmsPriorityTester.testJmsPriority();
-            case "jmsReplyTo" -> JmsReplyToTester.testJmsReplyTo();
-            case "jmsExpiration" -> JmsMessageExpirationTester.testJmsMessageExpiration();
-            case "jmsDelay" -> JmsDelayMessageTester.testJmsDelayMessage();
-            case "jmsCustomProperties" -> JmsCustomPropertiesTester.testJmsCustomProperties();
-            default -> JmsMessageTypesTester.testJmsMessageTypes();
+            case "priority" -> JmsPriorityTester.testJmsPriority();
+            case "replyTo" -> JmsReplyToTester.testJmsReplyTo();
+            case "expiration" -> JmsMessageExpirationTester.testMessageExpiration();
+            case "delay" -> JmsDelayMessageTester.testDelayMessage();
+            case "customProperties" -> JmsCustomPropertiesTester.testMessageCustomProperties();
+            case "messageTypes" -> JmsMessageTypesTester.testMessageTypes();
+            case "sharedSubscriptions" -> JmsDurableSubscriptionsTester.testDurableSubscriptions();
+            default -> JmsSharedSubscriptionsTester.testSharedSubscriptions();
         }
     }
 }

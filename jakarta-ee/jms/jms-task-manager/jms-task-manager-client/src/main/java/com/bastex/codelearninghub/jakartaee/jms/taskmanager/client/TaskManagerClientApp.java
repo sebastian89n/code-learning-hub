@@ -25,6 +25,7 @@ public class TaskManagerClientApp {
 
         try (final ActiveMQConnectionFactory connectionFactory = new ActiveMQConnectionFactory();
              final JMSContext jmsContext = connectionFactory.createContext()) {
+            jmsContext.setClientID("task-manager-client-1");
             log.info("Task Manager Client started");
 
             initializeMessageConsumers(jmsContext, taskReplyQueue, notificationTopic);

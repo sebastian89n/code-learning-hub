@@ -1,4 +1,4 @@
-package com.bastex.codelearninghub.jakartaee.jms.basics.headers;
+package com.bastex.codelearninghub.jakartaee.jms.basics.features;
 
 import com.bastex.codelearninghub.jakartaee.jms.basics.utils.JmsCommonUtils;
 import lombok.AccessLevel;
@@ -18,7 +18,7 @@ import javax.naming.InitialContext;
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public final class JmsDelayMessageTester {
     @SneakyThrows
-    public static void testJmsDelayMessage() {
+    public static void testDelayMessage() {
         final InitialContext context = new InitialContext();
         final Queue destinationQueue = (Queue) context.lookup("queue/myQueue");
 

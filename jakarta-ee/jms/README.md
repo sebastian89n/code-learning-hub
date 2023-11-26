@@ -12,7 +12,6 @@ to build scalable and reliable messaging solutions.
 - JMS headers vs properties
 - JMS headers (provider / developer)
 - anatomy of JMS message
-- fix logger
 
 ## Installing Artemis
 

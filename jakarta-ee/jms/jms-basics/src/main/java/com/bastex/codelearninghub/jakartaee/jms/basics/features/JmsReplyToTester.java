@@ -1,4 +1,4 @@
-package com.bastex.codelearninghub.jakartaee.jms.basics.headers;
+package com.bastex.codelearninghub.jakartaee.jms.basics.features;
 
 import com.bastex.codelearninghub.jakartaee.jms.basics.utils.JmsCommonUtils;
 import lombok.AccessLevel;

@@ -1,4 +1,4 @@
-package com.bastex.codelearninghub.jakartaee.jms.basics.headers;
+package com.bastex.codelearninghub.jakartaee.jms.basics.features;
 
 import com.bastex.codelearninghub.jakartaee.jms.basics.utils.JmsCommonUtils;
 import lombok.AccessLevel;
@@ -12,33 +12,39 @@ import javax.jms.JMSContext;
 import javax.jms.JMSProducer;
 import javax.jms.Message;
 import javax.jms.Queue;
-import javax.jms.TextMessage;
 import javax.naming.InitialContext;
+import java.time.Duration;
 
+/**
+ * Expired message will be moved to expiry queue
+ */
 @Slf4j
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
-public final class JmsCustomPropertiesTester {
+public final class JmsMessageExpirationTester {
     @SneakyThrows
-    public static void testJmsCustomProperties() {
+    public static void testMessageExpiration() {
         final InitialContext context = new InitialContext();
         final Queue destinationQueue = (Queue) context.lookup("queue/myQueue");
+        final Queue expiryQueue = (Queue) context.lookup("queue/expiryQueue");
 
         try (final ActiveMQConnectionFactory connectionFactory = new ActiveMQConnectionFactory();
              final JMSContext jmsContext = connectionFactory.createContext()) {
             final JMSProducer producer = jmsContext.createProducer();
+            // sets expiration on the message
+            producer.setTimeToLive(2000L);
+            producer.send(destinationQueue, "Queue message");
 
-            final TextMessage requestMessage = jmsContext.createTextMessage("Queue message");
-            requestMessage.setBooleanProperty("loggedIn", true);
-            requestMessage.setStringProperty("userToken", "token123");
-
-            producer.send(destinationQueue, requestMessage);
+            // we sleep for 3 seconds for message to expire
+            Thread.sleep(Duration.ofSeconds(3));
 
             final JMSConsumer consumer = jmsContext.createConsumer(destinationQueue);
-            final Message receivedMessage = consumer.receive();
-            final boolean loggedIn = receivedMessage.getBooleanProperty("loggedIn");
-            final String userToken = receivedMessage.getStringProperty("userToken");
+            // setting how long we should wait to receive a new message
+            final Message message = consumer.receive(2000L);
+            JmsCommonUtils.logTextMessage(message);
 
-            JmsCommonUtils.logTextMessage(receivedMessage);
+            final JMSConsumer expiryConsumer = jmsContext.createConsumer(expiryQueue);
+            final Message expiredMessage = expiryConsumer.receive();
+            JmsCommonUtils.logTextMessage(expiredMessage);
         }
     }
 }

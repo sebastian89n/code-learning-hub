@@ -1,4 +1,4 @@
-package com.bastex.codelearninghub.jakartaee.jms.basics.headers;
+package com.bastex.codelearninghub.jakartaee.jms.basics.features;
 
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
@@ -23,7 +23,7 @@ import java.io.Serializable;
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public final class JmsMessageTypesTester {
     @SneakyThrows
-    public static void testJmsMessageTypes() {
+    public static void testMessageTypes() {
         final InitialContext context = new InitialContext();
         final Queue destinationQueue = (Queue) context.lookup("queue/myQueue");
 
