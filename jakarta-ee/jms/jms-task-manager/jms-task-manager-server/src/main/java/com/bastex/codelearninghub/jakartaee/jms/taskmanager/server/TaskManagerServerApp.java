@@ -20,7 +20,6 @@ public class TaskManagerServerApp {
     public static void main(final String[] args) throws Exception {
         final InitialContext initialContext = new InitialContext();
         final Queue requestQueue = (Queue) initialContext.lookup("queue/taskRequestQueue");
-        final Queue replyQueue = (Queue) initialContext.lookup("queue/taskReplyQueue");
         final Topic notificationTopic = (Topic) initialContext.lookup("topic/notificationTopic");
 
         try (final ActiveMQConnectionFactory connectionFactory = new ActiveMQConnectionFactory();
@@ -28,16 +27,19 @@ public class TaskManagerServerApp {
             final JMSConsumer consumer = jmsContext.createConsumer(requestQueue);
             final JMSProducer producer = jmsContext.createProducer();
 
-            // sets asynchronous message listener in the consumer
-            consumer.setMessageListener(new TaskListener(producer, replyQueue));
+            consumer.setMessageListener(new TaskListener(producer));
 
-            final NotificationFromCLICreator notificationFromCLICreator = new NotificationFromCLICreator(new Scanner(System.in));
-            final MessagesFromCLIHandler<ServerNotificationMessage> messagesFromCLIHandler = new MessagesFromCLIHandler<>(jmsContext,
-                    notificationTopic,
-                    notificationFromCLICreator::createNotificationFromUserInput);
+            final MessagesFromCLIHandler<ServerNotificationMessage> messagesFromCLIHandler = prepareMessagesHandler(jmsContext, notificationTopic);
             messagesFromCLIHandler.handleMessagesFromCLI();
 
             Thread.currentThread().join();
         }
+    }
+
+    private static MessagesFromCLIHandler<ServerNotificationMessage> prepareMessagesHandler(final JMSContext jmsContext, final Topic notificationTopic) {
+        final NotificationFromCLICreator notificationFromCLICreator = new NotificationFromCLICreator(new Scanner(System.in));
+        return new MessagesFromCLIHandler<>(jmsContext,
+                notificationTopic,
+                notificationFromCLICreator::createNotificationFromUserInput);
     }
 }

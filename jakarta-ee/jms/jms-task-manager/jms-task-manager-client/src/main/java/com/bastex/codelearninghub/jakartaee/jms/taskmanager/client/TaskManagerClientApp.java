@@ -30,15 +30,20 @@ public class TaskManagerClientApp {
 
             initializeMessageConsumers(jmsContext, taskReplyQueue, notificationTopic);
 
-            final TaskFromCLICreator taskFromCLICreator = new TaskFromCLICreator(new Scanner(System.in));
-            final MessagesFromCLIHandler<TaskRequest> messagesFromCLIHandler = new MessagesFromCLIHandler<>(jmsContext,
-                    taskRequestQueue,
-                    taskFromCLICreator::createTaskFromUserInput);
-
+            final MessagesFromCLIHandler<TaskRequest> messagesFromCLIHandler = prepareMessagesHandler(jmsContext, taskRequestQueue, taskReplyQueue);
             messagesFromCLIHandler.handleMessagesFromCLI();
 
             Thread.currentThread().join();
         }
+    }
+
+    private static MessagesFromCLIHandler<TaskRequest> prepareMessagesHandler(final JMSContext jmsContext, final Queue taskRequestQueue, final Queue taskReplyQueue) {
+        final TaskFromCLICreator taskFromCLICreator = new TaskFromCLICreator(new Scanner(System.in));
+
+        return new MessagesFromCLIHandler<>(jmsContext,
+                taskRequestQueue,
+                taskReplyQueue,
+                taskFromCLICreator::createTaskFromUserInput);
     }
 
     private static void initializeMessageConsumers(final JMSContext jmsContext, final Queue taskReplyQueue, final Topic notificationTopic) {

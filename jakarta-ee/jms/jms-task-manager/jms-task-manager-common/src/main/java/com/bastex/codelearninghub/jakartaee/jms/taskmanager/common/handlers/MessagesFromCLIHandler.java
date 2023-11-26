@@ -10,6 +10,7 @@ import javax.jms.JMSContext;
 import javax.jms.JMSException;
 import javax.jms.JMSProducer;
 import javax.jms.ObjectMessage;
+import javax.jms.Queue;
 import java.util.Optional;
 import java.util.function.Supplier;
 
@@ -23,10 +24,20 @@ public final class MessagesFromCLIHandler<T extends MessageWithUuid> {
 
     private final Supplier<Optional<T>> messageFromCLISupplier;
 
+    private final Queue taskReplyQueue;
+
     public MessagesFromCLIHandler(final JMSContext jmsContext, final Destination destination, final Supplier<Optional<T>> messageFromCLISupplier) {
+        this(jmsContext, destination, null, messageFromCLISupplier);
+    }
+
+    public MessagesFromCLIHandler(final JMSContext jmsContext,
+                                  final Destination destination,
+                                  final Queue taskReplyQueue,
+                                  final Supplier<Optional<T>> messageFromCLISupplier) {
         this.jmsContext = jmsContext;
         this.jmsProducer = jmsContext.createProducer();
         this.destination = destination;
+        this.taskReplyQueue = taskReplyQueue;
         this.messageFromCLISupplier = messageFromCLISupplier;
     }
 
@@ -47,8 +58,12 @@ public final class MessagesFromCLIHandler<T extends MessageWithUuid> {
     private void sendTask(final T messageToSend) {
         final ObjectMessage objectMessage = jmsContext.createObjectMessage();
         objectMessage.setObject(messageToSend);
-        jmsProducer.send(destination, objectMessage);
 
+        if (taskReplyQueue != null) {
+            objectMessage.setJMSReplyTo(taskReplyQueue);
+        }
+
+        jmsProducer.send(destination, objectMessage);
         log.info("Sent message with uuid {}", messageToSend.getUuid());
     }
 }

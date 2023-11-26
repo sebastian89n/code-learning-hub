@@ -13,14 +13,11 @@ import javax.jms.JMSProducer;
 import javax.jms.Message;
 import javax.jms.MessageListener;
 import javax.jms.ObjectMessage;
-import javax.jms.Queue;
 
 @RequiredArgsConstructor
 @Slf4j
 public class TaskListener implements MessageListener {
     private final JMSProducer producer;
-
-    private final Queue taskReplyQueue;
     private final ScheduledTaskProcessor scheduledTaskProcessor = new ScheduledTaskProcessor();
 
     @Override
@@ -35,7 +32,12 @@ public class TaskListener implements MessageListener {
             default -> throw new IllegalStateException("Unhandled task type");
         };
 
-        producer.send(taskReplyQueue, taskReply);
-        log.info("Sent a reply for task uuid: {}", taskReply.getUuid());
+        if (message.getJMSReplyTo() != null) {
+            producer.send(message.getJMSReplyTo(), taskReply);
+            log.info("Task processed successfully. Reply sent for task uuid: {}", taskReply.getUuid());
+        } else {
+            log.info("Task processed successfully");
+        }
+
     }
 }
