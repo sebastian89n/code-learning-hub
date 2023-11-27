@@ -1,6 +1,6 @@
 package com.bastex.codelearninghub.jakartaee.jms.taskmanager.client.utils;
 
-import com.bastex.codelearninghub.jakartaee.jms.taskmanager.common.exceptions.CLIInputException;
+import com.bastex.codelearninghub.jakartaee.jms.taskmanager.common.exceptions.TaskManagerCLIInputException;
 import com.bastex.codelearninghub.jakartaee.jms.taskmanager.common.model.tasks.requests.ScheduledTaskRequest;
 import com.bastex.codelearninghub.jakartaee.jms.taskmanager.common.model.tasks.requests.TaskRequest;
 import lombok.RequiredArgsConstructor;
@@ -26,7 +26,7 @@ public final class TaskFromCLICreator {
         return switch (sendNewTask) {
             case "Y" -> prepareNewScheduledTask();
             case "N" -> Optional.empty();
-            default -> throw new CLIInputException();
+            default -> throw new TaskManagerCLIInputException();
         };
     }
 
@@ -39,11 +39,11 @@ public final class TaskFromCLICreator {
         log.info("Provide scheduled date: [yyyy-mm-dd, current or future date]");
         final String scheduledAtInput = scanner.nextLine();
         if (scheduledAtInput == null || !DATE_PATTERN.matcher(scheduledAtInput).matches()) {
-            throw new CLIInputException();
+            throw new TaskManagerCLIInputException();
         }
         final LocalDate scheduledAt = LocalDate.parse(scheduledAtInput);
         if (scheduledAt.isBefore(LocalDate.now())) {
-            throw new CLIInputException();
+            throw new TaskManagerCLIInputException();
         }
 
         final TaskRequest scheduledTaskRequest = prepareNewScheduledTask(taskDescriptionInput, scheduledAt);
@@ -61,7 +61,7 @@ public final class TaskFromCLICreator {
 
     private static void validateNonEmptyString(final String taskNotification) {
         if (taskNotification == null || taskNotification.isBlank()) {
-            throw new CLIInputException();
+            throw new TaskManagerCLIInputException();
         }
     }
 }

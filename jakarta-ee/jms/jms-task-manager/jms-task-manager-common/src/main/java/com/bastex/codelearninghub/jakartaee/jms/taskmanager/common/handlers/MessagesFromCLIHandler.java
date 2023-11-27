@@ -1,6 +1,7 @@
 package com.bastex.codelearninghub.jakartaee.jms.taskmanager.common.handlers;
 
-import com.bastex.codelearninghub.jakartaee.jms.taskmanager.common.exceptions.CLIInputException;
+import com.bastex.codelearninghub.jakartaee.jms.taskmanager.common.TaskManagerCommonProperties;
+import com.bastex.codelearninghub.jakartaee.jms.taskmanager.common.exceptions.TaskManagerCLIInputException;
 import com.bastex.codelearninghub.jakartaee.jms.taskmanager.common.model.common.MessageWithUuid;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
@@ -24,20 +25,20 @@ public final class MessagesFromCLIHandler<T extends MessageWithUuid> {
 
     private final Supplier<Optional<T>> messageFromCLISupplier;
 
-    private final Queue taskReplyQueue;
+    private final Queue replyQueue;
 
-    public MessagesFromCLIHandler(final JMSContext jmsContext, final Destination destination, final Supplier<Optional<T>> messageFromCLISupplier) {
+    MessagesFromCLIHandler(final JMSContext jmsContext, final Destination destination, final Supplier<Optional<T>> messageFromCLISupplier) {
         this(jmsContext, destination, null, messageFromCLISupplier);
     }
 
-    public MessagesFromCLIHandler(final JMSContext jmsContext,
-                                  final Destination destination,
-                                  final Queue taskReplyQueue,
-                                  final Supplier<Optional<T>> messageFromCLISupplier) {
+    MessagesFromCLIHandler(final JMSContext jmsContext,
+                           final Destination destination,
+                           final Queue replyQueue,
+                           final Supplier<Optional<T>> messageFromCLISupplier) {
         this.jmsContext = jmsContext;
         this.jmsProducer = jmsContext.createProducer();
         this.destination = destination;
-        this.taskReplyQueue = taskReplyQueue;
+        this.replyQueue = replyQueue;
         this.messageFromCLISupplier = messageFromCLISupplier;
     }
 
@@ -48,7 +49,7 @@ public final class MessagesFromCLIHandler<T extends MessageWithUuid> {
                 final Optional<T> createdMessage = messageFromCLISupplier.get();
                 createdMessage.ifPresent(this::sendTask);
                 keepCreatingTasks = createdMessage.isPresent();
-            } catch (final CLIInputException e) {
+            } catch (final TaskManagerCLIInputException e) {
                 log.warn("Provided invalid input, please try again. ", e);
             }
         } while (keepCreatingTasks);
@@ -59,8 +60,12 @@ public final class MessagesFromCLIHandler<T extends MessageWithUuid> {
         final ObjectMessage objectMessage = jmsContext.createObjectMessage();
         objectMessage.setObject(messageToSend);
 
-        if (taskReplyQueue != null) {
-            objectMessage.setJMSReplyTo(taskReplyQueue);
+        if (replyQueue != null) {
+            objectMessage.setJMSReplyTo(replyQueue);
+        }
+
+        if (jmsContext.getClientID() != null && !jmsContext.getClientID().isBlank()) {
+            objectMessage.setStringProperty(TaskManagerCommonProperties.TASK_MANAGER_CLIENT_ID, jmsContext.getClientID());
         }
 
         jmsProducer.send(destination, objectMessage);

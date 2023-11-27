@@ -1,6 +1,7 @@
 package com.bastex.codelearninghub.jakartaee.jms.taskmanager.server;
 
 import com.bastex.codelearninghub.jakartaee.jms.taskmanager.common.handlers.MessagesFromCLIHandler;
+import com.bastex.codelearninghub.jakartaee.jms.taskmanager.common.handlers.MessagesFromCLIHandlerFactory;
 import com.bastex.codelearninghub.jakartaee.jms.taskmanager.common.model.notifications.ServerNotificationMessage;
 import com.bastex.codelearninghub.jakartaee.jms.taskmanager.server.messagelisteners.TaskListener;
 import com.bastex.codelearninghub.jakartaee.jms.taskmanager.server.utils.NotificationFromCLICreator;
@@ -9,7 +10,6 @@ import org.apache.activemq.artemis.jms.client.ActiveMQConnectionFactory;
 
 import javax.jms.JMSConsumer;
 import javax.jms.JMSContext;
-import javax.jms.JMSProducer;
 import javax.jms.Queue;
 import javax.jms.Topic;
 import javax.naming.InitialContext;
@@ -25,9 +25,8 @@ public class TaskManagerServerApp {
         try (final ActiveMQConnectionFactory connectionFactory = new ActiveMQConnectionFactory();
              final JMSContext jmsContext = connectionFactory.createContext()) {
             final JMSConsumer consumer = jmsContext.createConsumer(requestQueue);
-            final JMSProducer producer = jmsContext.createProducer();
 
-            consumer.setMessageListener(new TaskListener(producer));
+            consumer.setMessageListener(new TaskListener(jmsContext));
 
             final MessagesFromCLIHandler<ServerNotificationMessage> messagesFromCLIHandler = prepareMessagesHandler(jmsContext, notificationTopic);
             messagesFromCLIHandler.handleMessagesFromCLI();
@@ -38,7 +37,7 @@ public class TaskManagerServerApp {
 
     private static MessagesFromCLIHandler<ServerNotificationMessage> prepareMessagesHandler(final JMSContext jmsContext, final Topic notificationTopic) {
         final NotificationFromCLICreator notificationFromCLICreator = new NotificationFromCLICreator(new Scanner(System.in));
-        return new MessagesFromCLIHandler<>(jmsContext,
+        return MessagesFromCLIHandlerFactory.createHandlerWithoutReply(jmsContext,
                 notificationTopic,
                 notificationFromCLICreator::createNotificationFromUserInput);
     }

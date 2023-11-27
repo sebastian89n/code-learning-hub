@@ -1,6 +1,6 @@
 package com.bastex.codelearninghub.jakartaee.jms.taskmanager.server.utils;
 
-import com.bastex.codelearninghub.jakartaee.jms.taskmanager.common.exceptions.CLIInputException;
+import com.bastex.codelearninghub.jakartaee.jms.taskmanager.common.exceptions.TaskManagerCLIInputException;
 import com.bastex.codelearninghub.jakartaee.jms.taskmanager.common.model.notifications.ServerNotificationMessage;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -20,7 +20,7 @@ public final class NotificationFromCLICreator {
         return switch (sendNotification) {
             case "Y" -> prepareNewNotification();
             case "N" -> Optional.empty();
-            default -> throw new CLIInputException();
+            default -> throw new TaskManagerCLIInputException();
         };
     }
 
@@ -28,7 +28,7 @@ public final class NotificationFromCLICreator {
         log.info("Provide notification message: [non-empty]");
         final String notificationMessage = scanner.nextLine();
         if (notificationMessage == null || notificationMessage.isBlank()) {
-            throw new CLIInputException();
+            throw new TaskManagerCLIInputException();
         }
 
         final String uuid = UUID.randomUUID().toString();

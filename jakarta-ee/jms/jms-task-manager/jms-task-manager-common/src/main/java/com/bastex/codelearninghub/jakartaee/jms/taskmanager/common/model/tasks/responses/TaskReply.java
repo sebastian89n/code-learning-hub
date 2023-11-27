@@ -12,7 +12,7 @@ import java.io.Serial;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public final class TaskReply implements MessageWithUuid {
+public class TaskReply implements MessageWithUuid {
     @Serial
     private static final long serialVersionUID = 1L;
 

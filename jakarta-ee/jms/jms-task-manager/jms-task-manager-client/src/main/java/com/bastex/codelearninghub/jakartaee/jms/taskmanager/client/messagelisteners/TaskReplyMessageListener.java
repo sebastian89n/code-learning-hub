@@ -10,7 +10,6 @@ import javax.jms.MessageListener;
 
 @Slf4j
 public class TaskReplyMessageListener implements MessageListener {
-    // TODO we need to filter TaskReply by taskUuid that are saved for multiple clients
     @Override
     @SneakyThrows(JMSException.class)
     public void onMessage(final Message message) {
