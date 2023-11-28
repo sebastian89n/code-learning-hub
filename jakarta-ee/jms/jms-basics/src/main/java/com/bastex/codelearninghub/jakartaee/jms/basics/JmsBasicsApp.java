@@ -1,5 +1,6 @@
 package com.bastex.codelearninghub.jakartaee.jms.basics;
 
+import com.bastex.codelearninghub.jakartaee.jms.basics.features.JmsAcknowledgmentTester;
 import com.bastex.codelearninghub.jakartaee.jms.basics.features.JmsCustomPropertiesTester;
 import com.bastex.codelearninghub.jakartaee.jms.basics.features.JmsDelayMessageTester;
 import com.bastex.codelearninghub.jakartaee.jms.basics.features.JmsDurableSubscriptionsTester;
@@ -33,7 +34,8 @@ public class JmsBasicsApp {
             case "durableSubscriptions" -> JmsDurableSubscriptionsTester.testDurableSubscriptions();
             case "sharedSubscriptions" -> JmsSharedSubscriptionsTester.testSharedSubscriptions();
             case "messageListener" -> JmsMessageListenerTester.testMessageListener();
-            default -> JmsMessageFilteringTester.testMessageFiltering();
+            case "messageFiltering" -> JmsMessageFilteringTester.testMessageFiltering();
+            default -> JmsAcknowledgmentTester.testJmsAcknowledgment();
         }
     }
 }
