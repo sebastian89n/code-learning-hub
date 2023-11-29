@@ -6,6 +6,7 @@ import com.bastex.codelearninghub.jakartaee.jms.basics.features.JmsDelayMessageT
 import com.bastex.codelearninghub.jakartaee.jms.basics.features.JmsDurableSubscriptionsTester;
 import com.bastex.codelearninghub.jakartaee.jms.basics.features.JmsMessageExpirationTester;
 import com.bastex.codelearninghub.jakartaee.jms.basics.features.JmsMessageFilteringTester;
+import com.bastex.codelearninghub.jakartaee.jms.basics.features.JmsMessageGroupingTester;
 import com.bastex.codelearninghub.jakartaee.jms.basics.features.JmsMessageListenerTester;
 import com.bastex.codelearninghub.jakartaee.jms.basics.features.JmsMessageTypesTester;
 import com.bastex.codelearninghub.jakartaee.jms.basics.features.JmsPriorityTester;
@@ -35,7 +36,8 @@ public class JmsBasicsApp {
             case "sharedSubscriptions" -> JmsSharedSubscriptionsTester.testSharedSubscriptions();
             case "messageListener" -> JmsMessageListenerTester.testMessageListener();
             case "messageFiltering" -> JmsMessageFilteringTester.testMessageFiltering();
-            default -> JmsAcknowledgmentTester.testJmsAcknowledgment();
+            case "acknowledgment" -> JmsAcknowledgmentTester.testJmsAcknowledgment();
+            default -> JmsMessageGroupingTester.testMessageGrouping();
         }
     }
 }
