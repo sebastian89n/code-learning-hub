@@ -3,6 +3,7 @@ package com.bastex.codelearninghub.jakartaee.jms.basics.features;
 import com.bastex.codelearninghub.jakartaee.jms.basics.utils.JmsCommonUtils;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.activemq.artemis.jms.client.ActiveMQConnectionFactory;
@@ -51,7 +52,10 @@ public final class JmsMessageGroupingTester {
         }
     }
 
-    private record GroupingMessageListener(String consumerName) implements MessageListener {
+    @RequiredArgsConstructor
+    private static class GroupingMessageListener implements MessageListener {
+        private final String consumerName;
+
         @Override
         public void onMessage(final Message message) {
             log.info("Message consumed by consumer {}", consumerName);
