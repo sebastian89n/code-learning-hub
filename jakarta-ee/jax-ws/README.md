@@ -54,5 +54,5 @@ create, deploy, and consume web services in Java using JAX-WS.
 In JAX-WS development, the "Bottom-Up" approach starts with creating web service using Java classes and annotations.
 Later WSDL is generated from the code.
 
-"Top-Down" approach begins with defining WSDL and XSD and later Java code with annotations is generated from those
+"Top-Down" approach begins with defining WSDL and XSD and later Java classes with annotations are generated from those
 files.
