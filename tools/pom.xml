@@ -14,6 +14,7 @@
     <packaging>pom</packaging>
 
     <modules>
+        <module>clean-code</module>
         <module>docker</module>
         <module>git</module>
         <module>linux-shell</module>

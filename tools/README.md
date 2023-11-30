@@ -2,6 +2,11 @@
 
 Project contains examples of various useful tools
 
+- **clean-code** - 'Clean Code,' introduced by Robert C. Martin, revolves around writing
+  code that is easy to read, understand, and maintain, by adhering to principles and practices that promote simplicity
+  and clarity.
+
+
 - **docker** -Docker is a platform for developing, shipping, and running applications in lightweight, isolated
   containers, making it easier to manage application dependencies and deploy software consistently across different
   environments.

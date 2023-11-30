@@ -1,4 +1,4 @@
-## Liquibase: Database Version Control and Migration
+# Liquibase: Database Version Control and Migration
 
 Module contains example of Liquibase scripts and Java code to execute them programmatically.
 

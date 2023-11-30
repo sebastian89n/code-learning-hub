@@ -1,16 +1,18 @@
-# Modules
+# Jakarta EE (previously Java EE - Java Enterprise Edition)
+
+Jakarta EE is a set of specifications and APIs for building and deploying
+enterprise-level, distributed, and scalable Java applications. It provides a standardized and robust platform for
+developing server-side applications, often used in business and enterprise environments.
+
+## Modules
 
 Modules with examples of some core Jakarta EE technologies:
 
 - **jax-rs** - Jakarta RESTful Web Services
 - **jax-ws** - Jakarta XML Web Services
 - **jaxb** - Jakarta XML Binding
-
-## Jakarta EE (previously Java EE - Java Enterprise Edition)
-
-Jakarta EE is a set of specifications and APIs for building and deploying
-enterprise-level, distributed, and scalable Java applications. It provides a standardized and robust platform for
-developing server-side applications, often used in business and enterprise environments.
+- **jms** - Jakarta Messaging
+- **servlets** - Jakarta Servlets
 
 ## Overview
 
@@ -26,16 +28,16 @@ challenges. Key features and technologies in Jakarta EE include:
 2. **JSP (JavaServer Pages):** JSP is a technology that allows the creation of dynamic web pages using Java. It
    simplifies the generation of HTML content within Java web applications.
 
-3. **Enterprise JavaBeans (EJB):** EJB provides a component-based approach to building server-side business logic,
+3. **Jakarta Enterprise Beans (EJB):** EJB provides a component-based approach to building server-side business logic,
    supporting features like transactions, security, and scalability.
 
-4. **JPA (Java Persistence API):** JPA is a standard for Object-Relational Mapping (ORM) in Java, making it easier to
+4. **JPA (Jakarta Persistence):** JPA is a standard for Object-Relational Mapping (ORM) in Java, making it easier to
    interact with relational databases.
 
-5. **JMS (Java Message Service):** JMS is an API for messaging, enabling asynchronous communication between distributed
+5. **JMS (Jakarta Messaging):** JMS is an API for messaging, enabling asynchronous communication between distributed
    components in a Java application.
 
-6. **JTA (Java Transaction API):** JTA provides support for distributed transactions, ensuring data consistency across
+6. **JTA (Jakarta Transactions):** JTA provides support for distributed transactions, ensuring data consistency across
    multiple resources.
 
 7. **CDI (Contexts and Dependency Injection):** CDI facilitates the management of beans, their lifecycle, and the
@@ -59,13 +61,17 @@ execution.
 The two main types of containers are:
 
 - **Web Containers:** These containers manage the execution of web applications, including Servlets, JSP, and related
-  web components.
+  web components. Web containers are typically limited versions that include a subset of Jakarta EE technologies,
+  focusing
+  on web-related functionalities.
+
+  **E.g. servers**: Apache Tomcat, Jetty
+
 
 - **EJB Containers:** EJB containers host Enterprise JavaBeans and provide services like transaction management,
   security, and scalability.
 
-Jakarta EE promotes modularity, portability, and reusability, making it a popular choice for building robust,
-enterprise-level applications.
+  **E.g. servers**: Oracle Weblogic, WilfFly
 
 ## Notable Jakarta EE Implementations
 

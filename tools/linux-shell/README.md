@@ -466,3 +466,82 @@ that every developer should be familiar with:
   will be alerted to it.
 
   The combination of these commands ensures that a file's integrity can be checked at a later time.
+
+## File Permissions
+
+- `chmod`: Change file permissions.
+
+  The `chmod` command is used to modify file permissions in Unix-like operating systems, controlling who can read,
+  write, or execute a file. File permissions are represented numerically or symbolically and dictate what actions
+  different users and groups can perform on a file.
+
+  ### Numeric Representation of Permissions
+
+  In the numeric representation, each digit represents the permission bits for the owner, group, and others,
+  respectively. The values are additive:
+
+    - 4 represents read (r).
+    - 2 represents write (w).
+    - 1 represents execute (x).
+
+  To change permissions numerically, use the following format:
+
+    ```bash
+    chmod [owner][group][others] file
+    ```
+
+  In this format, the first digit corresponds to permissions for the owner, the second digit corresponds to permissions
+  for the group, and the third digit corresponds to permissions for others. For example, consider the
+  command `chmod 640 file.txt`:
+
+    - Owner (6) = Read (4) + Write (2)
+    - Group (4) = Read (4)
+    - Others (0) = No permissions
+
+  This means the owner is granted read and write permissions, the group has read permission, and others have no
+  permissions.
+
+  ### Symbolic Representation of Permissions
+
+  In the symbolic representation, you can use specific symbols to add, remove, or set exact permissions for the
+  specified category. Ownership is defined within the symbolic representation:
+
+    - `u` represents the owner (user).
+    - `g` represents the group.
+    - `o` represents others (everyone else).
+
+  To change permissions symbolically, use the following format:
+
+    ```bash
+    chmod [who][operator][permissions] file
+    ```
+
+  For example, to add execute (x) permission for the owner, you can use:
+
+    ```bash
+    chmod u+x file.sh
+    ```
+
+  To remove write (w) permission for the group, you can use:
+
+    ```bash
+    chmod g-w file.txt
+    ```
+
+  To set read (r) and write (w) permissions for the owner and no permissions for the group and others, you can use:
+
+    ```bash
+    chmod u=rw,go= file.txt
+    ```
+
+  ### Example: `chmod 777`
+
+  The command `chmod 777 file.txt` grants full read, write, and execute permissions to the owner, group, and others. It
+  means:
+
+    - Owner (7) = Read (4) + Write (2) + Execute (1)
+    - Group (7) = Read (4) + Write (2) + Execute (1)
+    - Others (7) = Read (4) + Write (2) + Execute (1)
+
+  Use `chmod 777` with caution, as it provides unrestricted access to a file for all users, potentially compromising
+  security.
