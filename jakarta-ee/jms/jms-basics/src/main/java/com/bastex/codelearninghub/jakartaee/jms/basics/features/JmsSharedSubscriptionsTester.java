@@ -1,6 +1,6 @@
 package com.bastex.codelearninghub.jakartaee.jms.basics.features;
 
-import com.bastex.codelearninghub.jakartaee.jms.basics.utils.JmsCommonUtils;
+import com.bastex.codelearninghub.jakartaee.jms.basics.utils.JmsLogUtils;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 import lombok.SneakyThrows;
@@ -40,11 +40,11 @@ public final class JmsSharedSubscriptionsTester {
             for (int i = 0; i < 5; i++) {
                 final Message message1 = sharedConsumer1.receive();
                 log.info("Message received by shared consumer 1");
-                JmsCommonUtils.logTextMessage(message1);
+                JmsLogUtils.logTextMessage(message1);
 
                 final Message message2 = sharedConsumer2.receive();
                 log.info("Message received by shared consumer 2");
-                JmsCommonUtils.logTextMessage(message2);
+                JmsLogUtils.logTextMessage(message2);
             }
         }
     }

@@ -1,6 +1,6 @@
 package com.bastex.codelearninghub.jakartaee.jms.basics.features;
 
-import com.bastex.codelearninghub.jakartaee.jms.basics.utils.JmsCommonUtils;
+import com.bastex.codelearninghub.jakartaee.jms.basics.utils.JmsLogUtils;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 import lombok.SneakyThrows;
@@ -67,7 +67,7 @@ public final class JmsReplyToTester {
         final JMSConsumer replyConsumer = jmsContext.createConsumer(queue);
 
         final Message receivedMessage = replyConsumer.receive();
-        JmsCommonUtils.logTextMessage(receivedMessage);
+        JmsLogUtils.logTextMessage(receivedMessage);
         log.info("Received message with correlation id: {}", receivedMessage.getJMSCorrelationID());
 
         return receivedMessage;

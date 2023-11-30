@@ -1,6 +1,6 @@
 package com.bastex.codelearninghub.jakartaee.jms.basics.features;
 
-import com.bastex.codelearninghub.jakartaee.jms.basics.utils.JmsCommonUtils;
+import com.bastex.codelearninghub.jakartaee.jms.basics.utils.JmsLogUtils;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 import lombok.SneakyThrows;
@@ -40,11 +40,11 @@ public final class JmsMessageExpirationTester {
             final JMSConsumer consumer = jmsContext.createConsumer(destinationQueue);
             // setting how long we should wait to receive a new message
             final Message message = consumer.receive(2000L);
-            JmsCommonUtils.logTextMessage(message);
+            JmsLogUtils.logTextMessage(message);
 
             final JMSConsumer expiryConsumer = jmsContext.createConsumer(expiryQueue);
             final Message expiredMessage = expiryConsumer.receive();
-            JmsCommonUtils.logTextMessage(expiredMessage);
+            JmsLogUtils.logTextMessage(expiredMessage);
         }
     }
 }

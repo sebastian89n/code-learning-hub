@@ -1,7 +1,7 @@
 package com.bastex.codelearninghub.jakartaee.jms.basics.jms1x;
 
 import com.bastex.codelearninghub.jakartaee.jms.basics.jms1x.Jms1xHelper.Jms1xConnection;
-import com.bastex.codelearninghub.jakartaee.jms.basics.utils.JmsCommonUtils;
+import com.bastex.codelearninghub.jakartaee.jms.basics.utils.JmsLogUtils;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 import lombok.SneakyThrows;
@@ -45,9 +45,9 @@ public final class Jms1xQueueBrowserTester {
             final MessageConsumer consumer = session.createConsumer(destinationQueue);
             jmsConnection.connection().start();
             final Message receivedMessage1 = consumer.receive(5000);
-            JmsCommonUtils.logTextMessage(receivedMessage1);
+            JmsLogUtils.logTextMessage(receivedMessage1);
             final Message receivedMessage2 = consumer.receive(5000);
-            JmsCommonUtils.logTextMessage(receivedMessage2);
+            JmsLogUtils.logTextMessage(receivedMessage2);
         }
     }
 
@@ -57,7 +57,7 @@ public final class Jms1xQueueBrowserTester {
         while (messagesEnumeration.hasMoreElements()) {
             final Object obj = messagesEnumeration.nextElement();
             if (obj instanceof final TextMessage textMessage) {
-                JmsCommonUtils.logTextMessage(textMessage);
+                JmsLogUtils.logTextMessage(textMessage);
             }
         }
         log.info("All messages from QueueBrowser were logged");

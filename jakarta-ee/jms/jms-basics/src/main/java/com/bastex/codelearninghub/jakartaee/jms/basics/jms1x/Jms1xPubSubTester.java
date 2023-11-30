@@ -1,6 +1,6 @@
 package com.bastex.codelearninghub.jakartaee.jms.basics.jms1x;
 
-import com.bastex.codelearninghub.jakartaee.jms.basics.utils.JmsCommonUtils;
+import com.bastex.codelearninghub.jakartaee.jms.basics.utils.JmsLogUtils;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 import lombok.SneakyThrows;
@@ -45,7 +45,7 @@ public final class Jms1xPubSubTester {
             final Message receivedMessage = consumer1.receive();
             final Message receivedMessage2 = consumer2.receive();
 
-            JmsCommonUtils.logTextMessages(List.of(receivedMessage, receivedMessage2));
+            JmsLogUtils.logTextMessages(List.of(receivedMessage, receivedMessage2));
         }
     }
 }

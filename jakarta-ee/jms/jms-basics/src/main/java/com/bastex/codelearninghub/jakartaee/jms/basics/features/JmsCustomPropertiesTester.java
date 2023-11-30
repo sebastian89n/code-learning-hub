@@ -1,6 +1,6 @@
 package com.bastex.codelearninghub.jakartaee.jms.basics.features;
 
-import com.bastex.codelearninghub.jakartaee.jms.basics.utils.JmsCommonUtils;
+import com.bastex.codelearninghub.jakartaee.jms.basics.utils.JmsLogUtils;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 import lombok.SneakyThrows;
@@ -38,7 +38,7 @@ public final class JmsCustomPropertiesTester {
             final boolean loggedIn = receivedMessage.getBooleanProperty("loggedIn");
             final String userToken = receivedMessage.getStringProperty("userToken");
 
-            JmsCommonUtils.logTextMessage(receivedMessage);
+            JmsLogUtils.logTextMessage(receivedMessage);
         }
     }
 }

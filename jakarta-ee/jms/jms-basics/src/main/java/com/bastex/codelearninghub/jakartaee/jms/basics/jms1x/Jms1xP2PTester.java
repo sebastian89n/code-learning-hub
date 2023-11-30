@@ -1,6 +1,6 @@
 package com.bastex.codelearninghub.jakartaee.jms.basics.jms1x;
 
-import com.bastex.codelearninghub.jakartaee.jms.basics.utils.JmsCommonUtils;
+import com.bastex.codelearninghub.jakartaee.jms.basics.utils.JmsLogUtils;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 import lombok.SneakyThrows;
@@ -23,6 +23,7 @@ import javax.jms.TextMessage;
 public final class Jms1xP2PTester {
     @SneakyThrows
     public static void testJms1xBasicsWithP2P() {
+
         try (final Jms1xHelper.Jms1xConnection jmsConnection = Jms1xHelper.openJmsConnection()) {
             final Connection connection = jmsConnection.connection();
             final Session session = jmsConnection.session();
@@ -37,7 +38,7 @@ public final class Jms1xP2PTester {
             // for consuming we need to start the connection
             connection.start();
             final Message receivedMessage = consumer.receive();
-            JmsCommonUtils.logTextMessage(receivedMessage);
+            JmsLogUtils.logTextMessage(receivedMessage);
         }
     }
 }

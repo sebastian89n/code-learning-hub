@@ -6,13 +6,10 @@ sending and receiving messages. It provides a way for different software compone
 a reliable, loosely coupled, and platform-independent manner. JMS is commonly used in enterprise and distributed systems
 to build scalable and reliable messaging solutions.
 
-**TO ADD:**
+## Modules
 
-- jms message priority
-- JMS headers vs properties
-- JMS headers (provider / developer)
-- anatomy of JMS message
-- message acknowledgment
+- **jms-basics** - sample application with code snippets demonstrating JMS features
+- **jms-task-manager** - sample JMS best mini app with client/server
 
 ## Installing Artemis
 
@@ -108,24 +105,50 @@ JMS supports various message types, including:
 - **BytesMessage**: Contains a stream of uninterpreted bytes.
 - **StreamMessage**: Contains a stream of primitive data types.
 
+### JMS Headers & Properties
+
+JMS messages can carry additional information through headers and properties:
+
+#### Headers
+
+- **JMSDestination**: Specifies the destination (queue or topic) to which the message is sent.
+- **JMSDeliveryMode**: Indicates whether the message should be persistent or non-persistent.
+- **JMSTimestamp**: Records the time when the message was sent.
+- **JMSExpiration**: Defines the expiration time for the message.
+- **JMSMessageID**: A unique identifier for the message.
+- **JMSPriority**: Assigns a priority level to the message.
+- **JMSReplyTo**: Specifies the destination where a reply should be sent.
+- **JMSRedelivered**: Indicates whether the message has been redelivered.
+- **JMSType**: Provides a type identifier for the message content.
+- **JMSCorrelationID**: Used to correlate messages.
+- **JMSDeliveryTime**: Specifies the delivery time for the message.
+
+#### Properties
+
+Custom properties can be set on JMS messages to convey application-specific data. For example:
+
+```java
+message.setStringProperty("key","value");
+```
+
 ### Message Acknowledgment
 
-JMS allows you to acknowledge the receipt of messages, ensuring reliable and once-only delivery. Acknowledgment modes
-include AUTO_ACKNOWLEDGE, CLIENT_ACKNOWLEDGE, and more.
+JMS provides acknowledgment modes for handling message receipt:
 
-## Using JMS in Java
+#### Auto-acknowledge (Session.AUTO_ACKNOWLEDGE)
 
-To work with JMS in Java, you'll typically need to perform the following steps:
+Messages are automatically acknowledged upon successful delivery to the consumer.
 
-1. Create a ConnectionFactory.
-2. Create a Connection.
-3. Create a Session.
-4. Create a Producer or Consumer.
-5. Send or receive messages.
-6. Close resources and connections when done.
+#### Client-acknowledge (Session.CLIENT_ACKNOWLEDGE)
 
-## Conclusion
+Consumers explicitly acknowledge message receipt for more control.
 
-JMS is a powerful technology for building messaging systems in Java applications. It offers flexibility, reliability,
-and scalability when it comes to asynchronous communication. Understanding the key concepts and components of JMS is
-essential for Java developers looking to implement robust messaging solutions in their projects.
+#### Dups-ok-acknowledge (Session.DUPS_OK_ACKNOWLEDGE)
+
+Allows for duplicate message acknowledgment when occasional duplicates are acceptable.
+
+#### Transacted (Session.SESSION_TRANSACTED)
+
+In transacted mode, acknowledgment is handled within a transaction. Messages are acknowledged only when the transaction
+is committed, providing atomicity for multiple message operations.
+

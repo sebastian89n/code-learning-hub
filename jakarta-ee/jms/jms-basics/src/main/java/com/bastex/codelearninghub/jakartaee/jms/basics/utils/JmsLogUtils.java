@@ -12,10 +12,10 @@ import java.util.Collection;
 
 @Slf4j
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
-public final class JmsCommonUtils {
+public final class JmsLogUtils {
     @SneakyThrows
     public static void logTextMessages(@NonNull final Collection<Message> messagesToLog) {
-        messagesToLog.forEach(JmsCommonUtils::logTextMessage);
+        messagesToLog.forEach(JmsLogUtils::logTextMessage);
     }
 
     @SneakyThrows

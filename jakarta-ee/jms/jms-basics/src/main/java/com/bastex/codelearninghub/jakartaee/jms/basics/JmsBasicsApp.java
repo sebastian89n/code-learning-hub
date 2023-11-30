@@ -19,7 +19,7 @@ import com.bastex.codelearninghub.jakartaee.jms.basics.jms2x.Jms2xP2PTester;
 
 public class JmsBasicsApp {
     public static void main(final String[] args) {
-        final String action = args.length == 1 ? args[0] : "default";
+        final String action = args.length == 1 ? args[0] : "";
 
         switch (action) {
             case "jms1xP2P" -> Jms1xP2PTester.testJms1xBasicsWithP2P();

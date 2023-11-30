@@ -1,6 +1,6 @@
 package com.bastex.codelearninghub.jakartaee.jms.basics.features;
 
-import com.bastex.codelearninghub.jakartaee.jms.basics.utils.JmsCommonUtils;
+import com.bastex.codelearninghub.jakartaee.jms.basics.utils.JmsLogUtils;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 import lombok.SneakyThrows;
@@ -43,7 +43,7 @@ public final class JmsDurableSubscriptionsTester {
             log.info("Creating durable consumer again");
             final JMSConsumer consumer = createDurableConsumer(jmsContext, topic);
             final Message receivedMessage = consumer.receive();
-            JmsCommonUtils.logTextMessage(receivedMessage);
+            JmsLogUtils.logTextMessage(receivedMessage);
             consumer.close();
 
             // only after calling unsubscribe durable consumer will get unsubscribed from the broker

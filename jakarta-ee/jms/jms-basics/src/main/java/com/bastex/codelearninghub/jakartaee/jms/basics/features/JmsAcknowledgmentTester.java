@@ -1,6 +1,6 @@
 package com.bastex.codelearninghub.jakartaee.jms.basics.features;
 
-import com.bastex.codelearninghub.jakartaee.jms.basics.utils.JmsCommonUtils;
+import com.bastex.codelearninghub.jakartaee.jms.basics.utils.JmsLogUtils;
 import com.google.common.collect.EvictingQueue;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
@@ -47,7 +47,7 @@ public final class JmsAcknowledgmentTester {
 
             final JMSConsumer consumer = jmsContext.createConsumer(requestQueue);
             final Message receive = consumer.receive();
-            JmsCommonUtils.logTextMessage(receive);
+            JmsLogUtils.logTextMessage(receive);
         }
     }
 
@@ -69,7 +69,7 @@ public final class JmsAcknowledgmentTester {
             final JMSConsumer consumer = jmsContext.createConsumer(requestQueue);
             final Message message = consumer.receive();
             // process message
-            JmsCommonUtils.logTextMessage(message);
+            JmsLogUtils.logTextMessage(message);
             // client acknowledges message manually
             message.acknowledge();
         }
@@ -120,13 +120,13 @@ public final class JmsAcknowledgmentTester {
 
             final JMSConsumer consumer = jmsContext.createConsumer(requestQueue);
             final Message receive = consumer.receive();
-            JmsCommonUtils.logTextMessage(receive);
+            JmsLogUtils.logTextMessage(receive);
             jmsContext.rollback();
             log.warn("Message rollback. It will be consumed again");
 
             for (int i = 0; i < 3; i++) {
                 final Message receivedMessage = consumer.receive();
-                JmsCommonUtils.logTextMessage(receivedMessage);
+                JmsLogUtils.logTextMessage(receivedMessage);
             }
             // only after calling commit messages will be removed from the queue / topic
             jmsContext.commit();
@@ -143,7 +143,7 @@ public final class JmsAcknowledgmentTester {
             if (jmsMessageId != null && !evictingQueue.contains(jmsMessageId)) {
                 // process message
 
-                JmsCommonUtils.logTextMessage(message);
+                JmsLogUtils.logTextMessage(message);
                 evictingQueue.add(jmsMessageId);
             } else {
                 log.info("Ignoring jms message with id {}. Message already processed in the past.", jmsMessageId);

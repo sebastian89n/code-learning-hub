@@ -1,6 +1,6 @@
 package com.bastex.codelearninghub.jakartaee.jms.basics.features;
 
-import com.bastex.codelearninghub.jakartaee.jms.basics.utils.JmsCommonUtils;
+import com.bastex.codelearninghub.jakartaee.jms.basics.utils.JmsLogUtils;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
@@ -59,7 +59,7 @@ public final class JmsMessageGroupingTester {
         @Override
         public void onMessage(final Message message) {
             log.info("Message consumed by consumer {}", consumerName);
-            JmsCommonUtils.logTextMessage(message);
+            JmsLogUtils.logTextMessage(message);
         }
     }
 }
