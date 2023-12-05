@@ -4,7 +4,7 @@ import com.bastex.codelearninghub.spring.context.di.services.GreetingBootService
 import org.springframework.stereotype.Service;
 
 /**
- * By default Spring bean name is class name with first letter lowercase: propertyInjectedGreetingBootService
+ * By the default Spring bean name is class name with first letter lowercase: propertyInjectedGreetingBootService
  */
 @Service
 class PropertyInjectedGreetingBootService implements GreetingBootService {
