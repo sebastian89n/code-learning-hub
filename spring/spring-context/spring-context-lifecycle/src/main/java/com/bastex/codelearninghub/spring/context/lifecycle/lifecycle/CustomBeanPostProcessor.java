@@ -15,9 +15,7 @@ public class CustomBeanPostProcessor implements BeanPostProcessor {
     public Object postProcessBeforeInitialization(final Object bean, final String beanName) throws BeansException {
         log.info("### postProcessBeforeInitialization is called for bean {}", beanName);
 
-        if (bean instanceof LifecycleDemoBean && beanName.equals("lifecycleDemoBEan")) {
-//            LifecycleDemoBean lifecycleDemoBean = (LifecycleDemoBean) bean;
-//            lifecycleDemoBean.setBeanName("asd");
+        if (bean instanceof final LifecycleDemoBean lifecycleDemoBean && beanName.equals("lifecycleDemoBEan")) {
             // doSomething
         }
         // if overridden will be called when every Spring bean is initialized
@@ -29,7 +27,7 @@ public class CustomBeanPostProcessor implements BeanPostProcessor {
     public Object postProcessAfterInitialization(final Object bean, final String beanName) throws BeansException {
         log.info("### postProcessAfterInitialization is called for bean {}", beanName);
 
-        if (bean instanceof LifecycleDemoBean) {
+        if (bean instanceof final LifecycleDemoBean lifecycleDemoBean) {
             // doSomething
         }
         // if overridden will be called when every Spring bean is initialized

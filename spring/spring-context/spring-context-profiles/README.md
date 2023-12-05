@@ -1,20 +1,13 @@
-# spring-context-profiles
-
-This module provides examples and guidelines for using Spring profiles to manage different configuration sets within a
-Spring application.
-
-## Introduction
+# Spring Context Profiles
 
 Spring profiles allow you to define sets of beans and configurations that are activated under specific runtime
 conditions. This is particularly useful for managing configurations across different environments or scenarios.
 
-## Examples
-
-### 1. Defining Profiles
+## 1. Defining Profiles
 
 Profiles can be defined in various ways:
 
-#### a. Annotation-Based Profiles
+### a. Annotation-Based Profiles
 
 ```java
 
@@ -31,7 +24,7 @@ public class ProductionConfig {
 }
 ```
 
-#### b. XML-Based Profiles
+### b. XML-Based Profiles
 
 ```xml
 <!-- applicationContext.xml -->
@@ -44,11 +37,11 @@ public class ProductionConfig {
 </beans>
 ```
 
-### 2. Activating Profiles
+## 2. Activating Profiles
 
 Profiles can be activated in different ways:
 
-#### a. Through Configuration
+### a. Through Configuration
 
 ```java
 public class MainApplication {
@@ -62,17 +55,25 @@ public class MainApplication {
 }
 ```
 
-#### b. Through Command Line
+### b. Through Command Line
 
 ```bash
 java -jar your-application.jar --spring.profiles.active=production
 ```
 
-### 3. Default Profiles
+### c. Through application.properties
+
+You can specify the active profiles directly in your application.properties or application.yml file:
+
+```properties
+spring.profiles.active=staging
+```
+
+## 3. Default Profiles
 
 You can set a default profile that is activated when no other profiles are explicitly specified.
 
-#### a. Annotation-Based Default Profile
+### a. Annotation-Based Default Profile
 
 ```java
 
@@ -83,7 +84,7 @@ public class DefaultConfig {
 }
 ```
 
-#### b. XML-Based Default Profile
+### b. XML-Based Default Profile
 
 ```xml
 <!-- applicationContext.xml -->
@@ -92,7 +93,7 @@ public class DefaultConfig {
 </beans>
 ```
 
-### Conclusion
+## Conclusion
 
 Profiles in Spring provide a powerful mechanism for managing different configurations. Whether you need
 environment-specific settings or conditional beans, profiles offer flexibility in tailoring your application to diverse

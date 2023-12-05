@@ -83,7 +83,7 @@ Alternatively, you can define beans in an XML configuration file.
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="myBean" class="com.bastex.codelearninghub.spring.context.beans"/>
+    <bean id="myBean" class="com.bastex.codelearninghub.spring.context.configuration"/>
 </beans>
 ```
 

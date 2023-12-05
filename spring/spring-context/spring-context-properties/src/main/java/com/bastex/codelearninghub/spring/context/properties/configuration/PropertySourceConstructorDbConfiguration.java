@@ -9,7 +9,9 @@ import org.springframework.context.annotation.PropertySource;
 /**
  * Constructor binding examples
  */
-@ConfigurationProperties("db") // properties binding
+@ConfigurationProperties(prefix = "db") // properties binding
+// Used to bind properties to constructor param for immutable objects. Deprecated and optional in Spring Boot 3.x, required in Spring Boot 2.x
+@ConstructorBinding
 @PropertySource("classpath:datasource.properties")
 @Getter
 @ToString
@@ -20,8 +22,6 @@ public class PropertySourceConstructorDbConfiguration {
 
     private final String jdbcUrl;
 
-    @ConstructorBinding
-    // Used to bind properties to constructor param for immutable objects. Deprecated and optional in Spring Boot 3.x, required in Spring Boot 2.x
     public PropertySourceConstructorDbConfiguration(final String username, final String password, final String jdbcUrl) {
         this.username = username;
         this.password = password;

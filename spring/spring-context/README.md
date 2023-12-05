@@ -10,12 +10,17 @@ Spring beans and their interactions.
 - **spring-context-configuration** - Demonstrates three methods of creating Spring beans: using annotations with
   @ComponentScan, using @Configuration class with @Bean annotation, and defining beans in an XML file.
 
-- **spring-context-properties** - loading values from properties files, overriding with profiles etc.
+- **spring-context-dependency-injection** - examples of DI in Spring
 
 - **spring-context-lifecycle** - some basic annotations and interfaces that can be used for handling bean lifecycle
   management
 
-- **spring-context-dependency-injection** - examples of DI in Spring
+- **spring-context-profiles** - Illustrates the usage of Spring profiles for managing different configuration sets
+  within a Spring application.
+
+- **spring-context-properties** - loading values from properties files, overriding with profiles etc.
+
+- **spring-context-scopes** - Covers the various bean scopes in Spring
 
 ## Overview
 

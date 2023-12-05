@@ -14,9 +14,11 @@
     <packaging>pom</packaging>
 
     <modules>
+        <module>spring-context-configuration</module>
         <module>spring-context-dependency-injection</module>
         <module>spring-context-lifecycle</module>
+        <module>spring-context-profiles</module>
         <module>spring-context-properties</module>
-        <module>spring-context-configuration</module>
+        <module>spring-context-scopes</module>
     </modules>
 </project>
