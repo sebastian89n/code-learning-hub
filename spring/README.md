@@ -10,11 +10,24 @@ some of the most common Spring modules.
 
 Project contains examples of Spring 5 library components
 
-- **spring-aop** - example of Spring Aspect Oriented Programming module
-- **spring-cloud-gateway** - example of Spring Cloud Gateway module with yaml mapping
-- **spring-context** - Spring Context related modules
-- **spring-data-jpa** - examples of JPA mapping, Spring Data repositories etc.
-- **spring-mvc** examples of Spring MVC. Uses spring-data-jpa module for DAO.
+- **spring-aop** - example of Spring Aspect-Oriented Programming module demonstrating the use of aspects, advice, and
+  pointcuts to modularize cross-cutting concerns in a Spring application.
+
+- **spring-cloud-gateway** - example of Spring Cloud Gateway module featuring YAML mapping for configuring routing,
+  filtering, and other gateway-related functionalities.
+
+- **spring-context** - Spring Context related modules providing a foundational framework for dependency injection,
+  configuration, and lifecycle management in Spring applications.
+
+- **spring-data-jpa** - examples of Java Persistence API (JPA) mapping and usage of Spring Data repositories for
+  simplified data access in a Spring application.
+
+- **spring-jms** - example of Spring JMS module showcasing seamless integration with Java Message Service. Simplifies
+  messaging operations, provides a consistent programming model, includes robust exception handling, and offers features
+  like message converters and annotation-based message listeners.
+
+- **spring-mvc** - examples of Spring Model-View-Controller (MVC) showcasing web development features. This module uses
+  the spring-data-jpa module for Data Access Object (DAO) operations.
 
 ## Overview
 

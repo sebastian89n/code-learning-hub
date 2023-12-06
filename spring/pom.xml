@@ -21,6 +21,7 @@
         <module>spring-cloud-gateway</module>
         <module>spring-context</module>
         <module>spring-data-jpa</module>
+        <module>spring-jms</module>
         <module>spring-mvc</module>
     </modules>
 
