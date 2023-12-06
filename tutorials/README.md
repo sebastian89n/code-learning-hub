@@ -25,4 +25,8 @@
   software development and other fields to visualize and communicate complex concepts and systems.
 
 
+- **regexp** - Regular expressions (regex) are a powerful tool for pattern matching within strings, facilitating
+  sophisticated text processing and validation in various programming languages.
+
+
 - **sql** - SQL is a domain-specific language used for managing and querying relational databases
