@@ -12,5 +12,5 @@ Currently based on Java 21.
 - java
 - java-libs
 - spring
-- tools
+- tutorials
 - web
