@@ -1,6 +1,4 @@
-# tools
-
-Project contains examples of various useful tools
+# Tutorials
 
 - **clean-code** - 'Clean Code,' introduced by Robert C. Martin, revolves around writing
   code that is easy to read, understand, and maintain, by adhering to principles and practices that promote simplicity
