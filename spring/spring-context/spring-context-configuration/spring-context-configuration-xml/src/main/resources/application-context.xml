@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="
+    http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- Some basic sample for Spring xml context bean definitions -->
+
+    <!-- load the properties file: sport.properties -->
+    <context:property-placeholder location="classpath:application.properties"/>
+
+    <!-- prototype scope example, new bean will be created for each place where it is injected -->
+    <bean id="messageContainerBean"
+          class="com.bastex.codelearninghub.spring.context.configuration.beans.MessageContainerBean" scope="prototype">
+        <constructor-arg index="0"
+                         value="Value initialized via constructor field on index 0"/>
+    </bean>
+
+    <!-- name is same as id, but it can contain multiple aliases comma,semicolon or whitespace separated -->
+    <bean name="i18nService,i18nEnService"
+          class="com.bastex.codelearninghub.spring.context.configuration.services.I18nEnServiceImpl"/>
+
+    <bean id="xmlBeanService"
+          class="com.bastex.codelearninghub.spring.context.configuration.services.XmlTranslationServiceImpl"
+          init-method="init"
+          destroy-method="destroy">
+        <constructor-arg name="version"
+                         value="${translation.service.version}"/> <!-- Value read from properties file -->
+        <constructor-arg name="messageContainerBean" ref="messageContainerBean"/>
+        <constructor-arg name="supportedLanguages">
+            <set>
+                <value>English</value>
+                <value>Spanish</value>
+            </set>
+        </constructor-arg>
+        <property name="translationQueryCount" value="0"/>
+        <property name="translationServices">
+            <list>
+                <ref bean="i18nEnService"/> <!-- referencing existing bean -->
+                <bean class="com.bastex.codelearninghub.spring.context.configuration.services.I18nEsServiceImpl"/> <!-- creating bean -->
+            </list>
+        </property>
+    </bean>
+</beans>

@@ -9,7 +9,7 @@ to build scalable and reliable messaging solutions.
 ## Modules
 
 - **jms-basics** - sample application with code snippets demonstrating JMS features
-- **jms-task-manager** - sample JMS best mini app with client/server
+- **jms-task-manager** - sample JMS mini app with client/server
 
 ## Installing Artemis
 

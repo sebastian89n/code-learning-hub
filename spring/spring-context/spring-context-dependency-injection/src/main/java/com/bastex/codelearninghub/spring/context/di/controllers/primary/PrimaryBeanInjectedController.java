@@ -1,6 +1,6 @@
 package com.bastex.codelearninghub.spring.context.di.controllers.primary;
 
-import com.bastex.codelearninghub.spring.context.di.services.GreetingBootService;
+import com.bastex.codelearninghub.spring.context.di.services.GreetingService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 
@@ -10,7 +10,7 @@ import org.springframework.stereotype.Controller;
 @Controller
 @RequiredArgsConstructor
 public class PrimaryBeanInjectedController {
-    private final GreetingBootService greetingService;
+    private final GreetingService greetingService;
 
     public String getGreeting() {
         return greetingService.sayGreeting();
