@@ -117,6 +117,8 @@ public class MyBeanPostProcessor implements BeanPostProcessor {
 
 Explore other notable annotations and interfaces related to the Spring bean lifecycle:
 
+E.g.
+
 #### `Aware` interfaces:
 
 - **`BeanFactoryAware`**: Allows a bean to be aware of the `BeanFactory` that created it.

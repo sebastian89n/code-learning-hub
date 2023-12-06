@@ -1,4 +1,4 @@
-# spring-context-configuration-annotations
+# Spring Context Configuration With Annotations
 
 In this example, we demonstrate how to configure the Spring context using annotations. To achieve this, we utilize
 the `@ComponentScan` annotation within an `@Configuration` class. This annotation allows us to specify packages to scan

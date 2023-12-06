@@ -1,4 +1,4 @@
-# spring-context-configuration-beans
+# # Spring Context Configuration With @Configuration classes and @Beans
 
 In this example, we showcase the usage of configuration-based configuration in the Spring context. This involves
 creating `@Configuration` classes, where each class defines Spring beans through methods annotated with `@Bean`.

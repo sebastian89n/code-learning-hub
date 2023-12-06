@@ -14,7 +14,7 @@ public class SpringContextScopesApp {
         try (final ConfigurableApplicationContext applicationContext = SpringApplication.run(SpringContextScopesApp.class, args)) {
             final UserService userService = applicationContext.getBean(UserService.class);
 
-            // new user is created each time we ask for User object because of prototype type
+            // new user is created each time we ask for User object from the context because of prototype scope
             final User user = applicationContext.getBean(User.class);
             user.setEmail("john.smith@gmail.com");
             user.setUsername("john345");
@@ -26,7 +26,7 @@ public class SpringContextScopesApp {
             user.setUsername("paulj74");
             userService.registerUser(user2);
 
-            // Here we get the same instance as userService because of singleton scope
+            // Here we get the same instance of UserService because of singleton scope
             final UserService userService2 = applicationContext.getBean(UserService.class);
             userService2.logUsers();
         }

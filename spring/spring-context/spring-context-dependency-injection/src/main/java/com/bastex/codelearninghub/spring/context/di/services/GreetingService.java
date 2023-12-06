@@ -1,5 +1,5 @@
 package com.bastex.codelearninghub.spring.context.di.services;
 
-public interface GreetingBootService {
+public interface GreetingService {
     String sayGreeting();
 }

@@ -1,4 +1,4 @@
-# spring-context-xml
+# Spring Context Configuration With Xml
 
 This example illustrates the process of defining and loading a Spring context from an XML file. In this approach, the
 configuration details for beans are specified in an XML file, typically named `applicationContext.xml`. The XML file

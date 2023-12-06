@@ -20,10 +20,10 @@ public class XmlTranslationServiceImpl implements XmlTranslationService {
     private final String version;
 
     // only used to demonstrate initialization of properties in Spring xml context
-    private final Set<String> supportedLanguages;
+    private int translationQueryCount;
 
     // only used to demonstrate initialization of properties in Spring xml context
-    private int translationQueryCount;
+    private final Set<String> supportedLanguages;
 
     private List<I18nService> translationServices;
 

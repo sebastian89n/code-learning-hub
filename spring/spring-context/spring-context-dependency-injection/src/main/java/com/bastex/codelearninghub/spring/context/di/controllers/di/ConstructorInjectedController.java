@@ -1,17 +1,17 @@
 package com.bastex.codelearninghub.spring.context.di.controllers.di;
 
-import com.bastex.codelearninghub.spring.context.di.services.GreetingBootService;
+import com.bastex.codelearninghub.spring.context.di.services.GreetingService;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 
 @Controller
-public class ConstructorInjectedBootController {
-    private final GreetingBootService constructorGreetingService;
+public class ConstructorInjectedController {
+    private final GreetingService constructorGreetingService;
 
     /**
      * Adding @Autowired on constructor is optional, if there's only one constructor
      */
-    public ConstructorInjectedBootController(final @Qualifier("constructorGreetingService") GreetingBootService constructorGreetingService) {
+    public ConstructorInjectedController(final @Qualifier("constructorGreetingService") GreetingService constructorGreetingService) {
         this.constructorGreetingService = constructorGreetingService;
     }
 
