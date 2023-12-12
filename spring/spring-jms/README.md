@@ -1,36 +1,46 @@
 # Spring JMS
 
-Spring JMS streamlines the process of incorporating messaging capabilities into your Spring applications, offering
-several advantages over traditional JMS usage.
+This module serves as a complement to the Jakarta EE JMS module, enhancing the messaging capabilities of your Spring
+applications. It seamlessly integrates with JMS providers, offering a set of features that simplify configuration,
+promote a consistent programming model, and enhance overall reliability.
 
-## Advantages
+To run the examples, Apache ActiveMQ Artemis is required. Refer to the installation guide in the JakartaEE/jms module
+for detailed instructions.
 
-### 1. **Simplified Configuration**
+## Key Components and Features
 
-Spring JMS simplifies the configuration process for interacting with JMS providers. With concise and declarative
-configuration, setting up connections, queues, and topics becomes more straightforward.
+### 1. **@JmsListener Annotation**
 
-### 2. **Consistent Programming Model**
+The `@JmsListener` annotation is a key feature of Spring JMS, allowing developers to create message listeners with ease.
+By annotating methods with `@JmsListener`, you can specify the destination (queue or topic) and define the method to be
+invoked when a message arrives. This annotation promotes a modern and concise way of consuming messages in your
+application.
 
-Spring JMS provides a consistent and intuitive programming model. The use of Spring's abstractions simplifies the
-complexity of JMS operations, making it easier to understand and maintain messaging code.
+### 2. **JmsTemplate**
 
-### 3. **Exception Handling**
+The `JmsTemplate` is a central class in Spring JMS that simplifies the process of sending messages. It abstracts away
+the complexities of working with JMS APIs directly, providing a clean and consistent API for sending messages to
+destinations (queues or topics). The `JmsTemplate` handles the creation and release of resources, making message
+production more straightforward.
 
-Spring JMS includes robust exception handling, allowing for cleaner error management when dealing with messaging
-operations. This results in more resilient and reliable messaging components.
+### 3. **DefaultMessageListenerContainer**
 
-### 4. **Integration with Spring Features**
+The `DefaultMessageListenerContainer` is a foundational component for asynchronous message consumption in Spring JMS. It
+manages the lifecycle of message listeners, handling tasks such as connection establishment, session creation, and
+message reception. This container provides the necessary infrastructure for reliable and efficient message consumption.
 
-Spring JMS seamlessly integrates with other Spring features, such as dependency injection, enabling better manageability
-and testability of your messaging components.
+### 4. **Simplified Exception Handling**
+
+Spring JMS enhances exception handling, providing a more robust mechanism for managing errors during messaging
+operations. This improves the overall resilience and reliability of your messaging components.
 
 ### 5. **Message Converters**
 
-Spring JMS introduces the concept of message converters, simplifying the conversion between Java objects and JMS
-messages. This enhances flexibility and reduces the amount of boilerplate code.
+Message converters in Spring JMS simplify the conversion between Java objects and JMS messages. This feature adds
+flexibility to your messaging code, reducing the need for boilerplate code and making it easier to work with different
+message formats.
 
-### 6. **Annotation-Based Message Listeners**
+### 6. **Integration with Spring Features**
 
-With Spring JMS, message listeners can be easily created using annotations like `@JmsListener`, promoting a more modern
-and concise way of defining message-consuming components.
+Spring JMS seamlessly integrates with other Spring features, including dependency injection. This integration enhances
+the manageability and testability of your messaging components, leveraging the power of the broader Spring ecosystem.
