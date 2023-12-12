@@ -33,7 +33,7 @@ public class JmsConnectionConfiguration {
     /**
      * A way to initialize consumer with various options like concurrency, message listener, pubSubDomain(false->p2p queue, true pub-sub topic) etc
      */
-    @Bean(destroyMethod = "destroy")
+    @Bean
     DefaultMessageListenerContainer topicMessageListenerContainer(final ActiveMQConnectionFactory connectionFactory, @Value("${topics.notificationTopic}") final String notificationTopic) {
         final DefaultMessageListenerContainer container = new DefaultMessageListenerContainer();
         container.setConnectionFactory(connectionFactory);
