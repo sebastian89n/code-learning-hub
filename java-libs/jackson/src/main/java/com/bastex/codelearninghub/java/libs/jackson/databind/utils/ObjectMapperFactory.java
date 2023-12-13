@@ -1,4 +1,4 @@
-package com.bastex.codelearninghub.java.libs.jackson.utils;
+package com.bastex.codelearninghub.java.libs.jackson.databind.utils;
 
 import com.fasterxml.jackson.core.StreamReadConstraints;
 import com.fasterxml.jackson.databind.DeserializationFeature;

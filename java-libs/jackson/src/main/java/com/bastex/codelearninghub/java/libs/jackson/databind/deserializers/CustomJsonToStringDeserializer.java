@@ -1,4 +1,4 @@
-package com.bastex.codelearninghub.java.libs.jackson.deserializers;
+package com.bastex.codelearninghub.java.libs.jackson.databind.deserializers;
 
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.databind.DeserializationContext;

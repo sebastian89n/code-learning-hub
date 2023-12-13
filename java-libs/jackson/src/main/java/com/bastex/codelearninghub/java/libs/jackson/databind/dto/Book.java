@@ -1,8 +1,8 @@
-package com.bastex.codelearninghub.java.libs.jackson.dto;
+package com.bastex.codelearninghub.java.libs.jackson.databind.dto;
 
-import com.bastex.codelearninghub.java.libs.jackson.deserializers.BookDateDeserializer;
-import com.bastex.codelearninghub.java.libs.jackson.deserializers.CustomJsonToStringDeserializer;
-import com.bastex.codelearninghub.java.libs.jackson.serializers.BookDateSerializer;
+import com.bastex.codelearninghub.java.libs.jackson.databind.deserializers.BookDateDeserializer;
+import com.bastex.codelearninghub.java.libs.jackson.databind.deserializers.CustomJsonToStringDeserializer;
+import com.bastex.codelearninghub.java.libs.jackson.databind.serializers.BookDateSerializer;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRawValue;
