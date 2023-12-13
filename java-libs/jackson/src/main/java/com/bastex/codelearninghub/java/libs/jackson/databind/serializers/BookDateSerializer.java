@@ -1,6 +1,6 @@
-package com.bastex.codelearninghub.java.libs.jackson.serializers;
+package com.bastex.codelearninghub.java.libs.jackson.databind.serializers;
 
-import com.bastex.codelearninghub.java.libs.jackson.utils.DateFormatUtils;
+import com.bastex.codelearninghub.java.libs.jackson.databind.utils.DateFormatUtils;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;

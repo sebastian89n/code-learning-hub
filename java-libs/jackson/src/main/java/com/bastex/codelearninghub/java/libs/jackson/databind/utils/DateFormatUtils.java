@@ -1,4 +1,4 @@
-package com.bastex.codelearninghub.java.libs.jackson.utils;
+package com.bastex.codelearninghub.java.libs.jackson.databind.utils;
 
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;

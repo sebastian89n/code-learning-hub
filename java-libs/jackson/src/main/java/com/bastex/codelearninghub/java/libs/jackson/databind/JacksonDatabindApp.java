@@ -1,8 +1,8 @@
-package com.bastex.codelearninghub.java.libs.jackson;
+package com.bastex.codelearninghub.java.libs.jackson.databind;
 
-import com.bastex.codelearninghub.java.libs.jackson.dto.Action;
-import com.bastex.codelearninghub.java.libs.jackson.dto.Book;
-import com.bastex.codelearninghub.java.libs.jackson.utils.ObjectMapperFactory;
+import com.bastex.codelearninghub.java.libs.jackson.databind.dto.Action;
+import com.bastex.codelearninghub.java.libs.jackson.databind.dto.Book;
+import com.bastex.codelearninghub.java.libs.jackson.databind.utils.ObjectMapperFactory;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonNode;
@@ -16,7 +16,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 @Slf4j
-public class JacksonApp {
+public class JacksonDatabindApp {
     public static void main(final String[] args) throws JsonProcessingException {
         final ObjectMapper objectMapper = ObjectMapperFactory.createJsonObjectMapper();
         final Book book = prepareDummyBook();
@@ -34,7 +34,8 @@ public class JacksonApp {
                 }
                 """;
         // parse json to JsonNode
-        final JsonNode jsonNode = objectMapper.readTree(jsonString);
+        final JsonNode jsonNode =
+                objectMapper.readTree(jsonString);
 
         // Add field to the JsonNode
         ((ObjectNode) jsonNode).put("version", "2023.2.3 (Ultimate Edition)");

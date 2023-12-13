@@ -1,4 +1,4 @@
-package com.bastex.codelearninghub.java.libs.jackson.dto;
+package com.bastex.codelearninghub.java.libs.jackson.databind.dto;
 
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
