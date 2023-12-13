@@ -51,6 +51,8 @@ ecosystem.
 
 ### Jackson Data Binding Annotations
 
+- `@JsonCreator`: Annotates a constructor or factory method to indicate how to create instances during deserialization.
+  It is useful when the deserialization process requires more than the default constructor.
 - `@JsonRootName`: Specifies a root name for the JSON representation of an object. This is useful when you want to wrap
   the serialized JSON with a specific root element.
 - `@JsonProperty`: Maps a Java class field or method to a specific JSON property, allowing you to customize the JSON
@@ -70,8 +72,6 @@ ecosystem.
   converted to its JSON representation.
 - `@JsonDeserialize`: Specifies a custom deserializer for a property, defining how JSON should be converted back to a
   Java object.
-- `@JsonCreator`: Annotates a constructor or factory method to indicate how to create instances during deserialization.
-  It is useful when the deserialization process requires more than the default constructor.
 
 ### `ObjectMapper` Class
 
