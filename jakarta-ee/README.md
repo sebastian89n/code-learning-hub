@@ -12,6 +12,8 @@ Modules with examples of some core Jakarta EE technologies:
 - **jax-ws** - Jakarta XML Web Services
 - **jaxb** - Jakarta XML Binding
 - **jms** - Jakarta Messaging
+- **json-b** - Jakarta JSON Binding
+- **json-p** - Jakarta JSON Processing
 - **servlets** - Jakarta Servlets
 
 ## Overview
@@ -53,6 +55,13 @@ challenges. Key features and technologies in Jakarta EE include:
     versa. It simplifies the conversion of Java objects to XML (marshalling) and XML data to Java objects (
     unmarshalling)
     by using annotations or configuration files.
+
+11. **JSON-B (Jakarta JSON Binding):** JSON-B provides a standard binding layer for converting Java objects to JSON
+    data and vice versa. It simplifies the integration of JSON processing in Jakarta EE applications using
+    annotations.
+
+12. **JSON-P (Jakarta JSON Processing):** JSON-P allows Jakarta EE applications to process and manipulate JSON data
+    using a streaming API or a tree model. It provides a convenient way to work with JSON in Java applications.
 
 ### Jakarta EE Containers
 

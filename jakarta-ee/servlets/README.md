@@ -16,7 +16,7 @@ While it serves
 as a starting point for understanding their usage, real-life applications typically involve more complex and diverse
 features tailored to specific requirements.
 
-## Key Concepts:
+## Key Concepts
 
 1. **Servlet:** A Java class that extends the `javax.servlet.http.HttpServlet` class, responsible for processing HTTP
    requests and generating responses. Servlets can be used to create dynamic web content.

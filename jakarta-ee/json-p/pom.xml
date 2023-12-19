@@ -5,21 +5,21 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.bastex</groupId>
-        <artifactId>code-learning-hub</artifactId>
+        <artifactId>code-learning-hub-jakarta-ee</artifactId>
         <version>0.0.1-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <artifactId>code-learning-hub-jakarta-ee</artifactId>
-    <packaging>pom</packaging>
+    <artifactId>code-learning-hub-json-p</artifactId>
 
-    <modules>
-        <module>jax-rs</module>
-        <module>jax-ws</module>
-        <module>jaxb</module>
-        <module>jms</module>
-        <module>json-b</module>
-        <module>json-p</module>
-        <module>servlets</module>
-    </modules>
+    <dependencies>
+        <dependency>
+            <groupId>jakarta.json</groupId>
+            <artifactId>jakarta.json-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.parsson</groupId>
+            <artifactId>parsson</artifactId>
+        </dependency>
+    </dependencies>
 </project>
