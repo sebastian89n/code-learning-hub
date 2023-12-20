@@ -1,6 +1,6 @@
-# JAXB: Jakarta XML Binding (previously Java Architecture for XML Binding
+# Jakarta XML Binding
 
-JAXB, or Jakarta XML Binding, is a Java technology that simplifies the conversion of XML data to Java
+Jakarta XML Binding (JAXB) is a Java technology that simplifies the conversion of XML data to Java
 objects (unmarshalling) and Java objects to XML data (marshalling). It provides a standardized way to work with XML data
 in Java applications.
 

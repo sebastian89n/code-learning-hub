@@ -1,6 +1,6 @@
-# Jakarta Messaging (JMS)
+# Jakarta Messaging
 
-Jakarta Messaging (previously Java Message Service) is a Java-based messaging standard that allows applications to
+Jakarta Messaging (JMS) is a Java-based messaging standard that allows applications to
 communicate asynchronously by
 sending and receiving messages. It provides a way for different software components to exchange information and data in
 a reliable, loosely coupled, and platform-independent manner. JMS is commonly used in enterprise and distributed systems

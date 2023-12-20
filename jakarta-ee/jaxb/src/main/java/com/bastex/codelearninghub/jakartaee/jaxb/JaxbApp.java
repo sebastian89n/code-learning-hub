@@ -20,40 +20,38 @@ public class JaxbApp {
     @SneakyThrows
     public static void main(final String[] args) {
         final JAXBContext jaxbContext = JAXBContext.newInstance(Employees.class);
-        final UnmarshallingResult unmarshallingResult = unmarshallEmployees(jaxbContext);
-
-        final Employees employees = unmarshallingResult.employees();
-        final Schema schema = unmarshallingResult.schema();
+        final Employees employees = unmarshallEmployees(jaxbContext);
 
         // setting value to transient field
         employees.getEmployees().forEach(employee -> employee.setLastUpdatedTimestamp(Instant.now()));
-        marshallEmployees(employees, jaxbContext, schema);
+        
+        marshallEmployees(employees, jaxbContext);
     }
 
     @SneakyThrows
-    private static UnmarshallingResult unmarshallEmployees(final JAXBContext jaxbContext) {
+    private static Employees unmarshallEmployees(final JAXBContext jaxbContext) {
         final Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
 
-        try (final InputStream employeesIs = JaxbApp.class.getClassLoader().getResourceAsStream("employees.xml");
-             final InputStream employeesSchemaIs = JaxbApp.class.getClassLoader().getResourceAsStream("employees.xsd")) {
+        try (final InputStream employeesIs = JaxbApp.class.getClassLoader().getResourceAsStream("employees.xml")) {
             // optional schema validation when unmarshalling
-            final Schema schema = prepareSchema(employeesSchemaIs);
+            final Schema schema = prepareSchema();
             unmarshaller.setSchema(schema);
 
             final Employees employees = (Employees) unmarshaller.unmarshal(employeesIs);
             log.info("Unmarshalled object: {}", employees);
 
-            return new UnmarshallingResult(employees, schema);
+            return employees;
         }
     }
 
     @SneakyThrows
-    private static void marshallEmployees(final Employees employees, final JAXBContext jaxbContext, final Schema schema) {
+    private static void marshallEmployees(final Employees employees, final JAXBContext jaxbContext) {
         final Marshaller marshaller = jaxbContext.createMarshaller();
         marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
         marshaller.setProperty(Marshaller.JAXB_NO_NAMESPACE_SCHEMA_LOCATION, "employees.xsd");
 
         // optional schema validation when marshalling
+        final Schema schema = prepareSchema();
         marshaller.setSchema(schema);
 
         final StringWriter xmlOutput = new StringWriter();
@@ -63,11 +61,10 @@ public class JaxbApp {
     }
 
     @SneakyThrows
-    private static Schema prepareSchema(final InputStream employeesSchemaIs) {
-        final SchemaFactory schemaFactory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
-        return schemaFactory.newSchema(new StreamSource(employeesSchemaIs));
-    }
-
-    private record UnmarshallingResult(Employees employees, Schema schema) {
+    private static Schema prepareSchema() {
+        try (final InputStream employeesSchemaIs = JaxbApp.class.getClassLoader().getResourceAsStream("employees.xsd")) {
+            final SchemaFactory schemaFactory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
+            return schemaFactory.newSchema(new StreamSource(employeesSchemaIs));
+        }
     }
 }
