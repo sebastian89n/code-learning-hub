@@ -1,7 +1,5 @@
 # Jakarta JSON Processing
 
-## Overview
-
 Jakarta JSON Processing (JSON-P) is a Java API for processing JSON (JavaScript Object Notation) data. It provides a
 versatile set of tools for working with JSON, including reading and writing JSON data, navigating JSON structures, and
 manipulating JSON objects.

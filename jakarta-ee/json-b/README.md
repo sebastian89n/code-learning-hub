@@ -1,7 +1,5 @@
 # Jakarta JSON Binding
 
-## Overview
-
 Jakarta JSON Binding(JSON-B) is a specification that allows for the serialization and deserialization of Java objects to
 and from JSON (
 JavaScript Object

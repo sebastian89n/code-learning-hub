@@ -1,6 +1,7 @@
 package com.bastex.codelearninghub.jakartaee.jsonb.dto;
 
-import com.bastex.codelearninghub.jakartaee.jsonb.serializers.EmployeeCustomFieldSerializer;
+import com.bastex.codelearninghub.jakartaee.jsonb.deserializers.CertificationDateDeserializer;
+import com.bastex.codelearninghub.jakartaee.jsonb.serializers.CertificationDateIsoSerializer;
 import jakarta.json.bind.annotation.JsonbAnnotation;
 import jakarta.json.bind.annotation.JsonbDateFormat;
 import jakarta.json.bind.annotation.JsonbNillable;
@@ -15,6 +16,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
+import java.time.Instant;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -43,31 +45,10 @@ public class Employee {
     private List<String> skills = new ArrayList<>();
 
     @JsonbTransient
-    private transient LocalDate nextPaymentDay;
+    private Instant lastLogin;
 
-    @JsonbTypeSerializer(EmployeeCustomFieldSerializer.class)
-    @JsonbTypeDeserializer(CustomDeserializer.class)
-    private String details;
-
-//    @JsonbTypeAdapter(CustomAdapter.class)
-//    private String customField;
-
-//    @JsonbTypeSerializer(CustomSerializer.class)
-//    public String getCustomField() {
-//        return customField;
-//    }
-//
-//    @JsonbTypeDeserializer(CustomDeserializer.class)
-//    public void setCustomField(final String customField) {
-//        this.customField = customField;
-//    }
-//
-//    @JsonbVisibility(CustomVisibility.class)
-//    public String getTemporaryData() {
-//        return temporaryData;
-//    }
-//
-//    public void setTemporaryData(final String temporaryData) {
-//        this.temporaryData = temporaryData;
-//    }
+    @JsonbTypeSerializer(CertificationDateIsoSerializer.class)
+    @JsonbTypeDeserializer(CertificationDateDeserializer.class)
+//    @JsonbTypeAdapter(CertificationDateAdapter.class)
+    private Instant certificationDate;
 }
