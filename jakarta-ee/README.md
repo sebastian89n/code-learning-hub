@@ -24,16 +24,16 @@ challenges. Key features and technologies in Jakarta EE include:
 
 ### Common Jakarta EE Technologies
 
-1. **Servlets:** Servlets are Java components that handle HTTP requests and provide dynamic web content. They are a
-   fundamental building block of Java web applications.
+1. **JMS (Jakarta Messaging):** JMS is an API for messaging, enabling asynchronous communication between distributed
+   components in a Java application.
 
 
 2. **JPA (Jakarta Persistence):** JPA is a standard for Object-Relational Mapping (ORM) in Java, making it easier to
    interact with relational databases.
 
 
-3. **JMS (Jakarta Messaging):** JMS is an API for messaging, enabling asynchronous communication between distributed
-   components in a Java application.
+3. **Servlet (Jakarta Servlet):** Servlets are Java components that handle HTTP requests and provide dynamic web
+   content. They are a fundamental building block of Java web applications.
 
 
 4. **JAX-RS (Jakarta RESTful Web Services):** JAX-RS provides a framework for building RESTful web services in Jakarta
