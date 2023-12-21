@@ -1,4 +1,4 @@
-# Spring Data JPA: Simplifying Data Access with JPA
+# Spring Data JPA
 
 Spring Data JPA is a module within the Spring ecosystem that simplifies data access in Java applications by building
 upon the Java Persistence API (JPA). It provides a higher-level, more expressive interface for working with relational
