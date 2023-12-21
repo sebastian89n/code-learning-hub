@@ -5,11 +5,6 @@ changes and schema evolution. It allows developers to define database changes in
 ensuring consistent and trackable updates to the database schema over time. Liquibase is widely used in software
 development to streamline database management and ensure the reliability of database deployments.
 
-This module provides an illustrative example of using Liquibase scripts and Java code to execute them programmatically.
-The focus is on embedding Liquibase in a Java application, with Spring Boot autoconfiguration deliberately disabled. The
-intention is to demonstrate how to manually configure Liquibase to enable the Spring context for custom migrations
-within the code.
-
 ## Key Features
 
 - **Database-Agnostic:** Liquibase is database-agnostic, meaning it supports various database management systems, such
@@ -32,6 +27,11 @@ within the code.
   and track changes over time.
 
 ## Usage
+
+This module provides an illustrative example of using Liquibase scripts and Java code to execute them programmatically.
+The focus is on embedding Liquibase in a Java application, with Spring Boot autoconfiguration deliberately disabled. The
+intention is to demonstrate how to manually configure Liquibase to enable the Spring context for custom migrations
+within the code.
 
 The example allows execution against either an `h2` or `postgres` database, depending on
 the configurations provided in the `application.properties` file (e.g., JDBC URL). While compatibility with other
