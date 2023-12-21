@@ -1,4 +1,4 @@
-# Maven Tutorial for Java Developers
+# Maven
 
 ## What is Maven?
 

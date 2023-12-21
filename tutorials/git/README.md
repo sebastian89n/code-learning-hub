@@ -239,7 +239,7 @@ Local branches are internally stored in `.git/refs/heads`
   ```bash
   git branch -d branch_name
   ```
-  To force deletion (in case the branch has unmerged changes), use:
+  To force deletion (regardless of its push and merge status), use:
   ```bash
   git branch -D branch_name
   ```
@@ -430,7 +430,7 @@ Here are some key remote repository commands:
 
 - **Delete a remote branch:**
   ```bash
-  git push origin --delete branch_name
+  git push --delete origin branch_name
   ```
   Alternatively:
   ```bash
