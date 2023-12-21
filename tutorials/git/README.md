@@ -4,7 +4,7 @@ Git is a distributed version control system that helps developers track changes 
 and manage project history. It provides a way to save different versions of your code, making it easy to work on new
 features or fix issues without breaking the existing codebase.
 
-## Section 1: Core Concepts
+## Core Concepts
 
 ### Version Control
 
@@ -51,7 +51,7 @@ Git offers several advantages:
 
 - **Open Source:** Git is open source and widely used, with extensive documentation and community support.
 
-## Section 2: Getting Started with Git
+## Getting Started with Git
 
 ### Initializing new local repository
 
@@ -130,7 +130,7 @@ generated files, logs, and more. Here's how you create a .gitignore file:
 /build/
 ```
 
-## Section 3: Basic Workflow and Understanding Local Branches in Git
+## Staging, committing and viewing commit history
 
 Now that you have a Git repository set up, let's explore the basic Git workflow:
 
@@ -162,7 +162,40 @@ Now that you have a Git repository set up, let's explore the basic Git workflow:
 
   Make sure to replace "Your commit message" with a brief, descriptive message that explains the purpose of the commit.
 
-### Local Branches
+
+- **Viewing Commit History:**
+
+  To see the commit history of your project, use:
+
+    ```bash
+    git log
+    ```
+
+  This displays a list of commits, including their unique hash, author, date, and commit message.
+
+  There are optional parameters to customize log output:
+
+    ```bash
+    git log --pretty=oneline
+    ```
+
+    ```bash
+    git log --pretty=oneline --since="2023-01-01" --until="2023-09-12" --author="John Smith"
+    ```
+
+  To display last x revisions use:
+
+    ```bash
+    git log --pretty=oneline -5
+    ```
+
+  To check current contributors to the project use:
+
+    ```bash
+    git shortlog -s -n
+    ```
+
+## Local Branches
 
 **Local branches** are branches that exist on your local machine. They are used for development and are entirely under
 your control. Some key points about local branches include:
@@ -202,51 +235,100 @@ Local branches are internally stored in `.git/refs/heads`
   git branch | grep phrase
   ```
 
-- **Merge different local branch into the current branch:**
+## Merging Changes
+
+In Git, merging is the process of combining changes from one branch into another. This is a crucial aspect of
+collaboration, especially when working with feature branches or in a team environment.
+
+### Basic Merge
+
+The basic merge scenario involves integrating changes from a source branch into a target branch. Here's how you can
+perform a basic merge:
+
+1. **Switch to the Target Branch:**
+
+   Before merging changes, switch to the branch where you want to integrate the changes. For example, if you want to
+   merge changes from a feature branch into the main branch:
+
   ```bash
-  git merge branch_name
+  git checkout main
   ```
 
-### Commit history
+2. **Merge the Source Branch:**
 
-- **Viewing Commit History:**
+   Use the `git merge` command to bring changes from the source branch (e.g., feature branch) into the target branch:
 
-  To see the commit history of your project, use:
+  ```bash
+  git merge feature_branch
+  ```
 
-    ```bash
-    git log
-    ```
+If there are no conflicts, Git will automatically perform the merge, and you'll see a message indicating a successful
+merge.
 
-  This displays a list of commits, including their unique hash, author, date, and commit message.
+### Merge Conflicts
 
-  There are optional parameters to customize log output:
+Merge conflicts can occur when Git is unable to automatically merge changes from different branches. This often happens
+when the same lines of a file have been modified in both the source and target branches.
 
-    ```bash
-    git log --pretty=oneline
-    ```
+If a conflict occurs during a merge, Git will mark the conflicted areas in the affected files. To resolve the conflict:
 
-    ```bash
-    git log --pretty=oneline --since="2023-01-01" --until="2023-09-12" --author="John Smith"
-    ```
+1. Open the conflicted file in a text editor.
+2. Manually resolve the conflicting sections, keeping the changes you want.
+3. Save the file.
 
-  To display last x revisions use:
+After resolving conflicts, complete the merge by staging the resolved files and committing the changes:
 
-    ```bash
-    git log --pretty=oneline -5
-    ```
+  ```bash
+  git add conflicted_file1.txt conflicted_file2.txt
+  ```
 
-  To check current contributors to the project use:
+  ```bash
+  git commit -m "Merge branch 'feature_branch' into main"
+  ```
 
-    ```bash
-    git shortlog -s -n
-    ```
+### Merge Strategies
 
-## Section 4: Understanding Remote Branches in Git
+Git provides different merge strategies to handle various merging scenarios:
+
+- **Fast Forward Merge:**
+  If no new changes have been made on the target branch since the source branch was created, Git performs a fast-forward
+  merge. This essentially moves the target branch pointer to the latest commit on the source branch.
+
+  ```bash
+  git merge --ff-only feature_branch
+  ```
+
+- **Three-Way Merge:**
+  The default merge strategy is a three-way merge, which uses a common ancestor to merge changes from two branches.
+
+  ```bash
+  git merge feature_branch
+  ```
+
+- **Squash Merge:**
+  Squash merging combines all the changes from a source branch into a single new commit on the target branch. This can
+  be useful for
+
+  ```bash
+  git merge --squash feature_branch
+  ```
+
+- **Octopus Merge:**
+  Octopus merge is used when merging multiple branches into a single branch. It creates a merge commit with more than
+  two parents.
+
+  ```bash
+  git merge branch1 branch2 branch3
+  ```
+
+Merging is a fundamental concept in Git, and understanding the different strategies helps you choose the most
+appropriate approach for your specific use case. Always be mindful of conflicts and aim for a clean and coherent commit
+history.
+
+## Remote Branches
 
 When working with Git, it's important to distinguish between **local branches** and **remote branches**. These concepts
 are fundamental to version control and collaboration.
-
-### Remote Branches in Git
 
 In Git, **remote branches** represent the state of branches on a remote repository. They are used for collaboration and
 tracking the work done by other team members. Some key points about remote branches include:
@@ -362,7 +444,7 @@ for easier tracking and synchronization between your local and remote repositori
   git branch -vv
   ```
 
-## Section 5: Advanced Git Commands
+## Advanced Git Commands
 
 ### Undoing changes
 
@@ -479,6 +561,42 @@ commands:
 
 With care and understanding, `git rebase` can help you maintain an organized Git history.
 
+### Git Cherry-Pick
+
+Cherry-picking is the process of taking a specific commit from one branch and applying it to another. Here's how to
+cherry-pick a commit:
+
+- **Cherry-pick a commit from another branch:**
+  ```bash
+  git cherry-pick commit_hash
+  ```
+
+### Git Tags
+
+Tags in Git are used to mark specific points in history, often for software releases. Here are some tag-related
+commands:
+
+- **Create a lightweight tag:**
+  ```bash
+  git tag tag_name
+  ```
+
+- **Create an annotated tag with a message:**
+  ```bash
+  git tag -a tag_name -m "Your tag message"
+  ```
+
+- **Push tags to a remote repository:**
+  ```bash
+  git push origin tag_name
+  ```
+  note: `origin` is a name of remote repository.
+
+- **List all local tags:**
+  ```bash
+  git tag
+  ```
+
 ### Git Stash
 
 The git stash command allows you to save changes that you're not ready to commit but need to switch branches or perform
@@ -512,43 +630,7 @@ other tasks. Here are some stash commands:
   git stash apply n
   ```
 
-### Git Tags
-
-Tags in Git are used to mark specific points in history, often for software releases. Here are some tag-related
-commands:
-
-- **Create a lightweight tag:**
-  ```bash
-  git tag tag_name
-  ```
-
-- **Create an annotated tag with a message:**
-  ```bash
-  git tag -a tag_name -m "Your tag message"
-  ```
-
-- **Push tags to a remote repository:**
-  ```bash
-  git push origin tag_name
-  ```
-  note: `origin` is a name of remote repository.
-
-- **List all local tags:**
-  ```bash
-  git tag
-  ```
-
-### Git Cherry-Pick
-
-Cherry-picking is the process of taking a specific commit from one branch and applying it to another. Here's how to
-cherry-pick a commit:
-
-- **Cherry-pick a commit from another branch:**
-  ```bash
-  git cherry-pick commit_hash
-  ```
-
-## Section 6: Git Tips & Tricks
+## Tips & Tricks
 
 ### Aliases
 
@@ -603,7 +685,7 @@ handling line endings, merging binary files, and other repository-specific setti
 
 Customize your .gitattributes file to suit your project's needs.
 
-## Section 7: Git Workflow Summary
+## Git Workflow Summary
 
 - **Initialize a Git Repository**:
     - `git init` or `git clone`
