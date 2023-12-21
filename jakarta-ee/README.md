@@ -1,6 +1,6 @@
-# Jakarta EE (previously Java EE - Java Enterprise Edition)
+# Jakarta Enterprise Edition
 
-Jakarta EE is a set of specifications and APIs for building and deploying
+Jakarta EE(previously Java EE - Java Enterprise Edition) is a set of specifications and APIs for building and deploying
 enterprise-level, distributed, and scalable Java applications. It provides a standardized and robust platform for
 developing server-side applications, often used in business and enterprise environments.
 
