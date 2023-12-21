@@ -1,14 +1,12 @@
-# JUnit 5: Modern Java Testing Framework
+# JUnit 5
 
 JUnit 5 is a modern Java testing framework that provides an efficient and feature-rich platform for creating and running
 unit tests. It offers a standardized way to ensure the correctness and reliability of Java code. Additionally, it
 simplifies test creation, organization, and execution. JUnit 5 is a popular choice for Java developers, supporting
 test-driven development (TDD) and ensuring code quality.
 
-## Overview
-
 JUnit 5 introduces new features and improvements over JUnit 4, offering a more flexible and extensible testing
-framework. Some of the key elements and features include:
+framework.
 
 ### Annotations
 
@@ -49,11 +47,6 @@ framework. Some of the key elements and features include:
 Mockito is a Java mocking framework commonly used alongside JUnit 5 for creating and managing mock objects in unit
 tests. Mock objects simulate the behavior of real objects, helping to isolate the code under test. Mockito provides a
 straightforward way to create, configure, and verify interactions with mock objects during unit testing.
-
-## Overview
-
-Mockito is widely used in Java unit testing and offers a variety of features for creating and working with mock objects.
-Some of the most common features in Mockito include:
 
 ### Mocking
 
