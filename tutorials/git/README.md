@@ -499,30 +499,6 @@ Sometimes, you may need to undo changes in Git. Here are a few commands to help 
   git commit --amend
   ```
 
-### Git Reflog
-
-`git reflog` is a valuable Git command used for tracking and managing your Git history, especially in scenarios where
-you need to recover lost commits, branches, or understand reference changes.
-
-It displays a detailed history of the "tips" of branches and other references in your Git repository. Each entry in the
-reflog includes a commit's SHA-1
-hash, the action taken, and a reference's name.
-
-This command will display a list of recent reference changes, typically including branch updates, commits, merges, and
-other Git actions:
-
-  ```bash
-  git reflog
-  ```
-
-Suppose you accidentally delete a branch, and you want to recover it:
-
-- First, run git reflog to find the SHA-1 hash of the lost branch's tip.
-- Then, create a new branch from that commit:
-  ```bash
-  git branch new_branch_name recovered_commit_hash
-  ```
-
 ### Git Rebase
 
 Rebasing is a powerful feature for cleaning up and streamlining your commit history. Here are some essential Git rebase
@@ -628,6 +604,30 @@ other tasks. Here are some stash commands:
   Since version 2.11 it is also possible to do the same using this command:
   ```bash
   git stash apply n
+  ```
+
+### Git Reflog
+
+`git reflog` is a valuable Git command used for tracking and managing your Git history, especially in scenarios where
+you need to recover lost commits, branches, or understand reference changes.
+
+It displays a detailed history of the "tips" of branches and other references in your Git repository. Each entry in the
+reflog includes a commit's SHA-1
+hash, the action taken, and a reference's name.
+
+This command will display a list of recent reference changes, typically including branch updates, commits, merges, and
+other Git actions:
+
+  ```bash
+  git reflog
+  ```
+
+Suppose you accidentally delete a branch, and you want to recover it:
+
+- First, run git reflog to find the SHA-1 hash of the lost branch's tip.
+- Then, create a new branch from that commit:
+  ```bash
+  git branch new_branch_name recovered_commit_hash
   ```
 
 ## Tips & Tricks
