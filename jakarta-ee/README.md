@@ -69,11 +69,11 @@ challenges. Key features and technologies in Jakarta EE include:
     using a streaming API or a tree model. It provides a convenient way to work with JSON in Java applications.
 
 
-12. **JSP (Jakarta Server Pages):** JSP is a technology that allows the creation of dynamic web pages using Java. It
+12. **JSP (Jakarta Pages):** JSP is a technology that allows the creation of dynamic web pages using Java. It
     simplifies the generation of HTML content within Java web applications.
 
 
-13. **JSF (JavaServer Faces):** JSF is a Java web application framework for building component-based user interfaces. It
+13. **JSF (Jakarta Faces):** JSF is a Java web application framework for building component-based user interfaces. It
     simplifies the development integration of web-based user interfaces by providing reusable UI components and a robust
     event-handling model.
 
