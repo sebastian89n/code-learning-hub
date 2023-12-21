@@ -1,12 +1,10 @@
-# Git Tutorial
-
-## Section 1: Core Concepts
-
-### What is Git?
+# Git
 
 Git is a distributed version control system that helps developers track changes to their code, collaborate with others,
 and manage project history. It provides a way to save different versions of your code, making it easy to work on new
 features or fix issues without breaking the existing codebase.
+
+## Section 1: Core Concepts
 
 ### Version Control
 
