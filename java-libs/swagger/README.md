@@ -1,7 +1,5 @@
 # Swagger Documentation
 
-Examples in this module are based on JAX-RS Jersey for Swagger integration.
-
 Swagger is an API documentation tool that simplifies the generation of interactive API documentation for Java
 applications. It enables developers to describe and document RESTful APIs in a standardized way. Below are key aspects
 of integrating Swagger into your project.
@@ -30,8 +28,7 @@ Swagger provides a comprehensive solution for API documentation with the followi
 To integrate Swagger into your project, follow these general steps:
 
 1. **Add Swagger Dependencies:**
-    - Include the necessary Swagger dependencies in your project, such as `springfox-swagger2` for Spring Boot
-      applications.
+    - Include the necessary Swagger dependencies in your project, such as `springfox-swagger2` for Spring applications.
 
 2. **Configure Swagger:**
     - Configure Swagger settings in your application, specifying API base packages, version information, and other
@@ -153,3 +150,5 @@ For JAX-RS Jersey, you might need the following dependencies:
     </dependency>
 </dependencies>
 ```
+
+**Examples in this module are based on JAX-RS Jersey for Swagger integration**
