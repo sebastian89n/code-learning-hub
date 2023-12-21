@@ -19,5 +19,6 @@
         <module>mapstruct</module>
         <module>picocli</module>
         <module>slf4j-with-logback</module>
+        <module>swagger</module>
     </modules>
 </project>
