@@ -235,6 +235,15 @@ Local branches are internally stored in `.git/refs/heads`
   git branch | grep phrase
   ```
 
+- **Delete a local branch:**
+  ```bash
+  git branch -d branch_name
+  ```
+  To force deletion (in case the branch has unmerged changes), use:
+  ```bash
+  git branch -D branch_name
+  ```
+
 ## Merging Changes
 
 In Git, merging is the process of combining changes from one branch into another. This is a crucial aspect of
@@ -419,6 +428,15 @@ Here are some key remote repository commands:
   git push origin branch_name
   ```
 
+- **Delete a remote branch:**
+  ```bash
+  git push origin --delete branch_name
+  ```
+  Alternatively:
+  ```bash
+  git push origin :branch_name
+  ```
+
 ### Connecting Local and Remote Branches via Upstream
 
 In Git, a local branch can be associated with a remote branch through an "upstream" relationship. This connection allows
@@ -571,6 +589,20 @@ commands:
 - **List all local tags:**
   ```bash
   git tag
+  ```
+
+- **To delete a local tag:**
+  ```bash
+  git tag -d tag_name
+  ```
+
+- **Delete a remote tag:**
+  ```bash
+  git push --delete origin tag_name
+  ```
+  Alternatively:
+  ```bash
+  git push origin :refs/tags/tag_name
   ```
 
 ### Git Stash

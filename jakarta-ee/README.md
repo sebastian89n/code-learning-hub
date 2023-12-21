@@ -30,7 +30,7 @@ challenges. Key features and technologies in Jakarta EE include:
 2. **JSP (JavaServer Pages):** JSP is a technology that allows the creation of dynamic web pages using Java. It
    simplifies the generation of HTML content within Java web applications.
 
-3. **Jakarta Enterprise Beans (EJB):** EJB provides a component-based approach to building server-side business logic,
+3. **EJB (Jakarta Enterprise Beans):** EJB provides a component-based approach to building server-side business logic,
    supporting features like transactions, security, and scalability.
 
 4. **JPA (Jakarta Persistence):** JPA is a standard for Object-Relational Mapping (ORM) in Java, making it easier to
@@ -42,8 +42,8 @@ challenges. Key features and technologies in Jakarta EE include:
 6. **JTA (Jakarta Transactions):** JTA provides support for distributed transactions, ensuring data consistency across
    multiple resources.
 
-7. **CDI (Contexts and Dependency Injection):** CDI facilitates the management of beans, their lifecycle, and the
-   injection of dependencies in a Jakarta EE application.
+7. **CDI (Jakarta Contexts and Dependency Injection):** CDI facilitates the management of beans, their lifecycle, and
+   the injection of dependencies in a Jakarta EE application.
 
 8. **JAX-WS (Jakarta XML Web Services):** JAX-WS enables the creation and consumption of SOAP-based web services in
    Jakarta EE applications, allowing seamless communication with external services.
