@@ -91,7 +91,7 @@ The two main types of containers are:
   **E.g. servers**: Apache Tomcat, Jetty
 
 
-- **EJB Containers:** EJB containers host Enterprise JavaBeans and provide services like transaction management,
+- **EJB Containers:** EJB containers host Jakarta Enterprise Beans and provide services like transaction management,
   security, and scalability.
 
   **E.g. servers**: Oracle Weblogic, WilfFly
