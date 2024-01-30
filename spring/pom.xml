@@ -23,6 +23,7 @@
         <module>spring-data-jpa</module>
         <module>spring-jms</module>
         <module>spring-mvc</module>
+        <module>spring-security</module>
     </modules>
 
     <properties>

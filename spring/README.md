@@ -29,6 +29,9 @@ Project contains examples of Spring 5 library components
 - **spring-mvc** - examples of Spring Model-View-Controller (MVC) showcasing web development features. This module uses
   the spring-data-jpa module for Data Access Object (DAO) operations.
 
+- **spring-security** - example of Spring Security module demonstrating authentication, authorization, and other
+  security features in a Spring application.
+
 ## Overview
 
 Spring's core principle is "Inversion of Control" (IoC), which means that the framework controls the flow of a program,
