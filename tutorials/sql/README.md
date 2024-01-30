@@ -1,8 +1,14 @@
-# SQL Tutorial for Developers
+# SQL
 
-## Introduction to SQL
+SQL, which stands for Structured Query Language, is a domain-specific programming language used for managing and
+manipulating relational databases. It provides a standardized way to interact with databases, allowing users to define,
+query, update, and manage data.
 
-SQL is a domain-specific language used for managing and querying relational databases. Here are some core concepts:
+It is essential for working with relational database management systems (RDBMS) such as MySQL, PostgreSQL, Microsoft
+SQL Server, and Oracle Database. It provides a powerful and standardized way to interact with and manage data in these
+systems.
+
+## Key Concepts
 
 - **Database**: A structured collection of data.
 - **Table**: A collection of related data organized into rows and columns.

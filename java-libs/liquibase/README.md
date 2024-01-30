@@ -1,48 +1,11 @@
-# Liquibase: Database Version Control and Migration
-
-Module contains example of Liquibase scripts and Java code to execute them programmatically.
-
-In this example, we use Liquibase embedded in Java application with Spring Boot autoconfiguration disabled. It
-demonstrates how we can configure
-it manually to enable Spring context for custom migrations in the code.
-
-It can be run against `h2` or `postgres` depending on the application.properties(jdbc url etc.).
-It also works with other db types but requires proper driver to be provided in the pom / classpath.
-
-By the default if no context is provided, Liquibase will run every changeset.
-So we provide dummy context called "update" to initialize only default changesets(those without any context specified).
-
-`initDataScript` context executes changesets to insert sample data via Liquibase inserts.
-
-`initDataCode` context executes sample data initialization via code
-
-To test local postgres download zip from:
-https://www.enterprisedb.com/download-postgresql-binaries
-
-From bin folder:
-
-- `initdb.exe -D ../data --username=postgres --auth=trust` - initializes db
-- `pg_ctl.exe start -D ../data` - starts the database
-- `psql --username postgres` - open DB console
-
-We need to create db configured in jdbc url in psql.
-
-Open DB console and run:
-
-`CREATE DATABASE testdb`
-
-`\c testdb` - to switch to that db inside the console
-
-## Overview
+# Liquibase
 
 Liquibase is an open-source database version control and migration tool that simplifies the process of managing database
 changes and schema evolution. It allows developers to define database changes in a structured and versioned way,
 ensuring consistent and trackable updates to the database schema over time. Liquibase is widely used in software
 development to streamline database management and ensure the reliability of database deployments.
 
-Liquibase offers a range of features and concepts that make it a valuable tool for managing database changes:
-
-### Key Features
+## Key Features
 
 - **Database-Agnostic:** Liquibase is database-agnostic, meaning it supports various database management systems, such
   as MySQL, PostgreSQL, Oracle, and more. Developers can use a single set of change sets to manage database schema
@@ -62,3 +25,42 @@ Liquibase offers a range of features and concepts that make it a valuable tool f
 
 - **Changelog Management:** A changelog file lists the change sets and their execution order, making it easy to maintain
   and track changes over time.
+
+## Usage
+
+This module provides an illustrative example of using Liquibase scripts and Java code to execute them programmatically.
+The focus is on embedding Liquibase in a Java application, with Spring Boot autoconfiguration deliberately disabled. The
+intention is to demonstrate how to manually configure Liquibase to enable the Spring context for custom migrations
+within the code.
+
+The example allows execution against either an `h2` or `postgres` database, depending on
+the configurations provided in the `application.properties` file (e.g., JDBC URL). While compatibility with other
+database types is possible, it necessitates the inclusion of the appropriate driver in the project's `pom.xml` or
+classpath.
+
+By default, Liquibase will execute every changeset if no context is specified. To selectively run changesets, a dummy
+context named "update" is provided, initializing only default changesets (those without any specific context).
+
+### Contexts
+
+- **update**: Initializes default changesets.
+- **initDataScript**: Executes changesets to insert sample data using Liquibase inserts.
+- **initDataCode**: Executes sample data initialization via code.
+
+## Testing with Local PostgreSQL
+
+To test with a local PostgreSQL database:
+
+1. Download the PostgreSQL binaries zip from [EnterpriseDB](https://www.enterprisedb.com/download-postgresql-binaries).
+2. Navigate to the `bin` folder in the downloaded archive.
+
+- Run `initdb.exe -D ../data --username=postgres --auth=trust` to initialize the database.
+- Start the database with `pg_ctl.exe start -D ../data`.
+- Access the PostgreSQL console with `psql --username postgres`.
+
+3. Within the console, create a database configured in the JDBC URL specified in `application.properties`:
+
+   ```
+   CREATE DATABASE testdb;
+   \c testdb
+   ```

@@ -1,4 +1,4 @@
-# Picocli: Modern Java Command-Line Parsing Library
+# Picocli
 
 Picocli is a powerful Java library for creating command-line applications with ease. It simplifies the development of
 command-line interfaces (CLIs) by providing an intuitive and declarative approach to parsing command-line arguments and
@@ -14,10 +14,7 @@ e.g. program arguments to run
 
 `--call-type=ANYTHING --delay=1 --payload="{'text': 'value'}"`
 
-## Overview
-
 Picocli offers a wide range of features and annotations to simplify the process of building command-line applications.
-Some of the core concepts and features include:
 
 ### Annotations
 

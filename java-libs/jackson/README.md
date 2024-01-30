@@ -1,11 +1,9 @@
-# Jackson: Java Library for JSON Processing
+# Jackson
 
 Jackson is a widely-used Java library for handling JSON (JavaScript Object Notation) data. It provides a powerful and
 efficient way to parse, generate, and manipulate JSON data within Java applications. Jackson is commonly used for tasks
 such as deserialization and serialization of JSON data, making it an essential tool for web services, data exchange, and
 configuration management.
-
-## Overview
 
 Jackson offers two main components: the Streaming API and the Data Binding API, both of which enable developers to work
 with JSON data efficiently.

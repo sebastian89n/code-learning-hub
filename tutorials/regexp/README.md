@@ -1,4 +1,4 @@
-# Regular Expressions Module
+# Regular Expressions
 
 A regular expression (regex or regexp) is a powerful tool used for pattern matching within strings. It provides a
 concise and flexible means for searching, matching, and manipulating text based on patterns.

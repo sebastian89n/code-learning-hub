@@ -1,4 +1,4 @@
-# Spring MVC: Building Web Applications with Spring
+# Spring MVC
 
 Spring MVC, part of the Spring Framework, is a widely used module for building web applications in Java. It provides a
 powerful and flexible framework for developing web applications with the Model-View-Controller (MVC) architectural
