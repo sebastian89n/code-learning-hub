@@ -1,6 +1,7 @@
 package com.bastex.codelearninghub.spring.jms;
 
 import com.bastex.codelearninghub.spring.jms.listeners.NotificationMessageListener;
+import jakarta.jms.Session;
 import lombok.SneakyThrows;
 import org.apache.activemq.artemis.jms.client.ActiveMQConnectionFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -9,7 +10,6 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.jms.core.JmsTemplate;
 import org.springframework.jms.listener.DefaultMessageListenerContainer;
 
-import javax.jms.Session;
 import java.time.Duration;
 
 @Configuration

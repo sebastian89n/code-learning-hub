@@ -1,22 +1,22 @@
 package com.bastex.codelearninghub.spring.data.domain;
 
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
+import jakarta.persistence.Convert;
+import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
+import jakarta.persistence.Table;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
-import org.hibernate.annotations.Type;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
 import java.time.LocalDate;
 import java.util.LinkedHashSet;
 import java.util.Set;
@@ -28,7 +28,7 @@ import java.util.Set;
 @ToString(callSuper = true, exclude = {"authors", "publisher"})
 public class Book extends BaseEntity {
     @Column(name = "active", nullable = false, columnDefinition = "CHAR(1)", length = 1)
-    @Type(type = "true_false") // T/F in the DB
+    @Convert(converter = org.hibernate.type.TrueFalseConverter.class)
     private boolean active = true;
 
     @Column(name = "title", nullable = false, length = 128)

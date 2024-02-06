@@ -7,8 +7,8 @@ import com.bastex.codelearninghub.spring.data.repositories.BookRepositoryCustom;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
-import javax.persistence.EntityManager;
-import javax.persistence.TypedQuery;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.TypedQuery;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Consumer;

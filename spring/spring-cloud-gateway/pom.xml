@@ -13,7 +13,7 @@
     <artifactId>code-learning-hub-spring-cloud-gateway</artifactId>
 
     <properties>
-        <spring-cloud.version>2021.0.8</spring-cloud.version>
+        <spring-cloud.version>2023.0.0</spring-cloud.version>
     </properties>
 
     <dependencies>

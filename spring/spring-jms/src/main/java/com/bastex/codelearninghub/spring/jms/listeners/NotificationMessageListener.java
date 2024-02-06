@@ -1,12 +1,12 @@
 package com.bastex.codelearninghub.spring.jms.listeners;
 
 import com.bastex.codelearninghub.spring.jms.model.NotificationJmsDTO;
+import jakarta.jms.Message;
+import jakarta.jms.MessageListener;
+import jakarta.jms.ObjectMessage;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 
-import javax.jms.Message;
-import javax.jms.MessageListener;
-import javax.jms.ObjectMessage;
 import java.io.Serializable;
 
 @Slf4j

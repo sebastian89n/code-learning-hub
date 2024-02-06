@@ -3,15 +3,14 @@ package com.bastex.codelearninghub.spring.context.properties.configuration;
 import lombok.Getter;
 import lombok.ToString;
 import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.boot.context.properties.ConstructorBinding;
 import org.springframework.context.annotation.PropertySource;
 
 /**
  * Constructor binding examples
  */
 @ConfigurationProperties(prefix = "db") // properties binding
-// Used to bind properties to constructor param for immutable objects. Deprecated and optional in Spring Boot 3.x, required in Spring Boot 2.x
-@ConstructorBinding
+// @ConstructorBinding - used to bind properties to constructor param for immutable objects. Deprecated in Spring Boot 3.x, required in Spring Boot 2.x
+//@ConstructorBinding
 @PropertySource("classpath:datasource.properties")
 @Getter
 @ToString
