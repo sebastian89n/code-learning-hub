@@ -1,6 +1,9 @@
 package com.bastex.codelearninghub.designpatterns.structural.decorator;
 
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 public class ScrollbarWindowDecorator extends WindowDecorator {
     public ScrollbarWindowDecorator(final Window window) {
         super(window);
@@ -8,7 +11,7 @@ public class ScrollbarWindowDecorator extends WindowDecorator {
 
     @Override
     public void draw() {
-        System.out.println("Draw a scrollbar");
+        log.info("Draw a scrollbar");
         window.draw();
     }
 }

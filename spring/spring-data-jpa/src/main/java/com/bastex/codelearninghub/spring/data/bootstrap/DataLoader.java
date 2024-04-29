@@ -4,6 +4,7 @@ import com.bastex.codelearninghub.spring.data.domain.Address;
 import com.bastex.codelearninghub.spring.data.domain.Author;
 import com.bastex.codelearninghub.spring.data.domain.Book;
 import com.bastex.codelearninghub.spring.data.domain.BookNote;
+import com.bastex.codelearninghub.spring.data.domain.BookType;
 import com.bastex.codelearninghub.spring.data.domain.Publisher;
 import com.bastex.codelearninghub.spring.data.services.AuthorDataService;
 import com.bastex.codelearninghub.spring.data.services.BookDataService;
@@ -26,7 +27,6 @@ public class DataLoader implements CommandLineRunner {
     @Override
     public void run(final String... args) {
         initializeDbData();
-
     }
 
     private void initializeDbData() {
@@ -64,6 +64,7 @@ public class DataLoader implements CommandLineRunner {
         final Book algorithmsBook = new Book();
         algorithmsBook.setTitle("Algorithms, 4th Edition");
         algorithmsBook.setIsbn("032157351X");
+        algorithmsBook.setType(BookType.IT);
         algorithmsBook.setPublicationDate(LocalDate.of(2018, 10, 1));
         algorithmsBook.getAuthors().add(robertSedgewickAuthor);
         algorithmsBook.getAuthors().add(kevinWayneAuthor);
@@ -78,6 +79,7 @@ public class DataLoader implements CommandLineRunner {
         final Book pythonBook = new Book();
         pythonBook.setTitle("Introduction to Programming in Python: An Interdisciplinary Approach");
         pythonBook.setIsbn("0134076435");
+        pythonBook.setType(BookType.IT);
         pythonBook.setPublicationDate(LocalDate.of(2015, 5, 8));
         pythonBook.getAuthors().add(robertSedgewickAuthor);
         pythonBook.getAuthors().add(kevinWayneAuthor);

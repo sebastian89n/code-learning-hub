@@ -6,9 +6,12 @@ Currently based on Java 21.
 
 ### Modules
 
+- code-learning-hub-bom
 - algorithms
 - design patterns
+- jakarta-ee
 - java
+- java-libs
 - spring
-- testing
+- tutorials
 - web

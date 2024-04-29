@@ -18,14 +18,14 @@ import java.util.Set;
 @Entity
 @Table(name = "authors")
 public class Author extends BaseEntity {
-    @Column(name = "email")
-    public String email;
-
-    @Column(name = "firstname", nullable = false)
+    @Column(name = "firstname", nullable = false, length = 128)
     public String firstName;
 
-    @Column(name = "lastname", nullable = false)
+    @Column(name = "lastname", nullable = false, length = 128)
     public String lastName;
+
+    @Column(name = "email", length = 64)
+    public String email;
 
     @Setter(value = AccessLevel.PACKAGE)
     @ManyToMany(mappedBy = "authors")

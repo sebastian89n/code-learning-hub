@@ -1,8 +1,11 @@
 package com.bastex.codelearninghub.designpatterns.structural.composite;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 public class RectangleItem implements GraphicItem {
     @Override
     public void draw() {
-        System.out.println("Drawing a rectangle");
+        log.info("Drawing a rectangle");
     }
 }

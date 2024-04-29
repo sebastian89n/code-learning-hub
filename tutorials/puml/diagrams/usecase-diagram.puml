@@ -1,0 +1,11 @@
+@startuml
+actor User
+rectangle System {
+  usecase "Login"
+  usecase "View Profile"
+  usecase "Edit Profile"
+}
+User --> "Login"
+User --> "View Profile"
+User --> "Edit Profile"
+@enduml

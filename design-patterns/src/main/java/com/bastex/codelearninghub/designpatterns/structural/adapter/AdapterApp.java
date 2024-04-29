@@ -1,5 +1,8 @@
 package com.bastex.codelearninghub.designpatterns.structural.adapter;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 public class AdapterApp {
     public static void main(final String[] args) {
         final LegacyRectangle legacyRectangle = new LegacyRectangle();
@@ -9,7 +12,7 @@ public class AdapterApp {
     }
 
     private static void calculateRectangleSize(final Rectangle rectangle) {
-        System.out.println("Rectangle Size: " + rectangle.determineSize());
+        log.info("Rectangle Size: {}", rectangle.determineSize());
     }
 }
 

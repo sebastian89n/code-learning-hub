@@ -1,6 +1,9 @@
 package com.bastex.codelearninghub.designpatterns.behavioral.state;
 
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 public class OpenTCPConnectionState implements TCPConnectionState {
     private final TCPConnection connection;
 
@@ -11,18 +14,18 @@ public class OpenTCPConnectionState implements TCPConnectionState {
 
     @Override
     public void open() {
-        System.out.println("Reinitializing connection");
+        log.info("Reinitializing connection");
     }
 
     @Override
     public void close() {
         connection.setTcpConnectionState(new ClosedTCPConnectionState(connection));
-        System.out.println("Closing connection");
+        log.info("Closing connection");
     }
 
     @Override
     public void acknowledge() throws Exception {
-        System.out.println("Acknowledge");
+        log.info("Acknowledge");
     }
 
 

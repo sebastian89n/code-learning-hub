@@ -1,12 +1,17 @@
 package com.bastex.codelearninghub.designpatterns.creational.abstractfactory;
 
+import com.bastex.codelearninghub.designpatterns.creational.abstractfactory.pinkthemewidgets.PinkThemeWidgetFactory;
+import com.bastex.codelearninghub.designpatterns.creational.abstractfactory.yellowthemewidgets.YellowThemeWidgetFactory;
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 public class AbstractFactoryApp {
     public static void main(final String[] args) {
-        WidgetFactory factory = new PinkThemeWidgetFactory();
-        initializeGUI(factory);
+        final WidgetFactory pinkThemeWidgetFactory = new PinkThemeWidgetFactory();
+        initializeGUI(pinkThemeWidgetFactory);
 
-        factory = new YellowThemeWidgetFactory();
-        initializeGUI(factory);
+        final WidgetFactory yellowThemeWidgetFactory = new YellowThemeWidgetFactory();
+        initializeGUI(yellowThemeWidgetFactory);
     }
 
     private static void initializeGUI(final WidgetFactory factory) {
@@ -14,6 +19,6 @@ public class AbstractFactoryApp {
     }
 
     private static void initializeGUI(final ScrollBar bar, final Window window) {
-        System.out.println("Do initazation logic here with " + bar.getClass().getName() + " and " + window.getClass().getName());
+        log.info("Do initialization logic here with {} and {}", bar.getClass().getName(), window.getClass().getName());
     }
 }

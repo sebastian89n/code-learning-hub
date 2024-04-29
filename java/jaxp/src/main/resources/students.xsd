@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="students">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="student" type="student" minOccurs="1" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="student">
+        <xs:sequence>
+            <xs:element name="firstname" type="namePiece"/>
+            <xs:element name="lastname" type="namePiece"/>
+            <xs:element name="birthdate" type="date"/>
+        </xs:sequence>
+        <xs:attribute name="id" type="xs:integer" use="required"/>
+    </xs:complexType>
+
+    <xs:simpleType name="namePiece">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="\p{L}+"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="date">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="\d{4}-\d{2}-\d{2}"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

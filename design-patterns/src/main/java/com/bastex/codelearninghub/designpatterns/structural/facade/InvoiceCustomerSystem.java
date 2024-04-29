@@ -1,7 +1,10 @@
 package com.bastex.codelearninghub.designpatterns.structural.facade;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 public class InvoiceCustomerSystem {
     public void createInvoiceForBill(final Bill bill) {
-        System.out.println("Creating invoice for bill with amount: " + bill.getAmount());
+        log.info("Creating invoice for bill with amount: {}", bill.getAmount());
     }
 }

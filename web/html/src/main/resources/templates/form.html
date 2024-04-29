@@ -5,58 +5,64 @@
     <meta content="Sebastian Nowak" name="author"/>
     <meta content="Website demonstrating HTML5 elements" name="description"/>
     <meta charset="UTF-8"/>
-    <link href="../static/resources/css/main.css" rel="stylesheet" type="text/css"/>
     <link href="../static/resources/images/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
+    <link href="../static/resources/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <script src="../static/resources/js/bootstrap.js"></script>
     <noscript>
         <meta content="5; url=http://www.google.pl" http-equiv="refresh"/>
     </noscript>
 </head>
 <body>
-<section id="mainBody">
-    <header id="mainHeader">
-        <hgroup>
-            <h1>HTML5</h1>
-            <h2>Examples of html5 elements</h2>
-        </hgroup>
-        <nav id="mainNav">
-            <ul>
-                <li><a href="index.html">Start page</a></li>
-                <li><a href="textelements.html">Text elements</a></li>
-                <li><a href="grouping.html">Grouping elements</a></li>
-                <li><a href="sections.html">Sections</a></li>
-                <li><a href="tables.html">Tables</a></li>
-                <li><a href="form.html" id="current">Forms</a></li>
-                <li><a href="input.html">Input element</a></li>
-                <li><a href="form2.html">Other form elements</a></li>
-                <li><a href="resources.html">Embedding resources</a></li>
-            </ul>
-            <p class="clear"></p>
-        </nav>
-    </header>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">HTML5 Elements<i class="fa-solid fa-house"></i></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
 
-    <section id="content">
-        <form action="#" autocomplete="off" id="personaldata" method="POST"
-              name="personaldata" target="_blank">
-            <fieldset style="width: 300px">
-                <legend style="font-weight: bold">Enter your personal details</legend>
-                <br/>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item"><a class="nav-link" href="index.html">Start page</a></li>
+            <li class="nav-item"><a class="nav-link" href="textelements.html">Text elements</a></li>
+            <li class="nav-item"><a class="nav-link" href="grouping.html">Grouping elements</a></li>
+            <li class="nav-item"><a class="nav-link" href="sections.html">Sections</a></li>
+            <li class="nav-item"><a class="nav-link" href="tables.html">Tables</a></li>
+            <li class="nav-item active"><a class="nav-link" href="form.html">Forms</a></li>
+            <li class="nav-item"><a class="nav-link" href="input.html">Input element</a></li>
+            <li class="nav-item"><a class="nav-link" href="form2.html">Other form elements</a></li>
+            <li class="nav-item"><a class="nav-link" href="resources.html">Embedding resources</a></li>
+        </ul>
+    </div>
+</nav>
+
+<section class="container-fluid p-3">
+    <form action="#" autocomplete="off" id="personaldata" method="POST"
+          name="personaldata" target="_blank" class="form-inline">
+        <fieldset>
+            <legend>Enter your personal details</legend>
+            <div class="form-group">
                 <label for="firstname">First name: </label>
-                <input autofocus id="firstname" name="firstname" type="text"/>
-                <br/>
+                <input autofocus id="firstname" name="firstname" type="text" class="form-control-plaintext"/>
+            </div>
+            <div class="form-group">
                 <label for="lastname">Last name: </label>
-                <input id="lastname" name="lastname" type="text"/>
-                <br/>
+                <input id="lastname" name="lastname" type="text" class="form-control-plaintext"/>
+            </div>
+            <div class="form-group">
                 <label for="password">Password: </label>
-                <input id="password" name="password" type="password"/>
-                <br/>
+                <input id="password" name="password" type="password" class="form-control-plaintext"/>
+            </div>
+            <div class="form-group">
                 <label for="city">City: </label>
-                <input disabled id="city" name="city" type="text"/>
-                <br/>
-                <button type="submit">Send</button>
-                <button type="reset">Clear</button>
-            </fieldset>
-        </form>
-    </section>
+                <input disabled id="city" name="city" type="text" class="form-control-plaintext"/>
+            </div>
+            <br/>
+            <div>
+                <button type="submit" class="btn btn-primary mb-2">Send</button>
+                <button type="reset" class="btn mb-2">Clear</button>
+            </div>
+        </fieldset>
+    </form>
 </section>
 </body>
 </html>

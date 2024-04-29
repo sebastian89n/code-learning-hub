@@ -1,5 +1,6 @@
-# java-features
+# Modules
 
-Project contains examples of the new features that were introduced in Java 9+.
+Project contains modules with core Java code examples.
 
-It may also contain some other useful Java snippets in the future.
+- **jaxp** - Java API for XML Processing
+- **java-new-features** - code snippets with examples of "new features" in Java language since version 8

@@ -6,7 +6,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.7.15</version>
+        <version>2.7.18</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
@@ -18,13 +18,10 @@
 
     <modules>
         <module>spring-aop</module>
-        <module>spring-context-annotations</module>
-        <module>spring-context-configuration</module>
-        <module>spring-context-xml</module>
-        <module>spring-context-properties</module>
-        <module>spring-context-lifecycle</module>
-        <module>spring-context-dependency-injection</module>
+        <module>spring-cloud-gateway</module>
+        <module>spring-context</module>
         <module>spring-data-jpa</module>
+        <module>spring-jms</module>
         <module>spring-mvc</module>
     </modules>
 

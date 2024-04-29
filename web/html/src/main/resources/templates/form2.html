@@ -5,39 +5,40 @@
     <meta content="Sebastian Nowak" name="author"/>
     <meta content="Website demonstrating HTML5 elements" name="description"/>
     <meta charset="UTF-8"/>
-    <link href="../static/resources/css/main.css" rel="stylesheet" type="text/css"/>
     <link href="../static/resources/images/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
+    <link href="../static/resources/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <script src="../static/resources/js/bootstrap.js"></script>
     <noscript>
         <meta content="5; url=http://www.google.pl" http-equiv="refresh"/>
     </noscript>
 </head>
 <body>
-<section id="mainBody">
-    <header id="mainHeader">
-        <hgroup>
-            <h1>HTML5</h1>
-            <h2>Examples of html5 elements</h2>
-        </hgroup>
-        <nav id="mainNav">
-            <ul>
-                <li><a href="index.html">Start page</a></li>
-                <li><a href="textelements.html">Text elements</a></li>
-                <li><a href="grouping.html">Grouping elements</a></li>
-                <li><a href="sections.html">Sections</a></li>
-                <li><a href="tables.html">Tables</a></li>
-                <li><a href="form.html">Forms</a></li>
-                <li><a href="input.html">Input element</a></li>
-                <li><a href="form2.html" id="current">Other form elements</a></li>
-                <li><a href="resources.html">Embedding resources</a></li>
-            </ul>
-            <p class="clear"></p>
-        </nav>
-    </header>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">HTML5 Elements<i class="fa-solid fa-house"></i></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item"><a class="nav-link" href="index.html">Start page</a></li>
+            <li class="nav-item"><a class="nav-link" href="textelements.html">Text elements</a></li>
+            <li class="nav-item"><a class="nav-link" href="grouping.html">Grouping elements</a></li>
+            <li class="nav-item"><a class="nav-link" href="sections.html">Sections</a></li>
+            <li class="nav-item"><a class="nav-link" href="tables.html">Tables</a></li>
+            <li class="nav-item"><a class="nav-link" href="form.html">Forms</a></li>
+            <li class="nav-item"><a class="nav-link" href="input.html">Input element</a></li>
+            <li class="nav-item active"><a class="nav-link" href="form2.html">Other form elements</a></li>
+            <li class="nav-item"><a class="nav-link" href="resources.html">Embedding resources</a></li>
+        </ul>
+    </div>
+</nav>
 
-    <section id="content">
-        <form action="#" autocomplete="off" method="post">
+<section class="container-fluid p-3">
+    <form action="#" autocomplete="off" method="post" class="form">
+        <div class="form-group">
             <label for="fave">Favorite fruit: </label>
-            <select id="fave" name="fave">
+            <select id="fave" name="fave" class="form-control">
                 <optgroup label="Favourites">
                     <option label="Apples" selected value="apples"></option>
                     <option label="Oranges" value="oranges">Oranges</option>
@@ -47,24 +48,30 @@
                     <option label="Pears" value="pears">Pears</option>
                 </optgroup>
             </select>
-            <br/>
-            <textarea cols="20" id="story" name="story" rows="5" style="margin: 5px 0" wrap="hard">Tell us why it's your favorite fruit</textarea>
-            <br/>
+        </div>
+        <div class="form-group">
+            <label for="story">Tell us why it's your favorite fruit:</label>
+            <textarea class="form-control" cols="20" id="story" name="story" rows="5" wrap="hard"
+                      placeholder="Tell us why it's your favorite fruit"></textarea>
+        </div>
+        <div class="form-group">
             <input type="submit" value="Send"/>
-        </form>
-        <br/>
-        <form oninput="res.value = quant.valueAsNumber * price.valueAsNumber" onsubmit="return false">
-            <fieldset style="border:2px solid orange; border-radius: 10px; width: 300px;">
+        </div>
+    </form>
+    <hr/>
+    <form oninput="res.value = quant.valueAsNumber * price.valueAsNumber" onsubmit="return false" class="form-inline">
+        <fieldset>
+            <div class="form-group">
                 <legend>Price calculator</legend>
                 <input id="quant" max="100" min="0" name="quant" placeholder="Amount"
                        style="width: 35%" type="number" value="0"/> *
                 <input id="price" max="100" min="0" name="price" placeholder="Price"
                        style="width: 35%" type="number" value="0"/> =
                 <output for="quant name" name="res"></output>
-            </fieldset>
-            <br/>
-        </form>
-    </section>
+            </div>
+        </fieldset>
+        <br/>
+    </form>
 </section>
 </body>
 </html>

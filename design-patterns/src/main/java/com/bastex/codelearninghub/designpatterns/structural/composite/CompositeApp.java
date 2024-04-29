@@ -1,5 +1,8 @@
 package com.bastex.codelearninghub.designpatterns.structural.composite;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 public class CompositeApp {
     public static void main(final String[] args) {
         final LineItem lineItem = new LineItem();
@@ -16,7 +19,7 @@ public class CompositeApp {
         group2.getGraphicItems().add(lineItem1);
         group2.getGraphicItems().add(group);
 
-        System.out.println("drawing group two");
+        log.info("drawing group two");
 
         group2.draw();
 

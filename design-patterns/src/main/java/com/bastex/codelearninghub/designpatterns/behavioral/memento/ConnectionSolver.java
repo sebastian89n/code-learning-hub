@@ -2,9 +2,11 @@ package com.bastex.codelearninghub.designpatterns.behavioral.memento;
 
 
 import lombok.Setter;
+import lombok.extern.slf4j.Slf4j;
 
 import java.awt.geom.Point2D;
 
+@Slf4j
 public class ConnectionSolver {
 
     @Setter
@@ -14,7 +16,7 @@ public class ConnectionSolver {
     private Point2D secondPoint;
 
     public void calculateLine() {
-        System.out.println("Calculate line between: " + firstPoint + " and " + secondPoint);
+        log.info("Calculate line between: {} and {}", firstPoint, secondPoint);
     }
 
     public ConnectionSolverMemento createMemento() {

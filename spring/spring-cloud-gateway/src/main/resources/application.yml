@@ -1,0 +1,53 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        # curl localhost:8080/uuid -H Host:example.com
+        - id: uuidRoute # ID of the route
+          predicates: # Predicates to match on given route. In this case path has to be /uuid with Host from example.com
+            - Path=/uuid
+            - Host=**example.com
+          uri: https://httpbin.org/uuid # Defines redirect url
+
+        # curl localhost:8080/delay/1
+        # curl localhost:8080/delay/3
+        - id: delayRoute
+          predicates:
+            - Path=/delay/{delay} # path with param
+          uri: https://httpbin.org
+          metadata:
+            -response-timeout: 2000 # response timeout in millis
+            -connect-timeout: 2000 # connect timeout in millis
+          # Filters can manipulate request/response in various way. Including custom filters.
+          filters:
+            - SetPath=/drip # redirects  to uri/path, in this example https://httpbin.org/drip
+            - AddRequestParameter=duration, 0
+            - AddRequestParameter=numbytes, 10
+            - AddRequestParameter=code, 200
+            - AddRequestParameter=delay, {delay} # uses param from the path
+            - name: Retry
+              args:
+                retries: 2
+                methods: GET
+                backoff:
+                  firstBackoff: 50ms
+                  maxBackoff: 500ms
+
+        # curl -X POST -i localhost:8080/sendback?foo=bar -H 'Content-Type: application/json' -d '{"text": "some sample text"}'
+        # curl -X POST -i localhost:8080/sendback?foo=bar -H 'Content-Type: application/json' -d '{"text": "too big payload texttexttexttexttexttext"}'
+        - id: sendback
+          predicates:
+            - Path=/sendback
+            - Method=POST
+            - Header=Content-Type,application/json # requires Content-Type to be application/json
+            - Query=foo,bar # requires query parameter foo=bar
+          uri: https://httpbin.org
+          filters:
+            - SetPath=/anything
+            - AddRequestHeader=X-Tenant,acme
+            - AddRequestParameter=query,test
+            - AddResponseHeader=X-Response-Foo, Bar
+            - RemoveRequestHeader=X-App-Id
+            - name: RequestSize # blocks request if sizes exceeds maxSize
+              args:
+                maxSize: 50 # in bytes

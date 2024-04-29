@@ -1,0 +1,11 @@
+@startuml
+(*) --> "Initialize"
+--> "Read Data"
+--> if "Data Found?" then
+    -> [Yes] "Display Data"
+    --> "End"
+  else
+    -> [No] "Display 'No Data'"
+    --> "End"
+  endif
+@enduml

@@ -5,168 +5,168 @@
     <meta content="Sebastian Nowak" name="author"/>
     <meta content="Website demonstrating HTML5 elements" name="description"/>
     <meta charset="UTF-8"/>
-    <link href="../static/resources/css/main.css" rel="stylesheet" type="text/css"/>
     <link href="../static/resources/images/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
+    <link href="../static/resources/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <script src="../static/resources/js/bootstrap.js"></script>
     <noscript>
-        <meta content="0; url=http://www.google.pl" http-equiv="refresh"/>
+        <meta content="5; url=http://www.google.pl" http-equiv="refresh"/>
     </noscript>
 </head>
 <body>
-<section id="mainBody">
-    <header id="mainHeader">
-        <hgroup>
-            <h1>HTML5</h1>
-            <h2>Examples of html5 elements</h2>
-        </hgroup>
-        <nav id="mainNav">
-            <ul>
-                <li><a href="index.html">Start page</a></li>
-                <li><a href="textelements.html" id="current">Text elements</a></li>
-                <li><a href="grouping.html">Grouping elements</a></li>
-                <li><a href="sections.html">Sections</a></li>
-                <li><a href="tables.html">Tables</a></li>
-                <li><a href="form.html">Forms</a></li>
-                <li><a href="input.html">Input element</a></li>
-                <li><a href="form2.html">Other form elements</a></li>
-                <li><a href="resources.html">Embedding resources</a></li>
-            </ul>
-            <p class="clear"></p>
-        </nav>
-    </header>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">HTML5 Elements<i class="fa-solid fa-house"></i></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
 
-    <section id="content">
-        <h1>Samples of HTML text elements</h1>
-        <article>
-            <a href="http://www.google.pl" target="_blank">Google</a>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item"><a class="nav-link" href="index.html">Start page</a></li>
+            <li class="nav-item active"><a class="nav-link" href="textelements.html">Text elements</a></li>
+            <li class="nav-item"><a class="nav-link" href="grouping.html">Grouping elements</a></li>
+            <li class="nav-item"><a class="nav-link" href="sections.html">Sections</a></li>
+            <li class="nav-item"><a class="nav-link" href="tables.html">Tables</a></li>
+            <li class="nav-item"><a class="nav-link" href="form.html">Forms</a></li>
+            <li class="nav-item"><a class="nav-link" href="input.html">Input element</a></li>
+            <li class="nav-item"><a class="nav-link" href="form2.html">Other form elements</a></li>
+            <li class="nav-item"><a class="nav-link" href="resources.html">Embedding resources</a></li>
+        </ul>
+    </div>
+</nav>
 
-            <p>
-                I like <b>apples</b> and oranges <!-- keywords and name of the products -->
-            </p>
+<section class="container-fluid p-3">
+    <h1>Samples of HTML text elements</h1>
+    <article>
+        <a href="http://www.google.pl" target="_blank">Google</a>
 
-            <p>
-                I like <b>apples</b> <em>and</em> oranges. <!-- <em> - Emphasis   -->
-                <br/>
-                I especially like tangerines whose proper name is
-                <i>citrus reticulata</i> <!-- foreign words and technical terms -->
-                <br/>
-                Oranges cost <s>1 EUR</s> 3 EUR for 1kg <!-- Incorrect or outdated text  -->
-            </p>
+        <p>
+            I like <b>apples</b> and oranges <!-- keywords and name of the products -->
+        </p>
 
-            <p>
-                <strong>Attention!</strong> From eating <u>too many</u> <!-- Important text and highlighting -->
-                oranges you can get a heartburn.
-                <br/>
-                Oranges cost 1 EUR per unit <small>(net)</small>
-                <!-- smaller text -->
-            </p>
+        <p>
+            I like <b>apples</b> <em>and</em> oranges. <!-- <em> - Emphasis   -->
+            <br/>
+            I especially like tangerines whose proper name is
+            <i>citrus reticulata</i> <!-- foreign words and technical terms -->
+            <br/>
+            Oranges cost <s>1 EUR</s> 3 EUR for 1kg <!-- Incorrect or outdated text  -->
+        </p>
 
-            <p>
-                x<sub>1</sub> = 3<sup>3</sup>
-                <br/>
-                Very long word:
-                Somevery
-                <wbr>
-                longworuninterrupted
-                <wbr>
-                blablablabla
-                <wbr>
-                sadasdas
-                <!-- Highlights good places to break long word if there's not enough space to display it as a whole -->
-            </p>
+        <p>
+            <strong>Attention!</strong> From eating <u>too many</u> <!-- Important text and highlighting -->
+            oranges you can get a heartburn.
+            <br/>
+            Oranges cost 1 EUR per unit <small>(net)</small>
+            <!-- smaller text -->
+        </p>
 
-            <p>
-                <code>var fruits = ["apples", "oranges", "cherries"];</code><br/>
-                <!-- Computer code fragment -->
-                Output of the program is <samp>I ate 4 apples</samp><br/>
-                <!--Output of a program -->
-                When I was asked what my fav fruit is, I said <kbd>oranges</kbd>
-                <!-- Highlight input provided by the user -->
-            </p>
+        <p>
+            x<sub>1</sub> = 3<sup>3</sup>
+            <br/>
+            Very long word:
+            Somevery
+            <wbr>
+            longworuninterrupted
+            <wbr>
+            blablablabla
+            <wbr>
+            sadasdas
+            <!-- Highlights good places to break long word if there's not enough space to display it as a whole -->
+        </p>
 
-            <p>
-                <abbr title="European Union">EU</abbr> - news. <!-- Abbreviations -->
-                <br/>
-                <dfn title="apple">Apple</dfn> <!-- definition -->
-                - the fleshy, usually rounded red, yellow, or green edible pome fruit of a usually cultivated tree
-                (genus Malus) of the rose family
-                <br/>
-                <q cite="http://en.wikipedia.org/wiki/Apple">The apple tree (Malus domestica) is a deciduous tree in the
-                    rose family best known for its sweet,
-                    pomaceous fruit, the apple.</q> <!-- cited quote -->
-            </p>
+        <p>
+            <code>var fruits = ["apples", "oranges", "cherries"];</code><br/>
+            <!-- Computer code fragment -->
+            Output of the program is <samp>I ate 4 apples</samp><br/>
+            <!--Output of a program -->
+            When I was asked what my fav fruit is, I said <kbd>oranges</kbd>
+            <!-- Highlight input provided by the user -->
+        </p>
 
-            <p>
-                My favorite book about the fruits is <cite>Fruit: Edible, Inedible, Incredible</cite>
-                <!-- Title of the quoted source -->
-                <br/>
-            </p>
+        <p>
+            <abbr title="European Union">EU</abbr> - news. <!-- Abbreviations -->
+            <br/>
+            <dfn title="apple">Apple</dfn> <!-- definition -->
+            - the fleshy, usually rounded red, yellow, or green edible pome fruit of a usually cultivated tree
+            (genus Malus) of the rose family
+            <br/>
+            <q cite="http://en.wikipedia.org/wiki/Apple">The apple tree (Malus domestica) is a deciduous tree in the
+                rose family best known for its sweet,
+                pomaceous fruit, the apple.</q> <!-- cited quote -->
+        </p>
 
-            <p>
-                Some oranges are
-                <ruby> GMO
-                    <rp>(</rp>
-                    <rt>genetically modified organism</rt>
-                    <rp>)</rp>
-                </ruby>
-                <!-- rby element represents small annotations that are rendered above, below, or next to base text,
-                usually used for showing the pronunciation of East Asian characters.
-                It can also be used for annotating other kinds of text, but this usage is less common.
-                If browser support ruby elements, ruby content is displayed.
-                Otherwise, content from rp/rt will be displayed. -->
-            </p>
+        <p>
+            My favorite book about the fruits is <cite>Fruit: Edible, Inedible, Incredible</cite>
+            <!-- Title of the quoted source -->
+            <br/>
+        </p>
 
-            <p>
-                Left to right text: <bdo dir="ltr">I like oranges</bdo>
-                <br/>
-                Right to left text: <bdo dir="rtl">I like oranges</bdo>
-                <!-- bdo element overrides current text direction-->
-                <br/>
-                Adam: 3 apples i 2 orange<br/>
-                عدل, عادل: 2 apples<br/>
-                <bdi>عدل, عادل</bdi>
-                : 2 apples<br/>
-                Martin: 6 apples
-                <!--
-                The <bdi> HTML element tells the browser's bidirectional algorithm to treat the text it contains in isolation
-                from its surrounding text. It's particularly useful when a website dynamically inserts some text and doesn't know
-                the directionality of the text being inserted
-                 -->
-            </p>
+        <p>
+            Some oranges are
+            <ruby> GMO
+                <rp>(</rp>
+                <rt>genetically modified organism</rt>
+                <rp>)</rp>
+            </ruby>
+            <!-- rby element represents small annotations that are rendered above, below, or next to base text,
+            usually used for showing the pronunciation of East Asian characters.
+            It can also be used for annotating other kinds of text, but this usage is less common.
+            If browser support ruby elements, ruby content is displayed.
+            Otherwise, content from rp/rt will be displayed. -->
+        </p>
 
-            <p>
-                <span style="color: blue">Regular text in span element</span>
-                <!-- element without any inherited semantic meaning. Used to mark content that can be stylized with css/js etc. -->
-            </p>
+        <p>
+            Left to right text: <bdo dir="ltr">I like oranges</bdo>
+            <br/>
+            Right to left text: <bdo dir="rtl">I like oranges</bdo>
+            <!-- bdo element overrides current text direction-->
+            <br/>
+            Adam: 3 apples i 2 orange<br/>
+            عدل, عادل: 2 apples<br/>
+            <bdi>عدل, عادل</bdi>
+            : 2 apples<br/>
+            Martin: 6 apples
+            <!--
+            The <bdi> HTML element tells the browser's bidirectional algorithm to treat the text it contains in isolation
+            from its surrounding text. It's particularly useful when a website dynamically inserts some text and doesn't know
+            the directionality of the text being inserted
+             -->
+        </p>
 
-            <p>
+        <p>
+            <span style="color: blue">Regular text in span element</span>
+            <!-- element without any inherited semantic meaning. Used to mark content that can be stylized with css/js etc. -->
+        </p>
+
+        <p>
+            Do not forget to buy
+            <mark>milk</mark>
+            today.
+            <!-- Important to mark context in the sentence -->
+            <br/><br/>
+            <del>
                 Do not forget to buy
                 <mark>milk</mark>
                 today.
-                <!-- Important to mark context in the sentence -->
-                <br/><br/>
-                <del>
-                    Do not forget to buy
-                    <mark>milk</mark>
-                    today.
-                </del>
-                <ins>
-                    Do not forget to buy
-                    <mark>coffee</mark>
-                    today.
-                </ins>
-                <!-- Inserted/deleted fragments of text -->
-            </p>
+            </del>
+            <ins>
+                Do not forget to buy
+                <mark>coffee</mark>
+                today.
+            </ins>
+            <!-- Inserted/deleted fragments of text -->
+        </p>
 
-            <p>
-                I remember the best apple I ever ate.<br/>
-                I bought them by
-                <time datetime="1984-12-07"> the end of 1984</time>
-                at
-                <time datetime="15:00">3 am</time>
-                .
-            </p>
-        </article>
-    </section>
+        <p>
+            I remember the best apple I ever ate.<br/>
+            I bought them by
+            <time datetime="1984-12-07"> the end of 1984</time>
+            at
+            <time datetime="15:00">3 am</time>
+            .
+        </p>
+    </article>
 </section>
 </body>
 </html>
