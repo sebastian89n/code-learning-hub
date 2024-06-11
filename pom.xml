@@ -18,8 +18,8 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>code-learning-hub-bom</module>
         <module>algorithms</module>
+        <module>code-learning-hub-bom</module>
         <module>data-structures</module>
         <module>design-patterns</module>
         <module>jakarta-ee</module>
