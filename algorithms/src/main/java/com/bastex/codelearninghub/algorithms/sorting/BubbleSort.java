@@ -5,8 +5,8 @@ import lombok.NoArgsConstructor;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public final class BubbleSort {
-    public static int[] sortArray(int[] intArray) {
-        if (intArray == null || intArray.length == 0) {
+    public static int[] sortArray(final int[] intArray) {
+        if (intArray == null || intArray.length == 0 || intArray.length == 1) {
             return intArray;
         }
 
@@ -27,12 +27,12 @@ public final class BubbleSort {
         return intArray;
     }
 
-    private static void swap(int[] intArray, int i, int j) {
+    private static void swap(final int[] intArray, final int i, final int j) {
         if (i == j) {
             return;
         }
 
-        int temp = intArray[i];
+        final int temp = intArray[i];
         intArray[i] = intArray[j];
         intArray[j] = temp;
     }
