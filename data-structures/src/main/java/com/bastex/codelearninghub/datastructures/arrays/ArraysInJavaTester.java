@@ -17,9 +17,14 @@ public class ArraysInJavaTester {
         // not specifying value at index 6. In Java default values are 0 for numeric, false for boolean, nulls for objects
         // intArray[6] = -22;
 
+        int index = -1;
 
         for (int i = 0; i < intArray.length; i++) {
-            log.info("{}", intArray[i]);
+            if (intArray[i] == 7) {
+                index = i;
+            }
         }
+
+        log.info("Index: {}", index);
     }
 }

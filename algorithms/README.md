@@ -68,3 +68,35 @@ Understanding Big O notation helps developers and engineers make informed decisi
 anticipated data sizes and performance constraints. It provides a foundation for algorithm analysis that is critical for
 designing systems that are both efficient and scalable.
 
+## Bubble Sort
+
+### Characteristics
+- **Simple Algorithm:** Bubble sort is one of the simplest sorting algorithms, easy to understand and implement.
+- **Comparison-Based:** It repeatedly compares and swaps adjacent elements if they are in the wrong order.
+- **In-Place Sorting:** It sorts the array without needing additional storage, aside from a few temporary variables.
+- **Stable Sort:** Bubble sort maintains the relative order of equal elements.
+
+### When to Use
+- **Educational Purposes:** Ideal for teaching basic sorting concepts and algorithm analysis.
+- **Nearly Sorted Data:** Efficient for datasets that are already mostly sorted, as its best-case performance is quite good.
+
+### When Not to Use
+- **Large Datasets:** Inefficient for large datasets due to its poor average and worst-case time complexity.
+- **Performance-Critical Applications:** Other more efficient sorting algorithms like Quick Sort, Merge Sort, or Heap Sort are preferable.
+
+### Algorithm
+1. Start at the beginning of the array.
+2. Compare the first two elements.
+3. If the first element is greater than the second, swap them.
+4. Move to the next pair of elements and repeat the comparison and swapping if needed.
+5. Continue this process until the end of the array.
+6. Repeat the entire process for all elements, reducing the effective size of the array by one each time (since the largest element gets "bubbled" to the end).
+
+### Big O Notation
+- **Best Case:** `O(n)` - Occurs when the array is already sorted.
+- **Average Case:** `O(n^2)` - Occurs when the array elements are in random order.
+- **Worst Case:** `O(n^2)` - Occurs when the array is sorted in reverse order.
+- **Space Complexity:** `O(1)` - Only a constant amount of additional space is required.
+
+### Summary
+Bubble sort is an elementary sorting algorithm that is simple and easy to implement but inefficient for large datasets due to its quadratic time complexity. It is primarily useful for educational purposes and small or nearly sorted datasets where its simplicity can be an advantage.
