@@ -6,7 +6,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public final class SelectionSort {
     public static int[] sortArray(final int[] intArray) {
-        if (SortingAlgorithmsHelper.isArrayEmptyOrHasOnlyOneElement(intArray)) {
+        if (SortingArraysHelper.isEmptyOrHasOnlyOneElement(intArray)) {
             return intArray;
         }
 
@@ -19,7 +19,7 @@ public final class SelectionSort {
                 }
             }
 
-            SortingAlgorithmsHelper.swap(intArray, largestElementIndex, lastUnsortedIndex);
+            SortingArraysHelper.swapElementsByIndexes(intArray, largestElementIndex, lastUnsortedIndex);
         }
 
         return intArray;

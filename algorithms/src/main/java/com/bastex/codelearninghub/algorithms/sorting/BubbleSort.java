@@ -6,7 +6,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public final class BubbleSort {
     public static int[] sortArray(final int[] intArray) {
-        if (SortingAlgorithmsHelper.isArrayEmptyOrHasOnlyOneElement(intArray)) {
+        if (SortingArraysHelper.isEmptyOrHasOnlyOneElement(intArray)) {
             return intArray;
         }
 
@@ -14,7 +14,7 @@ public final class BubbleSort {
             boolean isArrayAlreadySorted = true;
             for (int i = 0; i < lastUnsortedIndex; i++) {
                 if (intArray[i] > intArray[i + 1]) {
-                    SortingAlgorithmsHelper.swap(intArray, i, i + 1);
+                    SortingArraysHelper.swapElementsByIndexes(intArray, i, i + 1);
                     isArrayAlreadySorted = false;
                 }
             }

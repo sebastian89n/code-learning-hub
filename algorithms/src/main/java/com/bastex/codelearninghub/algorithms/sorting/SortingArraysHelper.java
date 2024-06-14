@@ -4,8 +4,8 @@ import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
-final class SortingAlgorithmsHelper {
-    static void swap(final int[] intArray, final int i, final int j) {
+final class SortingArraysHelper {
+    static void swapElementsByIndexes(final int[] intArray, final int i, final int j) {
         if (i == j) {
             return;
         }
@@ -15,7 +15,7 @@ final class SortingAlgorithmsHelper {
         intArray[j] = temp;
     }
 
-    static boolean isArrayEmptyOrHasOnlyOneElement(int[] intArray) {
+    static boolean isEmptyOrHasOnlyOneElement(final int[] intArray) {
         return intArray == null || intArray.length == 0 || intArray.length == 1;
     }
 }
