@@ -4,24 +4,22 @@ import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
-public final class BubbleSort {
+public final class SelectionSort {
     public static int[] sortArray(final int[] intArray) {
         if (SortingAlgorithmsHelper.isArrayEmptyOrHasOnlyOneElement(intArray)) {
             return intArray;
         }
 
         for (int lastUnsortedIndex = intArray.length - 1; lastUnsortedIndex > 0; lastUnsortedIndex--) {
-            boolean isArrayAlreadySorted = true;
-            for (int i = 0; i < lastUnsortedIndex; i++) {
-                if (intArray[i] > intArray[i + 1]) {
-                    SortingAlgorithmsHelper.swap(intArray, i, i + 1);
-                    isArrayAlreadySorted = false;
+            int largestElementIndex = 0;
+
+            for (int i = 1; i <= lastUnsortedIndex; i++) {
+                if (intArray[i] > intArray[largestElementIndex]) {
+                    largestElementIndex = i;
                 }
             }
 
-            if (isArrayAlreadySorted) {
-                break;
-            }
+            SortingAlgorithmsHelper.swap(intArray, largestElementIndex, lastUnsortedIndex);
         }
 
         return intArray;

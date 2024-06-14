@@ -68,6 +68,41 @@ Understanding Big O notation helps developers and engineers make informed decisi
 anticipated data sizes and performance constraints. It provides a foundation for algorithm analysis that is critical for
 designing systems that are both efficient and scalable.
 
+## In-Place and Out-of-Place Algorithms
+
+### In-Place Algorithms
+
+- **Definition:** An algorithm is considered in-place if it transforms the input using a constant amount of extra space.
+  This means it only uses a fixed amount of additional memory, regardless of the input size.
+- **Characteristics:**
+    - Uses a small, constant amount of extra storage.
+    - Typically modifies the input data directly.
+    - Often more memory-efficient.
+- **Examples:**
+    - Selection Sort
+    - Bubble Sort
+    - Insertion Sort
+
+### Out-of-Place Algorithms
+
+- **Definition:** An algorithm is considered out-of-place if it requires extra space proportional to the size of the
+  input data. This means it uses additional memory whose amount depends on the input size.
+- **Characteristics:**
+    - Requires extra space that grows with the input size.
+    - Does not modify the input data directly, often creating a copy of the input or using auxiliary data structures.
+    - Often more flexible but uses more memory.
+- **Examples:**
+    - Merge Sort
+    - Radix Sort
+    - Any algorithm that involves creating a copy of the input data or significant auxiliary storage.
+
+### Summary
+
+- **In-Place Algorithms:** Modify the input data directly with a constant amount of extra space, making them
+  memory-efficient but sometimes more complex to implement.
+- **Out-of-Place Algorithms:** Use additional space proportional to the input size, preserving the original data and
+  often being simpler to implement but less memory-efficient.
+
 ## Stable vs. Unstable Sort Algorithms
 
 ### Stable Sort Algorithms
@@ -148,3 +183,50 @@ designing systems that are both efficient and scalable.
 Bubble sort is an elementary sorting algorithm that is simple and easy to implement but inefficient for large datasets
 due to its quadratic time complexity. It is primarily useful for educational purposes and small or nearly sorted
 datasets where its simplicity can be an advantage.
+
+## Selection Sort
+
+### Characteristics
+
+- **Simple Algorithm:** Selection sort is easy to understand and implement.
+- **Comparison-Based:** It repeatedly selects the largest element from the unsorted portion of the array and swaps it
+  with the last unsorted element.
+- **In-Place Sorting:** It sorts the array without needing additional storage, aside from a few temporary variables.
+- **Unstable Sort:** Selection sort does not guarantee the preservation of the relative order of equal elements.
+
+### When to Use
+
+- **Small Datasets:** Efficient for small arrays or lists where the simplicity of the algorithm outweighs the
+  inefficiency of its time complexity.
+- **Memory-Constrained Environments:** Useful when memory space is limited, as it only requires a constant amount of
+  additional space.
+- **Educational Purposes:** Ideal for teaching basic sorting concepts and algorithm analysis.
+
+### When Not to Use
+
+- **Large Datasets:** Inefficient for large datasets due to its poor average and worst-case time complexity.
+- **Stable Sorting Requirement:** Not suitable when stability is required, as it does not preserve the relative order of
+  equal elements.
+
+### Algorithm
+
+1. Start with the entire array as the unsorted portion.
+2. Scan the unsorted portion to find the largest element.
+3. Swap the largest element found with the last element of the unsorted portion.
+4. Reduce the unsorted portion by moving the boundary one element to the left.
+5. Repeat the process for the remaining unsorted portion.
+6. Continue until the array is fully sorted.
+
+### Big O Notation
+
+- **Best Case:** `O(n^2)` - Always performs the same number of comparisons, regardless of initial order.
+- **Average Case:** `O(n^2)` - The number of comparisons remains quadratic in nature.
+- **Worst Case:** `O(n^2)` - The number of comparisons and swaps remains quadratic.
+- **Space Complexity:** `O(1)` - Only a constant amount of additional space is required.
+
+### Summary
+
+Selection sort is a straightforward sorting algorithm that is easy to implement but inefficient for large datasets due
+to its quadratic time complexity. It is an in-place, comparison-based sort that is not stable. This variation of
+selection sort works by finding the largest element and placing it at the end of the array in each iteration. It is
+mainly used for educational purposes, small datasets, or memory-constrained environments.
