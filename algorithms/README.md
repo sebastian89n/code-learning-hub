@@ -275,3 +275,53 @@ mainly used for educational purposes, small datasets, or memory-constrained envi
 Insertion sort is a simple and intuitive sorting algorithm that is efficient for small or nearly sorted datasets. It is
 an in-place, comparison-based sort that is stable. While it performs poorly on large datasets with random order due to
 its quadratic time complexity, it excels in scenarios where the data is nearly sorted or arrives incrementally.
+
+## Shell Sort
+
+### Characteristics
+
+- **Simple and Efficient:** Shell sort is an extension of insertion sort that allows the exchange of far apart elements
+  to reduce the total number of moves.
+- **Comparison-Based:** It sorts by comparing elements at specific intervals and reducing these intervals over
+  successive passes.
+- **In-Place Sorting:** It sorts the array without needing additional storage, aside from a few temporary variables.
+- **Unstable Sort:** Shell sort does not guarantee the preservation of the relative order of equal elements.
+
+### When to Use
+
+- **Moderate-Sized Datasets:** More efficient than insertion sort for moderately sized datasets.
+- **Improved Performance:** When you need a more efficient algorithm than insertion sort but still simple to implement.
+- **Memory-Constrained Environments:** Useful when memory space is limited, as it only requires a constant amount of
+  additional space.
+
+### When Not to Use
+
+- **Large Datasets:** While better than simple quadratic algorithms, it is still outperformed by more advanced
+  algorithms like Quick Sort or Merge Sort for very large datasets.
+- **Stable Sorting Requirement:** Not suitable when stability is required, as it does not preserve the relative order of
+  equal elements.
+
+### Algorithm
+
+1. Start with a large interval (gap) and reduce the gap after each pass.
+2. Perform a gapped insertion sort for the current gap size:
+
+- Compare elements that are `gap` distance apart.
+- Swap elements if they are in the wrong order.
+
+3. Reduce the gap and repeat the process.
+4. Continue until the gap is reduced to 1, at which point the array should be sorted.
+
+### Big O Notation
+
+- **Best Case:** `O(n log n)` - Occurs with an optimal choice of gaps.
+- **Average Case:** Varies between `O(n log^2 n)` and `O(n^3/2)` depending on the gap sequence used.
+- **Worst Case:** `O(n^2)` - Depends on the gap sequence, but typically better than the worst case for insertion sort.
+- **Space Complexity:** `O(1)` - Only a constant amount of additional space is required.
+
+### Summary
+
+Shell sort is an efficient and easy-to-implement sorting algorithm that generalizes insertion sort by allowing exchanges
+of far apart elements. It is an in-place, comparison-based sort that is not stable. Shell sort is particularly useful
+for moderate-sized datasets and offers improved performance over simple quadratic sorting algorithms. However, it is not
+as efficient as more advanced sorting algorithms for very large datasets.
