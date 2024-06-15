@@ -2,7 +2,10 @@ package com.bastex.codelearninghub.algorithms.sorting;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 class BubbleSortTest {
     @Test
@@ -39,5 +42,13 @@ class BubbleSortTest {
         final int[] result = BubbleSort.sortArray(arrayToSort);
         assertNotNull(result);
         assertArrayEquals(new int[]{-31, -2, 1, 8, 21}, result);
+    }
+
+    @Test
+    void sortArray_ArrayIsNotSortedWithDuplicateElements_ShouldReturnSortedArray() {
+        final int[] arrayToSort = {8, -2, 21, 21, 1, -31, -55, 123};
+        final int[] result = BubbleSort.sortArray(arrayToSort);
+        assertNotNull(result);
+        assertArrayEquals(new int[]{-55, -31, -2, 1, 8, 21, 21, 123}, result);
     }
 }

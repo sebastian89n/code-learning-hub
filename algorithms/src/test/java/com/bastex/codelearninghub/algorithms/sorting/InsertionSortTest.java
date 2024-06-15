@@ -1,5 +1,6 @@
 package com.bastex.codelearninghub.algorithms.sorting;
 
+
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
@@ -7,15 +8,15 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
 
-class SelectionSortTest {
+class InsertionSortTest {
     @Test
     void sortArray_ArrayIsNull_ShouldReturnNull() {
-        assertNull(SelectionSort.sortArray(null));
+        assertNull(InsertionSort.sortArray(null));
     }
 
     @Test
     void sortArray_ArrayIsEmpty_ShouldReturnEmptyArray() {
-        final int[] result = SelectionSort.sortArray(new int[0]);
+        final int[] result = InsertionSort.sortArray(new int[0]);
         assertNotNull(result);
         assertEquals(0, result.length);
     }
@@ -23,7 +24,7 @@ class SelectionSortTest {
     @Test
     void sortArray_ArrayHasOnlyOneElement_ShouldReturnSameArray() {
         final int[] arrayToSort = {5};
-        final int[] result = SelectionSort.sortArray(arrayToSort);
+        final int[] result = InsertionSort.sortArray(arrayToSort);
         assertNotNull(result);
         assertEquals(arrayToSort, result);
     }
@@ -31,7 +32,7 @@ class SelectionSortTest {
     @Test
     void sortArray_ArrayIsAlreadySorted_ShouldReturnSameSortedArray() {
         final int[] arrayToSort = {1, 2, 3, 4, 5};
-        final int[] result = SelectionSort.sortArray(arrayToSort);
+        final int[] result = InsertionSort.sortArray(arrayToSort);
         assertNotNull(result);
         assertEquals(arrayToSort, result);
     }
@@ -39,7 +40,7 @@ class SelectionSortTest {
     @Test
     void sortArray_ArrayIsNotSorted_ShouldReturnSortedArray() {
         final int[] arrayToSort = {8, -2, 21, 1, -31};
-        final int[] result = SelectionSort.sortArray(arrayToSort);
+        final int[] result = InsertionSort.sortArray(arrayToSort);
         assertNotNull(result);
         assertArrayEquals(new int[]{-31, -2, 1, 8, 21}, result);
     }
@@ -47,7 +48,7 @@ class SelectionSortTest {
     @Test
     void sortArray_ArrayIsNotSortedWithDuplicateElements_ShouldReturnSortedArray() {
         final int[] arrayToSort = {8, -2, 21, 21, 1, -31, -55, 123};
-        final int[] result = SelectionSort.sortArray(arrayToSort);
+        final int[] result = InsertionSort.sortArray(arrayToSort);
         assertNotNull(result);
         assertArrayEquals(new int[]{-55, -31, -2, 1, 8, 21, 21, 123}, result);
     }

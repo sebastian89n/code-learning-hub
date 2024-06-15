@@ -230,3 +230,48 @@ Selection sort is a straightforward sorting algorithm that is easy to implement 
 to its quadratic time complexity. It is an in-place, comparison-based sort that is not stable. This variation of
 selection sort works by finding the largest element and placing it at the end of the array in each iteration. It is
 mainly used for educational purposes, small datasets, or memory-constrained environments.
+
+## Insertion Sort
+
+### Characteristics
+
+- **Simple Algorithm:** Insertion sort is easy to understand and implement.
+- **Comparison-Based:** It builds the sorted array one element at a time by repeatedly picking the next element and
+  inserting it into its correct position.
+- **In-Place Sorting:** It sorts the array without needing additional storage, aside from a few temporary variables.
+- **Stable Sort:** Insertion sort maintains the relative order of equal elements.
+
+### When to Use
+
+- **Small Datasets:** Efficient for small arrays or lists where the simplicity of the algorithm outweighs the
+  inefficiency of its time complexity.
+- **Nearly Sorted Data:** Particularly efficient when the array is already mostly sorted, as its best-case performance
+  is linear.
+- **Online Sorting:** Suitable for online algorithms where elements arrive over time and need to be sorted as they come.
+
+### When Not to Use
+
+- **Large Datasets:** Inefficient for large datasets due to its poor average and worst-case time complexity.
+- **Randomly Ordered Data:** Not ideal for large datasets with random order, as more efficient sorting algorithms exist
+  for such cases.
+
+### Algorithm
+
+1. Start with the first element, assuming it is sorted.
+2. Take the next element and compare it with the elements in the sorted portion of the array.
+3. Shift all elements in the sorted portion that are greater than the current element to the right.
+4. Insert the current element into its correct position in the sorted portion.
+5. Repeat the process for all elements until the entire array is sorted.
+
+### Big O Notation
+
+- **Best Case:** `O(n)` - Occurs when the array is already sorted.
+- **Average Case:** `O(n^2)` - The number of comparisons and shifts grows quadratically with the number of elements.
+- **Worst Case:** `O(n^2)` - Occurs when the array is sorted in reverse order.
+- **Space Complexity:** `O(1)` - Only a constant amount of additional space is required.
+
+### Summary
+
+Insertion sort is a simple and intuitive sorting algorithm that is efficient for small or nearly sorted datasets. It is
+an in-place, comparison-based sort that is stable. While it performs poorly on large datasets with random order due to
+its quadratic time complexity, it excels in scenarios where the data is nearly sorted or arrives incrementally.
