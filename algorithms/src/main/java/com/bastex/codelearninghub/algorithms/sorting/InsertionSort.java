@@ -4,7 +4,7 @@ import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
-public class InsertionSort {
+public final class InsertionSort {
     public static int[] sortArray(final int[] intArray) {
         if (SortingArraysHelper.isEmptyOrHasOnlyOneElement(intArray)) {
             return intArray;

@@ -251,6 +251,11 @@ overhead and stack overflow.
 - **Worst Case:** `O(n^2)` - Occurs when the array is sorted in reverse order.
 - **Space Complexity:** `O(1)` - Only a constant amount of additional space is required.
 
+### In-Place Algorithm
+
+Bubble sort is an in-place sorting algorithm, meaning it requires only a constant amount of additional memory space O(1)
+for temporary storage.
+
 ### Summary
 
 Bubble sort is an elementary sorting algorithm that is simple and easy to implement but inefficient for large datasets
@@ -297,6 +302,11 @@ datasets where its simplicity can be an advantage.
 - **Worst Case:** `O(n^2)` - The number of comparisons and swaps remains quadratic.
 - **Space Complexity:** `O(1)` - Only a constant amount of additional space is required.
 
+### In-Place Algorithm
+
+Selection sort is an in-place sorting algorithm(may depend on the implementation), meaning it requires only a constant
+amount of additional memory space O(1) for temporary storage.
+
 ### Summary
 
 Selection sort is a straightforward sorting algorithm that is easy to implement but inefficient for large datasets due
@@ -342,6 +352,11 @@ mainly used for educational purposes, small datasets, or memory-constrained envi
 - **Average Case:** `O(n^2)` - The number of comparisons and shifts grows quadratically with the number of elements.
 - **Worst Case:** `O(n^2)` - Occurs when the array is sorted in reverse order.
 - **Space Complexity:** `O(1)` - Only a constant amount of additional space is required.
+
+### In-Place Algorithm
+
+Insertion sort is an in-place sorting algorithm. It sorts the array in place, requiring only a constant amount of
+additional memory space O(1) for temporary storage during swaps.
 
 ### Summary
 
@@ -392,9 +407,66 @@ its quadratic time complexity, it excels in scenarios where the data is nearly s
 - **Worst Case:** `O(n^2)` - Depends on the gap sequence, but typically better than the worst case for insertion sort.
 - **Space Complexity:** `O(1)` - Only a constant amount of additional space is required.
 
+### In-Place Algorithm
+
+Shell sort is an in-place sorting algorithm. It modifies the original array and does not require additional space
+proportional to the size of the input.
+
 ### Summary
 
 Shell sort is an efficient and easy-to-implement sorting algorithm that generalizes insertion sort by allowing exchanges
 of far apart elements. It is an in-place, comparison-based sort that is not stable. Shell sort is particularly useful
 for moderate-sized datasets and offers improved performance over simple quadratic sorting algorithms. However, it is not
 as efficient as more advanced sorting algorithms for very large datasets.
+
+## Merge Sort
+
+### Characteristics
+
+- **Divide and Conquer:** Merge sort divides the array into smaller subarrays, sorts each subarray recursively, and then
+  merges them back together to produce a sorted array.
+- **Stable Sort:** Merge sort preserves the relative order of equal elements, making it a stable sorting algorithm.
+- **Comparison-Based:** It sorts elements by comparing them pairwise and merging the results.
+- **Efficient for Large Datasets:** Merge sort has a consistent `O(n log n)` time complexity for all cases, making it
+  suitable for large datasets.
+
+### When to Use
+
+- **Large Datasets:** Efficient for sorting large arrays or lists due to its `O(n log n)` time complexity.
+- **Stable Sorting:** When it is important to preserve the relative order of equal elements.
+- **External Sorting:** Merge sort can be adapted for external sorting where data does not fit into memory.
+
+### When Not to Use
+
+- **Space Complexity:** Requires additional space proportional to the size of the input array due to its merge process,
+  which can be a drawback in memory-constrained environments.
+- **Small Datasets:** Overhead of recursion and merging may outweigh its benefits for very small datasets.
+
+### Algorithm
+
+1. **Divide:** Divide the unsorted array into two halves recursively until each subarray contains one element or is
+   empty.
+2. **Conquer:** Merge the smaller sorted arrays (subarrays) back together in a sorted manner.
+3. **Merge Process:** Compare the elements of the two subarrays sequentially, placing the smaller (or larger) element
+   into the final merged array until one subarray is exhausted.
+4. **Recursive Base Case:** The merge process stops when there is only one element or no element left in the subarrays.
+
+### Big O Notation
+
+- **Best Case:** `O(n log n)` - Occurs when the array is already sorted or nearly sorted.
+- **Average Case:** `O(n log n)` - The number of comparisons and merges grows logarithmically with the number of
+  elements.
+- **Worst Case:** `O(n log n)` - Even when the array is in reverse order, merge sort maintains its efficiency.
+- **Space Complexity:** `O(n)` - Requires additional space for merging due to the auxiliary arrays used.
+
+### In-Place Algorithm
+
+Merge sort is not an in-place sorting algorithm. It requires additional space proportional to the size of the input
+array for its merge operation.
+
+### Summary
+
+Merge sort is an efficient, stable, and comparison-based sorting algorithm that divides the array into smaller
+subarrays, recursively sorts them, and merges them back together. It is optimal for large datasets due to
+its `O(n log n)` time complexity in all cases, but it requires additional space proportional to the size of the input
+array. Merge sort is widely used in various applications where stable sorting and predictable performance are crucial.
