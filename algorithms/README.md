@@ -68,6 +68,57 @@ Understanding Big O notation helps developers and engineers make informed decisi
 anticipated data sizes and performance constraints. It provides a foundation for algorithm analysis that is critical for
 designing systems that are both efficient and scalable.
 
+## Recursion
+
+### Definition
+
+Recursion is a programming technique where a function calls itself directly or indirectly in order to solve a problem.
+Each recursive call tackles a smaller or simpler part of the original problem, progressing towards a solution until a
+base case is reached.
+
+### Characteristics
+
+- **Base Case:** The condition under which the recursive function stops calling itself, preventing infinite recursion.
+- **Recursive Case:** The part of the function where it calls itself with modified arguments, moving the problem towards
+  the base case.
+- **Self-Similarity:** The problem is broken down into smaller instances of the same problem, often simplifying the
+  solution process.
+
+### When to Use
+
+- **Divide and Conquer:** When a problem can be divided into smaller, similar problems. Examples include sorting
+  algorithms like Merge Sort and Quick Sort.
+- **Tree and Graph Traversal:** For traversing hierarchical structures such as trees and graphs, like Depth-First
+  Search (DFS) and Breadth-First Search (BFS).
+- **Dynamic Programming:** In problems where solutions to subproblems are reused to build up the final solution, such as
+  calculating the Fibonacci sequence or solving the knapsack problem.
+- **Backtracking:** In algorithms that explore all possible options to find solutions, like solving puzzles (e.g.,
+  Sudoku) or finding paths (e.g., N-Queens problem).
+
+### When Not to Use
+
+- **High Overhead:** When the overhead of multiple function calls and stack space is too high, an iterative solution may
+  be more efficient.
+- **Stack Limitations:** When dealing with very deep recursion, which can lead to stack overflow errors due to limited
+  stack space.
+- **Complexity:** When an iterative approach is simpler and more straightforward, making the code easier to understand
+  and maintain.
+
+### Examples of Recursive Algorithms
+
+- **Sorting Algorithms:** Merge Sort, Quick Sort
+- **Tree Traversal:** Preorder, Inorder, Postorder traversal
+- **Graph Traversal:** Depth-First Search (DFS)
+- **Dynamic Programming:** Fibonacci sequence, factorial calculation
+- **Backtracking:** N-Queens problem, Sudoku solver, maze solving
+
+### Summary
+
+Recursion is a powerful programming technique used to solve complex problems by breaking them down into simpler
+sub problems. It is essential in various algorithms, particularly in areas like divide and conquer, tree and graph
+traversal, dynamic programming, and backtracking. However, it should be used judiciously to avoid issues like high
+overhead and stack overflow.
+
 ## In-Place and Out-of-Place Algorithms
 
 ### In-Place Algorithms
