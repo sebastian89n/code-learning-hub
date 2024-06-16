@@ -112,6 +112,28 @@ base case is reached.
 - **Dynamic Programming:** Fibonacci sequence, factorial calculation
 - **Backtracking:** N-Queens problem, Sudoku solver, maze solving
 
+### Tail Recursion
+
+Tail recursion is a special case of recursion where the recursive call is the last operation in the function. This
+allows some compilers and interpreters to optimize the recursive call, reusing the current function's stack frame for
+the next call. This optimization is called tail call optimization (TCO) and can significantly reduce the overhead of
+recursive calls.
+
+Tail recursion result is calculated by the last invocation of the method alone. In contrast, non-tail recursive
+functions need to retain the results of all recursive calls to calculate the final answer.
+
+#### Characteristics of Tail Recursion
+
+- **Efficiency:** Tail recursive functions can be optimized to use constant stack space, making them as efficient as
+  iterative solutions.
+- **Simplicity:** Often leads to cleaner and simpler code for problems that can be naturally expressed with recursion.
+
+#### Example Use Cases
+
+- **Factorial Calculation:** Tail-recursive version of the factorial function.
+- **Tree Traversal:** Certain tree traversal algorithms can be written in a tail-recursive manner.
+- **Accumulators:** Functions that build up a result through an accumulator variable can often be made tail-recursive.
+
 ### Summary
 
 Recursion is a powerful programming technique used to solve complex problems by breaking them down into simpler
