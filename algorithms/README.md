@@ -495,3 +495,64 @@ array. Merge sort is widely used in various applications where stable sorting an
 Quick Sort is a highly efficient, in-place sorting algorithm with an average-case time complexity of O(n log n).
 Although it can degrade to O(n^2) in the worst case, careful pivot selection strategies can mitigate this risk. It is
 not stable but is particularly effective for large datasets and performance-critical applications.
+
+## Counting Sort
+
+### Characteristics
+
+- **Non-comparison Sort:** Counting Sort is a non-comparison based integer sorting algorithm.
+- **Stable Sort:** It preserves the relative order of equal elements, making it a stable sorting algorithm.
+- **Efficient for Small Range of Numbers:** Counting Sort works best when the range of numbers in the input array (`k`)
+  is not significantly greater than the number of elements (`n`) and when the input is relatively small.
+- **Linear Time Complexity:** Counting Sort achieves linear time complexity `O(n + k)` where `n` is the number of
+  elements in the input array and `k` is the range of the input. This makes it very efficient compared to
+  comparison-based sorting algorithms like QuickSort or MergeSort.
+- **Space Complexity:** Counting Sort requires additional space proportional to the range of input values (`k`), which
+  can make it impractical for large ranges.
+- **Not In-Place:** Counting Sort is not an in-place sorting algorithm because it requires additional arrays to store
+  counts and the output.
+- **Positive Integers Only:** Counting Sort is typically used for sorting positive integers since it relies on the range
+  of input values to create the counting array.
+
+### When to Use
+
+- **Small Range of Numbers:** Ideal when the range of input values (`k`) is not significantly larger than the number of
+  elements (`n`).
+- **Stable Sorting Requirement:** When maintaining the relative order of equal elements is necessary.
+- **Counting Frequencies:** Useful when you need to count the frequency of elements efficiently.
+
+### When Not to Use
+
+- **Large Range of Numbers:** Not suitable for large ranges of numbers, as it requires additional space proportional to
+  the range.
+- **Space Constraints:** When additional memory usage is a concern.
+- **Negative Numbers:** Not suitable for arrays containing negative numbers without modifications.
+
+### Algorithm
+
+1. **Counting Frequencies:**
+
+- Create an auxiliary array `count[]` where the size of this array is determined by the range of the input
+  elements (`k`). Initialize `count[i]` to 0 for all possible values of `i`.
+- Traverse the input array and count the occurrences of each element. Increment `count[input[i]]` for each
+  element `input[i]`.
+
+2. **Calculating Positions:**
+
+- Modify the `count[]` array to store the actual positions of each element in the output array. This step
+  transforms `count[i]` into the position of the first occurrence of element `i` in the output array.
+- Achieve this by setting `count[i]` to `count[i] + count[i - 1]` for all `i` greater than 0.
+
+3. **Building the Output Array:**
+
+- Create an output array `output[]` of the same size as the input array.
+- Traverse the input array from right to left. For each element `input[i]`, place it in the output array at
+  position `count[input[i]] - 1`, then decrement `count[input[i]]`.
+
+### Summary
+
+Counting Sort is a highly efficient, stable, and non-comparison-based sorting algorithm with linear time complexity for
+small ranges of numbers. It is ideal for cases where the range of input values is not significantly larger than the
+number of elements and when additional space is available for auxiliary arrays. However, it becomes impractical for
+large ranges of numbers due to its space complexity. Counting Sort is typically used for sorting positive integers and
+requires modifications to handle negative numbers.
