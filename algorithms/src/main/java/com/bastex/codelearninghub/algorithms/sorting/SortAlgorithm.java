@@ -4,15 +4,15 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
 public abstract class SortAlgorithm {
-    public int[] sortArray(final int[] intArray) {
-        if (SortAlgorithmHelper.isEmptyOrHasOnlyOneElement(intArray)) {
-            return intArray;
+    public int[] sortArray(final int[] input) {
+        if (SortAlgorithmHelper.isEmptyOrHasOnlyOneElement(input)) {
+            return input;
         }
 
-        return sortWithAlgorithm(intArray);
+        return sortWithAlgorithm(input);
     }
 
-    protected abstract int[] sortWithAlgorithm(final int[] intArray);
+    protected abstract int[] sortWithAlgorithm(final int[] input);
 
     protected abstract SortAlgorithmType getSortAlgorithmType();
 
@@ -24,6 +24,7 @@ public abstract class SortAlgorithm {
         INSERTION_SORT("Insertion Sort"),
         SHELL_SORT("Shell Sort"),
         MERGE_SORT("Merge Sort"),
+        QUICK_SORT("Quick Sort"),
         ;
 
         private final String name;

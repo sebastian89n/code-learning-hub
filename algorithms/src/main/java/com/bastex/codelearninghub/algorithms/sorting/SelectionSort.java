@@ -1,21 +1,21 @@
 package com.bastex.codelearninghub.algorithms.sorting;
 
 public class SelectionSort extends SortAlgorithm {
-    protected int[] sortWithAlgorithm(final int[] intArray) {
+    protected int[] sortWithAlgorithm(final int[] input) {
 
-        for (int lastUnsortedIndex = intArray.length - 1; lastUnsortedIndex > 0; lastUnsortedIndex--) {
+        for (int lastUnsortedIndex = input.length - 1; lastUnsortedIndex > 0; lastUnsortedIndex--) {
             int largestElementIndex = 0;
 
             for (int i = 1; i <= lastUnsortedIndex; i++) {
-                if (intArray[i] > intArray[largestElementIndex]) {
+                if (input[i] > input[largestElementIndex]) {
                     largestElementIndex = i;
                 }
             }
 
-            SortAlgorithmHelper.swapElementsByIndexes(intArray, largestElementIndex, lastUnsortedIndex);
+            SortAlgorithmHelper.swapElementsByIndexes(input, largestElementIndex, lastUnsortedIndex);
         }
 
-        return intArray;
+        return input;
     }
 
     @Override

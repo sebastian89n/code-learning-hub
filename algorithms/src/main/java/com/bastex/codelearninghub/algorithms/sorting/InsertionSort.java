@@ -1,19 +1,19 @@
 package com.bastex.codelearninghub.algorithms.sorting;
 
 public final class InsertionSort extends SortAlgorithm {
-    protected int[] sortWithAlgorithm(final int[] intArray) {
-        for (int firstUnsortedIndex = 1; firstUnsortedIndex < intArray.length; firstUnsortedIndex++) {
-            final int elementToMove = intArray[firstUnsortedIndex];
+    protected int[] sortWithAlgorithm(final int[] input) {
+        for (int firstUnsortedIndex = 1; firstUnsortedIndex < input.length; firstUnsortedIndex++) {
+            final int elementToMove = input[firstUnsortedIndex];
 
             int newIndexForElementToMove;
-            for (newIndexForElementToMove = firstUnsortedIndex; newIndexForElementToMove > 0 && intArray[newIndexForElementToMove - 1] > elementToMove; newIndexForElementToMove--) {
-                intArray[newIndexForElementToMove] = intArray[newIndexForElementToMove - 1];
+            for (newIndexForElementToMove = firstUnsortedIndex; newIndexForElementToMove > 0 && input[newIndexForElementToMove - 1] > elementToMove; newIndexForElementToMove--) {
+                input[newIndexForElementToMove] = input[newIndexForElementToMove - 1];
             }
 
-            intArray[newIndexForElementToMove] = elementToMove;
+            input[newIndexForElementToMove] = elementToMove;
         }
 
-        return intArray;
+        return input;
     }
 
     @Override

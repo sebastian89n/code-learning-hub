@@ -1,9 +1,9 @@
 package com.bastex.codelearninghub.algorithms.sorting;
 
 public class MergeSort extends SortAlgorithm {
-    protected int[] sortWithAlgorithm(final int[] intArray) {
-        mergeSort(intArray, 0, intArray.length);
-        return intArray;
+    protected int[] sortWithAlgorithm(final int[] input) {
+        mergeSort(input, 0, input.length);
+        return input;
     }
 
     @Override
@@ -12,8 +12,7 @@ public class MergeSort extends SortAlgorithm {
     }
 
     private static void mergeSort(final int[] input, final int startIndex, final int endIndex) {
-        final boolean isOneElementArray = endIndex - startIndex <= 1;
-        if (isOneElementArray) {
+        if (SortAlgorithmHelper.isOneElementArrayBasedOnStartEndIndexes(startIndex, endIndex)) {
             return;
         }
 
@@ -25,6 +24,7 @@ public class MergeSort extends SortAlgorithm {
     }
 
     private static void merge(final int[] input, final int startIndex, final int midIndex, final int endIndex) {
+        // left array and right array are already sorted by itself
         final boolean areTwoHalvesOfArrayAlreadySorted = input[midIndex - 1] <= input[midIndex];
         if (areTwoHalvesOfArrayAlreadySorted) {
             return;
@@ -40,7 +40,8 @@ public class MergeSort extends SortAlgorithm {
             tempArray[tempIndex++] = input[i] <= input[j] ? input[i++] : input[j++];
         }
 
-        // optimizes the merge process by handling the case where the left half of the array still has remaining elements after the right half has been exhausted.
+        // Optimization - copy any remaining elements from the left half of the array (if there are any)
+        // The right half is already in place since it's already sorted.
         System.arraycopy(input, i, input, startIndex + tempIndex, midIndex - i);
 
         updateOriginalArrayWithSortedElements(input, startIndex, tempArray, tempIndex);

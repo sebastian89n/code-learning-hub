@@ -251,11 +251,6 @@ overhead and stack overflow.
 - **Worst Case:** `O(n^2)` - Occurs when the array is sorted in reverse order.
 - **Space Complexity:** `O(1)` - Only a constant amount of additional space is required.
 
-### In-Place Algorithm
-
-Bubble sort is an in-place sorting algorithm, meaning it requires only a constant amount of additional memory space O(1)
-for temporary storage.
-
 ### Summary
 
 Bubble sort is an elementary sorting algorithm that is simple and easy to implement but inefficient for large datasets
@@ -302,11 +297,6 @@ datasets where its simplicity can be an advantage.
 - **Worst Case:** `O(n^2)` - The number of comparisons and swaps remains quadratic.
 - **Space Complexity:** `O(1)` - Only a constant amount of additional space is required.
 
-### In-Place Algorithm
-
-Selection sort is an in-place sorting algorithm(may depend on the implementation), meaning it requires only a constant
-amount of additional memory space O(1) for temporary storage.
-
 ### Summary
 
 Selection sort is a straightforward sorting algorithm that is easy to implement but inefficient for large datasets due
@@ -352,11 +342,6 @@ mainly used for educational purposes, small datasets, or memory-constrained envi
 - **Average Case:** `O(n^2)` - The number of comparisons and shifts grows quadratically with the number of elements.
 - **Worst Case:** `O(n^2)` - Occurs when the array is sorted in reverse order.
 - **Space Complexity:** `O(1)` - Only a constant amount of additional space is required.
-
-### In-Place Algorithm
-
-Insertion sort is an in-place sorting algorithm. It sorts the array in place, requiring only a constant amount of
-additional memory space O(1) for temporary storage during swaps.
 
 ### Summary
 
@@ -407,11 +392,6 @@ its quadratic time complexity, it excels in scenarios where the data is nearly s
 - **Worst Case:** `O(n^2)` - Depends on the gap sequence, but typically better than the worst case for insertion sort.
 - **Space Complexity:** `O(1)` - Only a constant amount of additional space is required.
 
-### In-Place Algorithm
-
-Shell sort is an in-place sorting algorithm. It modifies the original array and does not require additional space
-proportional to the size of the input.
-
 ### Summary
 
 Shell sort is an efficient and easy-to-implement sorting algorithm that generalizes insertion sort by allowing exchanges
@@ -429,6 +409,8 @@ as efficient as more advanced sorting algorithms for very large datasets.
 - **Comparison-Based:** It sorts elements by comparing them pairwise and merging the results.
 - **Efficient for Large Datasets:** Merge sort has a consistent `O(n log n)` time complexity for all cases, making it
   suitable for large datasets.
+- **Not In-Place:** Merge sort is not an in-place sorting algorithm, as it requires additional space proportional to the
+  size of the input array for its merge operation.
 
 ### When to Use
 
@@ -459,14 +441,57 @@ as efficient as more advanced sorting algorithms for very large datasets.
 - **Worst Case:** `O(n log n)` - Even when the array is in reverse order, merge sort maintains its efficiency.
 - **Space Complexity:** `O(n)` - Requires additional space for merging due to the auxiliary arrays used.
 
-### In-Place Algorithm
-
-Merge sort is not an in-place sorting algorithm. It requires additional space proportional to the size of the input
-array for its merge operation.
-
 ### Summary
 
 Merge sort is an efficient, stable, and comparison-based sorting algorithm that divides the array into smaller
 subarrays, recursively sorts them, and merges them back together. It is optimal for large datasets due to
 its `O(n log n)` time complexity in all cases, but it requires additional space proportional to the size of the input
 array. Merge sort is widely used in various applications where stable sorting and predictable performance are crucial.
+
+## Quick Sort
+
+### Characteristics
+
+- **Divide and Conquer:** Quick Sort is a divide-and-conquer algorithm that works by selecting a 'pivot' element from
+  the array and partitioning the other elements into two sub-arrays, according to whether they are less than or greater
+  than the pivot.
+- **In-Place:** Quick Sort is an in-place sorting algorithm, meaning it requires only a constant amount of additional
+  space O(log n) for recursion.
+- **Not Stable:** Quick Sort is not a stable sort, meaning that the relative order of equal elements may not be
+  preserved.
+
+### When to Use
+
+- **Large Datasets:** Quick Sort is highly efficient for large datasets due to its average-case performance.
+- **Arrays:** It is particularly efficient for sorting arrays due to its good cache performance and in-place nature.
+- **Performance Critical Applications:** When average-case performance is critical and space complexity needs to be
+  minimized.
+
+### When Not to Use
+
+- **Worst-Case Scenarios:** In its basic form, Quick Sort has a worst-case time complexity of O(n^2), which occurs when
+  the smallest or largest element is always chosen as the pivot.
+- **Stability Required:** When the stability of the sorting algorithm is important, Quick Sort should be avoided.
+
+### Algorithm
+
+1. **Choose a Pivot:** Select a pivot element from the array. Common strategies include choosing the first element, the
+   last element, the middle element, or using a random element.
+2. **Partitioning:** Rearrange the elements in the array such that all elements less than the pivot come before it, and
+   all elements greater than the pivot come after it.
+3. **Recursively Sort:** Recursively apply the above steps to the sub-arrays of elements with smaller and greater
+   values.
+
+### Big O Notation
+
+- **Best Case:** O(n log n) - Achieved when the pivot divides the array into two nearly equal halves.
+- **Average Case:** O(n log n) - On average, Quick Sort performs well with a good pivot selection strategy.
+- **Worst Case:** O(n^2) - Occurs when the pivot is consistently the smallest or largest element, leading to unbalanced
+  partitions.
+- **Space Complexity:** O(log n) - Due to the recursion stack.
+
+### Summary
+
+Quick Sort is a highly efficient, in-place sorting algorithm with an average-case time complexity of O(n log n).
+Although it can degrade to O(n^2) in the worst case, careful pivot selection strategies can mitigate this risk. It is
+not stable but is particularly effective for large datasets and performance-critical applications.

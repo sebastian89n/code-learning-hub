@@ -1,12 +1,12 @@
 package com.bastex.codelearninghub.algorithms.sorting;
 
 public class BubbleSort extends SortAlgorithm {
-    protected int[] sortWithAlgorithm(final int[] intArray) {
-        for (int lastUnsortedIndex = intArray.length - 1; lastUnsortedIndex > 0; lastUnsortedIndex--) {
+    protected int[] sortWithAlgorithm(final int[] input) {
+        for (int lastUnsortedIndex = input.length - 1; lastUnsortedIndex > 0; lastUnsortedIndex--) {
             boolean isArrayAlreadySorted = true;
             for (int i = 0; i < lastUnsortedIndex; i++) {
-                if (intArray[i] > intArray[i + 1]) {
-                    SortAlgorithmHelper.swapElementsByIndexes(intArray, i, i + 1);
+                if (input[i] > input[i + 1]) {
+                    SortAlgorithmHelper.swapElementsByIndexes(input, i, i + 1);
                     isArrayAlreadySorted = false;
                 }
             }
@@ -16,7 +16,7 @@ public class BubbleSort extends SortAlgorithm {
             }
         }
 
-        return intArray;
+        return input;
     }
 
     @Override
