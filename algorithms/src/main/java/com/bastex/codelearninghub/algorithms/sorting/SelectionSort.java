@@ -1,14 +1,7 @@
 package com.bastex.codelearninghub.algorithms.sorting;
 
-import lombok.AccessLevel;
-import lombok.NoArgsConstructor;
-
-@NoArgsConstructor(access = AccessLevel.PRIVATE)
-public final class SelectionSort {
-    public static int[] sortArray(final int[] intArray) {
-        if (SortingArraysHelper.isEmptyOrHasOnlyOneElement(intArray)) {
-            return intArray;
-        }
+public class SelectionSort extends SortAlgorithm {
+    protected int[] sortWithAlgorithm(final int[] intArray) {
 
         for (int lastUnsortedIndex = intArray.length - 1; lastUnsortedIndex > 0; lastUnsortedIndex--) {
             int largestElementIndex = 0;
@@ -19,9 +12,14 @@ public final class SelectionSort {
                 }
             }
 
-            SortingArraysHelper.swapElementsByIndexes(intArray, largestElementIndex, lastUnsortedIndex);
+            SortAlgorithmHelper.swapElementsByIndexes(intArray, largestElementIndex, lastUnsortedIndex);
         }
 
         return intArray;
+    }
+
+    @Override
+    protected SortAlgorithmType getSortAlgorithmType() {
+        return SortAlgorithmType.SELECTION_SORT;
     }
 }

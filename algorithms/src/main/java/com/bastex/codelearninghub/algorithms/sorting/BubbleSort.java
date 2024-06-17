@@ -1,20 +1,12 @@
 package com.bastex.codelearninghub.algorithms.sorting;
 
-import lombok.AccessLevel;
-import lombok.NoArgsConstructor;
-
-@NoArgsConstructor(access = AccessLevel.PRIVATE)
-public final class BubbleSort {
-    public static int[] sortArray(final int[] intArray) {
-        if (SortingArraysHelper.isEmptyOrHasOnlyOneElement(intArray)) {
-            return intArray;
-        }
-
+public class BubbleSort extends SortAlgorithm {
+    protected int[] sortWithAlgorithm(final int[] intArray) {
         for (int lastUnsortedIndex = intArray.length - 1; lastUnsortedIndex > 0; lastUnsortedIndex--) {
             boolean isArrayAlreadySorted = true;
             for (int i = 0; i < lastUnsortedIndex; i++) {
                 if (intArray[i] > intArray[i + 1]) {
-                    SortingArraysHelper.swapElementsByIndexes(intArray, i, i + 1);
+                    SortAlgorithmHelper.swapElementsByIndexes(intArray, i, i + 1);
                     isArrayAlreadySorted = false;
                 }
             }
@@ -25,5 +17,10 @@ public final class BubbleSort {
         }
 
         return intArray;
+    }
+
+    @Override
+    protected SortAlgorithmType getSortAlgorithmType() {
+        return SortAlgorithmType.BUBBLE_SORT;
     }
 }

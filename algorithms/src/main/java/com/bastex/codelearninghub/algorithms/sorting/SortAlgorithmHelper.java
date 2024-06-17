@@ -4,7 +4,7 @@ import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
-final class SortingArraysHelper {
+final class SortAlgorithmHelper {
     static void swapElementsByIndexes(final int[] intArray, final int i, final int j) {
         if (i == j) {
             return;

@@ -1,15 +1,7 @@
 package com.bastex.codelearninghub.algorithms.sorting;
 
-import lombok.AccessLevel;
-import lombok.NoArgsConstructor;
-
-@NoArgsConstructor(access = AccessLevel.PRIVATE)
-public final class InsertionSort {
-    public static int[] sortArray(final int[] intArray) {
-        if (SortingArraysHelper.isEmptyOrHasOnlyOneElement(intArray)) {
-            return intArray;
-        }
-
+public final class InsertionSort extends SortAlgorithm {
+    protected int[] sortWithAlgorithm(final int[] intArray) {
         for (int firstUnsortedIndex = 1; firstUnsortedIndex < intArray.length; firstUnsortedIndex++) {
             final int elementToMove = intArray[firstUnsortedIndex];
 
@@ -22,5 +14,10 @@ public final class InsertionSort {
         }
 
         return intArray;
+    }
+
+    @Override
+    protected SortAlgorithmType getSortAlgorithmType() {
+        return SortAlgorithmType.INSERTION_SORT;
     }
 }

@@ -1,18 +1,14 @@
 package com.bastex.codelearninghub.algorithms.sorting;
 
-import lombok.AccessLevel;
-import lombok.NoArgsConstructor;
-
-@NoArgsConstructor(access = AccessLevel.PRIVATE)
-public final class MergeSort {
-    public static int[] sortArray(final int[] intArray) {
-        if (SortingArraysHelper.isEmptyOrHasOnlyOneElement(intArray)) {
-            return intArray;
-        }
-
+public class MergeSort extends SortAlgorithm {
+    protected int[] sortWithAlgorithm(final int[] intArray) {
         mergeSort(intArray, 0, intArray.length);
-
         return intArray;
+    }
+
+    @Override
+    protected SortAlgorithmType getSortAlgorithmType() {
+        return SortAlgorithmType.MERGE_SORT;
     }
 
     private static void mergeSort(final int[] input, final int startIndex, final int endIndex) {

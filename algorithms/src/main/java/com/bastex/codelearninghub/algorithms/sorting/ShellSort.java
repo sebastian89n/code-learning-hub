@@ -1,12 +1,8 @@
 package com.bastex.codelearninghub.algorithms.sorting;
 
-import lombok.AccessLevel;
-import lombok.NoArgsConstructor;
-
-@NoArgsConstructor(access = AccessLevel.PRIVATE)
-public final class ShellSort {
-    public static int[] sortArray(final int[] intArray) {
-        if (SortingArraysHelper.isEmptyOrHasOnlyOneElement(intArray)) {
+public class ShellSort extends SortAlgorithm {
+    protected int[] sortWithAlgorithm(final int[] intArray) {
+        if (SortAlgorithmHelper.isEmptyOrHasOnlyOneElement(intArray)) {
             return intArray;
         }
 
@@ -26,5 +22,10 @@ public final class ShellSort {
         }
 
         return intArray;
+    }
+
+    @Override
+    protected SortAlgorithmType getSortAlgorithmType() {
+        return SortAlgorithmType.SHELL_SORT;
     }
 }
