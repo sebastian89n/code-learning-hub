@@ -501,7 +501,8 @@ not stable but is particularly effective for large datasets and performance-crit
 ### Characteristics
 
 - **Non-comparison Sort:** Counting Sort is a non-comparison based integer sorting algorithm.
-- **Stable Sort:** It preserves the relative order of equal elements, making it a stable sorting algorithm.
+- **Stable Sort:** It preserves the relative order of equal elements, making it a stable sorting algorithm. However, it
+  depends on the actual implementation.
 - **Efficient for Small Range of Numbers:** Counting Sort works best when the range of numbers in the input array (`k`)
   is not significantly greater than the number of elements (`n`) and when the input is relatively small.
 - **Linear Time Complexity:** Counting Sort achieves linear time complexity `O(n + k)` where `n` is the number of
@@ -556,3 +557,71 @@ small ranges of numbers. It is ideal for cases where the range of input values i
 number of elements and when additional space is available for auxiliary arrays. However, it becomes impractical for
 large ranges of numbers due to its space complexity. Counting Sort is typically used for sorting positive integers and
 requires modifications to handle negative numbers.
+
+## Radix Sort
+
+### Characteristics
+
+- **Non-comparison Sort:** Radix Sort is a non-comparison based integer sorting algorithm that sorts numbers by
+  processing individual digits.
+- **Stable Sort:** It preserves the relative order of equal elements, making it a stable sorting algorithm.
+- **Efficient for Large Numbers:** Radix Sort is efficient for large numbers when the number of digits `d` is much
+  smaller than the number of elements `n`.
+- **Multi-Pass Algorithm:** Radix Sort processes each digit of the numbers, starting from the least significant digit (
+  LSD) to the most significant digit (MSD) (or vice versa).
+
+### When to Use
+
+- **Large Range of Numbers:** Ideal for sorting large numbers with a relatively small number of digits.
+- **Stable Sorting Requirement:** When maintaining the relative order of equal elements is necessary.
+- **Fixed-Length Numbers:** Works best when all numbers have the same number of digits.
+
+### When Not to Use
+
+- **Variable-Length Numbers:** Not suitable for numbers with varying lengths unless they are padded to have the same
+  number of digits.
+- **Space Constraints:** Requires additional space for auxiliary arrays during sorting.
+
+### Algorithm
+
+Radix Sort typically uses Counting Sort as a subroutine to sort numbers based on individual digits. It operates in
+several passes, each time sorting the numbers based on a specific digit.
+
+1. **Determine the Number of Digits:**
+
+- Find the maximum number in the array to determine the number of digits `d` in the largest number.
+
+2. **Sort by Each Digit:**
+
+- For each digit from the least significant digit (LSD) to the most significant digit (MSD):
+    - Use Counting Sort (or any other stable sort) to sort the numbers based on the current digit.
+
+### Example
+
+Consider an array `input = [170, 45, 75, 90, 802, 24, 2, 66]`:
+
+1. **Sort by the least significant digit (units place):**
+
+- Result after first pass: `[170, 90, 802, 2, 24, 45, 75, 66]`
+
+2. **Sort by the next significant digit (tens place):**
+
+- Result after second pass: `[802, 2, 24, 45, 66, 170, 75, 90]`
+
+3. **Sort by the most significant digit (hundreds place):**
+
+- Result after third pass: `[2, 24, 45, 66, 75, 90, 170, 802]`
+
+### Big O Notation
+
+- **Best Case:** `O(nk)` where `n` is the number of elements and `k` is the number of digits.
+- **Average Case:** `O(nk)` - Consistent performance across different cases.
+- **Worst Case:** `O(nk)` - Performance is linear with respect to the number of elements and digits.
+- **Space Complexity:** `O(n + k)` - Requires additional space for counting and output arrays.
+
+### Summary
+
+Radix Sort is an efficient, stable, and non-comparison-based sorting algorithm suitable for sorting large numbers with a
+relatively small number of digits. It processes each digit of the numbers in multiple passes, using Counting Sort or
+another stable sorting algorithm as a subroutine. Radix Sort offers linear time complexity for sorting large datasets,
+making it highly efficient for specific use cases.

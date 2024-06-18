@@ -4,7 +4,7 @@ import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
-public class CountingSort {
+public final class CountingSort {
     public static int[] countingSort(final int[] input, final int min, final int max) {
         if (SortAlgorithmHelper.isEmptyOrHasOnlyOneElement(input)) {
             return input;
