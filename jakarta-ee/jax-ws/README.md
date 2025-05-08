@@ -1,6 +1,6 @@
-# JAX-WS: Jakarta XML Web Services
+# Jakarta XML Web Services
 
-JAX-WS, or Jakarta XML Web Services(previously Java API for XML Web Services), is a Java-based technology for building
+Jakarta XML Web Services (JAX-WS), is a Java-based technology for building
 and consuming web services using
 XML-based messaging. It provides a standardized approach to developing both SOAP (Simple Object Access Protocol).
 

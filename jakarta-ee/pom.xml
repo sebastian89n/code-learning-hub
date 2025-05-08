@@ -18,6 +18,8 @@
         <module>jax-ws</module>
         <module>jaxb</module>
         <module>jms</module>
+        <module>json-b</module>
+        <module>json-p</module>
         <module>servlets</module>
     </modules>
 </project>

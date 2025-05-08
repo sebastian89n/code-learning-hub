@@ -1,4 +1,4 @@
-# Spring Aspects: Aspect-Oriented Programming (AOP) for Spring
+# Spring Aspects
 
 Spring Aspects is a module within the Spring Framework that enables Aspect-Oriented Programming (AOP) in Spring
 applications. AOP is a powerful paradigm that complements traditional Object-Oriented Programming (OOP) by allowing

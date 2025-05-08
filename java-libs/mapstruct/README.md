@@ -1,4 +1,4 @@
-# MapStruct: Java Bean Mapping Made Easy
+# MapStruct
 
 MapStruct is a Java-based code generation tool that simplifies the process of mapping data between Java bean types. It
 automates the generation of mapping code, eliminating the need for writing boilerplate code to transform one bean into

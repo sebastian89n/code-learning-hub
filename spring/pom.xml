@@ -6,7 +6,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.7.15</version>
+        <version>2.7.18</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
@@ -21,6 +21,7 @@
         <module>spring-cloud-gateway</module>
         <module>spring-context</module>
         <module>spring-data-jpa</module>
+        <module>spring-jms</module>
         <module>spring-mvc</module>
     </modules>
 

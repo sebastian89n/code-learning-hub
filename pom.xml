@@ -25,7 +25,7 @@
         <module>java-libs</module>
         <module>spring</module>
         <module>web</module>
-        <module>tools</module>
+        <module>tutorials</module>
     </modules>
 
     <dependencies>

@@ -1,6 +1,6 @@
-# Jakarta Messaging (JMS)
+# Jakarta Messaging
 
-Jakarta Messaging (previously Java Message Service) is a Java-based messaging standard that allows applications to
+Jakarta Messaging (JMS) is a Java-based messaging standard that allows applications to
 communicate asynchronously by
 sending and receiving messages. It provides a way for different software components to exchange information and data in
 a reliable, loosely coupled, and platform-independent manner. JMS is commonly used in enterprise and distributed systems
@@ -9,7 +9,7 @@ to build scalable and reliable messaging solutions.
 ## Modules
 
 - **jms-basics** - sample application with code snippets demonstrating JMS features
-- **jms-task-manager** - sample JMS best mini app with client/server
+- **jms-task-manager** - sample JMS mini app with client/server
 
 ## Installing Artemis
 

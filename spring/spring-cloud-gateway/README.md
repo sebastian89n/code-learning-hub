@@ -1,4 +1,4 @@
-# Spring Cloud Gateway: Building Cloud-Native Microservices
+# Spring Cloud Gateway
 
 Spring Cloud Gateway is a dynamic, lightweight, and powerful library that enables developers to build cloud-native
 microservices and handle API requests efficiently. It provides a flexible, non-blocking, and customizable gateway for

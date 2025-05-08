@@ -1,6 +1,6 @@
-# JAX-RS - Jakarta RESTful Web Services (formerly Java API for RESTful Web Services)
+# Jakarta RESTful Web Services
 
-JAX-RS is a powerful Java-based framework designed for creating web
+Jakarta RESTful Web Services (JAX-RS) is a powerful Java-based framework designed for creating web
 services following the principles of Representational State Transfer (REST). With a set of APIs and annotations, JAX-RS
 simplifies the development of RESTful web services in Java.
 
