@@ -6,7 +6,7 @@ Currently based on Java 21.
 
 ### Modules
 
-- code-learning-hub-bom
+- code-learning-hub-bom 
 - design patterns
 - jakarta-ee
 - java
