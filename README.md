@@ -6,7 +6,9 @@ Currently based on Java 21.
 
 ### Modules
 
+- algorithms
 - code-learning-hub-bom
+- data-structures
 - design patterns
 - jakarta-ee
 - java
