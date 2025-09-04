@@ -10,5 +10,5 @@
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <artifactId>code-learning-hub-html</artifactId>
+    <artifactId>code-learning-hub-html-old</artifactId>
 </project>
