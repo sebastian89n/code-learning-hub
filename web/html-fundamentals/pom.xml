@@ -11,4 +11,5 @@
     </parent>
 
     <artifactId>code-learning-hub-html-fundamentals</artifactId>
+    <packaging>pom</packaging>
 </project>

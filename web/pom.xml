@@ -11,6 +11,7 @@
     </parent>
 
     <artifactId>code-learning-hub-web</artifactId>
+    <packaging>pom</packaging>
 
     <modules>
         <module>html-old</module>
