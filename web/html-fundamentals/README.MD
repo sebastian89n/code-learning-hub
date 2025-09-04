@@ -8,3 +8,9 @@ This project was originally created while working through The Definitive Guide t
 
 - Practical examples of common HTML elements
 - Notes on semantic usage and best practices
+
+### Notes for IntelliJ:
+- configure browser in `Web Browsers and Preview`. Optionally select `Allow unsigned requests`
+- `Code style`->`HTML`->`Other`->
+  - `Do not indent children of` -> remove everything or keep only html
+  - optionally change indentation to 2 spaces (Google standard)
