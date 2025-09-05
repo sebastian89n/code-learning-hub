@@ -10,6 +10,6 @@
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <artifactId>code-learning-hub-html-fundamentals</artifactId>
+    <artifactId>code-learning-hub-html-css-fundamentals</artifactId>
     <packaging>pom</packaging>
 </project>

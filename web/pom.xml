@@ -15,6 +15,6 @@
 
     <modules>
         <module>html-old</module>
-        <module>html-fundamentals</module>
+        <module>html-css-fundamentals</module>
     </modules>
 </project>
