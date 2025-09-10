@@ -15,62 +15,76 @@
     <h5>The Basic Language of the web: HTML</h5>
     <h6>The Basic Language of the web: HTML</h6>
     -->
+    <header>
+      <h1>📘 The Code Magazine</h1> <!-- Recommended only one h1 header on page -->
 
-    <h1>📘 The Code Magazine</h1> <!-- Recommended only one h1 header on page -->
+      <nav>
+        <a href="blog.html">Blog</a>
+        <a href="#">Challenges</a>
+        <a href="#">Flexbox</a>
+        <a href="#">CSS Grid</a>
+      </nav>
+    </header>
 
-    <a href="blog.html">Blog</a>
-    <a href="#">Challenges</a>
-    <a href="#">Flexbox</a>
-    <a href="#">CSS Grid</a>
+    <article>
+      <header>
+        <h2>The Basic Language of the web: HTML</h2>
 
-    <h2>The Basic Language of the web: HTML</h2>
+        <img src="laura-jones.jpg" alt="Laura Jones"
+             width="50"
+             height="50"/>
 
-    <img src="laura-jones.jpg" alt="Laura Jones" width="50" height="50"/>
+        <!-- <b> is older HTML element. It's recommended to use strong due to better defined semantic value -->
+        <p>Posted by <strong>Laura Jones</strong> on Monday, June 21st 2027</p><!-- Paragraph & Strong -->
 
-    <!-- <b> is older HTML element. It's recommended to use strong due to better defined semantic value -->
-    <p>Posted by <strong>Laura Jones</strong> on Monday, June 21st 2027</p><!-- Paragraph & Strong -->
+        <!-- alt required by search engines, for blind people with screen reader etc -->
+        <img src="post-img.jpg"
+             alt="HTML code on a screen"
+             width="500"
+             height="200"/>
+      </header>
 
-    <!-- alt required by search engines, for blind people with screen reader etc -->
-    <img src="post-img.jpg" alt="HTML code on a screen" width="500" height="200"/>
+      <!-- <i> older element for italic but newer recommended tag one is <em> for emphasis -->
+      <p>All modern websites and web applications are built using three <em>fundamental</em> technologies: HTML, CSS and
+        JavaScript. These are the languages of the web.</p>
+      <p>In this post, let's focus on HTML. We will learn what HTML is all about, and why you too should learn it.</p>
 
-    <!-- <i> older element for italic but newer recommended tag one is <em> for emphasis -->
-    <p>All modern websites and web applications are built using three <em>fundamental</em> technologies: HTML, CSS and
-      JavaScript. These are the languages of the web.</p>
-    <p>In this post, let's focus on HTML. We will learn what HTML is all about, and why you too should learn it.</p>
+      <h3>What is HTML?</h3>
+      <p>HTML stands for <strong>H</strong>yper<strong>T</strong>ext <strong>M</strong>arkup Language. It's a markup
+        language that web developers use to structure and
+        describe the content of a webpage (not a programming language).</p>
 
-    <h3>What is HTML?</h3>
-    <p>HTML stands for <strong>H</strong>yper<strong>T</strong>ext <strong>M</strong>arkup Language. It's a markup
-      language that web developers use to structure and
-      describe the content of a webpage (not a programming language).</p>
+      <p>HTML consists of elements that describe different types of content: paragraphs, links, headings, images, video,
+        etc. Web browsers understand HTML and render HTML code as websites.</p>
 
-    <p>HTML consists of elements that describe different types of content: paragraphs, links, headings, images, video,
-      etc. Web browsers understand HTML and render HTML code as websites.</p>
+      <p>In HTML, each element is made up of 3 parts:</p>
 
-    <p>In HTML, each element is made up of 3 parts:</p>
+      <!-- Ordered list -->
+      <ol>
+        <li>The opening tag</li>
+        <li>The closing tag</li>
+        <li>The actual element</li>
+      </ol>
 
-    <!-- Ordered list -->
-    <ol>
-      <li>The opening tag</li>
-      <li>The closing tag</li>
-      <li>The actual element</li>
-    </ol>
+      <!-- href links, target="_blank" opens a new page -->
+      <p>You can learn more at <a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank">MDN Web
+        Docs</a></p>
 
-    <!-- href links, target="_blank" opens a new page -->
-    <p>You can learn more at <a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank">MDN Web
-      Docs</a></p>
+      <h3>Why should you learn HTML?</h3>
+      <p>There are countless reasons for learning the fundamental language of the web. Here are 5 of them:</p>
 
-    <h3>Why should you learn HTML?</h3>
-    <p>There are countless reasons for learning the fundamental language of the web. Here are 5 of them:</p>
+      <!-- Unordered list -->
+      <ul>
+        <li>To be able to use the fundamental web dev language</li>
+        <li>To hand-craft beautiful websites instead of relying on tools like Worpress or Wix</li>
+        <li>To build web applications</li>
+        <li>To impress friends</li>
+        <li>To have fun 😃</li>
+      </ul>
 
-    <!-- Unordered list -->
-    <ul>
-      <li>To be able to use the fundamental web dev language</li>
-      <li>To hand-craft beautiful websites instead of relying on tools like Worpress or Wix</li>
-      <li>To build web applications</li>
-      <li>To impress friends</li>
-      <li>To have fun 😃</li>
-    </ul>
+      <p>Hopefully you learned something new here. See you next time!</p>
+    </article>
 
-    <p>Hopefully you learned something new here. See you next time!</p>
+    <footer>Copyright &copy; 2027 by The Code Magazine.</footer>
   </body>
 </html>
