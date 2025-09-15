@@ -102,16 +102,16 @@ article header p {
 
 aside {
     background-color: #f7f7f7;
-/*
-    border-style: solid;
-    border-width: 5px;
-    border-color: #1098ad;
+    /*
+        border-style: solid;
+        border-width: 5px;
+        border-color: #1098ad;
 
-    or one that applies to specific side:
-    border-top: 5px solid #1098ad;
-    border-left: 5px solid #1098ad;
-    or:
-*/
+        or one that applies to specific side:
+        border-top: 5px solid #1098ad;
+        border-left: 5px solid #1098ad;
+        or:
+    */
     border: 5px solid #1098ad;
 }
 
@@ -134,6 +134,29 @@ li:nth-child(even) {
     /*color: red;*/
 }
 
+/* Misconception: this won't work! article does not have p, that is its first child */
 article p:first-child {
     color: red;
+}
+
+/* Styling links (in order) */
+a:link {
+    color: #1098ad;
+    text-decoration: none;
+}
+
+a:visited {
+    /* color: #777; - in reality, usually done same as normal links */
+    color: #1098ad;
+}
+
+a:hover {
+    color: orangered;
+    font-weight: bold;
+    text-decoration: underline orangered;
+}
+
+a:active {
+    background-color: black;
+    font-style: italic;
 }
