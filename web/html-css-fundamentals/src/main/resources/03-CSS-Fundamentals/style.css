@@ -2,16 +2,25 @@
    Base Typography
    ========================================================= */
 
-/* Apply a consistent font across headings, paragraphs, and list items */
-h1, h2, h3, h4, p, li {
-    font-family: sans-serif;
+/* CSS specificity reminder:
+   !important > inline > id > class > element > universal.
+   If multiple match, the last one wins. */
+
+/* Universal selector */
+* {
+    /*border-top: 10px solid #1098ad;*/
+}
+
+/* Apply consistent font and color to text elements via inheritance */
+body {
     color: #444;
+    font-family: sans-serif;
 }
 
 /* Headings */
 h1 {
     font-size: 26px;
-    text-transform: uppercase; /* Makes all letters uppercase */
+    text-transform: uppercase; /* All caps */
     font-style: italic;
 }
 
@@ -26,13 +35,13 @@ h3 {
 h4 {
     font-size: 20px;
     text-transform: uppercase;
-    text-align: center; /* Centers text within the element */
+    text-align: center; /* Centered */
 }
 
 /* Paragraphs */
 p {
     font-size: 22px;
-    line-height: 1.5; /* Improves readability by increasing spacing */
+    line-height: 1.5; /* Better readability */
 }
 
 /* List items */
@@ -40,14 +49,14 @@ li {
     font-size: 20px;
 }
 
+/* Override heading colors */
 h1, h2, h3 {
     color: #1098ad;
 }
 
 /* =========================================================
    Notes (examples of structure-based selectors)
-   These are commented out because they tightly couple CSS to HTML.
-   Use classes where possible instead.
+   Prefer classes over these to avoid tight HTML coupling
    =========================================================
 
 footer p {
@@ -60,18 +69,18 @@ article header p {
 */
 
 /* =========================================================
-   Colors (examples)
+   Color notation examples
    =========================================================
-   color: blue;    // by color name
+   color: blue;                // Named color
    color: rgb(172, 84, 84);    // RGB
-   color: rgb(55, 55, 55);     // Grayscale when all values are equal
-   color: rgba(172, 84, 84, .5); // RGB with transparency
-   color: #ac5454;             // Hexadecimal
-   color: #444;             // if pairs are the same (44-44-44) - we can use shorter version
+   color: rgb(55, 55, 55);     // Grayscale
+   color: rgba(172, 84, 84, .5); // RGB + alpha
+   color: #ac5454;             // Hex
+   color: #444;                // Hex shorthand (#444 = #444444)
 */
 
 /* =========================================================
-   IDs (use sparingly; prefer classes for reusability)
+   IDs (use sparingly; prefer classes for reuse)
    ========================================================= */
 
 #author {
@@ -84,11 +93,11 @@ article header p {
 }
 
 /* =========================================================
-   Classes (preferred for reusable styles)
+   Classes (preferred for reuse)
    ========================================================= */
 
 .related-posts {
-    list-style: none; /* Removes default bullet points */
+    list-style: none; /* Remove bullets */
 }
 
 .related-author {
@@ -102,15 +111,10 @@ article header p {
 
 aside {
     background-color: #f7f7f7;
-    /*
-        border-style: solid;
-        border-width: 5px;
-        border-color: #1098ad;
-
-        or one that applies to specific side:
-        border-top: 5px solid #1098ad;
-        border-left: 5px solid #1098ad;
-        or:
+    /* Border shorthand examples:
+       border: 5px solid #1098ad;
+       border-top: 5px solid #1098ad;
+       border-left: 5px solid #1098ad;
     */
     border: 5px solid #1098ad;
 }
@@ -121,7 +125,7 @@ aside {
 }
 */
 
-/* Select "li" element that is a first child */
+/* List pseudo-classes */
 li:first-child {
     font-weight: bold;
 }
@@ -131,22 +135,27 @@ li:last-child {
 }
 
 li:nth-child(even) {
-    /*color: red;*/
+    /* Example: alternate color */
+    /* color: red; */
 }
 
-/* Misconception: this won't work! article does not have p, that is its first child */
+/* Common misconception:
+   This does not work unless <p> is the first child of <article>. */
 article p:first-child {
     color: red;
 }
 
-/* Styling links (in order) */
+/* =========================================================
+   Links (order matters: link > visited > hover > active)
+   ========================================================= */
+
 a:link {
     color: #1098ad;
     text-decoration: none;
 }
 
 a:visited {
-    /* color: #777; - in reality, usually done same as normal links */
+    /* Often same color as normal links */
     color: #1098ad;
 }
 
@@ -159,4 +168,23 @@ a:hover {
 a:active {
     background-color: black;
     font-style: italic;
+}
+
+/* Resolving conflicts */
+#copyright {
+    color: red;
+}
+
+.copyright {
+    color: blue;
+}
+
+.text {
+    color: yellow;
+}
+
+/* Avoid using !important unless absolutely necessary.
+   It overrides all other rules and makes future maintenance harder. */
+footer p {
+    color: green !important;
 }
