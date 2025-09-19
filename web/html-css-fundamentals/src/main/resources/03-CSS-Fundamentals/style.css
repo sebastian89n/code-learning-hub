@@ -26,6 +26,7 @@ body {
     padding-left: 40px;
     padding-right: 40px;*/
     padding: 20px 40px;
+    height: 80px;
 }
 
 nav {
@@ -45,6 +46,7 @@ aside {
     */
     border: 5px solid #1098ad;
     padding: 50px 0;
+    width: 500px;
 }
 
 .post-header {
@@ -221,4 +223,17 @@ a:active {
    It overrides all other rules and makes future maintenance harder. */
 footer p {
     color: green !important;
+}
+
+.post-img {
+    /* height:auto is not necessary if attribute is not specified in HTML */
+    height: auto;
+    width: 100%;
+}
+
+.container {
+    /* width + margin auto keep the page centered */
+    margin-left: auto;
+    margin-right: auto;
+    width: 700px;
 }
