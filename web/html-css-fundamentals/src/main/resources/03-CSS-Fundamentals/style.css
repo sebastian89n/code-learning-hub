@@ -48,6 +48,28 @@
    color: #444;                // Hex shorthand (#444 = #444444)
 */
 
+/*
+    Normal flow
+    - default positioning
+    - element is "in flow"
+    - elements are simply laid out according to their order in the HTML code
+
+    With CSS(default positioning):
+    position: relative
+*/
+
+/*
+    Absolute positioning
+    - element is removed from normal flow: "out of flow"
+    - no impact on surrounding elements, might overlap them
+    - we use top, bottom, left, right to offset the element
+    from its relatively positioned container(closest one)
+    - by default in relation to the viewport, visible part of the web page in the browser
+
+    With CSS:
+    position: absolute
+*/
+
 /* Universal selector */
 * {
     /*border-top: 10px solid #1098ad;*/
@@ -62,6 +84,7 @@
 body {
     color: #444;
     font-family: sans-serif;
+    position: relative; /*  For like button that uses absolute positioning */
 }
 
 .main-header {
@@ -265,6 +288,7 @@ a:active {
 .text {
     color: yellow;
 }
+
 /* Avoid using !important unless absolutely necessary.
    It overrides all other rules and makes future maintenance harder. */
 footer p {
@@ -291,4 +315,13 @@ nav a:link {
 
 nav a:link:last-child {
     margin-right: 0;
+}
+
+.like-btn {
+    cursor: pointer;
+    font-size: 22px;
+    padding: 20px;
+    position: absolute;
+    bottom: 50px;
+    right: 50px;
 }
