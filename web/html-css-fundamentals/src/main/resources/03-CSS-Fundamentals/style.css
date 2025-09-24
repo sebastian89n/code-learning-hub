@@ -70,6 +70,9 @@
     position: absolute
 */
 
+/* Pseudo-class: selects elements in a specific state (e.g., :hover, :first-child) */
+/* Pseudo-element: selects part of an element (e.g., ::before, ::first-letter) */
+
 /* Universal selector */
 * {
     /*border-top: 10px solid #1098ad;*/
@@ -87,12 +90,21 @@ body {
     position: relative; /*  For like button that uses absolute positioning */
 }
 
+.container {
+    /* width + margin auto keep the page centered */
+    /*margin-left: auto;*/
+    /*margin-right: auto;*/
+    margin: 0 auto;
+    width: 700px;
+}
+
 .main-header {
     background-color: #f7f7f7;
     /*    padding: 20px;
         padding-left: 40px;
         padding-right: 40px;*/
     padding: 20px 40px;
+    margin-bottom: 60px;
     /* height: 80px; - avoid using fixed width/height */
 }
 
@@ -102,6 +114,10 @@ nav {
 
 article {
     margin-bottom: 60px;
+}
+
+.post-header {
+    margin-bottom: 40px;
 }
 
 aside {
@@ -116,17 +132,6 @@ aside {
     width: 500px;
 }
 
-.post-header {
-    margin-bottom: 40px;
-}
-
-.container {
-    /* width + margin auto keep the page centered */
-    margin-left: auto;
-    margin-right: auto;
-    width: 700px;
-}
-
 /* === SMALLER ELEMENTS === */
 
 /* Headings */
@@ -139,6 +144,7 @@ h1 {
 h2 {
     font-size: 40px;
     margin-bottom: 30px;
+    position: relative;
 }
 
 h3 {
@@ -324,4 +330,32 @@ nav a:link:last-child {
     position: absolute;
     bottom: 50px;
     right: 50px;
+}
+
+/* Pseudo-elements accessed with ::*/
+h1::first-letter {
+    font-style: normal;
+    margin-right: 5px;
+}
+
+h2::first-letter {
+    font-size: 60px;
+}
+
+/* Adjacent selector */
+h3 + p::first-line {
+    /*color: red;*/
+}
+
+h2::after {
+    background-color: #ffe70e;
+    color: #444;
+    content: "TOP";
+    display: inline-block;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 5px 10px;
+    position: absolute;
+    right: -25px;
+    top: -10px;
 }
