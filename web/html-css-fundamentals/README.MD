@@ -1,13 +1,6 @@
 # HTML Examples
 
-A collection of examples demonstrating HTML elements, their usage, and semantic meaning.
-
-Based on: https://www.udemy.com/course/design-and-develop-a-killer-website-with-html5-and-css3
-
-This project was originally created while working through The Definitive Guide to HTML5 by Adam Freeman. It includes:
-
-- Practical examples of common HTML elements
-- Notes on semantic usage and best practices
+Based on content taught in Udemy course: https://www.udemy.com/course/design-and-develop-a-killer-website-with-html5-and-css3
 
 ### Notes for IntelliJ:
 - configure browser in `Web Browsers and Preview`. Optionally select `Allow unsigned requests`
