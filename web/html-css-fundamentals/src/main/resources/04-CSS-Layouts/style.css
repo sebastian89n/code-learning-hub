@@ -199,7 +199,7 @@ li {
 }
 
 li:last-child {
-    margin-bottom: 0px;
+    margin-bottom: 0;
 }
 
 /* Override heading colors */
@@ -336,7 +336,6 @@ nav a:link {
     /*display: block;*/
 
     margin-right: 30px;
-    margin-top: 10px;
     display: inline-block;
 }
 
@@ -382,6 +381,7 @@ h2::after {
 }
 
 /* FLOATS */
+/*
 .author-img {
     float: left;
     margin-bottom: 20px;
@@ -393,11 +393,6 @@ h2::after {
     margin-top: 10px;
 }
 
-/*
-  Bellow collapses the height of main-header
-  because all it's child elements are float
-  (removed from the normal flow, just like absolute positioning)
-*/
 h1 {
     float: left;
 }
@@ -406,12 +401,10 @@ nav {
     float: right;
 }
 
-/** Used to fix height for containers with floated elements */
 .clear {
     clear: both;
 }
 
-/* "Clearfix" using pseudoelements*/
 .clearfix::after {
     content: "";
     clear: both;
@@ -430,4 +423,45 @@ aside {
 
 footer {
     clear: both;
+}
+*/
+
+/* FLEXBOX */
+.main-header {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+}
+
+.author {
+    margin-bottom: 0;
+    margin-left: 15px;
+}
+
+.author-box {
+    align-items: center;
+    display: flex;
+    margin-bottom: 15px;
+}
+
+.related-post {
+    align-items: center;
+    display: flex;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.related-link:link {
+    display:block;
+    font-size: 17px;
+    font-style: normal;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.related-author {
+    font-size: 10px;
+    font-style: italic;
+    font-weight: normal;
+    margin-bottom: 0;
 }
