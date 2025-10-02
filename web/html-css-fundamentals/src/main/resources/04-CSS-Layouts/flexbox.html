@@ -6,49 +6,58 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Flexbox</title>
     <style>
-        /* ------------------------------------------------------
-FLEXBOX QUICK REFERENCE
-------------------------------------------------------
-FLEX CONTAINER PROPERTIES
-------------------------------------------------------
-gap: <length>
-→ Space between items (no margin needed)
+        /*
+        ------------------------------------------------------
+        FLEXBOX QUICK REFERENCE
+        ------------------------------------------------------
+        FLEX CONTAINER PROPERTIES
+        ------------------------------------------------------
+        gap: <length> (default: 0)
+        ? Space between items (no margin needed)
 
-justify-content: flex-start | flex-end | center | space-between | space-around | space-evenly
-→ Align items along MAIN axis (horizontal by default)
+        justify-content: flex-start | flex-end | center | space-between | space-around | space-evenly
+        (default: flex-start)
+        ? Align items along MAIN axis (horizontal by default)
 
-align-items: stretch | flex-start | flex-end | center | baseline
-→ Align items along CROSS axis (vertical by default)
+        align-items: stretch | flex-start | flex-end | center | baseline
+        (default: stretch)
+        ? Align items along CROSS axis (vertical by default)
 
-flex-direction: row | row-reverse | column | column-reverse
-→ Defines the MAIN axis
+        flex-direction: row | row-reverse | column | column-reverse
+        (default: row)
+        ? Defines the MAIN axis
 
-flex-wrap: nowrap | wrap | wrap-reverse
-→ Allow items to wrap into a new line if too large
+        flex-wrap: nowrap | wrap | wrap-reverse
+        (default: nowrap)
+        ? Allow items to wrap into a new line if too large
 
-align-content: stretch | flex-start | flex-end | center | space-between | space-around
-→ Aligns multiple lines (only when flex-wrap is used)
-------------------------------------------------------
-FLEX ITEM PROPERTIES
-------------------------------------------------------
-align-self: auto | stretch | flex-start | flex-end | center | baseline
-→ Override align-items for a single item
+        align-content: stretch | flex-start | flex-end | center | space-between | space-around
+        (default: stretch)
+        ? Aligns multiple lines (only when flex-wrap is used)
+        ------------------------------------------------------
+        FLEX ITEM PROPERTIES
+        ------------------------------------------------------
+        align-self: auto | stretch | flex-start | flex-end | center | baseline
+        (default: auto)
+        ? Override align-items for a single item
 
-flex-grow: <integer>
-→ Allow item to grow (0 = no, 1+ = yes)
+        flex-grow: <integer> (default: 0)
+        ? Allow item to grow (0 = no, 1+ = yes)
 
-flex-shrink: <integer>
-→ Allow item to shrink (0 = no, 1+ = yes)
+        flex-shrink: <integer> (default: 1)
+        ? Allow item to shrink (0 = no, 1+ = yes)
 
-flex-basis: auto | <length>
-→ Define initial size instead of width
+        flex-basis: auto | <length> (default: auto)
+        ? Define initial size instead of width
 
-flex: <grow> <shrink> <basis>
-→ Shorthand (recommended)
+        flex: <grow> <shrink> <basis>
+        (default: 0 1 auto)
+        ? Shorthand (recommended)
 
-order: <integer>
-→ Controls item order (0 is default, you can force your own order by changing values, e.g. -1 = first, 1 = last)
------------------------------------------------------- */
+        order: <integer> (default: 0)
+        ? Controls item order (0 is default, you can force your own order by changing values, e.g. -1 = first, 1 = last)
+        ------------------------------------------------------
+        */
         .el--1 {
             background-color: blueviolet;
         }
@@ -139,8 +148,8 @@ order: <integer>
       <div class="el el--4">are</div>
       <div class="el el--5">amazing</div>
       <div class="el el--6">languages</div>
-<!--      <div class="el el&#45;&#45;7">to</div>-->
-<!--      <div class="el el&#45;&#45;8">learn</div>-->
+      <!--      <div class="el el&#45;&#45;7">to</div>-->
+      <!--      <div class="el el&#45;&#45;8">learn</div>-->
     </div>
   </body>
 </html>
