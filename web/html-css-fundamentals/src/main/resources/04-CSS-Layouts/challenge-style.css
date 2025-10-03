@@ -13,19 +13,15 @@ p {
     margin: 5px 0;
 }
 
+.row {
+    align-items: flex-start;
+    display: flex;
+    gap: 40px;
+    justify-content: space-between;
+}
+
 .column-3 {
-    margin-right: 40px;
-    float: left;
-    width: 240px;
-}
-
-.column-3:last-of-type {
-    margin-right: 0;
-}
-
-.column-3:last-child::after {
-    content: "";
-    clear: both;
+    flex: 1 1 0;
 }
 
 .shipping {
@@ -54,11 +50,9 @@ p {
 
 .shipping-details {
     color: #777;
-    float: right;
     font-size: 12px;
     font-weight: bold;
     text-transform: uppercase;
-    margin-bottom: 20px;
     margin-top: 10px;
 }
 
@@ -117,13 +111,14 @@ p {
 }
 
 .color-picker-container {
+    display: flex;
+    gap: 10px;
     margin: 15px 0;
 }
 
 .color-picker {
     display: inline-block;
     height: 22px;
-    margin-right: 10px;
     width: 22px;
 }
 
