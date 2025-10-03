@@ -405,6 +405,7 @@ nav {
     clear: both;
 }
 
+// can easily apply clear by creating a pseudoelement with clear
 .clearfix::after {
     content: "";
     clear: both;
