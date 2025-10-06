@@ -98,6 +98,11 @@
 
         .el--2 {
             background-color: orangered;
+            /* Span multiple columns:  grid-column: 1 / span 3; */
+            /* Span from first to last:  grid-column: 1 / -1; */
+            grid-column: 1;
+            /* Same can be applied to rows */
+            grid-row: 2;
         }
 
         .el--3 {
@@ -123,6 +128,11 @@
 
         .el--8 {
             background-color: crimson;
+            /* Start at column 2 and end with column 3 */
+            grid-column: 2 / 3;
+            /* Start at row 1 and end with row 2 */
+            grid-row: 1 / 2;
+
         }
 
         .container--1 {
@@ -134,12 +144,20 @@
 
             /* CSS GRID */
             display: grid;
-            grid-template-columns: 200px 200px 100px 100px;
-            grid-template-rows: 300px 200px;
+            /*grid-template-columns: 200px 200px 1fr 1fr;*/
+            /*grid-template-columns: 2fr 1fr 1fr auto;*/
+            /*grid-template-rows: 300px 200px;*/
+
+            /* often it is better to define columns only and have rows create automatically */
+            grid-template-columns: repeat(4, 1fr);
+
+            /*height: 500px;*/
+            grid-template-rows: 1fr 1fr;
+
             /*grid-gap was used in the past, then it was replaced with gap(like in Flexbox)*/
             /*gap: 30px;*/
             column-gap: 20px;
-            row-gap: 60px;
+            row-gap: 40px;
         }
 
         .container--2 {
@@ -166,7 +184,7 @@
       <div class="el el--4">(4) are</div>
       <div class="el el--5">(5) amazing</div>
       <div class="el el--6">(6) languages</div>
-      <div class="el el--7">(7) to</div>
+      <!--      <div class="el el&#45;&#45;7">(7) to</div>-->
       <div class="el el--8">(8) learn</div>
     </div>
 
