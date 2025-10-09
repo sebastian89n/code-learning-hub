@@ -13,17 +13,6 @@ p {
     margin: 5px 0;
 }
 
-/*.row {*/
-/*    align-items: flex-start;*/
-/*    display: flex;*/
-/*    gap: 40px;*/
-/*    justify-content: space-between;*/
-/*}*/
-
-.column-3 {
-    flex: 1 1 0;
-}
-
 .shipping {
     padding-top: 10px;
 }
