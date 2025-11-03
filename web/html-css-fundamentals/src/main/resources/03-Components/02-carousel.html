@@ -41,6 +41,8 @@
             padding-left: 86px;
             width: 800px;
 
+            position: relative;
+
             align-items: center;
             display: flex;
             gap: 86px;
@@ -71,6 +73,34 @@
             color: #c3fae8;
             font-size: 12px;
         }
+
+        /* CONTROLS */
+        .btn {
+            background-color: #fff;
+            border: none;
+            border-radius: 50%;
+            position: absolute;
+            height: 40px;
+            width: 40px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn-left {
+            left: 0;
+        }
+
+        .btn-right {
+            right: 0;
+        }
+
+        .btn-icon {
+            height: 24px;
+            width: 24px;
+            stroke: #087f5b;
+        }
     </style>
   </head>
   <body>
@@ -85,16 +115,16 @@
         <p class="testimonial-job">Senior Product Manager at EDP Comercial</p>
       </blockquote>
 
-      <button class="btn">
+      <button class="btn btn-left">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-             class="size-6">
+             class="btn-icon">
           <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5"/>
         </svg>
       </button>
 
-      <button class="btn">
+      <button class="btn btn-right">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-             class="size-6">
+             class="btn-icon">
           <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5"/>
         </svg>
       </button>
