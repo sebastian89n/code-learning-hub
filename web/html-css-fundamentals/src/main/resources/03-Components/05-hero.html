@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <title>Omnifoot Hero Section</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+          rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            color: #444;
+            font-family: 'Rubik', sans-serif;
+        }
+
+        .container {
+            margin: 0 auto;
+            width: 1200px;
+        }
+
+        header {
+            /*background-color: orangered;*/
+            /* vh- view height */
+            background-image: linear-gradient(rgba(34, 34, 34, 0.6), rgba(34, 34, 34, 0.6)), url(hero.jpg);
+            background-size: cover;
+
+            color: #fff;
+
+            height: 100vh;
+            position: relative;
+        }
+
+        nav {
+            /*background-color: green;*/
+            display: flex;
+            justify-content: space-between;
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        .header-container {
+            /*background-color: violet;*/
+            /* In relation to parent size */
+            left: 50%;
+            top: 50%;
+            position: absolute;
+            width: 1200px;
+
+            /* In relation to Element size */
+            transform: translate(-50%, -50%);
+        }
+
+        .header-container-inner {
+            /*background-color: blue;*/
+            width: 50%;
+        }
+
+        h1 {
+            line-height: 1.05;
+            font-size: 52px;
+            margin-bottom: 32px;
+        }
+
+        p {
+            font-size: 20px;
+            line-height: 1.6;
+            margin-bottom: 48px;
+        }
+
+        .btn:link, .btn:visited, .btn:active {
+            background-color: #e67e22;
+            border-radius: 9px;
+            color: #fff;
+            display: inline-block;
+            font-size: 20px;
+            font-weight: 600;
+            padding: 16px 32px;
+            text-decoration: none;
+        }
+
+        h2 {
+            font-size: 44px;
+            margin-bottom: 48px;
+        }
+
+        section {
+            background-color: #f7f7f7;
+            padding: 96px 0;
+        }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav class="container">
+        <div>LOGO</div>
+        <div>NAVIGATION</div>
+      </nav>
+
+      <div class="header-container">
+        <div class="header-container-inner">
+          <h1>A healty meal delivered to your door, every single day</h1>
+          <p>The smart 365-days-per-year food subscription that will make you eat healthy again. Tailored to your
+            personal
+            testes and nutritional needs</p>
+          <a href="#" class="btn">Start eating well</a>
+        </div>
+      </div>
+    </header>
+
+    <section>
+      <div class="container">
+        <h2>Some random heading</h2>
+        <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
+          dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
+          clita kasd gubergren, no sea takimata. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+          nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et
+          accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata</p>
+      </div>
+    </section>
+  </body>
+</html>
