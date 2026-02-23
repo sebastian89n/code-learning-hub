@@ -15,11 +15,11 @@ understand and elegant in its simplicity. Here are some key takeaways:
 ```java
 // Bad naming
 int d; // Avoid using single-letter variable names.
-        String x; // Avoid generic names that don't convey meaning.
+String x; // Avoid generic names that don't convey meaning.
 
 // Good naming
-        int numberOfDays; // Descriptive name for a variable.
-        String customerName; // Meaningful name for a string variable.
+int numberOfDays; // Descriptive name for a variable.
+String customerName; // Meaningful name for a string variable.
 ```
 
 ## Methods
